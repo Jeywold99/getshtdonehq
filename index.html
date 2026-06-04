@@ -742,104 +742,10 @@
 
           <!-- Right: Email form card -->
           <div class="optin__right reveal reveal--delay-2">
-            <div class="optin__card" id="gsd-optin-card">
-              <div class="optin__card-badge">100% Free — No Credit Card</div>
-              <h3 class="optin__card-headline">Get the GSD<br />Starter Kit</h3>
-              <p class="optin__card-sub">
-                Enter your email and get instant access to the free mini course.
-              </p>
-              <!-- ===== systeme.io opt-in =====
-                   Posts to your systeme.io form in a hidden iframe so the
-                   visitor stays on this page. Field names map to systeme.io:
-                   email -> "email", first name -> "first_name",
-                   goal   -> custom field "goal" (create it in systeme.io). -->
-              <form
-                class="optin__form"
-                id="gsd-optin-form"
-                method="post"
-                action="https://systeme.io/embedded/41485733/subscription"
-                target="gsd-sio-sink"
-              >
-                <div class="optin__field">
-                  <label for="optin-name">First Name</label>
-                  <input
-                    type="text"
-                    id="optin-name"
-                    name="first_name"
-                    placeholder="Your first name"
-                    required
-                  />
-                </div>
-                <div class="optin__field">
-                  <label for="optin-lastname">Last Name</label>
-                  <input
-                    type="text"
-                    id="optin-lastname"
-                    name="surname"
-                    placeholder="Your last name"
-                    required
-                  />
-                </div>
-                <div class="optin__field">
-                  <label for="optin-email">Email Address</label>
-                  <input
-                    type="email"
-                    id="optin-email"
-                    name="email"
-                    placeholder="your@email.com"
-                    required
-                  />
-                </div>
-                <div class="optin__field">
-                  <label for="optin-goal">Your #1 Goal</label>
-                  <select
-                    id="optin-goal"
-                    name="goal"
-                    class="optin__select"
-                    required
-                  >
-                    <option value="" disabled selected>
-                      What's your #1 goal right now?
-                    </option>
-                    <option value="Land my first client">
-                      Land my first client
-                    </option>
-                    <option value="Scale my agency / business">
-                      Scale my agency / business
-                    </option>
-                    <option value="Master sales funnels">
-                      Master sales funnels
-                    </option>
-                    <option value="Build a reliable side income">
-                      Build a reliable side income
-                    </option>
-                    <option value="Just exploring for now">
-                      Just exploring for now
-                    </option>
-                  </select>
-                </div>
-                <label class="optin__consent">
-                  <input
-                    type="checkbox"
-                    id="optin-consent"
-                    name="consent"
-                    required
-                  />
-                  <span>
-                    Yes — send me the free GSD Starter Kit and occasional
-                    emails. I can unsubscribe anytime.
-                  </span>
-                </label>
-                <button
-                  type="submit"
-                  class="btn btn--orange btn--lg optin__submit"
-                >
-                  Send Me the Free Course <span class="btn__arrow">→</span>
-                </button>
-              </form>
-              <p class="optin__privacy">
-                No spam. Just value. Unsubscribe anytime.
-              </p>
+              <script
+                id="form-script-tag-24274254"
+                src="https://4bae-team.systeme.io/public/remote/page/4149049927bdca5d7b0faf0f8b2a6bdfed54e178.js"
+              ></script>
 
               <!-- Success state (shown after submit) -->
               <div class="optin__success" id="gsd-optin-success" hidden>
