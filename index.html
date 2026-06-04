@@ -742,24 +742,30 @@
 
           <!-- Right: Email form card -->
           <div class="optin__right reveal reveal--delay-2">
-            <div class="optin__card">
+            <div class="optin__card" id="gsd-optin-card">
               <div class="optin__card-badge">100% Free — No Credit Card</div>
               <h3 class="optin__card-headline">Get the GSD<br />Starter Kit</h3>
               <p class="optin__card-sub">
                 Enter your email and get instant access to the free mini course.
               </p>
-              <!-- Systeme Inline Form -->
+              <!-- ===== systeme.io opt-in =====
+                   Posts to your systeme.io form in a hidden iframe so the
+                   visitor stays on this page. Field names map to systeme.io:
+                   email -> "email", first name -> "first_name",
+                   goal   -> custom field "goal" (create it in systeme.io). -->
               <form
                 class="optin__form"
+                id="gsd-optin-form"
                 method="post"
                 action="https://systeme.io/embedded/41485733/subscription"
+                target="gsd-sio-sink"
               >
                 <div class="optin__field">
                   <label for="optin-name">First Name</label>
                   <input
                     type="text"
                     id="optin-name"
-                    name="fields[first_name]"
+                    name="first_name"
                     placeholder="Your first name"
                     required
                   />
@@ -769,11 +775,31 @@
                   <input
                     type="email"
                     id="optin-email"
-                    name="fields[email]"
+                    name="email"
                     placeholder="your@email.com"
                     required
                   />
                 </div>
+                <div class="optin__field">
+                  <label for="optin-goal">Your #1 Goal</label>
+                  <select id="optin-goal" name="goal" class="optin__select" required>
+                    <option value="" disabled selected>
+                      What's your #1 goal right now?
+                    </option>
+                    <option value="Land my first client">Land my first client</option>
+                    <option value="Scale my agency / business">Scale my agency / business</option>
+                    <option value="Master sales funnels">Master sales funnels</option>
+                    <option value="Build a reliable side income">Build a reliable side income</option>
+                    <option value="Just exploring for now">Just exploring for now</option>
+                  </select>
+                </div>
+                <label class="optin__consent">
+                  <input type="checkbox" id="optin-consent" name="consent" required />
+                  <span>
+                    Yes — send me the free GSD Starter Kit and occasional emails.
+                    I can unsubscribe anytime.
+                  </span>
+                </label>
                 <button
                   type="submit"
                   class="btn btn--orange btn--lg optin__submit"
@@ -784,7 +810,26 @@
               <p class="optin__privacy">
                 No spam. Just value. Unsubscribe anytime.
               </p>
+
+              <!-- Success state (shown after submit) -->
+              <div class="optin__success" id="gsd-optin-success" hidden>
+                <div class="optin__success-check">✓</div>
+                <h3 class="optin__success-headline">Check Your Inbox!</h3>
+                <p class="optin__success-body">
+                  Your GSD Starter Kit is on its way. Open the email from us and
+                  click the link to confirm — then go
+                  <strong>get sh*t done.</strong>
+                </p>
+              </div>
             </div>
+            <!-- Hidden sink so the form post doesn't navigate away -->
+            <iframe
+              name="gsd-sio-sink"
+              title="systeme.io form target"
+              class="gsd-sio-sink"
+              aria-hidden="true"
+              tabindex="-1"
+            ></iframe>
           </div>
         </div>
       </div>
@@ -886,5 +931,26 @@
     </footer>
 
     <script src="js/main.js"></script>
+    <script>
+      // GSD opt-in: keep visitor on page, show "Check your inbox!" on submit.
+      (function () {
+        var form = document.getElementById("gsd-optin-form");
+        if (!form) return;
+        form.addEventListener("submit", function () {
+          // Let the browser run native validation first.
+          if (typeof form.checkValidity === "function" && !form.checkValidity()) {
+            return;
+          }
+          // The form posts to the hidden iframe (no navigation).
+          // Swap the card to the success state once the post is dispatched.
+          var card = document.getElementById("gsd-optin-card");
+          var success = document.getElementById("gsd-optin-success");
+          setTimeout(function () {
+            if (card) card.classList.add("is-submitted");
+            if (success) success.hidden = false;
+          }, 60);
+        });
+      })();
+    </script>
   </body>
 </html>
