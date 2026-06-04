@@ -748,14 +748,18 @@
               <p class="optin__card-sub">
                 Enter your email and get instant access to the free mini course.
               </p>
-              <!-- Connect this form to your email provider (Mailchimp, ConvertKit, etc.) -->
-              <form class="optin__form" action="#" method="post">
+              <!-- Systeme Inline Form -->
+              <form
+                class="optin__form"
+                method="post"
+                action="https://systeme.io/embedded/41485733/subscription"
+              >
                 <div class="optin__field">
                   <label for="optin-name">First Name</label>
                   <input
                     type="text"
                     id="optin-name"
-                    name="name"
+                    name="fields[first_name]"
                     placeholder="Your first name"
                     required
                   />
@@ -765,7 +769,7 @@
                   <input
                     type="email"
                     id="optin-email"
-                    name="email"
+                    name="fields[email]"
                     placeholder="your@email.com"
                     required
                   />
