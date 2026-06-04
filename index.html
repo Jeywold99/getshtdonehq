@@ -771,6 +771,16 @@
                   />
                 </div>
                 <div class="optin__field">
+                  <label for="optin-lastname">Last Name</label>
+                  <input
+                    type="text"
+                    id="optin-lastname"
+                    name="surname"
+                    placeholder="Your last name"
+                    required
+                  />
+                </div>
+                <div class="optin__field">
                   <label for="optin-email">Email Address</label>
                   <input
                     type="email"
@@ -782,22 +792,42 @@
                 </div>
                 <div class="optin__field">
                   <label for="optin-goal">Your #1 Goal</label>
-                  <select id="optin-goal" name="goal" class="optin__select" required>
+                  <select
+                    id="optin-goal"
+                    name="goal"
+                    class="optin__select"
+                    required
+                  >
                     <option value="" disabled selected>
                       What's your #1 goal right now?
                     </option>
-                    <option value="Land my first client">Land my first client</option>
-                    <option value="Scale my agency / business">Scale my agency / business</option>
-                    <option value="Master sales funnels">Master sales funnels</option>
-                    <option value="Build a reliable side income">Build a reliable side income</option>
-                    <option value="Just exploring for now">Just exploring for now</option>
+                    <option value="Land my first client">
+                      Land my first client
+                    </option>
+                    <option value="Scale my agency / business">
+                      Scale my agency / business
+                    </option>
+                    <option value="Master sales funnels">
+                      Master sales funnels
+                    </option>
+                    <option value="Build a reliable side income">
+                      Build a reliable side income
+                    </option>
+                    <option value="Just exploring for now">
+                      Just exploring for now
+                    </option>
                   </select>
                 </div>
                 <label class="optin__consent">
-                  <input type="checkbox" id="optin-consent" name="consent" required />
+                  <input
+                    type="checkbox"
+                    id="optin-consent"
+                    name="consent"
+                    required
+                  />
                   <span>
-                    Yes — send me the free GSD Starter Kit and occasional emails.
-                    I can unsubscribe anytime.
+                    Yes — send me the free GSD Starter Kit and occasional
+                    emails. I can unsubscribe anytime.
                   </span>
                 </label>
                 <button
@@ -938,7 +968,10 @@
         if (!form) return;
         form.addEventListener("submit", function () {
           // Let the browser run native validation first.
-          if (typeof form.checkValidity === "function" && !form.checkValidity()) {
+          if (
+            typeof form.checkValidity === "function" &&
+            !form.checkValidity()
+          ) {
             return;
           }
           // The form posts to the hidden iframe (no navigation).
