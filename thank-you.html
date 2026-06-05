@@ -107,10 +107,21 @@
         align-items: center;
       }
 
+      .logo-link {
+        display: inline-block;
+        margin-bottom: 48px;
+        transition:
+          opacity 0.25s,
+          transform 0.25s;
+      }
+      .logo-link:hover {
+        opacity: 0.8;
+        transform: translateY(-1px);
+      }
       .logo {
         height: 34px;
         width: auto;
-        margin-bottom: 48px;
+        display: block;
       }
 
       .check {
@@ -293,7 +304,7 @@
       }
 
       @media (max-width: 560px) {
-        .logo {
+        .logo-link {
           margin-bottom: 34px;
         }
         .note {
@@ -308,7 +319,13 @@
     <div class="ghost">YOU'RE IN</div>
 
     <main class="card" data-screen-label="Thank You">
-      <img src="assets/logo.png" alt="Get Sh*t Done HQ" class="logo anim a1" />
+      <a
+        href="https://getshtdonehq.com"
+        class="logo-link anim a1"
+        aria-label="Back to home"
+      >
+        <img src="assets/logo.png" alt="Get Sh*t Done HQ" class="logo" />
+      </a>
 
       <div class="check">
         <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -361,7 +378,11 @@
         </span>
       </div>
 
-      <a class="cta anim a5" href="#">
+      <a
+        class="cta anim a5"
+        href="https://getshtdonehq.com/course"
+        aria-label="Check out the full course"
+      >
         Check Out the Full Course <span class="arr">&rarr;</span>
       </a>
 
