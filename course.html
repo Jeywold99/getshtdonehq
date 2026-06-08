@@ -16,6 +16,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="css/course.css" />
+    <link rel="stylesheet" href="css/nav.css" />
   </head>
   <body>
     <!-- ============================================================
@@ -28,21 +29,38 @@
     </div>
 
     <!-- ============================================================
-       STICKY NAV — Minimal
+       SITE NAV — consistent across all pages
   ============================================================ -->
-    <nav class="sp-nav" id="sp-nav">
-      <div class="sp-nav__inner">
-        <a href="index.html" class="sp-nav__logo">
+    <nav class="nav" id="nav">
+      <div class="nav__container">
+        <a href="index.html" class="nav__logo" aria-label="Get Shit Done HQ — home">
           <img
             src="assets/logo.png"
             alt="Get Shit Done HQ"
-            class="sp-nav__logo-img"
+            class="nav__logo-img"
           />
         </a>
-        <div class="sp-nav__right">
-          <span class="sp-nav__price">₱2,500 · One-Time</span>
-          <a href="#enroll" class="btn btn--orange">Enroll Now</a>
-        </div>
+        <ul class="nav__links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="course.html" class="is-active">Enroll</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="work-with-us.html">Partner With Us</a></li>
+        </ul>
+        <a href="index.html#masterclass" class="btn btn--orange nav__cta">
+          Free Masterclass <span class="btn__arrow">→</span>
+        </a>
+        <button class="nav__hamburger" id="hamburger" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+      <div class="nav__mobile" id="mobileMenu">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="course.html">Enroll</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="work-with-us.html">Partner With Us</a></li>
+          <li><a href="index.html#masterclass" class="btn btn--orange">Free Masterclass →</a></li>
+        </ul>
       </div>
     </nav>
 

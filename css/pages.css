@@ -1,0 +1,760 @@
+/* ============================================================
+   GET SHIT DONE HQ — Contact & Partner page styles
+   Loads after style.css + home-v2.css. Reuses :root tokens
+   and shared classes (.subhero, .contact__*, .work__*, .process).
+   ============================================================ */
+
+/* ------------------------------------------------------------
+   Shared: inquiry-type select inside form cards
+------------------------------------------------------------ */
+.contact__field select {
+  padding: 14px 44px 14px 18px;
+  border: 2px solid rgba(0, 0, 0, 0.1);
+  border-radius: var(--r);
+  font-family: var(--font-ui);
+  font-size: 15px;
+  color: var(--obsidian);
+  background-color: var(--white);
+  outline: none;
+  width: 100%;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  transition: border-color var(--trans), box-shadow var(--trans);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23555' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 18px center;
+  background-size: 12px;
+}
+.contact__field select:focus {
+  border-color: var(--orange);
+  box-shadow: 0 0 0 4px rgba(255, 92, 0, 0.1);
+}
+
+/* Wire-up hint for the team (forms) */
+.form-hint {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--orange);
+  background: var(--orange-pale);
+  border-radius: 8px;
+  padding: 8px 12px;
+  margin-bottom: 18px;
+  line-height: 1.5;
+}
+
+/* Success state (shared by both forms) */
+.form-card.is-sent .contact__form,
+.form-card.is-sent .form-hint {
+  display: none;
+}
+.form-success {
+  text-align: center;
+  padding: 16px 0 6px;
+  animation: optinFade 0.45s ease both;
+}
+.form-success__check {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 20px;
+  border-radius: 50%;
+  background: var(--green);
+  color: #fff;
+  font-size: 30px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.form-success h3 {
+  font-family: var(--font-display);
+  font-size: clamp(30px, 4vw, 44px);
+  color: var(--obsidian);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  line-height: 1;
+  margin-bottom: 12px;
+}
+.form-success p {
+  font-size: 15px;
+  color: #888;
+  line-height: 1.7;
+  max-width: 320px;
+  margin: 0 auto;
+}
+.form-success p strong {
+  color: var(--orange);
+}
+
+/* ------------------------------------------------------------
+   FLOW — "What happens next" 3 steps
+------------------------------------------------------------ */
+.flow {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  counter-reset: flow;
+}
+.flow__item {
+  background: var(--white);
+  border: 2px solid rgba(0, 0, 0, 0.07);
+  border-radius: var(--r-xl);
+  padding: 36px 32px;
+  position: relative;
+  transition: var(--trans);
+}
+.flow__item:hover {
+  border-color: var(--orange);
+  transform: translateY(-5px);
+  box-shadow: 6px 6px 0 var(--orange);
+}
+.flow__n {
+  font-family: var(--font-display);
+  font-size: 40px;
+  color: var(--orange);
+  line-height: 1;
+  letter-spacing: 0.04em;
+  margin-bottom: 16px;
+}
+.flow__item h3 {
+  font-size: 19px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  color: var(--obsidian);
+  margin-bottom: 10px;
+}
+.flow__item p {
+  font-size: 14.5px;
+  color: #777;
+  line-height: 1.7;
+}
+
+/* ------------------------------------------------------------
+   PARTNER — service cards get a deliverables list
+------------------------------------------------------------ */
+.work__card .work__tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--orange);
+  background: var(--orange-pale);
+  padding: 5px 12px;
+  border-radius: 100px;
+  margin-bottom: 18px;
+}
+.work__list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 2px solid rgba(0, 0, 0, 0.06);
+}
+.work__list li {
+  display: flex;
+  gap: 11px;
+  font-size: 14px;
+  color: #555;
+  line-height: 1.5;
+}
+.work__list li::before {
+  content: "→";
+  color: var(--orange);
+  font-weight: 800;
+  flex-shrink: 0;
+}
+
+/* ------------------------------------------------------------
+   PARTNER intro lead
+------------------------------------------------------------ */
+.lead-block {
+  max-width: 820px;
+}
+.lead-block .section__headline {
+  margin-bottom: 22px;
+}
+.lead-block p {
+  font-size: clamp(16px, 1.8vw, 19px);
+  color: #777;
+  line-height: 1.8;
+}
+.lead-block p strong {
+  color: var(--obsidian);
+}
+
+/* ------------------------------------------------------------
+   TRACK RECORD — stat row
+------------------------------------------------------------ */
+.trackrec {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+.trackrec__stat {
+  background: var(--midnight);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--r-lg);
+  padding: 32px 26px;
+  transition: var(--trans);
+}
+.trackrec__stat:hover {
+  border-color: rgba(255, 92, 0, 0.45);
+  transform: translateY(-4px);
+}
+.trackrec__num {
+  font-family: var(--font-display);
+  font-size: clamp(40px, 4.5vw, 58px);
+  color: var(--orange);
+  line-height: 1;
+  letter-spacing: 0.02em;
+}
+.trackrec__label {
+  font-size: 14px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.7);
+  margin-top: 10px;
+  line-height: 1.4;
+}
+
+/* ------------------------------------------------------------
+   LOGO WALL — placeholder brand cells
+------------------------------------------------------------ */
+.logos__grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 14px;
+}
+.logo-cell {
+  aspect-ratio: 3 / 2;
+  border-radius: var(--r);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background-color: var(--white);
+  background-image: repeating-linear-gradient(
+    -45deg,
+    rgba(0, 0, 0, 0.025) 0,
+    rgba(0, 0, 0, 0.025) 1px,
+    transparent 1px,
+    transparent 10px
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Courier New", monospace;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #b8b0a6;
+}
+
+/* ------------------------------------------------------------
+   FIT — who it's for / not for
+------------------------------------------------------------ */
+.fit__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+.fit__col {
+  border-radius: var(--r-xl);
+  padding: 40px 36px;
+}
+.fit__col--yes {
+  background: var(--white);
+  border: 3px solid var(--green);
+}
+.fit__col--no {
+  background: var(--white);
+  border: 3px solid rgba(0, 0, 0, 0.1);
+}
+.fit__head {
+  font-family: var(--font-display);
+  font-size: 28px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-bottom: 22px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.fit__col--yes .fit__head {
+  color: #0f8a5b;
+}
+.fit__col--no .fit__head {
+  color: #999;
+}
+.fit__list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.fit__list li {
+  display: flex;
+  gap: 13px;
+  font-size: 15px;
+  color: #555;
+  line-height: 1.55;
+}
+.fit__list li .mk {
+  font-weight: 800;
+  flex-shrink: 0;
+}
+.fit__col--yes .mk {
+  color: var(--green);
+}
+.fit__col--no .mk {
+  color: #c0392b;
+}
+
+/* ------------------------------------------------------------
+   CTA BAND — closing strip on sub-pages
+------------------------------------------------------------ */
+.cta-band {
+  background: var(--orange);
+  position: relative;
+  overflow: hidden;
+  padding: 96px 0;
+  text-align: center;
+}
+.cta-band__ghost {
+  position: absolute;
+  font-family: var(--font-display);
+  font-size: clamp(120px, 24vw, 300px);
+  color: rgba(255, 255, 255, 0.08);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  white-space: nowrap;
+  pointer-events: none;
+  user-select: none;
+  line-height: 1;
+}
+.cta-band__inner {
+  position: relative;
+  z-index: 1;
+  max-width: 720px;
+  margin: 0 auto;
+}
+.cta-band__title {
+  font-family: var(--font-display);
+  font-size: clamp(40px, 6vw, 78px);
+  color: var(--white);
+  line-height: 0.98;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+}
+.cta-band__sub {
+  font-size: 17px;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.7;
+  margin-bottom: 34px;
+  max-width: 540px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.cta-band .btn--dark {
+  background: var(--obsidian);
+  border-color: var(--obsidian);
+}
+.cta-band .btn--ghost {
+  color: var(--white);
+  border-color: rgba(255, 255, 255, 0.55);
+}
+.cta-band .btn--ghost:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: var(--white);
+}
+.cta-band__row {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* section header helper (centered) */
+.sec-head-center {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 56px;
+}
+.sec-head-center .section__lead,
+.sec-head-center .lead {
+  font-size: 17px;
+  color: #888;
+  margin-top: 16px;
+  line-height: 1.7;
+}
+
+/* contact socials block */
+.contact__socials {
+  margin-top: 32px;
+  padding-top: 28px;
+  border-top: 2px solid rgba(0, 0, 0, 0.07);
+}
+.contact__socials-label {
+  display: block;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #999;
+  margin-bottom: 14px;
+}
+.contact__socials .footer__socials a {
+  background: var(--cream);
+  color: #777;
+  border-color: rgba(0, 0, 0, 0.08);
+}
+.contact__socials .footer__socials a:hover {
+  background: var(--orange);
+  color: var(--white);
+  border-color: var(--orange);
+}
+a.contact__row {
+  text-decoration: none;
+}
+
+/* ------------------------------------------------------------
+   RESPONSIVE
+------------------------------------------------------------ */
+@media (max-width: 1024px) {
+  .trackrec {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .logos__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (max-width: 860px) {
+  .flow {
+    grid-template-columns: 1fr;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+  .fit__grid {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 560px) {
+  .logos__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .trackrec {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ============================================================
+   COPY-DRIVEN REDESIGN — Contact & Partner v2
+   ============================================================ */
+
+/* Dark section helper */
+.page-section--dark {
+  background: var(--midnight);
+  position: relative;
+  overflow: hidden;
+}
+.page-section--dark .section__headline {
+  color: var(--white);
+}
+.page-section--dark .lead-block p {
+  color: rgba(255, 255, 255, 0.6);
+}
+.page-section--dark .lead-block p strong {
+  color: var(--white);
+}
+.section-ghost {
+  position: absolute;
+  font-family: var(--font-display);
+  font-size: clamp(140px, 26vw, 340px);
+  color: rgba(255, 255, 255, 0.03);
+  bottom: -40px;
+  right: -20px;
+  white-space: nowrap;
+  pointer-events: none;
+  user-select: none;
+  line-height: 1;
+  letter-spacing: 0.04em;
+}
+
+/* ---------- Contact: channel cards ---------- */
+.channels {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+.channel {
+  background: var(--white);
+  border: 2px solid rgba(0, 0, 0, 0.07);
+  border-radius: var(--r-xl);
+  padding: 34px 30px;
+  transition: var(--trans);
+  display: flex;
+  flex-direction: column;
+}
+.channel:hover {
+  border-color: var(--orange);
+  transform: translateY(-5px);
+  box-shadow: 6px 6px 0 var(--orange);
+}
+.channel__icon {
+  font-family: var(--font-display);
+  font-size: 22px;
+  letter-spacing: 0.02em;
+  color: var(--orange);
+  background: var(--orange-pale);
+  width: 52px;
+  height: 52px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+.channel h3 {
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  color: var(--obsidian);
+  margin-bottom: 10px;
+}
+.channel p {
+  font-size: 14.5px;
+  color: #777;
+  line-height: 1.7;
+}
+.channel p em {
+  font-style: normal;
+  font-weight: 700;
+  color: var(--orange);
+}
+.channel__link {
+  margin-top: auto;
+  padding-top: 16px;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--orange);
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+.channel__link .btn__arrow {
+  transition: transform var(--trans);
+}
+.channel:hover .channel__link .btn__arrow {
+  transform: translateX(4px);
+}
+
+/* ---------- Contact: form intro copy ---------- */
+.contact__info h2 .text--orange {
+  color: var(--orange);
+}
+.form-intro-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 26px;
+}
+.form-intro-list li {
+  display: flex;
+  gap: 12px;
+  font-size: 15px;
+  color: #555;
+  line-height: 1.5;
+  font-weight: 500;
+}
+.form-intro-list li .mk {
+  color: var(--orange);
+  font-weight: 800;
+  flex-shrink: 0;
+}
+
+/* ---------- Embed container (minimal, borderless) ---------- */
+.embed-card {
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  box-shadow: none;
+  min-height: 120px;
+}
+.embed-card .ml-embedded {
+  min-height: 80px;
+}
+
+/* ---------- Contact: reassurance band ---------- */
+.reassure {
+  background: var(--obsidian);
+  padding: 110px 0;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+.reassure__ghost {
+  position: absolute;
+  font-family: var(--font-display);
+  font-size: clamp(120px, 24vw, 300px);
+  color: rgba(255, 92, 0, 0.06);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  white-space: nowrap;
+  pointer-events: none;
+  user-select: none;
+  line-height: 1;
+}
+.reassure__inner {
+  position: relative;
+  z-index: 1;
+  max-width: 720px;
+  margin: 0 auto;
+}
+.reassure__big {
+  font-family: var(--font-display);
+  font-size: clamp(38px, 6.5vw, 84px);
+  color: var(--white);
+  text-transform: uppercase;
+  line-height: 0.95;
+  letter-spacing: 0.02em;
+  margin-bottom: 22px;
+}
+.reassure__big span {
+  color: var(--orange);
+}
+.reassure p {
+  font-size: 17px;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.8;
+  max-width: 600px;
+  margin: 0 auto;
+}
+.reassure p strong {
+  color: var(--white);
+}
+
+/* ---------- Partner: "what we handle" numbered list ---------- */
+.handle {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  max-width: 940px;
+  margin: 0 auto;
+}
+.handle__item {
+  display: flex;
+  gap: 28px;
+  align-items: flex-start;
+  background: var(--white);
+  border: 2px solid rgba(0, 0, 0, 0.07);
+  border-radius: var(--r-lg);
+  padding: 30px 34px;
+  transition: var(--trans);
+}
+.handle__item:hover {
+  border-color: var(--orange);
+  transform: translateY(-3px);
+  box-shadow: 6px 6px 0 var(--orange);
+}
+.handle__n {
+  font-family: var(--font-display);
+  font-size: 52px;
+  color: var(--orange);
+  line-height: 0.9;
+  letter-spacing: 0.02em;
+  flex-shrink: 0;
+  width: 62px;
+}
+.handle__b h3 {
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: -0.015em;
+  color: var(--obsidian);
+  margin-bottom: 9px;
+  line-height: 1.2;
+}
+.handle__b p {
+  font-size: 15px;
+  color: #777;
+  line-height: 1.75;
+}
+
+/* ---------- Partner: pill wall on dark ---------- */
+.pillwall {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 30px;
+  max-width: 720px;
+}
+.pillwall span {
+  font-size: 13px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.88);
+  background: rgba(255, 92, 0, 0.14);
+  border: 1px solid rgba(255, 92, 0, 0.32);
+  padding: 9px 17px;
+  border-radius: 100px;
+}
+
+/* ---------- Partner: objection cards ---------- */
+.objections {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.objection {
+  background: var(--white);
+  border: 2px solid rgba(0, 0, 0, 0.07);
+  border-left: 4px solid var(--orange);
+  border-radius: var(--r-lg);
+  padding: 32px 30px;
+  transition: var(--trans);
+}
+.objection:hover {
+  transform: translateY(-4px);
+  box-shadow: 6px 6px 0 var(--orange);
+}
+.objection h3 {
+  font-size: 17px;
+  font-weight: 800;
+  color: var(--obsidian);
+  line-height: 1.3;
+  margin-bottom: 12px;
+}
+.objection p {
+  font-size: 14.5px;
+  color: #777;
+  line-height: 1.75;
+}
+
+/* cta band subtext */
+.cta-band__fine {
+  margin-top: 20px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* ---------- Responsive (v2) ---------- */
+@media (max-width: 900px) {
+  .channels,
+  .objections {
+    grid-template-columns: 1fr;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+}
+@media (max-width: 600px) {
+  .handle__item {
+    flex-direction: column;
+    gap: 12px;
+  }
+  .handle__n {
+    width: auto;
+  }
+}

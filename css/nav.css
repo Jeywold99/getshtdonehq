@@ -1,0 +1,149 @@
+/* ============================================================
+   GET SHIT DONE HQ — Shared site nav (for course.html)
+   Mirrors the .nav component on the other pages, styled as a
+   solid light bar (the course hero is light). Loads after
+   course.css and reuses its :root tokens.
+   ============================================================ */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.97);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.07);
+  padding: 14px 0;
+  transition: padding var(--trans), box-shadow var(--trans);
+}
+.nav__container {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  gap: 48px;
+}
+.nav__logo {
+  font-family: var(--font-display);
+  font-size: 30px;
+  letter-spacing: 3px;
+  flex-shrink: 0;
+  line-height: 1;
+  text-transform: uppercase;
+  color: var(--obsidian);
+}
+.nav__logo-img {
+  height: 60px;
+  width: auto;
+  display: block;
+  object-fit: cover;
+  border-radius: 6px;
+  flex-shrink: 0;
+}
+.nav__links {
+  display: flex;
+  gap: 36px;
+  margin-left: auto;
+  list-style: none;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding: 0;
+}
+.nav__links a {
+  font-size: 14px;
+  font-weight: 600;
+  color: #888;
+  transition: color var(--trans);
+  position: relative;
+}
+.nav__links a::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--orange);
+  transform: scaleX(0);
+  transition: transform var(--trans);
+  border-radius: 1px;
+}
+.nav__links a:hover {
+  color: var(--obsidian);
+}
+.nav__links a:hover::after,
+.nav__links a.is-active::after {
+  transform: scaleX(1);
+}
+.nav__links a.is-active {
+  color: var(--obsidian);
+}
+.nav__cta {
+  margin-left: 8px;
+}
+.nav__hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-left: auto;
+  padding: 4px;
+}
+.nav__hamburger span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--obsidian);
+  transition: var(--trans);
+}
+.nav__hamburger.is-open span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.nav__hamburger.is-open span:nth-child(2) {
+  opacity: 0;
+}
+.nav__hamburger.is-open span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+.nav__mobile {
+  display: none;
+  background: var(--white);
+  padding: 24px 24px 32px;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+}
+.nav__mobile.is-open {
+  display: block;
+}
+.nav__mobile ul {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.nav__mobile a {
+  color: #666;
+  font-size: 17px;
+  font-weight: 600;
+  transition: color var(--trans);
+}
+.nav__mobile a:hover {
+  color: var(--obsidian);
+}
+.nav__mobile .btn {
+  display: inline-flex;
+  margin-top: 8px;
+}
+@media (max-width: 768px) {
+  .nav__links,
+  .nav__cta {
+    display: none;
+  }
+  .nav__hamburger {
+    display: flex;
+  }
+}
