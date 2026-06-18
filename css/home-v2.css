@@ -28,7 +28,9 @@
 }
 .hero__headline--long .yet {
   color: var(--orange);
-  text-shadow: 0 0 50px rgba(255, 92, 0, 0.6), 0 0 90px rgba(255, 92, 0, 0.35);
+  text-shadow:
+    0 0 50px rgba(255, 92, 0, 0.6),
+    0 0 90px rgba(255, 92, 0, 0.35);
 }
 
 /* 4-pillar framework preview */
@@ -675,7 +677,7 @@
 }
 .process__steps {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 20px;
   position: relative;
 }
@@ -1025,7 +1027,9 @@
   color: var(--obsidian);
   background: var(--white);
   outline: none;
-  transition: border-color var(--trans), box-shadow var(--trans);
+  transition:
+    border-color var(--trans),
+    box-shadow var(--trans);
   width: 100%;
   resize: vertical;
 }
