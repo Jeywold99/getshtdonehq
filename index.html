@@ -18,29 +18,7 @@
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/home-v2.css" />
 
-    <!-- MailerLite Universal -->
-    <script>
-      (function (w, d, e, u, f, l, n) {
-        w[f] =
-          w[f] ||
-          function () {
-            (w[f].q = w[f].q || []).push(arguments);
-          };
-        ((l = d.createElement(e)),
-          (l.async = 1),
-          (l.src = u),
-          (n = d.getElementsByTagName(e)[0]),
-          n.parentNode.insertBefore(l, n));
-      })(
-        window,
-        document,
-        "script",
-        "https://assets.mailerlite.com/js/universal.js",
-        "ml",
-      );
-      ml("account", "2414272");
-    </script>
-    <!-- End MailerLite Universal -->
+
   </head>
   <body>
     <!-- ============================================================
@@ -840,26 +818,8 @@
           </div>
 
           <div class="optin__right reveal reveal--delay-2">
-            <!-- Mailchimp embedded form -->
-            <div id="mc_embed_shell">
-              <link
-                href="//cdn-images.mailchimp.com/embedcode/classic-061523.css"
-                rel="stylesheet"
-                type="text/css"
-              />
-              <style type="text/css">
-                #mc_embed_signup {
-                  background: #fff;
-                  clear: left;
-                  font:
-                    14px Helvetica,
-                    Arial,
-                    sans-serif;
-                  width: 600px;
-                }
-                /* Add your own Mailchimp form style overrides in your site stylesheet or in this style block.
-                   We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
-              </style>
+            <div class="optin__card">
+              <div id="mc_embed_shell">
               <div id="mc_embed_signup">
                 <form
                   action="https://getshtdonehq.us11.list-manage.com/subscribe/post?u=004e3062c26f2d47e06cff1d4&amp;id=7bc4c8a1b7&amp;f_id=000693e0f0"
@@ -870,7 +830,7 @@
                   target="_blank"
                 >
                   <div id="mc_embed_signup_scroll">
-                    <h2>Get the GSD Starter Kit</h2>
+                    <h2>Save Your Spot</h2>
                     <div class="indicates-required">
                       <span class="asterisk">*</span> indicates required
                     </div>
@@ -2675,7 +2635,8 @@
                 });
               </script>
             </div>
-          </div>
+          </div><!-- /.optin__card -->
+          </div><!-- /.optin__right -->
         </div>
       </div>
     </section>
