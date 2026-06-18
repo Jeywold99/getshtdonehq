@@ -1583,7 +1583,9 @@ ul {
   margin-top: 1px;
 }
 
-/* Right side: Form card */
+/* ============================================================
+   Right side: Form card wrapper
+   ============================================================ */
 .optin__card {
   background: var(--white);
   border-radius: var(--r-xl);
@@ -1591,7 +1593,7 @@ ul {
   position: relative;
 }
 
-/* Orange offset shadow on the card */
+/* Orange offset shadow */
 .optin__card::after {
   content: "";
   position: absolute;
@@ -1603,233 +1605,183 @@ ul {
   opacity: 0.4;
 }
 
-.optin__card-badge {
-  display: inline-block;
-  background: var(--orange-pale);
-  color: var(--orange);
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  padding: 6px 14px;
-  border-radius: 100px;
-  margin-bottom: 20px;
+/* ============================================================
+   Mailchimp form — GSD HQ brand overrides
+   Targets: #mc_embed_signup and all children
+   ============================================================ */
+
+/* Reset Mailchimp shell widths */
+#mc_embed_shell,
+#mc_embed_signup {
+  width: 100% !important;
+  background: transparent !important;
+  font-family: var(--font-ui) !important;
 }
 
-.optin__card-headline {
-  font-family: var(--font-display);
-  font-size: clamp(36px, 4vw, 52px);
-  color: var(--obsidian);
-  line-height: 1;
-  letter-spacing: 0.02em;
-  text-transform: uppercase;
-  margin-bottom: 12px;
+/* Form heading */
+#mc_embed_signup h2 {
+  font-family: var(--font-display) !important;
+  font-size: clamp(36px, 4vw, 52px) !important;
+  color: var(--obsidian) !important;
+  line-height: 1 !important;
+  letter-spacing: 0.02em !important;
+  text-transform: uppercase !important;
+  margin-bottom: 8px !important;
+  font-weight: 400 !important; /* Bebas Neue is already bold by design */
 }
 
-.optin__card-sub {
-  font-size: 15px;
-  color: #888;
-  line-height: 1.65;
-  margin-bottom: 28px;
+/* "* indicates required" helper line */
+#mc_embed_signup .indicates-required {
+  font-size: 12px !important;
+  color: #aaa !important;
+  margin-bottom: 20px !important;
+  font-family: var(--font-ui) !important;
 }
 
-.optin__form {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
+/* Required asterisk */
+#mc_embed_signup .asterisk {
+  color: var(--orange) !important;
 }
 
-.optin__field {
-  display: flex;
-  flex-direction: column;
-  gap: 7px;
+/* Field group wrapper */
+#mc_embed_signup .mc-field-group {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 7px !important;
+  margin-bottom: 16px !important;
+  width: 100% !important;
 }
 
-.optin__field label {
-  font-size: 13px;
-  font-weight: 700;
-  color: var(--obsidian);
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
+/* Field labels */
+#mc_embed_signup .mc-field-group label {
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  color: var(--obsidian) !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+  font-family: var(--font-ui) !important;
 }
 
-.optin__field input {
-  padding: 14px 18px;
-  border: 2px solid rgba(0, 0, 0, 0.1);
-  border-radius: var(--r);
-  font-family: var(--font-ui);
-  font-size: 15px;
-  color: var(--obsidian);
-  background: var(--white);
-  outline: none;
+/* All text/email/phone inputs */
+#mc_embed_signup .mc-field-group input[type="email"],
+#mc_embed_signup .mc-field-group input[type="text"],
+#mc_embed_signup .mc-field-group input[type="tel"],
+#mc_embed_signup .mc-field-group input.REQ_CSS {
+  width: 100% !important;
+  padding: 14px 18px !important;
+  border: 2px solid rgba(0, 0, 0, 0.1) !important;
+  border-radius: var(--r) !important;
+  font-family: var(--font-ui) !important;
+  font-size: 15px !important;
+  color: var(--obsidian) !important;
+  background: var(--white) !important;
+  outline: none !important;
+  box-shadow: none !important;
   transition:
     border-color var(--trans),
-    box-shadow var(--trans);
-  width: 100%;
+    box-shadow var(--trans) !important;
+  height: auto !important;
+  -webkit-appearance: none !important;
+  appearance: none !important;
 }
 
-.optin__field input::placeholder {
-  color: #bbb;
+#mc_embed_signup .mc-field-group input:focus {
+  border-color: var(--orange) !important;
+  box-shadow: 0 0 0 4px rgba(255, 92, 0, 0.1) !important;
 }
 
-.optin__field input:focus {
-  border-color: var(--orange);
-  box-shadow: 0 0 0 4px rgba(255, 92, 0, 0.1);
+#mc_embed_signup .mc-field-group input::placeholder {
+  color: #bbb !important;
 }
 
-.optin__submit {
-  width: 100%;
-  justify-content: center;
-  margin-top: 4px;
+/* Submit button — full GSD orange CTA */
+#mc_embed_signup #mc-embedded-subscribe {
+  width: 100% !important;
+  padding: 16px 28px !important;
+  background: var(--orange) !important;
+  color: var(--white) !important;
+  font-family: var(--font-ui) !important;
+  font-size: 16px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.02em !important;
+  border: none !important;
+  border-radius: var(--r) !important;
+  cursor: pointer !important;
+  transition: background var(--trans), transform var(--trans) !important;
+  margin-top: 8px !important;
+  -webkit-appearance: none !important;
+  appearance: none !important;
 }
 
-.optin__privacy {
-  font-size: 12px;
-  color: #bbb;
-  text-align: center;
-  font-weight: 500;
-  margin-top: 4px;
+#mc_embed_signup #mc-embedded-subscribe:hover {
+  background: var(--orange-hover) !important;
+  transform: translateY(-1px) !important;
 }
 
-/* --- Goal dropdown (matches input styling) --- */
-.optin__select {
-  padding: 14px 44px 14px 18px;
-  border: 2px solid rgba(0, 0, 0, 0.1);
-  border-radius: var(--r);
-  font-family: var(--font-ui);
-  font-size: 15px;
-  color: var(--obsidian);
-  background-color: var(--white);
-  outline: none;
-  width: 100%;
-  cursor: pointer;
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  transition:
-    border-color var(--trans),
-    box-shadow var(--trans);
-  /* single chevron — no-repeat is what stops it from tiling */
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23555' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: right 18px center;
-  background-size: 12px;
-}
-.optin__select:focus {
-  border-color: var(--orange);
-  box-shadow: 0 0 0 4px rgba(255, 92, 0, 0.1);
-}
-.optin__select:invalid {
-  color: #bbb;
+#mc_embed_signup #mc-embedded-subscribe:active {
+  transform: translateY(0) !important;
 }
 
-/* --- Consent checkbox --- */
-.optin__consent {
-  display: flex;
-  align-items: flex-start;
-  gap: 11px;
-  cursor: pointer;
-  font-size: 13px;
-  line-height: 1.5;
-  color: #777;
-  margin-top: 2px;
-}
-.optin__consent input {
-  appearance: none;
-  -webkit-appearance: none;
-  flex-shrink: 0;
-  width: 20px;
-  height: 20px;
-  margin-top: 1px;
-  border: 2px solid rgba(0, 0, 0, 0.2);
-  border-radius: 6px;
-  background: var(--white);
-  cursor: pointer;
-  position: relative;
-  transition:
-    background var(--trans),
-    border-color var(--trans);
-}
-.optin__consent input:checked {
-  background: var(--orange);
-  border-color: var(--orange);
-}
-.optin__consent input:checked::after {
-  content: "✓";
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #fff;
-  font-size: 13px;
-  font-weight: 800;
-}
-.optin__consent input:focus-visible {
-  box-shadow: 0 0 0 4px rgba(255, 92, 0, 0.18);
+/* Clear / foot layout wrapper — remove Mailchimp default floats */
+#mc_embed_signup .clear.foot {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 12px !important;
+  float: none !important;
+  clear: none !important;
 }
 
-/* --- Success state --- */
-.optin__card.is-submitted .optin__form,
-.optin__card.is-submitted .optin__privacy {
+/* The optionalParent div that wraps the submit + badge */
+#mc_embed_signup .optionalParent {
+  margin-top: 0 !important;
+}
+
+/* Mailchimp referral badge — keep visible, center it */
+#mc_embed_signup .refferal_badge {
+  display: block !important;
+  margin: 0 auto !important;
+  width: 160px !important;
+  height: auto !important;
+  opacity: 0.5 !important;
+  transition: opacity var(--trans) !important;
+}
+
+#mc_embed_signup .refferal_badge:hover {
+  opacity: 0.8 !important;
+}
+
+/* The paragraph wrapping the badge */
+#mc_embed_signup .clear.foot p {
+  text-align: center !important;
+  margin: 0 !important;
+}
+
+/* Error / success response messages */
+#mc_embed_signup #mce-error-response {
+  color: #e53e3e !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  font-family: var(--font-ui) !important;
+  margin-top: 8px !important;
   display: none;
 }
-.optin__success {
-  text-align: center;
-  padding: 18px 0 8px;
-  animation: optinFade 0.45s ease both;
-}
-.optin__success-check {
-  width: 64px;
-  height: 64px;
-  margin: 0 auto 22px;
-  border-radius: 50%;
-  background: var(--green, #14b87a);
-  color: #fff;
-  font-size: 32px;
-  font-weight: 800;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.optin__success-headline {
-  font-family: var(--font-display);
-  font-size: clamp(34px, 4vw, 48px);
-  color: var(--obsidian);
-  line-height: 1;
-  letter-spacing: 0.02em;
-  text-transform: uppercase;
-  margin-bottom: 14px;
-}
-.optin__success-body {
-  font-size: 15px;
-  color: #888;
-  line-height: 1.65;
-  max-width: 340px;
-  margin: 0 auto;
-}
-.optin__success-body strong {
-  color: var(--orange);
-}
-@keyframes optinFade {
-  from {
-    opacity: 0;
-    transform: translateY(12px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+
+#mc_embed_signup #mce-success-response {
+  color: var(--green) !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  font-family: var(--font-ui) !important;
+  margin-top: 8px !important;
+  display: none;
 }
 
-/* --- Hidden form sink (keeps visitor on page) --- */
-.gsd-sio-sink {
-  position: absolute;
-  width: 0;
-  height: 0;
-  border: 0;
-  opacity: 0;
-  pointer-events: none;
+/* Responses container */
+#mc_embed_signup #mce-responses {
+  margin: 0 !important;
+  padding: 0 !important;
+  float: none !important;
+  width: 100% !important;
+  overflow: visible !important;
 }
 
 /* Section label variant for dark backgrounds */
