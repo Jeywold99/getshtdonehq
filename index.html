@@ -18,29 +18,8 @@
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/home-v2.css" />
 
-    <!-- MailerLite Universal -->
-    <script>
-      (function (w, d, e, u, f, l, n) {
-        w[f] =
-          w[f] ||
-          function () {
-            (w[f].q = w[f].q || []).push(arguments);
-          };
-        ((l = d.createElement(e)),
-          (l.async = 1),
-          (l.src = u),
-          (n = d.getElementsByTagName(e)[0]),
-          n.parentNode.insertBefore(l, n));
-      })(
-        window,
-        document,
-        "script",
-        "https://assets.mailerlite.com/js/universal.js",
-        "ml",
-      );
-      ml("account", "2414272");
-    </script>
-    <!-- End MailerLite Universal -->
+
+
   </head>
   <body>
     <!-- ============================================================
@@ -816,8 +795,45 @@
           </div>
 
           <div class="optin__right reveal reveal--delay-2">
-            <!-- MailerLite embedded form -->
-            <div class="ml-embedded" data-form="i0lz8h"></div>
+            <!-- GSD HQ — Custom Opt-In Form -->
+            <div class="gsd-form-card" id="gsd-optin-card">
+              <span class="gsd-form-badge">100% Free &middot; No Credit Card</span>
+              <h3 class="gsd-form-headline">Get the GSD<br/>Starter Kit</h3>
+              <p class="gsd-form-sub">Drop your details and get instant access — delivered straight to your inbox.</p>
+
+              <form
+                class="gsd-form"
+                method="post"
+                action="https://systeme.io/embedded/41485733/subscription"
+                id="gsd-signup-form"
+              >
+                <div class="gsd-form-field">
+                  <label for="gf-name">First Name</label>
+                  <input
+                    type="text"
+                    id="gf-name"
+                    name="fields[first_name]"
+                    placeholder="Your first name"
+                    required
+                  />
+                </div>
+                <div class="gsd-form-field">
+                  <label for="gf-email">Email Address</label>
+                  <input
+                    type="email"
+                    id="gf-email"
+                    name="fields[email]"
+                    placeholder="your@email.com"
+                    required
+                  />
+                </div>
+                <button type="submit" class="gsd-form-btn">
+                  Send Me the Free Starter Kit <span>→</span>
+                </button>
+              </form>
+
+              <p class="gsd-form-privacy">No spam. Just value. Unsubscribe anytime.</p>
+            </div>
           </div>
         </div>
       </div>
