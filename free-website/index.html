@@ -402,6 +402,22 @@
         background: var(--gsd-white);
       }
 
+      .consent-text {
+        font-size: 12px;
+        line-height: 1.5;
+        color: #9b958c;
+        margin-top: -6px;
+        margin-bottom: 18px;
+      }
+      .consent-text a {
+        color: #9b958c;
+        text-decoration: underline;
+        text-underline-offset: 2px;
+      }
+      .consent-text a:hover {
+        color: var(--gsd-orange);
+      }
+
       .submit-btn {
         width: 100%;
         font-family: var(--font-body);
@@ -758,6 +774,12 @@
                   required
                 />
               </div>
+
+              <p class="consent-text">
+                By submitting this form, you agree to receive emails from
+                GetSh*tDone HQ, including updates, resources, and offers. You
+                can unsubscribe anytime.
+              </p>
 
               <button type="submit" class="submit-btn">
                 Claim My Free Spot
