@@ -1,692 +1,895 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Free Website Design — GetSh*tDone HQ</title>
-<meta name="description" content="We're building 10 local business websites — completely free. Limited slots. Apply in 60 seconds.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<style>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Free Website Design — GetSh*tDone HQ</title>
+    <meta
+      name="description"
+      content="We're building 10 local business websites — completely free. Limited slots. Apply in 60 seconds."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --gsd-orange: #ff5c00;
+        --gsd-orange-hover: #ff8533;
+        --gsd-orange-pale: #ffe8d6;
+        --gsd-obsidian: #1a1a1a;
+        --gsd-midnight: #1e1e2e;
+        --gsd-midnight-soft: #27273b;
+        --gsd-cream: #f5f0eb;
+        --gsd-white: #ffffff;
+        --gsd-green: #14b87a;
 
-:root{
-  --gsd-orange: #FF5C00;
-  --gsd-orange-hover: #FF8533;
-  --gsd-orange-pale: #FFE8D6;
-  --gsd-obsidian: #1A1A1A;
-  --gsd-midnight: #1E1E2E;
-  --gsd-midnight-soft: #27273B;
-  --gsd-cream: #F5F0EB;
-  --gsd-white: #FFFFFF;
-  --gsd-green: #14B87A;
+        --font-display: "Bebas Neue", sans-serif;
+        --font-body: "Outfit", sans-serif;
+      }
 
-  --font-display: 'Bebas Neue', sans-serif;
-  --font-body: 'Outfit', sans-serif;
-}
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-*{ margin:0; padding:0; box-sizing:border-box; }
+      html {
+        scroll-behavior: smooth;
+      }
 
-html{ scroll-behavior:smooth; }
+      body {
+        font-family: var(--font-body);
+        background: var(--gsd-cream);
+        color: var(--gsd-obsidian);
+        line-height: 1.5;
+        -webkit-font-smoothing: antialiased;
+      }
 
-body{
-  font-family: var(--font-body);
-  background: var(--gsd-cream);
-  color: var(--gsd-obsidian);
-  line-height: 1.5;
-  -webkit-font-smoothing: antialiased;
-}
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      ul {
+        list-style: none;
+      }
+      img {
+        max-width: 100%;
+        display: block;
+      }
 
-a{ color:inherit; text-decoration:none; }
-ul{ list-style:none; }
-img{ max-width:100%; display:block; }
+      .container {
+        max-width: 1240px;
+        margin: 0 auto;
+        padding: 0 24px;
+      }
 
-.container{
-  max-width: 1240px;
-  margin: 0 auto;
-  padding: 0 24px;
-}
+      /* ============ TOP STRIP ============ */
+      .topstrip {
+        background: var(--gsd-obsidian);
+        color: var(--gsd-white);
+        font-size: 13px;
+        font-weight: 600;
+        letter-spacing: 0.02em;
+        text-align: center;
+        padding: 9px 16px;
+      }
+      .topstrip span {
+        color: var(--gsd-orange);
+      }
 
-/* ============ TOP STRIP ============ */
-.topstrip{
-  background: var(--gsd-obsidian);
-  color: var(--gsd-white);
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 0.02em;
-  text-align: center;
-  padding: 9px 16px;
-}
-.topstrip span{ color: var(--gsd-orange); }
+      /* ============ NAV ============ */
+      .nav {
+        background: var(--gsd-midnight);
+        padding: 18px 0;
+      }
+      .nav .container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .nav__logo {
+        height: 22px;
+        display: block;
+      }
+      .nav__logo img {
+        height: 100%;
+        width: auto;
+        display: block;
+      }
+      .nav__cta {
+        font-family: var(--font-body);
+        font-weight: 700;
+        font-size: 14px;
+        color: var(--gsd-midnight);
+        background: var(--gsd-orange);
+        padding: 11px 22px;
+        border-radius: 999px;
+        white-space: nowrap;
+      }
 
-/* ============ NAV ============ */
-.nav{
-  background: var(--gsd-midnight);
-  padding: 18px 0;
-}
-.nav .container{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-}
-.nav__logo{
-  height: 22px;
-  display:block;
-}
-.nav__logo img{
-  height:100%;
-  width:auto;
-  display:block;
-}
-.nav__cta{
-  font-family: var(--font-body);
-  font-weight: 700;
-  font-size: 14px;
-  color: var(--gsd-midnight);
-  background: var(--gsd-orange);
-  padding: 11px 22px;
-  border-radius: 999px;
-  white-space: nowrap;
-}
+      /* ============ HERO / SPLIT LAYOUT ============ */
+      .hero {
+        background: var(--gsd-midnight);
+        position: relative;
+        overflow: hidden;
+        padding-bottom: 60px;
+      }
 
-/* ============ HERO / SPLIT LAYOUT ============ */
-.hero{
-  background: var(--gsd-midnight);
-  position: relative;
-  overflow: hidden;
-  padding-bottom: 60px;
-}
+      .hero::before {
+        content: "GSD HQ";
+        position: absolute;
+        font-family: var(--font-display);
+        font-size: 280px;
+        color: rgba(255, 255, 255, 0.025);
+        top: -60px;
+        left: -20px;
+        white-space: nowrap;
+        pointer-events: none;
+        line-height: 1;
+      }
 
-.hero::before{
-  content: "GSD HQ";
-  position: absolute;
-  font-family: var(--font-display);
-  font-size: 280px;
-  color: rgba(255,255,255,0.025);
-  top: -60px;
-  left: -20px;
-  white-space: nowrap;
-  pointer-events: none;
-  line-height: 1;
-}
+      .hero__grid {
+        display: grid;
+        grid-template-columns: 1.05fr 0.95fr;
+        gap: 56px;
+        align-items: start;
+        position: relative;
+        z-index: 1;
+        padding-top: 56px;
+      }
 
-.hero__grid{
-  display:grid;
-  grid-template-columns: 1.05fr 0.95fr;
-  gap: 56px;
-  align-items: start;
-  position: relative;
-  z-index: 1;
-  padding-top: 56px;
-}
+      /* ---- LEFT: PITCH ---- */
+      .pitch__eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: rgba(255, 92, 0, 0.14);
+        border: 1px solid rgba(255, 92, 0, 0.4);
+        color: var(--gsd-orange);
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        padding: 8px 16px;
+        border-radius: 999px;
+        margin-bottom: 24px;
+      }
+      .pitch__eyebrow .dot {
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: var(--gsd-green);
+        box-shadow: 0 0 0 0 rgba(20, 184, 122, 0.6);
+        animation: pulse 1.8s infinite;
+      }
+      @keyframes pulse {
+        0% {
+          box-shadow: 0 0 0 0 rgba(20, 184, 122, 0.55);
+        }
+        70% {
+          box-shadow: 0 0 0 8px rgba(20, 184, 122, 0);
+        }
+        100% {
+          box-shadow: 0 0 0 0 rgba(20, 184, 122, 0);
+        }
+      }
 
-/* ---- LEFT: PITCH ---- */
-.pitch__eyebrow{
-  display:inline-flex;
-  align-items:center;
-  gap:8px;
-  background: rgba(255,92,0,0.14);
-  border: 1px solid rgba(255,92,0,0.4);
-  color: var(--gsd-orange);
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  padding: 8px 16px;
-  border-radius: 999px;
-  margin-bottom: 24px;
-}
-.pitch__eyebrow .dot{
-  width:7px; height:7px; border-radius:50%;
-  background: var(--gsd-green);
-  box-shadow: 0 0 0 0 rgba(20,184,122,0.6);
-  animation: pulse 1.8s infinite;
-}
-@keyframes pulse{
-  0%{ box-shadow: 0 0 0 0 rgba(20,184,122,0.55); }
-  70%{ box-shadow: 0 0 0 8px rgba(20,184,122,0); }
-  100%{ box-shadow: 0 0 0 0 rgba(20,184,122,0); }
-}
+      .pitch h1 {
+        font-family: var(--font-display);
+        color: var(--gsd-white);
+        font-size: clamp(40px, 5.2vw, 64px);
+        line-height: 1.04;
+        text-transform: uppercase;
+        letter-spacing: 0.01em;
+        margin-bottom: 22px;
+      }
+      .pitch h1 .accent {
+        color: var(--gsd-orange);
+      }
+      .pitch h1 .script {
+        position: relative;
+        color: var(--gsd-orange);
+        display: inline-block;
+      }
+      .pitch h1 .script::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 4px;
+        height: 0.16em;
+        background: var(--gsd-orange);
+        opacity: 0.35;
+        z-index: -1;
+      }
 
-.pitch h1{
-  font-family: var(--font-display);
-  color: var(--gsd-white);
-  font-size: clamp(40px, 5.2vw, 64px);
-  line-height: 1.04;
-  text-transform: uppercase;
-  letter-spacing: 0.01em;
-  margin-bottom: 22px;
-}
-.pitch h1 .accent{
-  color: var(--gsd-orange);
-}
-.pitch h1 .script{
-  position: relative;
-  color: var(--gsd-orange);
-  display:inline-block;
-}
-.pitch h1 .script::after{
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 4px;
-  height: 0.16em;
-  background: var(--gsd-orange);
-  opacity: 0.35;
-  z-index: -1;
-}
+      .pitch__sub {
+        color: rgba(255, 255, 255, 0.72);
+        font-size: 17px;
+        font-weight: 400;
+        max-width: 480px;
+        margin-bottom: 32px;
+      }
+      .pitch__sub strong {
+        color: var(--gsd-white);
+        font-weight: 700;
+      }
 
-.pitch__sub{
-  color: rgba(255,255,255,0.72);
-  font-size: 17px;
-  font-weight: 400;
-  max-width: 480px;
-  margin-bottom: 32px;
-}
-.pitch__sub strong{ color: var(--gsd-white); font-weight: 700; }
+      .pitch__proof {
+        display: flex;
+        gap: 28px;
+        margin-bottom: 36px;
+        flex-wrap: wrap;
+      }
+      .proof__item {
+        display: flex;
+        flex-direction: column;
+      }
+      .proof__num {
+        font-family: var(--font-display);
+        font-size: 30px;
+        color: var(--gsd-orange);
+        line-height: 1;
+      }
+      .proof__label {
+        font-size: 12.5px;
+        color: rgba(255, 255, 255, 0.55);
+        font-weight: 600;
+        margin-top: 6px;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+      }
 
-.pitch__proof{
-  display:flex;
-  gap: 28px;
-  margin-bottom: 36px;
-  flex-wrap: wrap;
-}
-.proof__item{
-  display:flex;
-  flex-direction:column;
-}
-.proof__num{
-  font-family: var(--font-display);
-  font-size: 30px;
-  color: var(--gsd-orange);
-  line-height:1;
-}
-.proof__label{
-  font-size: 12.5px;
-  color: rgba(255,255,255,0.55);
-  font-weight: 600;
-  margin-top: 6px;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-}
+      .pitch__includes {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+        padding: 22px 24px;
+        background: rgba(255, 255, 255, 0.045);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 16px;
+        max-width: 480px;
+      }
+      .includes__title {
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--gsd-orange);
+        margin-bottom: 2px;
+      }
+      .includes__row {
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+        color: rgba(255, 255, 255, 0.85);
+        font-size: 14.5px;
+      }
+      .includes__row svg {
+        flex-shrink: 0;
+        margin-top: 2px;
+      }
 
-.pitch__includes{
-  display:flex;
-  flex-direction:column;
-  gap: 14px;
-  padding: 22px 24px;
-  background: rgba(255,255,255,0.045);
-  border: 1px solid rgba(255,255,255,0.1);
-  border-radius: 16px;
-  max-width: 480px;
-}
-.includes__title{
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--gsd-orange);
-  margin-bottom: 2px;
-}
-.includes__row{
-  display:flex;
-  align-items:flex-start;
-  gap: 12px;
-  color: rgba(255,255,255,0.85);
-  font-size: 14.5px;
-}
-.includes__row svg{ flex-shrink:0; margin-top:2px; }
+      /* ---- RIGHT: FORM CARD ---- */
+      .formwrap {
+        position: sticky;
+        top: 24px;
+      }
+      .formcard {
+        background: var(--gsd-white);
+        border-radius: 20px;
+        padding: 36px 32px 32px;
+        box-shadow: 10px 10px 0 var(--gsd-orange);
+        border: 2px solid var(--gsd-obsidian);
+      }
 
-/* ---- RIGHT: FORM CARD ---- */
-.formwrap{
-  position: sticky;
-  top: 24px;
-}
-.formcard{
-  background: var(--gsd-white);
-  border-radius: 20px;
-  padding: 36px 32px 32px;
-  box-shadow: 10px 10px 0 var(--gsd-orange);
-  border: 2px solid var(--gsd-obsidian);
-}
+      .slots {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background: var(--gsd-orange-pale);
+        border-radius: 12px;
+        padding: 12px 16px;
+        margin-bottom: 22px;
+      }
+      .slots__text {
+        font-size: 13px;
+        font-weight: 700;
+        color: var(--gsd-obsidian);
+      }
+      .slots__bar {
+        width: 110px;
+        height: 8px;
+        background: rgba(255, 92, 0, 0.18);
+        border-radius: 999px;
+        overflow: hidden;
+        margin-left: 12px;
+      }
+      .slots__fill {
+        height: 100%;
+        width: 70%;
+        background: var(--gsd-orange);
+        border-radius: 999px;
+      }
 
-.slots{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  background: var(--gsd-orange-pale);
-  border-radius: 12px;
-  padding: 12px 16px;
-  margin-bottom: 22px;
-}
-.slots__text{
-  font-size: 13px;
-  font-weight: 700;
-  color: var(--gsd-obsidian);
-}
-.slots__bar{
-  width: 110px;
-  height: 8px;
-  background: rgba(255,92,0,0.18);
-  border-radius: 999px;
-  overflow:hidden;
-  margin-left: 12px;
-}
-.slots__fill{
-  height:100%;
-  width: 70%;
-  background: var(--gsd-orange);
-  border-radius: 999px;
-}
+      .janabadge {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 12px 14px;
+        background: var(--gsd-cream);
+        border: 1.6px solid #e9e3d9;
+        border-radius: 14px;
+        margin-bottom: 22px;
+      }
+      .janabadge__photo {
+        width: 46px;
+        height: 46px;
+        border-radius: 50%;
+        object-fit: cover;
+        flex-shrink: 0;
+        border: 2px solid var(--gsd-orange);
+      }
+      .janabadge__text {
+        font-size: 13px;
+        line-height: 1.4;
+        color: #5a5650;
+      }
+      .janabadge__text strong {
+        color: var(--gsd-obsidian);
+        font-weight: 800;
+      }
+      .janabadge__text .role {
+        display: block;
+        font-size: 11.5px;
+        color: #9b958c;
+        font-weight: 600;
+        margin-top: 1px;
+      }
 
-.janabadge{
-  display:flex;
-  align-items:center;
-  gap: 12px;
-  padding: 12px 14px;
-  background: var(--gsd-cream);
-  border: 1.6px solid #E9E3D9;
-  border-radius: 14px;
-  margin-bottom: 22px;
-}
-.janabadge__photo{
-  width: 46px;
-  height: 46px;
-  border-radius: 50%;
-  object-fit: cover;
-  flex-shrink: 0;
-  border: 2px solid var(--gsd-orange);
-}
-.janabadge__text{
-  font-size: 13px;
-  line-height: 1.4;
-  color: #5A5650;
-}
-.janabadge__text strong{
-  color: var(--gsd-obsidian);
-  font-weight: 800;
-}
-.janabadge__text .role{
-  display:block;
-  font-size: 11.5px;
-  color: #9B958C;
-  font-weight: 600;
-  margin-top: 1px;
-}
+      .formcard h2 {
+        font-family: var(--font-display);
+        font-size: 26px;
+        text-transform: uppercase;
+        line-height: 1.15;
+        margin-bottom: 8px;
+      }
+      .formcard h2 .accent {
+        color: var(--gsd-orange);
+      }
 
-.formcard h2{
-  font-family: var(--font-display);
-  font-size: 26px;
-  text-transform: uppercase;
-  line-height: 1.15;
-  margin-bottom: 8px;
-}
-.formcard h2 .accent{ color: var(--gsd-orange); }
+      .formcard p.formcard__sub {
+        font-size: 14.5px;
+        color: #5a5a5a;
+        margin-bottom: 26px;
+      }
 
-.formcard p.formcard__sub{
-  font-size: 14.5px;
-  color: #5A5A5A;
-  margin-bottom: 26px;
-}
+      .field {
+        margin-bottom: 16px;
+      }
+      .field label {
+        display: block;
+        font-size: 13px;
+        font-weight: 700;
+        margin-bottom: 7px;
+        color: var(--gsd-obsidian);
+      }
+      .field input {
+        width: 100%;
+        font-family: var(--font-body);
+        font-size: 15px;
+        font-weight: 500;
+        padding: 13px 15px;
+        border: 1.6px solid #e2ddd5;
+        border-radius: 10px;
+        background: var(--gsd-cream);
+        color: var(--gsd-obsidian);
+        transition:
+          border-color 0.15s ease,
+          background 0.15s ease;
+      }
+      .field input::placeholder {
+        color: #a39c90;
+        font-weight: 400;
+      }
+      .field input:focus {
+        outline: none;
+        border-color: var(--gsd-orange);
+        background: var(--gsd-white);
+      }
 
-.field{
-  margin-bottom: 16px;
-}
-.field label{
-  display:block;
-  font-size: 13px;
-  font-weight: 700;
-  margin-bottom: 7px;
-  color: var(--gsd-obsidian);
-}
-.field input{
-  width:100%;
-  font-family: var(--font-body);
-  font-size: 15px;
-  font-weight: 500;
-  padding: 13px 15px;
-  border: 1.6px solid #E2DDD5;
-  border-radius: 10px;
-  background: var(--gsd-cream);
-  color: var(--gsd-obsidian);
-  transition: border-color 0.15s ease, background 0.15s ease;
-}
-.field input::placeholder{ color: #A39C90; font-weight:400; }
-.field input:focus{
-  outline: none;
-  border-color: var(--gsd-orange);
-  background: var(--gsd-white);
-}
+      .submit-btn {
+        width: 100%;
+        font-family: var(--font-body);
+        font-weight: 800;
+        font-size: 16px;
+        letter-spacing: 0.01em;
+        color: var(--gsd-white);
+        background: var(--gsd-orange);
+        border: none;
+        border-radius: 10px;
+        padding: 16px;
+        cursor: pointer;
+        margin-top: 6px;
+        transition:
+          background 0.15s ease,
+          transform 0.1s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+      }
+      .submit-btn:hover {
+        background: var(--gsd-orange-hover);
+      }
+      .submit-btn:active {
+        transform: scale(0.98);
+      }
 
-.submit-btn{
-  width:100%;
-  font-family: var(--font-body);
-  font-weight: 800;
-  font-size: 16px;
-  letter-spacing: 0.01em;
-  color: var(--gsd-white);
-  background: var(--gsd-orange);
-  border: none;
-  border-radius: 10px;
-  padding: 16px;
-  cursor: pointer;
-  margin-top: 6px;
-  transition: background 0.15s ease, transform 0.1s ease;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap: 8px;
-}
-.submit-btn:hover{ background: var(--gsd-orange-hover); }
-.submit-btn:active{ transform: scale(0.98); }
+      .formcard__footnote {
+        text-align: center;
+        font-size: 12px;
+        color: #9b958c;
+        margin-top: 14px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+      }
 
-.formcard__footnote{
-  text-align:center;
-  font-size: 12px;
-  color: #9B958C;
-  margin-top: 14px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:6px;
-}
+      /* ============ TRUST / WHY FREE STRIP ============ */
+      .why {
+        background: var(--gsd-cream);
+        padding: 64px 0;
+      }
+      .why__head {
+        text-align: center;
+        max-width: 620px;
+        margin: 0 auto 44px;
+      }
+      .why__eyebrow {
+        font-size: 12.5px;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--gsd-orange);
+        margin-bottom: 12px;
+      }
+      .why__head h2 {
+        font-family: var(--font-display);
+        font-size: clamp(28px, 3.4vw, 38px);
+        text-transform: uppercase;
+        line-height: 1.12;
+      }
+      .why__head h2 .accent {
+        color: var(--gsd-orange);
+      }
+      .why__head p {
+        margin-top: 14px;
+        color: #5a5a5a;
+        font-size: 15.5px;
+      }
 
-/* ============ TRUST / WHY FREE STRIP ============ */
-.why{
-  background: var(--gsd-cream);
-  padding: 64px 0;
-}
-.why__head{
-  text-align:center;
-  max-width: 620px;
-  margin: 0 auto 44px;
-}
-.why__eyebrow{
-  font-size: 12.5px;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--gsd-orange);
-  margin-bottom: 12px;
-}
-.why__head h2{
-  font-family: var(--font-display);
-  font-size: clamp(28px, 3.4vw, 38px);
-  text-transform: uppercase;
-  line-height: 1.12;
-}
-.why__head h2 .accent{ color: var(--gsd-orange); }
-.why__head p{
-  margin-top: 14px;
-  color: #5A5A5A;
-  font-size: 15.5px;
-}
+      .why__grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 22px;
+      }
+      .why__card {
+        background: var(--gsd-white);
+        border-radius: 16px;
+        padding: 28px 24px;
+        border: 1.6px solid #e9e3d9;
+      }
+      .why__num {
+        font-family: var(--font-display);
+        font-size: 15px;
+        color: var(--gsd-orange);
+        margin-bottom: 14px;
+      }
+      .why__card h3 {
+        font-family: var(--font-body);
+        font-weight: 800;
+        font-size: 17px;
+        margin-bottom: 10px;
+      }
+      .why__card p {
+        font-size: 14px;
+        color: #6b6660;
+      }
 
-.why__grid{
-  display:grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 22px;
-}
-.why__card{
-  background: var(--gsd-white);
-  border-radius: 16px;
-  padding: 28px 24px;
-  border: 1.6px solid #E9E3D9;
-}
-.why__num{
-  font-family: var(--font-display);
-  font-size: 15px;
-  color: var(--gsd-orange);
-  margin-bottom: 14px;
-}
-.why__card h3{
-  font-family: var(--font-body);
-  font-weight: 800;
-  font-size: 17px;
-  margin-bottom: 10px;
-}
-.why__card p{
-  font-size: 14px;
-  color: #6B6660;
-}
+      /* ============ CLOSING CTA STRIP ============ */
+      .closing {
+        background: var(--gsd-midnight);
+        padding: 54px 0;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+      .closing::before {
+        content: "FREE WEBSITE FREE WEBSITE FREE WEBSITE";
+        position: absolute;
+        font-family: var(--font-display);
+        font-size: 90px;
+        color: rgba(255, 255, 255, 0.025);
+        white-space: nowrap;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(-4deg);
+        pointer-events: none;
+      }
+      .closing__inner {
+        position: relative;
+        z-index: 1;
+      }
+      .closing h2 {
+        font-family: var(--font-display);
+        color: var(--gsd-white);
+        font-size: clamp(26px, 3.6vw, 36px);
+        text-transform: uppercase;
+        margin-bottom: 18px;
+      }
+      .closing h2 .accent {
+        color: var(--gsd-orange);
+      }
+      .closing-btn {
+        display: inline-block;
+        background: var(--gsd-orange);
+        color: var(--gsd-white);
+        font-weight: 800;
+        font-size: 15px;
+        padding: 16px 36px;
+        border-radius: 999px;
+        margin-top: 8px;
+      }
+      .closing-btn:hover {
+        background: var(--gsd-orange-hover);
+      }
 
-/* ============ CLOSING CTA STRIP ============ */
-.closing{
-  background: var(--gsd-midnight);
-  padding: 54px 0;
-  text-align:center;
-  position: relative;
-  overflow:hidden;
-}
-.closing::before{
-  content: "FREE WEBSITE FREE WEBSITE FREE WEBSITE";
-  position:absolute;
-  font-family: var(--font-display);
-  font-size: 90px;
-  color: rgba(255,255,255,0.025);
-  white-space: nowrap;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%,-50%) rotate(-4deg);
-  pointer-events:none;
-}
-.closing__inner{ position:relative; z-index:1; }
-.closing h2{
-  font-family: var(--font-display);
-  color: var(--gsd-white);
-  font-size: clamp(26px, 3.6vw, 36px);
-  text-transform: uppercase;
-  margin-bottom: 18px;
-}
-.closing h2 .accent{ color: var(--gsd-orange); }
-.closing-btn{
-  display:inline-block;
-  background: var(--gsd-orange);
-  color: var(--gsd-white);
-  font-weight: 800;
-  font-size: 15px;
-  padding: 16px 36px;
-  border-radius: 999px;
-  margin-top: 8px;
-}
-.closing-btn:hover{ background: var(--gsd-orange-hover); }
+      footer {
+        background: var(--gsd-obsidian);
+        color: rgba(255, 255, 255, 0.45);
+        font-size: 12.5px;
+        text-align: center;
+        padding: 22px 16px;
+      }
 
-footer{
-  background: var(--gsd-obsidian);
-  color: rgba(255,255,255,0.45);
-  font-size: 12.5px;
-  text-align:center;
-  padding: 22px 16px;
-}
+      /* ============ RESPONSIVE ============ */
+      @media (max-width: 980px) {
+        .hero::before {
+          font-size: 160px;
+        }
+        .hero__grid {
+          grid-template-columns: 1fr;
+          padding-top: 40px;
+          gap: 36px;
+        }
+        .formwrap {
+          position: static;
+          order: -1;
+        }
+        .pitch__proof {
+          gap: 20px;
+        }
+        .why__grid {
+          grid-template-columns: 1fr;
+        }
+        .nav__cta {
+          display: none;
+        }
+      }
 
-/* ============ RESPONSIVE ============ */
-@media (max-width: 980px){
-  .hero::before{ font-size:160px; }
-  .hero__grid{
-    grid-template-columns: 1fr;
-    padding-top: 40px;
-    gap: 36px;
-  }
-  .formwrap{ position:static; order:-1; }
-  .pitch__proof{ gap:20px; }
-  .why__grid{ grid-template-columns: 1fr; }
-  .nav__cta{ display:none; }
-}
+      @media (max-width: 480px) {
+        .formcard {
+          padding: 28px 20px 24px;
+          box-shadow: 6px 6px 0 var(--gsd-orange);
+        }
+        .pitch__includes {
+          padding: 18px;
+        }
+        .topstrip {
+          font-size: 11.5px;
+        }
+      }
 
-@media (max-width: 480px){
-  .formcard{ padding: 28px 20px 24px; box-shadow: 6px 6px 0 var(--gsd-orange); }
-  .pitch__includes{ padding:18px; }
-  .topstrip{ font-size:11.5px; }
-}
-
-@media (prefers-reduced-motion: reduce){
-  *{ animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
-}
-</style>
-</head>
-<body>
-
-<div class="topstrip">⚡ <span>10 FREE WEBSITES</span> for local businesses this round — only a few slots left</div>
-
-<nav class="nav">
-  <div class="container">
-    <div class="nav__logo"><img src="assets/logo-white.png" alt="GetSh*tDone HQ"></div>
-    <a href="#apply" class="nav__cta">Claim My Spot</a>
-  </div>
-</nav>
-
-<header class="hero">
-  <div class="container hero__grid">
-
-    <div class="pitch">
-      <div class="pitch__eyebrow"><span class="dot"></span> Applications closing soon</div>
-
-      <h1>We'll build your business a <span class="accent">website</span> — <span class="script">free.</span></h1>
-
-      <p class="pitch__sub">No catch. We're opening a limited number of free website builds for local businesses so we can build stronger proof while we grow. <strong>You get a real, high-converting website. We get your story.</strong></p>
-
-      <div class="pitch__proof">
-        <div class="proof__item">
-          <div class="proof__num">7–10</div>
-          <div class="proof__label">Days to delivery</div>
-        </div>
-        <div class="proof__item">
-          <div class="proof__num">₱0</div>
-          <div class="proof__label">Cost to you</div>
-        </div>
-        <div class="proof__item">
-          <div class="proof__num">3</div>
-          <div class="proof__label">Steps to apply</div>
-        </div>
-      </div>
-
-      <div class="pitch__includes">
-        <div class="includes__title">What's included</div>
-        <div class="includes__row">
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13.5 4L6 11.5L2.5 8" stroke="#FF5C00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          A real website built to turn visitors into bookings and sales
-        </div>
-        <div class="includes__row">
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13.5 4L6 11.5L2.5 8" stroke="#FF5C00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          A 20-minute walkthrough on your design, messaging &amp; strategy
-        </div>
-        <div class="includes__row">
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13.5 4L6 11.5L2.5 8" stroke="#FF5C00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          Free exposure through our portfolio and case study features
-        </div>
-      </div>
+      @media (prefers-reduced-motion: reduce) {
+        * {
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.01ms !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="topstrip">
+      ⚡ <span>10 FREE WEBSITES</span> for local businesses this round — only a
+      few slots left
     </div>
 
-    <div class="formwrap" id="apply">
-      <div class="formcard">
+    <nav class="nav">
+      <div class="container">
+        <div class="nav__logo">
+          <img src="assets/logo-white.png" alt="GetSh*tDone HQ" />
+        </div>
+        <a href="#apply" class="nav__cta">Claim My Spot</a>
+      </div>
+    </nav>
 
-        <div class="janabadge">
-          <img src="assets/jana.png" alt="Jana Tandoc, founder of GetSh*tDone HQ" class="janabadge__photo">
-          <div class="janabadge__text">
-            Hi, I'm <strong>Jana</strong> — I'll personally be reviewing your application.
-            <span class="role">Founder, GetSh*tDone HQ</span>
+    <header class="hero">
+      <div class="container hero__grid">
+        <div class="pitch">
+          <div class="pitch__eyebrow">
+            <span class="dot"></span> Applications closing soon
+          </div>
+
+          <h1>
+            We'll build your business a <span class="accent">website</span> —
+            <span class="script">free.</span>
+          </h1>
+
+          <p class="pitch__sub">
+            No catch. We're opening a limited number of free website builds for
+            local businesses so we can build stronger proof while we grow.
+            <strong
+              >You get a real, high-converting website. We get your
+              story.</strong
+            >
+          </p>
+
+          <div class="pitch__proof">
+            <div class="proof__item">
+              <div class="proof__num">7–10</div>
+              <div class="proof__label">Days to delivery</div>
+            </div>
+            <div class="proof__item">
+              <div class="proof__num">₱0</div>
+              <div class="proof__label">Cost to you</div>
+            </div>
+            <div class="proof__item">
+              <div class="proof__num">3</div>
+              <div class="proof__label">Steps to apply</div>
+            </div>
+          </div>
+
+          <div class="pitch__includes">
+            <div class="includes__title">What's included</div>
+            <div class="includes__row">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <path
+                  d="M13.5 4L6 11.5L2.5 8"
+                  stroke="#FF5C00"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+              A real website built to turn visitors into bookings and sales
+            </div>
+            <div class="includes__row">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <path
+                  d="M13.5 4L6 11.5L2.5 8"
+                  stroke="#FF5C00"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+              A 20-minute walkthrough on your design, messaging &amp; strategy
+            </div>
+            <div class="includes__row">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <path
+                  d="M13.5 4L6 11.5L2.5 8"
+                  stroke="#FF5C00"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+              Free exposure through our portfolio and case study features
+            </div>
           </div>
         </div>
 
-        <div class="slots">
-          <span class="slots__text">7 of 10 slots claimed</span>
-          <div class="slots__bar"><div class="slots__fill"></div></div>
+        <div class="formwrap" id="apply">
+          <div class="formcard">
+            <div class="janabadge">
+              <img
+                src="assets/jana.png"
+                alt="Jana Tandoc, founder of GetSh*tDone HQ"
+                class="janabadge__photo"
+              />
+              <div class="janabadge__text">
+                Hi, I'm <strong>Jana</strong> — I'll personally be reviewing
+                your application.
+                <span class="role">Founder, GetSh*tDone HQ</span>
+              </div>
+            </div>
+
+            <div class="slots">
+              <span class="slots__text">7 of 10 slots claimed</span>
+              <div class="slots__bar"><div class="slots__fill"></div></div>
+            </div>
+
+            <h2>Claim your <span class="accent">free</span> website</h2>
+            <p class="formcard__sub">
+              Drop your info below — takes 15 seconds. We'll send the full
+              application next.
+            </p>
+
+            <form
+              id="gsdOptinForm"
+              action="https://systeme.io/embedded/41485733/subscription"
+              method="POST"
+            >
+              <div class="field">
+                <label for="fullName">Full Name</label>
+                <input
+                  type="text"
+                  id="fullName"
+                  name="fields[first_name]"
+                  placeholder="Juan Dela Cruz"
+                  required
+                />
+              </div>
+              <div class="field">
+                <label for="phone">Phone Number</label>
+                <input
+                  type="tel"
+                  id="phone"
+                  name="fields[phone_number]"
+                  placeholder="09XX XXX XXXX"
+                  required
+                />
+              </div>
+              <div class="field">
+                <label for="email">Email Address</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="you@business.com"
+                  required
+                />
+              </div>
+
+              <button type="submit" class="submit-btn">
+                Claim My Free Spot
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+                  <path
+                    d="M4 9H14M14 9L9.5 4.5M14 9L9.5 13.5"
+                    stroke="white"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </button>
+            </form>
+
+            <div class="formcard__footnote">
+              <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
+                <path
+                  d="M3 6V4.5a3.5 3.5 0 117 0V6M2.5 6h8a1 1 0 011 1v4.5a1 1 0 01-1 1h-8a1 1 0 01-1-1V7a1 1 0 011-1z"
+                  stroke="#9B958C"
+                  stroke-width="1.1"
+                />
+              </svg>
+              We respect your inbox. No spam, ever.
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <script>
+      // ===== PASTE YOUR GOOGLE APPS SCRIPT WEB APP URL HERE =====
+      const SHEET_WEB_APP_URL =
+        "https://script.google.com/macros/s/AKfycbzGgtXJMeANhGa3XxeDY15f5Mec9F5zs8chwZmsy9AWRb0pXrPPBrDy66p5FtR32-8a/exec";
+
+      // On submit: fire the Systeme.io opt-in (adds them to the email list),
+      // log the lead to the "Opt-ins" Google Sheet tab,
+      // then send them straight into the full questionnaire.
+      document
+        .getElementById("gsdOptinForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+          var form = e.target;
+
+          fetch(form.action, {
+            method: "POST",
+            body: new FormData(form),
+            mode: "no-cors",
+          }).catch(function () {
+            /* no-cors gives no readable response — proceed regardless */
+          });
+
+          var name = document.getElementById("fullName").value;
+          var email = document.getElementById("email").value;
+          var phone = document.getElementById("phone").value;
+
+          fetch(SHEET_WEB_APP_URL, {
+            method: "POST",
+            mode: "no-cors",
+            headers: { "Content-Type": "text/plain" },
+            body: JSON.stringify({
+              formType: "optin",
+              name: name,
+              phone: phone,
+              email: email,
+            }),
+          }).catch(function () {
+            /* no-cors gives no readable response — proceed regardless */
+          });
+
+          // Pass their info along so the questionnaire can prefill Q1/Q2
+          window.location.href =
+            "questionnaire.html?name=" +
+            encodeURIComponent(name) +
+            "&email=" +
+            encodeURIComponent(email) +
+            "&phone=" +
+            encodeURIComponent(phone);
+        });
+    </script>
+
+    <section class="why">
+      <div class="container">
+        <div class="why__head">
+          <div class="why__eyebrow">Why we're doing this</div>
+          <h2>
+            This isn't a <span class="accent">gimmick.</span> It's a trade.
+          </h2>
+          <p>
+            We used to work mostly with foreign clients. Now we're going all-in
+            on local businesses — and we need a few of you to build with, on
+            camera, before we open this up wider.
+          </p>
         </div>
 
-        <h2>Claim your <span class="accent">free</span> website</h2>
-        <p class="formcard__sub">Drop your info below — takes 15 seconds. We'll send the full application next.</p>
-
-        <form id="gsdOptinForm" action="https://systeme.io/embedded/41485733/subscription" method="POST">
-          <div class="field">
-            <label for="fullName">Full Name</label>
-            <input type="text" id="fullName" name="fields[first_name]" placeholder="Juan Dela Cruz" required>
+        <div class="why__grid">
+          <div class="why__card">
+            <div class="why__num">01</div>
+            <h3>You get a real asset</h3>
+            <p>
+              Not a template. A website designed around your actual business
+              goals — built to get you more bookings, messages, or sales.
+            </p>
           </div>
-          <div class="field">
-            <label for="phone">Phone Number</label>
-            <input type="tel" id="phone" name="fields[phone_number]" placeholder="09XX XXX XXXX" required>
+          <div class="why__card">
+            <div class="why__num">02</div>
+            <h3>We get to show our work</h3>
+            <p>
+              Your feedback and results help us build the kind of proof that
+              gets us in front of more local businesses like yours.
+            </p>
           </div>
-          <div class="field">
-            <label for="email">Email Address</label>
-            <input type="email" id="email" name="email" placeholder="you@business.com" required>
+          <div class="why__card">
+            <div class="why__num">03</div>
+            <h3>Everybody wins</h3>
+            <p>
+              You walk away with a site, a strategy call, and a system. We walk
+              away with a story worth telling. That's the whole deal.
+            </p>
           </div>
-
-          <button type="submit" class="submit-btn">
-            Claim My Free Spot
-            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M4 9H14M14 9L9.5 4.5M14 9L9.5 13.5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </button>
-        </form>
-
-        <div class="formcard__footnote">
-          <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M3 6V4.5a3.5 3.5 0 117 0V6M2.5 6h8a1 1 0 011 1v4.5a1 1 0 01-1 1h-8a1 1 0 01-1-1V7a1 1 0 011-1z" stroke="#9B958C" stroke-width="1.1"/></svg>
-          We respect your inbox. No spam, ever.
         </div>
       </div>
-    </div>
+    </section>
 
-  </div>
-</header>
-
-<script>
-// On submit: fire the Systeme.io opt-in (adds them to the email list),
-// then send them straight into the full questionnaire.
-document.getElementById('gsdOptinForm').addEventListener('submit', function(e){
-  e.preventDefault();
-  var form = e.target;
-
-  fetch(form.action, {
-    method: 'POST',
-    body: new FormData(form),
-    mode: 'no-cors'
-  }).catch(function(){ /* no-cors gives no readable response — proceed regardless */ });
-
-  // Pass their info along so the questionnaire can prefill Q1/Q2
-  var name = encodeURIComponent(document.getElementById('fullName').value);
-  var email = encodeURIComponent(document.getElementById('email').value);
-  var phone = encodeURIComponent(document.getElementById('phone').value);
-
-  window.location.href = 'questionnaire.html?name=' + name + '&email=' + email + '&phone=' + phone;
-});
-</script>
-
-<section class="why">
-  <div class="container">
-    <div class="why__head">
-      <div class="why__eyebrow">Why we're doing this</div>
-      <h2>This isn't a <span class="accent">gimmick.</span> It's a trade.</h2>
-      <p>We used to work mostly with foreign clients. Now we're going all-in on local businesses — and we need a few of you to build with, on camera, before we open this up wider.</p>
-    </div>
-
-    <div class="why__grid">
-      <div class="why__card">
-        <div class="why__num">01</div>
-        <h3>You get a real asset</h3>
-        <p>Not a template. A website designed around your actual business goals — built to get you more bookings, messages, or sales.</p>
+    <section class="closing">
+      <div class="container closing__inner">
+        <h2>Slots are going <span class="accent">fast.</span> Apply now.</h2>
+        <a href="#apply" class="closing-btn">Claim My Free Spot →</a>
       </div>
-      <div class="why__card">
-        <div class="why__num">02</div>
-        <h3>We get to show our work</h3>
-        <p>Your feedback and results help us build the kind of proof that gets us in front of more local businesses like yours.</p>
-      </div>
-      <div class="why__card">
-        <div class="why__num">03</div>
-        <h3>Everybody wins</h3>
-        <p>You walk away with a site, a strategy call, and a system. We walk away with a story worth telling. That's the whole deal.</p>
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<section class="closing">
-  <div class="container closing__inner">
-    <h2>Slots are going <span class="accent">fast.</span> Apply now.</h2>
-    <a href="#apply" class="closing-btn">Claim My Free Spot →</a>
-  </div>
-</section>
-
-<footer>
-  © 2026 GetSh*tDone HQ. All rights reserved. · getshtdonehq.com
-</footer>
-
-</body>
+    <footer>
+      © 2026 GetSh*tDone HQ. All rights reserved. · getshtdonehq.com
+    </footer>
+  </body>
 </html>
