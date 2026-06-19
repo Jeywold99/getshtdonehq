@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Website Design Application — GetSh*tDone HQ</title>
+<meta name="description" content="Tell us about your business so we can design a website that actually fits your strategy.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+
+:root{
+  --gsd-orange: #FF5C00;
+  --gsd-orange-hover: #FF8533;
+  --gsd-orange-pale: #FFE8D6;
+  --gsd-obsidian: #1A1A1A;
+  --gsd-midnight: #1E1E2E;
+  --gsd-cream: #F5F0EB;
+  --gsd-white: #FFFFFF;
+  --gsd-green: #14B87A;
+
+  --font-display: 'Bebas Neue', sans-serif;
+  --font-body: 'Outfit', sans-serif;
+}
+
+*{ margin:0; padding:0; box-sizing:border-box; }
+html{ scroll-behavior:smooth; }
+
+body{
+  font-family: var(--font-body);
+  background: var(--gsd-cream);
+  color: var(--gsd-obsidian);
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+a{ color: var(--gsd-orange); text-decoration: underline; text-underline-offset:2px; }
+ul{ list-style:none; }
+
+.container{
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0 22px;
+}
+
+/* ============ NAV ============ */
+.nav{
+  background: var(--gsd-midnight);
+  padding: 18px 0;
+}
+.nav .container{
+  max-width: 1000px;
+  display:flex;
+  align-items:center;
+  justify-content: center;
+}
+.nav__logo{
+  height: 20px;
+  display:block;
+}
+.nav__logo img{
+  height:100%;
+  width:auto;
+  display:block;
+}
+
+/* ============ HEADER ============ */
+.pagehead{
+  background: var(--gsd-midnight);
+  padding: 48px 0 64px;
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+}
+.pagehead::before{
+  content: "GSD HQ";
+  position:absolute;
+  font-family: var(--font-display);
+  font-size: 220px;
+  color: rgba(255,255,255,0.025);
+  top:-50px; left:50%;
+  transform: translateX(-50%);
+  white-space:nowrap;
+  pointer-events:none;
+}
+.pagehead__inner{ position:relative; z-index:1; }
+.pagehead .eyebrow{
+  display:inline-block;
+  font-size: 12.5px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gsd-orange);
+  background: rgba(255,92,0,0.14);
+  border: 1px solid rgba(255,92,0,0.4);
+  padding: 7px 16px;
+  border-radius: 999px;
+  margin-bottom: 20px;
+}
+.pagehead h1{
+  font-family: var(--font-display);
+  color: var(--gsd-white);
+  font-size: clamp(28px, 4.6vw, 42px);
+  text-transform: uppercase;
+  line-height: 1.1;
+  margin-bottom: 10px;
+}
+.pagehead h1 .script{
+  color: var(--gsd-orange);
+}
+.pagehead p.byline{
+  color: rgba(255,255,255,0.6);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* ============ INTRO CARD (pulled up over header) ============ */
+.intro{
+  max-width: 760px;
+  margin: -38px auto 0;
+  padding: 0 22px;
+  position:relative;
+  z-index: 2;
+}
+.intro__card{
+  background: var(--gsd-white);
+  border: 2px solid var(--gsd-obsidian);
+  border-radius: 18px;
+  padding: 34px 30px;
+  box-shadow: 8px 8px 0 var(--gsd-orange);
+}
+.intro__card p{ margin-bottom: 14px; font-size: 15px; color:#3D3A35; }
+.intro__card p:last-child{ margin-bottom:0; }
+.intro__card strong{ color: var(--gsd-obsidian); }
+
+.intro__list{
+  margin: 14px 0;
+  padding-left: 4px;
+}
+.intro__list li{
+  display:flex;
+  gap:10px;
+  align-items:flex-start;
+  font-size: 14.5px;
+  color:#3D3A35;
+  margin-bottom: 9px;
+}
+.intro__list li svg{ flex-shrink:0; margin-top:3px; }
+
+/* ============ INFO BLOCKS ============ */
+.infoblock{
+  margin: 26px auto 0;
+  max-width: 760px;
+  padding: 0 22px;
+}
+.infoblock__card{
+  background: var(--gsd-white);
+  border-radius: 16px;
+  padding: 26px 28px;
+  border: 1.6px solid #E9E3D9;
+}
+.infoblock__card.timeline{ border-left: 4px solid var(--gsd-orange); }
+.infoblock__card.disclaimer{ border-left: 4px solid var(--gsd-green); }
+.infoblock__card.before{ background: var(--gsd-midnight); border:none; }
+
+.infoblock__title{
+  font-weight: 800;
+  font-size: 15.5px;
+  margin-bottom: 8px;
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+.infoblock__card.before .infoblock__title{ color: var(--gsd-white); }
+.infoblock__card p, .infoblock__card .infotext{
+  font-size: 14.5px;
+  color:#5A5650;
+}
+.infoblock__card.before .infotext{ color: rgba(255,255,255,0.7); }
+
+.before__links{
+  margin-top:14px;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+.before__links a{
+  display:flex;
+  align-items:center;
+  gap:9px;
+  color: var(--gsd-white);
+  font-size: 14.5px;
+  font-weight:600;
+  text-decoration:none;
+}
+.before__links a span.linklabel{ color: rgba(255,255,255,0.55); font-weight:500; }
+.before__links a:hover{ color: var(--gsd-orange); }
+
+.expect__list{ margin-top: 8px; }
+.expect__list li{
+  display:flex;
+  gap:10px;
+  align-items:flex-start;
+  font-size: 14.5px;
+  color:#5A5650;
+  margin-bottom: 9px;
+}
+.expect__list li svg{ flex-shrink:0; margin-top:3px; }
+
+/* ============ FORM SECTION ============ */
+.formsection{
+  padding: 50px 0 90px;
+}
+
+.qgroup{
+  background: var(--gsd-white);
+  border-radius: 18px;
+  border: 1.6px solid #E9E3D9;
+  padding: 30px 28px;
+  margin-bottom: 18px;
+}
+
+.qnum{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width: 26px;
+  height: 26px;
+  border-radius: 7px;
+  background: var(--gsd-orange-pale);
+  color: var(--gsd-orange);
+  font-family: var(--font-display);
+  font-size: 13px;
+  margin-right: 10px;
+}
+
+.qlabel{
+  display:flex;
+  align-items:center;
+  font-weight: 800;
+  font-size: 16.5px;
+  margin-bottom: 6px;
+  line-height:1.35;
+}
+.qrequired{
+  color: var(--gsd-orange);
+  font-weight: 700;
+  margin-left: 6px;
+  font-size: 13px;
+}
+.qoptional{
+  color: #A39C90;
+  font-weight: 600;
+  margin-left: 6px;
+  font-size: 12.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+.qhint{
+  font-size: 13.5px;
+  color: #8A857C;
+  margin-bottom: 16px;
+  margin-left: 36px;
+}
+
+input[type="text"], input[type="email"], input[type="tel"], input[type="url"], textarea{
+  width:100%;
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 500;
+  padding: 13px 15px;
+  border: 1.6px solid #E2DDD5;
+  border-radius: 10px;
+  background: var(--gsd-cream);
+  color: var(--gsd-obsidian);
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+textarea{ resize: vertical; min-height: 90px; font-family: var(--font-body); }
+input::placeholder, textarea::placeholder{ color:#A39C90; font-weight:400; }
+input:focus, textarea:focus{
+  outline:none;
+  border-color: var(--gsd-orange);
+  background: var(--gsd-white);
+}
+
+/* checkbox / radio pills */
+.optionlist{
+  display:flex;
+  flex-direction:column;
+  gap: 10px;
+}
+.option{
+  display:flex;
+  align-items:flex-start;
+  gap: 12px;
+  padding: 13px 15px;
+  background: var(--gsd-cream);
+  border: 1.6px solid #E2DDD5;
+  border-radius: 10px;
+  cursor:pointer;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+.option:hover{ border-color: var(--gsd-orange-hover); }
+.option input{
+  margin-top: 2px;
+  width: 17px;
+  height: 17px;
+  accent-color: var(--gsd-orange);
+  flex-shrink:0;
+  cursor:pointer;
+}
+.option span{ font-size: 14.5px; font-weight:500; }
+
+.option.has-other{ flex-wrap:wrap; }
+.option .other-input{
+  width:100%;
+  margin-top: 10px;
+  margin-left: 29px;
+  width: calc(100% - 29px);
+  display:none;
+}
+.option.other-active .other-input{ display:block; }
+
+.qhelp-text{
+  font-size: 12.5px;
+  color:#9B958C;
+  margin-top:8px;
+}
+
+/* conditional Q11a */
+#q11a-wrap{ display:none; margin-top: 14px; }
+#q11a-wrap.show{ display:block; }
+
+/* drive upload card */
+.drivecard{
+  background: var(--gsd-orange-pale);
+  border-radius: 10px;
+  padding: 14px 16px;
+  margin-bottom: 14px;
+  font-size: 13.5px;
+  color: #7A3A10;
+}
+.drivecard ul{ margin-top:8px; padding-left: 4px; }
+.drivecard li{ margin-bottom:4px; }
+.drivecard li::before{ content:"• "; }
+
+/* submit */
+.submitwrap{ text-align:center; margin-top: 30px; }
+.submit-btn{
+  font-family: var(--font-body);
+  font-weight: 800;
+  font-size: 16.5px;
+  letter-spacing: 0.01em;
+  color: var(--gsd-white);
+  background: var(--gsd-orange);
+  border: none;
+  border-radius: 10px;
+  padding: 17px 44px;
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.1s ease;
+  display:inline-flex;
+  align-items:center;
+  gap: 9px;
+}
+.submit-btn:hover{ background: var(--gsd-orange-hover); }
+.submit-btn:active{ transform: scale(0.98); }
+.submitwrap p{
+  font-size: 13px;
+  color:#9B958C;
+  margin-top: 14px;
+}
+
+footer{
+  background: var(--gsd-obsidian);
+  color: rgba(255,255,255,0.45);
+  font-size: 12.5px;
+  text-align:center;
+  padding: 22px 16px;
+}
+
+@media (max-width: 600px){
+  .pagehead::before{ font-size: 130px; }
+  .intro__card, .qgroup{ padding: 24px 20px; }
+  .qhint{ margin-left:0; }
+  .pagehead{ padding: 38px 0 52px; }
+  .intro{ margin-top:-30px; }
+}
+
+@media (prefers-reduced-motion: reduce){
+  *{ animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="container">
+    <div class="nav__logo"><img src="assets/logo-white.png" alt="GetSh*tDone HQ"></div>
+  </div>
+</nav>
+
+<header class="pagehead">
+  <div class="pagehead__inner">
+    <span class="eyebrow">You're almost in</span>
+    <h1>Free Website Design <span class="script">Application</span></h1>
+    <p class="byline">by GetSh*tDone HQ</p>
+  </div>
+</header>
+
+<div class="intro">
+  <div class="intro__card">
+    <p><strong>Thank you for being here.</strong></p>
+    <p>Just like what we promised in our caption — the website design is completely free. We're currently opening limited slots for this because we're building stronger social proof as we transition into serving more local businesses.</p>
+    <p>A little background about us: we used to primarily work with foreign clients, and now we're focusing on helping local businesses grow through full-stack marketing — including:</p>
+    <ul class="intro__list">
+      <li><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M13.5 4L6 11.5L2.5 8" stroke="#FF5C00" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg> High-converting websites designed to increase bookings and sales</li>
+      <li><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M13.5 4L6 11.5L2.5 8" stroke="#FF5C00" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg> AI &amp; automation systems that streamline operations</li>
+      <li><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M13.5 4L6 11.5L2.5 8" stroke="#FF5C00" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg> Personal branding strategies built for 2026 and beyond</li>
+    </ul>
+    <p>We don't just build websites — we help businesses turn attention into revenue and systems into scalability. On top of that, we also coach teams and companies to implement these systems properly.</p>
+  </div>
+</div>
+
+<div class="infoblock">
+  <div class="infoblock__card timeline">
+    <div class="infoblock__title">⏳ Timeline &amp; Important Note</div>
+    <p>Your free website will be delivered in <strong>7–10 days</strong>, depending on current volume. We're currently balancing paid client work and these pro bono projects, so we appreciate your patience.</p>
+  </div>
+</div>
+
+<div class="infoblock">
+  <div class="infoblock__card disclaimer">
+    <div class="infoblock__title">⚠️ Disclaimer</div>
+    <p>This questionnaire will take around <strong>5 minutes</strong> to complete. Your answers will directly help us design a website that actually fits your business — not just visually, but strategically.</p>
+  </div>
+</div>
+
+<div class="infoblock">
+  <div class="infoblock__card before">
+    <div class="infoblock__title">🔔 Before You Start</div>
+    <p class="infotext">To stay updated and get access to more resources:</p>
+    <div class="before__links">
+      <a href="https://getshtdonehq.com/" target="_blank" rel="noopener">
+        <svg width="15" height="15" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6.5" stroke="#FF5C00" stroke-width="1.4"/><path d="M1.5 8H14.5M8 1.5C9.7 3.4 9.7 12.6 8 14.5M8 1.5C6.3 3.4 6.3 12.6 8 14.5" stroke="#FF5C00" stroke-width="1.4"/></svg>
+        <span class="linklabel">Subscribe to us:</span>&nbsp;getshtdonehq.com
+      </a>
+      <a href="https://www.facebook.com/JanaTandoc14" target="_blank" rel="noopener">
+        <svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M10.5 4.5H9.2c-.5 0-.95.45-.95 1V7h2.25l-.3 2.25H8.25V14.5h-2.3V9.25H4.5V7h1.45V5.3C5.95 3.4 7.15 2.5 8.85 2.5c.85 0 1.65.1 1.65.1V4.5z" fill="#FF5C00"/></svg>
+        <span class="linklabel">Follow our Facebook:</span>&nbsp;facebook.com/JanaTandoc14
+      </a>
+      <a href="https://calendly.com/jcaycotandoc14/30min" target="_blank" rel="noopener">
+        <svg width="15" height="15" viewBox="0 0 16 16" fill="none"><rect x="2" y="3" width="12" height="11" rx="1.5" stroke="#FF5C00" stroke-width="1.4"/><path d="M2 6.5H14M5 1.5V4M11 1.5V4" stroke="#FF5C00" stroke-width="1.4" stroke-linecap="round"/></svg>
+        <span class="linklabel">Book a full services call:</span>&nbsp;Calendly
+      </a>
+    </div>
+  </div>
+</div>
+
+<div class="infoblock">
+  <div class="infoblock__card">
+    <div class="infoblock__title">✨ What You Can Expect</div>
+    <p class="infotext">Once selected, you'll also get:</p>
+    <ul class="expect__list">
+      <li><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M13.5 4L6 11.5L2.5 8" stroke="#FF5C00" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg> A 20-minute walkthrough call where we explain your website design, messaging, and strategy</li>
+      <li><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M13.5 4L6 11.5L2.5 8" stroke="#FF5C00" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg> Feedback + testimonial opportunity (this helps us build stronger social proof)</li>
+      <li><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M13.5 4L6 11.5L2.5 8" stroke="#FF5C00" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg> A chance to be featured as part of a businesses-helping-businesses initiative</li>
+      <li><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M13.5 4L6 11.5L2.5 8" stroke="#FF5C00" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg> Free exposure through our portfolio website</li>
+    </ul>
+  </div>
+</div>
+
+<section class="formsection">
+  <div class="container">
+    <form id="gsdQuestionnaire">
+
+      <!-- Q1 -->
+      <div class="qgroup">
+        <div class="qlabel"><span class="qnum">1</span> Your Name<span class="qrequired">*</span></div>
+        <div class="qhint">Short answer</div>
+        <input type="text" name="q1_name" placeholder="Full name" required>
+      </div>
+
+      <!-- Q2 -->
+      <div class="qgroup">
+        <div class="qlabel"><span class="qnum">2</span> Best email or phone number<span class="qrequired">*</span></div>
+        <div class="qhint">WhatsApp/Viber if available</div>
+        <input type="text" name="q2_contact" placeholder="Email or phone number" required>
+      </div>
+
+      <!-- Q3 -->
+      <div class="qgroup">
+        <div class="qlabel"><span class="qnum">3</span> About your business<span class="qrequired">*</span></div>
+        <div class="qhint">Tell us what your business does in simple terms.</div>
+        <textarea name="q3_about" placeholder="We're a..." required></textarea>
+      </div>
+
+      <!-- Q4 -->
+      <div class="qgroup">
+        <div class="qlabel"><span class="qnum">4</span> Location<span class="qrequired">*</span></div>
+        <div class="qhint">Where is your business based?</div>
+        <input type="text" name="q4_location" placeholder="City, Province / Country" required>
+      </div>
+
+      <!-- Q5 -->
+      <div class="qgroup">
+        <div class="qlabel"><span class="qnum">5</span> Business Goals / Mission / Vision<span class="qrequired">*</span></div>
+        <div class="qhint">What best describes your business journey? (Select all that apply)</div>
+        <div class="optionlist">
+          <label class="option"><input type="checkbox" name="q5_journey" value="Driven by passion"><span>Driven by passion</span></label>
+          <label class="option"><input type="checkbox" name="q5_journey" value="Saw a trend/opportunity"><span>I saw a trend and opportunity in this industry</span></label>
+          <label class="option"><input type="checkbox" name="q5_journey" value="Identified a problem"><span>I identified a problem I wanted to solve</span></label>
+          <label class="option"><input type="checkbox" name="q5_journey" value="Family business"><span>I'm continuing / managing a family business</span></label>
+          <label class="option has-other" data-other-toggle>
+            <input type="checkbox" name="q5_journey" value="Other">
+            <span>Other</span>
+            <input type="text" class="other-input" name="q5_journey_other" placeholder="Tell us more">
+          </label>
+        </div>
+      </div>
+
+      <!-- Q6 -->
+      <div class="qgroup">
+        <div class="qlabel"><span class="qnum">6</span> Products or services you offer<span class="qrequired">*</span></div>
+        <div class="qhint">Include everything you sell or provide (services, packages, digital products, etc.)</div>
+        <textarea name="q6_offers" placeholder="List everything you offer..." required></textarea>
+      </div>
+
+      <!-- Q7 -->
+      <div class="qgroup">
+        <div class="qlabel"><span class="qnum">7</span> Pricing<span class="qoptional">Optional</span></div>
+        <div class="qhint">If you have fixed prices or packages, you can include them here.</div>
+        <textarea name="q7_pricing" placeholder="e.g. Starter package — ₱X..."></textarea>
+      </div>
+
+      <!-- Q8 -->
+      <div class="qgroup">
+        <div class="qlabel"><span class="qnum">8</span> Current challenges in your business<span class="qrequired">*</span></div>
+        <div class="qhint">What are you struggling with right now? (Select all that apply)</div>
+        <div class="optionlist">
+          <label class="option"><input type="checkbox" name="q8_challenges" value="Getting more customers"><span>Getting more customers</span></label>
+          <label class="option"><input type="checkbox" name="q8_challenges" value="Retaining existing customers"><span>Retaining existing customers</span></label>
+          <label class="option"><input type="checkbox" name="q8_challenges" value="Not enough visibility"><span>Not enough people seeing my business</span></label>
+          <label class="option"><input type="checkbox" name="q8_challenges" value="Slow response to inquiries"><span>Slow response to inquiries/messages</span></label>
+          <label class="option has-other" data-other-toggle>
+            <input type="checkbox" name="q8_challenges" value="Other">
+            <span>Other</span>
+            <input type="text" class="other-input" name="q8_challenges_other" placeholder="Tell us more">
+          </label>
+        </div>
+      </div>
+
+      <!-- Q9 -->
+      <div class="qgroup">
+        <div class="qlabel"><span class="qnum">9</span> What assets do you already have?<span class="qrequired">*</span></div>
+        <div class="qhint">Select all that apply</div>
+        <div class="optionlist">
+          <label class="option"><input type="checkbox" name="q9_assets" value="Logo"><span>Logo</span></label>
+          <label class="option"><input type="checkbox" name="q9_assets" value="Facebook Page"><span>Facebook Page</span></label>
+          <label class="option"><input type="checkbox" name="q9_assets" value="Google My Business"><span>Google My Business</span></label>
+          <label class="option"><input type="checkbox" name="q9_assets" value="Automated replies"><span>Automated replies</span></label>
+          <label class="option"><input type="checkbox" name="q9_assets" value="Sales follow-up sequences"><span>Sales follow-up sequences</span></label>
+          <label class="option"><input type="checkbox" name="q9_assets" value="Landing page"><span>Landing page</span></label>
+          <label class="option"><input type="checkbox" name="q9_assets" value="Checkout page"><span>Checkout page</span></label>
+          <label class="option"><input type="checkbox" name="q9_assets" value="Thank you page"><span>Thank you page</span></label>
+          <label class="option"><input type="checkbox" name="q9_assets" value="Content calendar"><span>Content calendar</span></label>
+          <label class="option"><input type="checkbox" name="q9_assets" value="Opt-in page"><span>Opt-in page</span></label>
+          <label class="option"><input type="checkbox" name="q9_assets" value="None yet" id="q9-none"><span>None yet</span></label>
+        </div>
+      </div>
+
+      <!-- Q10 -->
+      <div class="qgroup">
+        <div class="qlabel"><span class="qnum">10</span> What do you want people to do when they visit your website?<span class="qrequired">*</span></div>
+        <div class="qhint">Multiple choice</div>
+        <div class="optionlist">
+          <label class="option"><input type="radio" name="q10_goal" value="Contact or message directly" required><span>Contact or message me directly</span></label>
+          <label class="option"><input type="radio" name="q10_goal" value="Book an appointment"><span>Book an appointment</span></label>
+          <label class="option"><input type="radio" name="q10_goal" value="Buy products/services"><span>Buy products/services</span></label>
+          <label class="option"><input type="radio" name="q10_goal" value="Build trust and credibility"><span>Just build trust and credibility</span></label>
+          <label class="option has-other" data-other-toggle>
+            <input type="radio" name="q10_goal" value="Other">
+            <span>Other</span>
+            <input type="text" class="other-input" name="q10_goal_other" placeholder="Tell us more">
+          </label>
+        </div>
+      </div>
+
+      <!-- Q11 -->
+      <div class="qgroup">
+        <div class="qlabel"><span class="qnum">11</span> Do you already own a domain?<span class="qrequired">*</span></div>
+        <div class="qhint">e.g. yourbusiness.com — Multiple choice</div>
+        <div class="optionlist">
+          <label class="option"><input type="radio" name="q11_domain" value="Yes" id="q11-yes" required><span>Yes</span></label>
+          <label class="option"><input type="radio" name="q11_domain" value="No" id="q11-no"><span>No</span></label>
+          <label class="option"><input type="radio" name="q11_domain" value="Not sure" id="q11-notsure"><span>Not sure</span></label>
+        </div>
+        <div id="q11a-wrap">
+          <div class="qlabel" style="font-size:14.5px; margin-top:4px;">11a. If yes, please write your domain<span class="qoptional">Optional</span></div>
+          <input type="text" name="q11a_domain_name" placeholder="yourbusiness.com">
+        </div>
+      </div>
+
+      <!-- Q12 -->
+      <div class="qgroup">
+        <div class="qlabel"><span class="qnum">12</span> Social media links<span class="qoptional">Optional</span></div>
+        <div class="qhint">Facebook, Instagram, TikTok, etc.</div>
+        <textarea name="q12_social" placeholder="Paste your social media links here..."></textarea>
+      </div>
+
+      <!-- Q13 -->
+      <div class="qgroup">
+        <div class="qlabel"><span class="qnum">13</span> Google Drive Folder<span class="qoptional">Optional</span></div>
+        <div class="qhint">Assets upload link</div>
+        <div class="drivecard">
+          Please upload your:
+          <ul>
+            <li>Logo</li>
+            <li>Brand colors</li>
+            <li>Photos/videos</li>
+            <li>Testimonials</li>
+          </ul>
+        </div>
+        <input type="url" name="q13_drive_link" placeholder="Paste your Google Drive link here">
+      </div>
+
+      <!-- Q14 -->
+      <div class="qgroup">
+        <div class="qlabel"><span class="qnum">14</span> Anything else we should know?<span class="qoptional">Optional</span></div>
+        <div class="qhint">Share anything that will help us design better for your business.</div>
+        <textarea name="q14_other" placeholder="Anything else..."></textarea>
+      </div>
+
+      <div class="submitwrap">
+        <button type="submit" class="submit-btn">
+          Submit My Application
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M4 9H14M14 9L9.5 4.5M14 9L9.5 13.5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <p>We'll review your application and reach out within a few days.</p>
+      </div>
+
+    </form>
+  </div>
+</section>
+
+<footer>
+  © 2026 GetSh*tDone HQ. All rights reserved. · getshtdonehq.com
+</footer>
+
+<script>
+// Prefill Name + Contact from the opt-in page so they don't retype it
+(function(){
+  var params = new URLSearchParams(window.location.search);
+  var name = params.get('name');
+  var email = params.get('email');
+  var phone = params.get('phone');
+  if (name) document.querySelector('input[name="q1_name"]').value = decodeURIComponent(name);
+  if (email || phone) {
+    var contact = email ? decodeURIComponent(email) : decodeURIComponent(phone);
+    document.querySelector('input[name="q2_contact"]').value = contact;
+  }
+})();
+
+// "Other" text field reveal for checkbox/radio options
+document.querySelectorAll('[data-other-toggle]').forEach(function(option){
+  var input = option.querySelector('input[type="checkbox"], input[type="radio"]');
+  input.addEventListener('change', function(){
+    if (input.type === 'radio') {
+      // clear sibling "other-active" states within the same group
+      document.querySelectorAll('input[name="' + input.name + '"]').forEach(function(sibling){
+        var parentOption = sibling.closest('.option');
+        if (parentOption && parentOption !== option) parentOption.classList.remove('other-active');
+      });
+    }
+    option.classList.toggle('other-active', input.checked);
+  });
+});
+
+// Q9 "None yet" should clear other checkboxes in that group, and vice versa
+var q9None = document.getElementById('q9-none');
+var q9Others = document.querySelectorAll('input[name="q9_assets"]:not(#q9-none)');
+q9None.addEventListener('change', function(){
+  if (q9None.checked) q9Others.forEach(function(cb){ cb.checked = false; });
+});
+q9Others.forEach(function(cb){
+  cb.addEventListener('change', function(){
+    if (cb.checked) q9None.checked = false;
+  });
+});
+
+// Q11 conditional reveal of 11a
+var q11Wrap = document.getElementById('q11a-wrap');
+document.querySelectorAll('input[name="q11_domain"]').forEach(function(radio){
+  radio.addEventListener('change', function(){
+    q11Wrap.classList.toggle('show', document.getElementById('q11-yes').checked);
+  });
+});
+
+// Form submit -> redirect to Calendly / thank-you (placeholder action)
+document.getElementById('gsdQuestionnaire').addEventListener('submit', function(e){
+  e.preventDefault();
+  // TODO: wire this to your Systeme.io / Notion / Sheets endpoint
+  alert("Thanks! Your application has been received. We'll be in touch within a few days.");
+});
+</script>
+
+</body>
+</html>
