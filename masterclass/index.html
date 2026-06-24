@@ -1,0 +1,1961 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The AI Strategist Masterclass — Get Sh*t Done HQ</title>
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="../assets/favicon-32.png"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --orange: #ff5c00;
+        --orange-hover: #ff8533;
+        --orange-pale: #ffe8d6;
+        --midnight: #1e1e2e;
+        --obsidian: #1a1a1a;
+        --cream: #f5f0eb;
+        --white: #ffffff;
+        --ink-60: #888888;
+        --ink-40: #bbbbbb;
+        --green: #14b87a;
+        --line: rgba(0, 0, 0, 0.08);
+        --font-display: "Bebas Neue", Impact, sans-serif;
+        --font-ui: "Outfit", "Helvetica Neue", Arial, sans-serif;
+        --r: 12px;
+        --r-lg: 20px;
+        --r-xl: 28px;
+        --trans: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        background: var(--white);
+        color: var(--obsidian);
+        font-family: var(--font-ui);
+        font-size: 17px;
+        line-height: 1.65;
+        -webkit-font-smoothing: antialiased;
+        overflow-x: hidden;
+      }
+      img {
+        max-width: 100%;
+        display: block;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      ul {
+        list-style: none;
+      }
+      .wrap {
+        width: 100%;
+        max-width: 1180px;
+        margin: 0 auto;
+        padding: 0 32px;
+      }
+      .sec {
+        padding: clamp(64px, 9vw, 128px) 0;
+        position: relative;
+        overflow: hidden;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4 {
+        letter-spacing: -0.01em;
+      }
+      .display {
+        font-family: var(--font-display);
+        text-transform: uppercase;
+        line-height: 0.9;
+        letter-spacing: 0.015em;
+        font-weight: 400;
+      }
+
+      /* ---- eyebrow ---- */
+      .eyebrow {
+        display: inline-block;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--orange);
+        background: var(--orange-pale);
+        padding: 7px 15px;
+        border-radius: 100px;
+      }
+      .eyebrow--on-dark {
+        background: rgba(255, 92, 0, 0.16);
+      }
+      .eyebrow--on-orange {
+        background: rgba(0, 0, 0, 0.16);
+        color: var(--white);
+      }
+
+      /* ---- buttons ---- */
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        background: var(--orange);
+        color: var(--white);
+        font-family: var(--font-ui);
+        font-weight: 700;
+        font-size: 16px;
+        letter-spacing: 0.01em;
+        padding: 16px 30px;
+        border: none;
+        border-radius: 100px;
+        cursor: pointer;
+        transition:
+          transform 0.25s,
+          box-shadow 0.25s,
+          background 0.25s;
+      }
+      .btn .arr {
+        transition: transform 0.25s;
+      }
+      .btn:hover {
+        background: var(--orange-hover);
+        transform: translateY(-2px);
+        box-shadow: 0 12px 32px rgba(255, 92, 0, 0.4);
+      }
+      .btn:hover .arr {
+        transform: translateX(5px);
+      }
+      .btn:active {
+        transform: translateY(0);
+      }
+      .btn-ghost {
+        background: transparent;
+        color: var(--obsidian);
+        border: 2px solid var(--obsidian);
+      }
+      .btn-ghost:hover {
+        background: var(--obsidian);
+        color: var(--white);
+        box-shadow: none;
+      }
+      .btn-dark {
+        background: var(--midnight);
+      }
+      .btn-dark:hover {
+        background: #2a2a3e;
+        box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
+      }
+
+      /* ---- top nav ---- */
+      .nav {
+        position: sticky;
+        top: 0;
+        z-index: 60;
+        background: rgba(26, 26, 26, 0.9);
+        backdrop-filter: blur(18px);
+        -webkit-backdrop-filter: blur(18px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      }
+      .nav-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        padding: 12px 32px;
+        max-width: 1180px;
+        margin: 0 auto;
+      }
+      .nav-logo {
+        height: 26px;
+        width: auto;
+      }
+      .nav-right {
+        display: flex;
+        align-items: center;
+        gap: 22px;
+      }
+      .nav-timer {
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.55);
+        display: flex;
+        align-items: center;
+        gap: 9px;
+      }
+      .nav-timer b {
+        font-family: var(--font-display);
+        font-size: 17px;
+        letter-spacing: 0.08em;
+        color: var(--orange);
+        font-weight: 400;
+      }
+      .dot {
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: var(--orange);
+        box-shadow: 0 0 0 0 rgba(255, 92, 0, 0.6);
+        animation: pulse 2s infinite;
+      }
+      @keyframes pulse {
+        0% {
+          box-shadow: 0 0 0 0 rgba(255, 92, 0, 0.55);
+        }
+        70% {
+          box-shadow: 0 0 0 8px rgba(255, 92, 0, 0);
+        }
+        100% {
+          box-shadow: 0 0 0 0 rgba(255, 92, 0, 0);
+        }
+      }
+      .nav .btn {
+        padding: 11px 22px;
+        font-size: 14px;
+      }
+      @media (max-width: 680px) {
+        .nav-timer {
+          display: none;
+        }
+      }
+
+      /* ---- hero ---- */
+      .hero {
+        background: var(--cream);
+        border-bottom: 1px solid var(--line);
+        position: relative;
+      }
+      .hero__ghost {
+        position: absolute;
+        right: -40px;
+        bottom: -90px;
+        font-family: var(--font-display);
+        font-size: clamp(180px, 30vw, 460px);
+        color: rgba(255, 92, 0, 0.05);
+        line-height: 0.8;
+        letter-spacing: 0.04em;
+        pointer-events: none;
+        user-select: none;
+        z-index: 0;
+      }
+      .hero-grid {
+        display: grid;
+        grid-template-columns: 1.12fr 0.88fr;
+        gap: 56px;
+        align-items: center;
+        position: relative;
+        z-index: 2;
+      }
+      .hero h1 {
+        font-family: var(--font-display);
+        text-transform: uppercase;
+        font-size: clamp(52px, 8vw, 108px);
+        line-height: 0.86;
+        letter-spacing: 0.015em;
+        margin: 22px 0 0;
+        font-weight: 400;
+      }
+      .hero h1 .hl {
+        color: var(--orange);
+      }
+      .hero .lede {
+        font-size: clamp(17px, 2vw, 20px);
+        color: var(--ink-60);
+        margin: 26px 0 32px;
+        max-width: 40ch;
+        line-height: 1.65;
+      }
+      .hero-cta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px;
+        align-items: center;
+      }
+      .hero-trust {
+        margin-top: 30px;
+        font-size: 13px;
+        font-weight: 600;
+        letter-spacing: 0.03em;
+        color: var(--ink-60);
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px 22px;
+      }
+      .hero-trust span {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .hero-trust span::before {
+        content: "";
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        background: var(--green);
+        flex: none;
+        -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M5 12.5l4.2 4.2L19 7' fill='none' stroke='%23000' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")
+          center/14px no-repeat;
+        mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M5 12.5l4.2 4.2L19 7' fill='none' stroke='%23000' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")
+          center/14px no-repeat;
+      }
+      .hero em {
+        font-style: normal;
+        font-weight: 700;
+        color: var(--midnight);
+      }
+
+      .reveal {
+        opacity: 0;
+        transform: translateY(16px);
+        animation: rise 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
+      }
+      .reveal.d1 {
+        animation-delay: 0.05s;
+      }
+      .reveal.d2 {
+        animation-delay: 0.14s;
+      }
+      .reveal.d3 {
+        animation-delay: 0.24s;
+      }
+      .reveal.d4 {
+        animation-delay: 0.34s;
+      }
+      @keyframes rise {
+        to {
+          opacity: 1;
+          transform: none;
+        }
+      }
+
+      /* hero side card = enrollment console */
+      .console {
+        background: var(--midnight);
+        color: var(--white);
+        border-radius: var(--r-xl);
+        padding: 30px;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        box-shadow: 0 40px 80px -40px rgba(0, 0, 0, 0.6);
+      }
+      .console-top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        padding-bottom: 16px;
+        margin-bottom: 20px;
+      }
+      .console-top .tag {
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.45);
+      }
+      .console-top .live {
+        display: flex;
+        align-items: center;
+        gap: 7px;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--orange);
+      }
+      .console h3 {
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        color: rgba(255, 255, 255, 0.45);
+        text-transform: uppercase;
+      }
+      .clock {
+        display: flex;
+        flex-direction: column;
+        gap: 9px;
+        margin: 16px 0 22px;
+      }
+      .clock-row {
+        display: flex;
+        gap: 9px;
+      }
+      .clock .unit {
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 14px;
+        padding: 14px 6px;
+        text-align: center;
+      }
+      .clock-row .unit {
+        flex: 1;
+      }
+      .clock .num {
+        font-family: var(--font-display);
+        font-size: clamp(26px, 4vw, 42px);
+        color: var(--white);
+        line-height: 1;
+        letter-spacing: 0.04em;
+      }
+      .clock .lbl {
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 0.14em;
+        color: rgba(255, 255, 255, 0.4);
+        margin-top: 8px;
+        text-transform: uppercase;
+      }
+      .price-row {
+        display: flex;
+        align-items: baseline;
+        gap: 13px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        padding-top: 18px;
+      }
+      .price-now {
+        font-family: var(--font-display);
+        font-size: 50px;
+        color: var(--orange);
+        letter-spacing: 0.02em;
+        line-height: 0.9;
+      }
+      .price-was {
+        font-size: 16px;
+        font-weight: 600;
+        color: rgba(255, 255, 255, 0.45);
+        text-decoration: line-through;
+      }
+      .price-note {
+        font-size: 12px;
+        font-weight: 500;
+        color: rgba(255, 255, 255, 0.5);
+        margin-top: 9px;
+        line-height: 1.5;
+      }
+      .console .btn {
+        width: 100%;
+        margin-top: 20px;
+      }
+
+      /* ---- generic section heads ---- */
+      .sec-eyebrow {
+        margin-bottom: 18px;
+      }
+      .sec-title {
+        font-family: var(--font-display);
+        text-transform: uppercase;
+        font-size: clamp(34px, 5vw, 64px);
+        line-height: 0.92;
+        letter-spacing: 0.02em;
+        font-weight: 400;
+        max-width: 20ch;
+      }
+      .sec-sub {
+        color: var(--ink-60);
+        max-width: 54ch;
+        margin-top: 16px;
+        font-size: 17px;
+      }
+
+      /* ---- for who ---- */
+      .forwho {
+        background: var(--white);
+      }
+      .check-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 18px;
+        margin-top: 44px;
+      }
+      .check {
+        display: flex;
+        gap: 16px;
+        background: var(--white);
+        border: 2px solid var(--line);
+        border-radius: var(--r-lg);
+        padding: 24px;
+        transition: var(--trans);
+      }
+      .check:hover {
+        border-color: var(--orange);
+        transform: translateY(-4px);
+        box-shadow: 6px 6px 0 var(--orange);
+      }
+      .check .ic {
+        flex: none;
+        font-family: var(--font-display);
+        font-size: 38px;
+        line-height: 0.8;
+        color: var(--orange);
+      }
+      .check p {
+        font-size: 16px;
+        color: #444;
+        line-height: 1.55;
+      }
+      .check em {
+        font-style: normal;
+        color: var(--obsidian);
+        font-weight: 700;
+      }
+      @media (max-width: 640px) {
+        .check-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* ---- the shift (before/after) ---- */
+      .shift {
+        background: var(--cream);
+      }
+      .ba {
+        display: grid;
+        grid-template-columns: 1fr 70px 1fr;
+        gap: 0;
+        align-items: stretch;
+        margin-top: 44px;
+      }
+      .ba .col {
+        border-radius: var(--r-xl);
+        padding: 34px;
+      }
+      .ba .before {
+        background: var(--white);
+        border: 2px solid var(--line);
+      }
+      .ba .after {
+        background: var(--midnight);
+        color: var(--white);
+      }
+      .ba .col h4 {
+        font-family: var(--font-display);
+        font-size: 26px;
+        letter-spacing: 0.05em;
+        margin-bottom: 22px;
+        text-transform: uppercase;
+      }
+      .ba .before h4 {
+        color: var(--ink-60);
+      }
+      .ba .after h4 {
+        color: var(--orange);
+      }
+      .ba ul {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+      }
+      .ba li {
+        display: flex;
+        gap: 13px;
+        font-size: 16px;
+        align-items: flex-start;
+        line-height: 1.45;
+      }
+      .ba .before li {
+        color: #555;
+      }
+      .ba .after li {
+        color: rgba(255, 255, 255, 0.92);
+      }
+      .ba li::before {
+        font-family: var(--font-display);
+        font-size: 18px;
+        line-height: 1.2;
+        flex: none;
+      }
+      .ba .before li::before {
+        content: "—";
+        color: var(--ink-40);
+      }
+      .ba .after li::before {
+        content: "→";
+        color: var(--orange);
+      }
+      .ba .after em {
+        font-style: normal;
+        color: var(--orange);
+        font-weight: 600;
+      }
+      .ba .arrow {
+        display: grid;
+        place-items: center;
+      }
+      .ba .arrow span {
+        font-family: var(--font-display);
+        font-size: 30px;
+        color: var(--orange);
+      }
+      @media (max-width: 760px) {
+        .ba {
+          grid-template-columns: 1fr;
+        }
+        .ba .arrow {
+          padding: 10px 0;
+        }
+        .ba .arrow span {
+          transform: rotate(90deg);
+        }
+      }
+
+      /* ---- briefing / 5-day (midnight) ---- */
+      .brief {
+        background: var(--midnight);
+        color: var(--white);
+      }
+      .brief .sec-title {
+        color: var(--white);
+      }
+      .brief .sec-sub {
+        color: rgba(255, 255, 255, 0.6);
+      }
+      .days {
+        margin-top: 44px;
+      }
+      .day {
+        display: grid;
+        grid-template-columns: 96px 1fr auto;
+        gap: 26px;
+        align-items: center;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 26px 8px;
+        transition:
+          background 0.2s,
+          padding-left 0.2s;
+      }
+      .day:last-child {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      .day:hover {
+        background: rgba(255, 92, 0, 0.07);
+        padding-left: 18px;
+      }
+      .day .no {
+        font-family: var(--font-display);
+        font-size: 34px;
+        color: var(--orange);
+        letter-spacing: 0.04em;
+        line-height: 0.9;
+      }
+      .day .no small {
+        display: block;
+        font-size: 11px;
+        letter-spacing: 0.16em;
+        color: rgba(255, 255, 255, 0.4);
+        font-family: var(--font-ui);
+        font-weight: 700;
+      }
+      .day .body h3 {
+        font-size: 21px;
+        font-weight: 800;
+        color: var(--white);
+        margin-bottom: 6px;
+        letter-spacing: -0.01em;
+      }
+      .day .body p {
+        color: rgba(255, 255, 255, 0.6);
+        font-size: 15px;
+        max-width: 58ch;
+      }
+      .day .out {
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.4);
+        text-align: right;
+        max-width: 180px;
+      }
+      .day .out b {
+        font-family: var(--font-display);
+        font-size: 19px;
+        letter-spacing: 0.04em;
+        color: var(--white);
+        display: block;
+        font-weight: 400;
+        text-transform: none;
+        margin-top: 5px;
+      }
+      @media (max-width: 720px) {
+        .day {
+          grid-template-columns: 64px 1fr;
+          gap: 16px;
+        }
+        .day .out {
+          grid-column: 1/-1;
+          text-align: left;
+          max-width: none;
+          margin-top: 6px;
+          padding-left: 80px;
+        }
+      }
+
+      /* ---- arsenal ---- */
+      .arsenal {
+        background: var(--white);
+      }
+      .kit {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 18px;
+        margin-top: 44px;
+      }
+      .kit .item {
+        background: var(--white);
+        border: 2px solid var(--line);
+        border-radius: var(--r-lg);
+        padding: 26px 24px;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        transition: var(--trans);
+      }
+      .kit .item:hover {
+        border-color: var(--orange);
+        transform: translateY(-4px);
+        box-shadow: 6px 6px 0 var(--orange);
+      }
+      .kit .item .n {
+        font-family: var(--font-display);
+        font-size: 15px;
+        color: var(--orange);
+        letter-spacing: 0.14em;
+      }
+      .kit .item h4 {
+        font-size: 18px;
+        font-weight: 800;
+        letter-spacing: -0.01em;
+      }
+      .kit .item p {
+        font-size: 14px;
+        color: var(--ink-60);
+        line-height: 1.55;
+      }
+      @media (max-width: 820px) {
+        .kit {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+      @media (max-width: 520px) {
+        .kit {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* ---- offer / secure ---- */
+      .offer {
+        background: var(--cream);
+      }
+      .offer-card {
+        background: var(--midnight);
+        color: var(--white);
+        border-radius: var(--r-xl);
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        box-shadow: 0 50px 100px -50px rgba(0, 0, 0, 0.6);
+        max-width: 940px;
+        margin: 0 auto;
+      }
+      .offer-head {
+        padding: 40px 38px 30px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        text-align: center;
+      }
+      .offer-head h2 {
+        font-family: var(--font-display);
+        text-transform: uppercase;
+        font-size: clamp(30px, 4vw, 48px);
+        color: var(--white);
+        margin-top: 16px;
+        line-height: 0.94;
+        letter-spacing: 0.02em;
+        font-weight: 400;
+        max-width: 18ch;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .deadline {
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.45);
+        margin: 28px 0 12px;
+      }
+      .clock.big {
+        max-width: 420px;
+        margin: 0 auto 4px;
+      }
+      .offer-body {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+      }
+      .offer-left {
+        padding: 34px 38px;
+        border-right: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      .offer-left .st {
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.14em;
+        color: var(--orange);
+        text-transform: uppercase;
+        margin-bottom: 20px;
+      }
+      .stack {
+        display: flex;
+        flex-direction: column;
+        gap: 13px;
+      }
+      .stack li {
+        display: flex;
+        justify-content: space-between;
+        gap: 14px;
+        align-items: baseline;
+        border-bottom: 1px dashed rgba(255, 255, 255, 0.14);
+        padding-bottom: 12px;
+        font-size: 14.5px;
+        color: rgba(255, 255, 255, 0.85);
+      }
+      .stack li .v {
+        font-size: 13px;
+        font-weight: 600;
+        color: rgba(255, 255, 255, 0.5);
+        white-space: nowrap;
+      }
+      .stack .total {
+        border-bottom: none;
+        font-weight: 700;
+        padding-top: 4px;
+        color: var(--white);
+      }
+      .stack .total .v {
+        font-family: var(--font-display);
+        font-size: 20px;
+        color: var(--white);
+        text-decoration: line-through;
+        letter-spacing: 0.02em;
+      }
+      .offer-right {
+        padding: 34px 38px;
+        display: flex;
+        flex-direction: column;
+      }
+      .priceblock {
+        text-align: center;
+        margin-bottom: 6px;
+      }
+      .priceblock .was {
+        color: rgba(255, 255, 255, 0.5);
+        text-decoration: line-through;
+        font-size: 16px;
+        font-weight: 600;
+      }
+      .priceblock .now {
+        font-family: var(--font-display);
+        font-size: clamp(56px, 9vw, 80px);
+        color: var(--orange);
+        letter-spacing: 0.02em;
+        line-height: 0.85;
+        margin-top: 4px;
+      }
+      .priceblock .terms {
+        font-size: 11.5px;
+        font-weight: 500;
+        color: rgba(255, 255, 255, 0.5);
+        margin-top: 12px;
+        letter-spacing: 0.03em;
+      }
+      .field {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        margin-top: 16px;
+      }
+      .field-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 14px;
+        margin-top: 16px;
+      }
+      .field-row .field {
+        margin-top: 0;
+      }
+      @media (max-width: 420px) {
+        .field-row {
+          grid-template-columns: 1fr;
+        }
+      }
+      .field label {
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.5);
+      }
+      .field input {
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        border-radius: 12px;
+        color: var(--white);
+        font-family: var(--font-ui);
+        font-size: 15px;
+        padding: 13px 15px;
+        transition: border 0.2s;
+      }
+      .field input:focus {
+        outline: none;
+        border-color: var(--orange);
+      }
+      .field input::placeholder {
+        color: rgba(255, 255, 255, 0.35);
+      }
+      .err {
+        color: #ff8a63;
+        font-size: 12px;
+        font-weight: 600;
+        min-height: 14px;
+        margin-top: 4px;
+      }
+      .offer-right .btn {
+        width: 100%;
+        margin-top: 12px;
+        font-size: 17px;
+        padding: 18px;
+      }
+      .guarantee {
+        font-size: 11.5px;
+        font-weight: 500;
+        color: rgba(255, 255, 255, 0.5);
+        text-align: center;
+        margin-top: 16px;
+        line-height: 1.6;
+      }
+      .success {
+        display: none;
+        background: rgba(20, 184, 122, 0.14);
+        border: 1px solid var(--green);
+        border-radius: 12px;
+        padding: 14px;
+        margin-top: 14px;
+        font-size: 13.5px;
+        color: var(--white);
+        text-align: center;
+      }
+      @media (max-width: 760px) {
+        .offer-body {
+          grid-template-columns: 1fr;
+        }
+        .offer-left {
+          border-right: none;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+      }
+
+      /* ---- founder ---- */
+      .founder {
+        background: var(--white);
+      }
+      .founder-grid {
+        display: grid;
+        grid-template-columns: 0.82fr 1.18fr;
+        gap: 48px;
+        align-items: center;
+      }
+      .founder .photo {
+        aspect-ratio: 1;
+        background: var(--midnight);
+        border-radius: var(--r-xl);
+        display: grid;
+        place-items: center;
+        text-align: center;
+        padding: 24px;
+        position: relative;
+        overflow: hidden;
+      }
+      .founder .photo::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image: repeating-linear-gradient(
+          135deg,
+          rgba(255, 255, 255, 0.03) 0 12px,
+          transparent 12px 24px
+        );
+      }
+      .founder .photo span {
+        position: relative;
+        z-index: 1;
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.4);
+      }
+      .founder .photo span b {
+        font-family: var(--font-display);
+        display: block;
+        font-size: 30px;
+        letter-spacing: 0.06em;
+        color: rgba(255, 92, 0, 0.6);
+        font-weight: 400;
+        margin-bottom: 8px;
+      }
+      .founder h2 {
+        font-family: var(--font-display);
+        text-transform: uppercase;
+        font-size: clamp(30px, 4vw, 52px);
+        margin: 16px 0 18px;
+        line-height: 0.94;
+        letter-spacing: 0.02em;
+        font-weight: 400;
+      }
+      .founder p {
+        color: var(--ink-60);
+        margin-bottom: 16px;
+        max-width: 56ch;
+        font-size: 16px;
+      }
+      .founder p strong {
+        color: var(--obsidian);
+      }
+      @media (max-width: 740px) {
+        .founder-grid {
+          grid-template-columns: 1fr;
+          gap: 30px;
+        }
+        .founder .photo {
+          max-width: 260px;
+        }
+      }
+
+      /* ---- faq ---- */
+      .faq {
+        background: var(--cream);
+      }
+      details {
+        border-top: 1px solid var(--line);
+        padding: 22px 4px;
+      }
+      details:last-of-type {
+        border-bottom: 1px solid var(--line);
+      }
+      summary {
+        font-size: 18px;
+        font-weight: 700;
+        cursor: pointer;
+        list-style: none;
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+        align-items: center;
+        letter-spacing: -0.01em;
+      }
+      summary::-webkit-details-marker {
+        display: none;
+      }
+      summary .pm {
+        font-family: var(--font-display);
+        font-size: 30px;
+        color: var(--orange);
+        flex: none;
+        line-height: 0.7;
+        transition: transform 0.25s;
+      }
+      details[open] summary .pm {
+        transform: rotate(45deg);
+      }
+      details p {
+        color: var(--ink-60);
+        font-size: 16px;
+        margin-top: 14px;
+        max-width: 64ch;
+      }
+
+      /* ---- marquee ---- */
+      .marquee {
+        background: var(--obsidian);
+        overflow: hidden;
+        padding: 18px 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.06);
+      }
+      .marquee__track {
+        display: flex;
+        gap: 30px;
+        width: max-content;
+        white-space: nowrap;
+        animation: ticker 28s linear infinite;
+      }
+      .marquee__track span {
+        font-family: var(--font-display);
+        font-size: 22px;
+        letter-spacing: 0.08em;
+        color: rgba(255, 255, 255, 0.65);
+        text-transform: uppercase;
+      }
+      .marquee__track .sep {
+        color: var(--orange);
+      }
+      @keyframes ticker {
+        from {
+          transform: translateX(0);
+        }
+        to {
+          transform: translateX(-50%);
+        }
+      }
+
+      /* ---- final cta (orange) ---- */
+      .finalcta {
+        background: var(--orange);
+        color: var(--white);
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+      .finalcta__ghost {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        font-family: var(--font-display);
+        font-size: clamp(120px, 24vw, 360px);
+        color: rgba(0, 0, 0, 0.07);
+        white-space: nowrap;
+        pointer-events: none;
+        z-index: 0;
+      }
+      .finalcta .wrap {
+        position: relative;
+        z-index: 2;
+      }
+      .finalcta h2 {
+        font-family: var(--font-display);
+        text-transform: uppercase;
+        font-size: clamp(40px, 7vw, 92px);
+        line-height: 0.88;
+        letter-spacing: 0.02em;
+        max-width: 16ch;
+        margin: 14px auto 12px;
+        font-weight: 400;
+      }
+      .finalcta p {
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        margin-bottom: 30px;
+        color: rgba(0, 0, 0, 0.55);
+      }
+
+      /* ---- footer ---- */
+      .footer {
+        background: var(--obsidian);
+        color: rgba(255, 255, 255, 0.45);
+        font-size: 13px;
+        position: relative;
+        overflow: hidden;
+      }
+      .footer__ghost {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        font-family: var(--font-display);
+        font-size: clamp(80px, 18vw, 220px);
+        color: rgba(255, 92, 0, 0.05);
+        white-space: nowrap;
+        pointer-events: none;
+      }
+      .footer .wrap {
+        padding-top: 56px;
+        padding-bottom: 48px;
+        position: relative;
+        z-index: 1;
+      }
+      .footer__logo {
+        height: 38px;
+        margin-bottom: 20px;
+      }
+      .foot-links {
+        display: flex;
+        gap: 24px;
+        flex-wrap: wrap;
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        margin-top: 6px;
+      }
+      .foot-links a {
+        color: rgba(255, 255, 255, 0.5);
+      }
+      .foot-links a:hover {
+        color: var(--orange);
+      }
+      .disclaimer {
+        font-size: 11.5px;
+        line-height: 1.7;
+        color: rgba(255, 255, 255, 0.32);
+        max-width: 78ch;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        padding-top: 22px;
+        margin-top: 26px;
+      }
+
+      :focus-visible {
+        outline: 3px solid var(--orange);
+        outline-offset: 3px;
+        border-radius: 3px;
+      }
+      @media (prefers-reduced-motion: reduce) {
+        * {
+          animation: none !important;
+          transition: none !important;
+          scroll-behavior: auto !important;
+        }
+        .reveal {
+          opacity: 1;
+          transform: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- ============ NAV ============ -->
+    <nav class="nav">
+      <div class="nav-inner">
+        <a href="#top" aria-label="Get Sh*t Done HQ"
+          ><img
+            src="../assets/logo.png"
+            alt="Get Sh*t Done HQ"
+            class="nav-logo"
+        /></a>
+        <div class="nav-right">
+          <div class="nav-timer">
+            <span class="dot"></span>Early-bird closes
+            <b class="js-clock-compact">0d 00:00:00</b>
+          </div>
+          <a href="#secure" class="btn">Grab my seat</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- ============ HERO ============ -->
+    <header class="hero sec" id="top">
+      <div class="hero__ghost" aria-hidden="true">EXECUTE</div>
+      <div class="wrap hero-grid">
+        <div>
+          <span class="eyebrow reveal d1"
+            >5-Day Live Masterclass · Claude AI</span
+          >
+          <h1 class="reveal d2">
+            Become the One <br /><span class="hl"
+              >They Can't Afford to Lose.</span
+            >
+          </h1>
+          <p class="lede reveal d3">
+            Five days. Fully live. Nothing pre-recorded. You'll build real
+            automations, your own AI agents, and learn to use APIs to connect
+            the tools your clients already rely on.
+            <em>Zero coding background needed.</em> You walk out with
+            plug-and-play templates you hand straight to clients and charge
+            premium rates, not hourly scraps. The best part? You just execute.
+            The manual grind ends here. 2026 is a different game.
+          </p>
+          <div class="hero-cta reveal d4">
+            <a href="#secure" class="btn"
+              >Lock in my ₱2,999 seat <span class="arr">&rarr;</span></a
+            >
+            <a href="#briefing" class="btn btn-ghost">See the 5-day plan</a>
+          </div>
+          <div class="hero-trust reveal d4">
+            <span>Built for business owners &amp; freelancers</span>
+            <span>Beginner-friendly</span>
+            <span>Replays included</span>
+          </div>
+        </div>
+
+        <aside class="console reveal d3" aria-label="Enrollment status">
+          <div class="console-top">
+            <span class="tag">Enrollment status</span>
+            <span class="live"><span class="dot"></span>Open</span>
+          </div>
+          <h3>Early-bird window closes in</h3>
+          <div class="clock" role="timer" aria-live="off">
+            <div class="unit unit--days">
+              <div class="num js-d">00</div>
+              <div class="lbl">Days</div>
+            </div>
+            <div class="clock-row">
+              <div class="unit">
+                <div class="num js-h">00</div>
+                <div class="lbl">Hrs</div>
+              </div>
+              <div class="unit">
+                <div class="num js-m">00</div>
+                <div class="lbl">Min</div>
+              </div>
+              <div class="unit">
+                <div class="num js-s">00</div>
+                <div class="lbl">Sec</div>
+              </div>
+            </div>
+          </div>
+          <div class="price-row">
+            <span class="price-now js-price">₱2,999</span>
+            <span class="price-was">₱6,999</span>
+          </div>
+          <div class="price-note js-pricenote">
+            Founding-cohort rate — jumps to ₱6,999 the second the timer hits
+            zero.
+          </div>
+          <a href="#secure" class="btn"
+            >Claim founding rate <span class="arr">&rarr;</span></a
+          >
+        </aside>
+      </div>
+    </header>
+
+    <!-- ============ FOR WHO ============ -->
+    <section class="forwho sec">
+      <div class="wrap">
+        <span class="eyebrow sec-eyebrow">Read this first</span>
+        <h2 class="sec-title">
+          Master Claude AI.<br />Stop Chasing Clients.<br />Let Them Chase You.
+        </h2>
+        <div class="check-grid">
+          <div class="check">
+            <span class="ic">01</span>
+            <p>
+              You're someone who's tired of competing on hourly price and racing
+              to the bottom.
+            </p>
+          </div>
+          <div class="check">
+            <span class="ic">02</span>
+            <p>
+              You've poked at AI tools but never turned them into a real,
+              sellable skill clients pay for.
+            </p>
+          </div>
+          <div class="check">
+            <span class="ic">03</span>
+            <p>
+              You're spending more time on busywork than on work that actually
+              pays.
+            </p>
+          </div>
+          <div class="check">
+            <span class="ic">04</span>
+            <p>
+              You scroll past the highest-paying job posts because they ask for
+              <em>AI skills</em> you don't have yet.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ THE SHIFT ============ -->
+    <section class="shift sec">
+      <div class="wrap">
+        <span class="eyebrow sec-eyebrow">The upgrade</span>
+        <h2 class="sec-title">Work less. Earn more. Own your time.</h2>
+        <p class="sec-sub">
+          In one week you go from task-doer to AI specialist. Here's the before
+          and after.
+        </p>
+        <div class="ba">
+          <div class="col before">
+            <h4>Right now</h4>
+            <ul>
+              <li>Generalist VA competing on hourly price</li>
+              <li>
+                Weekends don't exist. You're buried in inventory, ops, and
+                putting out fires.
+              </li>
+              <li>Drowning in repetitive manual busywork</li>
+              <li>I've heard of Claude AI tools</li>
+              <li>Competing with 40 applicants in 1 job post</li>
+              <li>Quietly worried AI will replace you</li>
+            </ul>
+          </div>
+          <div class="arrow"><span>&rarr;</span></div>
+          <div class="col after">
+            <h4>After this week</h4>
+            <ul>
+              <li>Specialist "AI Strategist" with a premium niche</li>
+              <li>Your systems run the ops. You take the weekend.</li>
+              <li>Automations &amp; agents handling the busywork</li>
+              <li>A portfolio of real AI work to show clients</li>
+              <li>A productized offer with confident pricing</li>
+              <li>Positioned as the AI Strategist who <em>runs the AI</em></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ BRIEFING / 5-DAY ============ -->
+    <section class="brief sec" id="briefing">
+      <div class="wrap">
+        <span class="eyebrow eyebrow--on-dark sec-eyebrow"
+          >The game plan · 5 days</span
+        >
+        <h2 class="sec-title">Your 5-day game plan.</h2>
+        <p class="sec-sub">
+          Every session is hands-on — you build alongside, live. Each day ends
+          with one tangible win and one plug-and-play template in your hands.
+        </p>
+
+        <div class="days">
+          <div class="day">
+            <div class="no">01<small>Day</small></div>
+            <div class="body">
+              <h3>The AI Strategist mindset + Claude ecosystem</h3>
+              <p>
+                Map Chat, Projects, Skills, Cowork and connectors — and know
+                exactly which to use when. Ship your first client-grade
+                deliverable.
+              </p>
+            </div>
+            <div class="out">Deliverable<b>Ecosystem cheat-sheet</b></div>
+          </div>
+          <div class="day">
+            <div class="no">02<small>Day</small></div>
+            <div class="body">
+              <h3>Prompt mastery + client-grade deliverables</h3>
+              <p>
+                Build a reusable prompt library and set up your first client
+                Project end to end so Claude works your way, every time.
+              </p>
+            </div>
+            <div class="out">Deliverable<b>Prompt library</b></div>
+          </div>
+          <div class="day">
+            <div class="no">03<small>Day</small></div>
+            <div class="body">
+              <h3>AI automations for real workflows</h3>
+              <p>
+                Connect Claude to the tools you already use and automate the
+                repetitive 20% that eats 80% of your day. One automation running
+                live.
+              </p>
+            </div>
+            <div class="out">Deliverable<b>5 automation recipes</b></div>
+          </div>
+          <div class="day">
+            <div class="no">04<small>Day</small></div>
+            <div class="body">
+              <h3>Build AI agents for client work</h3>
+              <p>
+                Assemble an "AI team" — research, writing, QA — into one agent
+                you can demo to a prospect. Human-in-the-loop, done right.
+              </p>
+            </div>
+            <div class="out">Deliverable<b>Agent blueprint ×3</b></div>
+          </div>
+          <div class="day">
+            <div class="no">05<small>Day</small></div>
+            <div class="body">
+              <h3>
+                Personal brand 2026 + packaging, pricing &amp; landing clients
+              </h3>
+              <p>
+                Rewrite your positioning, productize your offer, price it with
+                confidence, and walk away with a pitch ready to send.
+              </p>
+            </div>
+            <div class="out">Deliverable<b>Offer + pitch kit</b></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ MARQUEE ============ -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__track">
+        <span>AI Automations</span><span class="sep">✦</span>
+        <span>Claude Agents</span><span class="sep">✦</span>
+        <span>Prompt Libraries</span><span class="sep">✦</span>
+        <span>Premium Pricing</span><span class="sep">✦</span>
+        <span>Client-Grade Templates</span><span class="sep">✦</span>
+        <span>Show Up &amp; Ship</span><span class="sep">✦</span>
+        <span>AI Automations</span><span class="sep">✦</span>
+        <span>Claude Agents</span><span class="sep">✦</span>
+        <span>Prompt Libraries</span><span class="sep">✦</span>
+        <span>Premium Pricing</span><span class="sep">✦</span>
+        <span>Client-Grade Templates</span><span class="sep">✦</span>
+        <span>Show Up &amp; Ship</span><span class="sep">✦</span>
+      </div>
+    </div>
+
+    <!-- ============ ARSENAL ============ -->
+    <section class="arsenal sec">
+      <div class="wrap">
+        <span class="eyebrow sec-eyebrow">Your toolkit</span>
+        <h2 class="sec-title">
+          You don't leave with notes. You leave with an arsenal.
+        </h2>
+        <p class="sec-sub">
+          Every template is fully customizable and plug-and-play — built so you
+          can put it to work on a real client the same week.
+        </p>
+        <div class="kit">
+          <div class="item">
+            <span class="n">KIT 01</span>
+            <h4>Prompt library</h4>
+            <p>
+              Email, research, content, admin &amp; reporting prompts ready to
+              adapt.
+            </p>
+          </div>
+          <div class="item">
+            <span class="n">KIT 02</span>
+            <h4>Client Project template</h4>
+            <p>One reusable setup per client, with persistent context.</p>
+          </div>
+          <div class="item">
+            <span class="n">KIT 03</span>
+            <h4>Automation recipes</h4>
+            <p>Five ready-to-deploy workflows + an audit worksheet.</p>
+          </div>
+          <div class="item">
+            <span class="n">KIT 04</span>
+            <h4>Agent blueprints</h4>
+            <p>Done-for-you content, ops &amp; lead-research agents.</p>
+          </div>
+          <div class="item">
+            <span class="n">KIT 05</span>
+            <h4>Offer &amp; pricing template</h4>
+            <p>Productize your service and price it without flinching.</p>
+          </div>
+          <div class="item">
+            <span class="n">KIT 06</span>
+            <h4>Pitch &amp; portfolio kit</h4>
+            <p>Proposal scripts + an AI Strategist portfolio you can send today.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ OFFER / SECURE ============ -->
+    <section class="offer sec" id="secure">
+      <div class="wrap">
+        <div class="offer-card">
+          <div class="offer-head">
+            <span class="eyebrow eyebrow--on-dark">Secure your seat</span>
+            <h2>Founding-cohort rate ends when the clock stops.</h2>
+            <div class="deadline">Early-bird window closes in</div>
+            <div class="clock big" role="timer">
+              <div class="unit unit--days">
+                <div class="num js-d">00</div>
+                <div class="lbl">Days</div>
+              </div>
+              <div class="clock-row">
+                <div class="unit">
+                  <div class="num js-h">00</div>
+                  <div class="lbl">Hrs</div>
+                </div>
+                <div class="unit">
+                  <div class="num js-m">00</div>
+                  <div class="lbl">Min</div>
+                </div>
+                <div class="unit">
+                  <div class="num js-s">00</div>
+                  <div class="lbl">Sec</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="offer-body">
+            <div class="offer-left">
+              <div class="st">What's included</div>
+              <ul class="stack">
+                <li>
+                  <span>5 live hands-on sessions</span
+                  ><span class="v">₱5,500</span>
+                </li>
+                <li>
+                  <span>Plug-and-play template vault (6 kits)</span
+                  ><span class="v">₱4,500</span>
+                </li>
+                <li>
+                  <span>Private Get Sh*t Done HQ crew</span
+                  ><span class="v">₱2,500</span>
+                </li>
+                <li>
+                  <span>Lifetime replays</span><span class="v">₱1,800</span>
+                </li>
+                <li>
+                  <span>Bonus: client data-privacy module</span
+                  ><span class="v">₱1,200</span>
+                </li>
+                <li>
+                  <span>Bonus: AI Strategist portfolio template</span
+                  ><span class="v">₱999</span>
+                </li>
+                <li class="total">
+                  <span>Total value</span><span class="v">₱16,499</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="offer-right">
+              <div class="priceblock">
+                <div class="was">Regular ₱6,999</div>
+                <div class="now js-price">₱2,999</div>
+                <div class="terms js-pricenote">
+                  Founding rate — locked only until the timer hits zero.
+                </div>
+              </div>
+              <div class="field-row">
+                <div class="field">
+                  <label for="fn">First name</label>
+                  <input
+                    id="fn"
+                    type="text"
+                    placeholder="Maria"
+                    autocomplete="given-name"
+                  />
+                </div>
+                <div class="field">
+                  <label for="ln">Last name</label>
+                  <input
+                    id="ln"
+                    type="text"
+                    placeholder="Santos"
+                    autocomplete="family-name"
+                  />
+                </div>
+              </div>
+              <div class="field">
+                <label for="em">Email</label>
+                <input
+                  id="em"
+                  type="email"
+                  placeholder="you@email.com"
+                  autocomplete="email"
+                />
+              </div>
+              <div class="field">
+                <label for="ph">Mobile (for reminders) — optional</label>
+                <input
+                  id="ph"
+                  type="tel"
+                  placeholder="09xx xxx xxxx"
+                  autocomplete="tel"
+                />
+              </div>
+              <div class="err" id="formErr"></div>
+              <button class="btn" id="secureBtn">
+                Lock in my ₱2,999 seat <span class="arr">&rarr;</span>
+              </button>
+              <div class="guarantee">
+                Secure checkout · Instant access details · Replays included<br />Show
+                up to all 5 days or get your money back.
+              </div>
+              <div class="success" id="successMsg">
+                Details saved — taking you to payment…
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FOUNDER ============ -->
+    <section class="founder sec">
+      <div class="wrap founder-grid">
+        <div class="photo">
+          <img src="../assets/Jana-headshot2.png" alt="Fonder Headshot" />
+        </div>
+        <div>
+          <span class="eyebrow sec-eyebrow">Who's running this</span>
+          <h2>Built by someone who's actually done the work.</h2>
+          <p>
+            <strong>I'm Jana, founder of Get Sh*t Done HQ.</strong> I've been an
+            online seller, BPO agent, and a freelancer — the underpricing, the
+            burnout, the "can you also do this?" scope creep. Then I rebuilt how
+            I work around Claude, and everything changed: more output, fewer
+            hours, better clients.
+          </p>
+          <p>
+            This masterclass is the exact system I wish someone had handed me.
+            No fluff, no 40-hour course you'll never finish — just the skills,
+            the templates, and the positioning that turn a generalist freelancer into a premium
+            specialty.
+          </p>
+          <p>
+            [Add 1–2 credibility lines: years freelancing, clients served, a
+            result you're proud of.]
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FAQ ============ -->
+    <section class="faq sec">
+      <div class="wrap">
+        <span class="eyebrow sec-eyebrow">Questions</span>
+        <h2 class="sec-title" style="margin-bottom: 30px">
+          Before you lock in your seat.
+        </h2>
+        <details>
+          <summary>
+            Do I need to be technical or know how to code?
+            <span class="pm">+</span>
+          </summary>
+          <p>
+            No. This is EXACTLY FOR YOU!. If you can use email and Google Docs,
+            you can do everything we build this week.
+          </p>
+        </details>
+        <details>
+          <summary>
+            Do I need a paid Claude plan? <span class="pm">+</span>
+          </summary>
+          <p>
+            You can start on the free plan for most of the masterclass. We'll
+            show you exactly when a paid plan is worth it so you only pay if and
+            when it pays you back.
+          </p>
+        </details>
+        <details>
+          <summary>
+            What if I miss a live session? <span class="pm">+</span>
+          </summary>
+          <p>
+            Every session is recorded and you get 90 days of replay access. Show
+            up live, rewatch what you need, execute, and Get Shit Done before
+            the window closes.
+          </p>
+        </details>
+        <details>
+          <summary>
+            I'm a total beginner using AI. Is this too advanced?
+            <span class="pm">+</span>
+          </summary>
+          <p>
+            Zero coding. Zero tech background needed. We build everything step
+            by step, together. Freelancer, business owner, student hunting for a
+            real paycheck, it doesn't matter where you're starting from. You'll
+            walk out equipped.
+          </p>
+        </details>
+        <details>
+          <summary>
+            What happens after the timer hits zero? <span class="pm">+</span>
+          </summary>
+          <p>
+            The founding-cohort rate jumps to ₱6,999. Same program — you just
+            pay full price. Lock in ₱2,999 while the window's open.
+          </p>
+        </details>
+      </div>
+    </section>
+
+    <!-- ============ FINAL CTA ============ -->
+    <section class="finalcta sec">
+      <div class="finalcta__ghost" aria-hidden="true">YOUR MOVE</div>
+      <div class="wrap">
+        <span class="eyebrow eyebrow--on-orange">Last call</span>
+        <h2>
+          Early-bird seats are capped. Once they're gone, you pay full price.
+        </h2>
+        <p>Early-bird rate ₱2,999 · reverts to ₱6,999 at July 4, 2026</p>
+        <a href="#secure" class="btn btn-dark"
+          >Lock in my seat now <span class="arr">&rarr;</span></a
+        >
+      </div>
+    </section>
+
+    <!-- ============ FOOTER ============ -->
+    <footer class="footer">
+      <div class="footer__ghost" aria-hidden="true">GET SH*T DONE</div>
+      <div class="wrap">
+        <img
+          src="../assets/logo.png"
+          alt="Get Sh*t Done HQ"
+          class="footer__logo"
+        />
+        <div class="foot-links">
+          <a href="#secure">Register</a>
+          <a href="#briefing">The plan</a>
+          <a href="mailto:hello@getshtdonehq.com">Contact</a>
+          <a href="#">Privacy</a>
+          <a href="#">Terms</a>
+        </div>
+        <p class="disclaimer">
+          Get Sh*t Done HQ is a training and education program. Any results,
+          earnings, or income examples shown on this page or shared by past
+          participants are illustrative and aspirational. They are not typical
+          and are not a promise or guarantee of what you will earn or achieve.
+          Testimonials reflect individual experiences and do not guarantee that
+          you will get the same or similar outcomes. Results vary depending on
+          the effort you put in every single day. Your outcomes depend on
+          factors including your own skills, consistency, commitment, and market
+          conditions. That is why we encourage you to invest in your personal
+          brand, show up consistently, demonstrate free value to your audience,
+          and combine it with the AI and automation skills you learn here. We
+          have not conducted formal studies on the average results of
+          participants, and we make no promises regarding earnings or success.
+          By enrolling, you accept that your outcomes are your responsibility.
+          <br /><br />© 2026 Get Sh*t Done HQ. All rights reserved.
+        </p>
+      </div>
+    </footer>
+
+    <script>
+      (function () {
+        // ---- Countdown to a fixed deadline: July 3, 2026 · 23:59:59 Philippine time (+08:00) ----
+        var end = new Date("2026-07-03T23:59:59+08:00").getTime();
+        var pad = function (n) {
+          return String(n).padStart(2, "0");
+        };
+        var dEls = document.querySelectorAll(".js-d"),
+          dayUnits = document.querySelectorAll(".unit--days"),
+          hEls = document.querySelectorAll(".js-h"),
+          mEls = document.querySelectorAll(".js-m"),
+          sEls = document.querySelectorAll(".js-s"),
+          compact = document.querySelectorAll(".js-clock-compact"),
+          priceEls = document.querySelectorAll(".js-price"),
+          noteEls = document.querySelectorAll(".js-pricenote");
+        var expired = false;
+        function set(list, val) {
+          list.forEach(function (e) {
+            e.textContent = val;
+          });
+        }
+        function tick() {
+          var diff = end - Date.now();
+          if (diff <= 0) {
+            if (!expired) {
+              expired = true;
+              set(priceEls, "₱6,999");
+              set(
+                noteEls,
+                "Early-bird window closed — this is the regular rate.",
+              );
+            }
+            set(dEls, "00");
+            set(hEls, "00");
+            set(mEls, "00");
+            set(sEls, "00");
+            dayUnits.forEach(function (e) {
+              e.style.display = "none";
+            });
+            compact.forEach(function (e) {
+              e.textContent = "00:00:00";
+            });
+            return;
+          }
+          var d = Math.floor(diff / 8.64e7),
+            h = Math.floor((diff % 8.64e7) / 3.6e6),
+            m = Math.floor((diff % 3.6e6) / 6e4),
+            s = Math.floor((diff % 6e4) / 1e3);
+          dayUnits.forEach(function (e) {
+            e.style.display = d > 0 ? "" : "none";
+          });
+          set(dEls, pad(d));
+          set(hEls, pad(h));
+          set(mEls, pad(m));
+          set(sEls, pad(s));
+          compact.forEach(function (e) {
+            e.textContent =
+              (d > 0 ? d + "d " : "") + pad(h) + ":" + pad(m) + ":" + pad(s);
+          });
+        }
+        tick();
+        setInterval(tick, 1000);
+
+        // ---- Registration handoff ----
+        // Paste your Google Apps Script Web App URL (ends in /exec) between the quotes.
+        // Leave it empty to skip the Sheet step and just redirect.
+        var SHEET_ENDPOINT =
+          "https://script.google.com/macros/s/AKfycbzMkbAL_TtxXWnvHf9dn3TiTOB_gR9Pb8yWE54baRNXjsZpeR0joXNH_JxIcmpXqrQf/exec";
+        var btn = document.getElementById("secureBtn"),
+          err = document.getElementById("formErr"),
+          ok = document.getElementById("successMsg");
+        function valid() {
+          var fn = document.getElementById("fn").value.trim();
+          var ln = document.getElementById("ln").value.trim();
+          var em = document.getElementById("em").value.trim();
+          if (!fn) {
+            return "Enter your first name so we know who's joining.";
+          }
+          if (!ln) {
+            return "Enter your last name too.";
+          }
+          if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em)) {
+            return "Enter a valid email — that's where your access goes.";
+          }
+          return "";
+        }
+        btn.addEventListener("click", function () {
+          var msg = valid();
+          if (msg) {
+            err.textContent = msg;
+            return;
+          }
+          err.textContent = "";
+          btn.textContent = "Saving your details…";
+          btn.disabled = true;
+          var data = {
+            type: "lead",
+            firstName: document.getElementById("fn").value.trim(),
+            lastName: document.getElementById("ln").value.trim(),
+            email: document.getElementById("em").value.trim(),
+            phone: document.getElementById("ph").value.trim(),
+            page: "The AI Strategist Masterclass",
+          };
+          try {
+            localStorage.setItem("gsd_lead", JSON.stringify(data));
+          } catch (e) {}
+          function done() {
+            ok.style.display = "block";
+            setTimeout(function () {
+              window.location.href = "payment.html";
+            }, 900);
+          }
+          if (SHEET_ENDPOINT) {
+            fetch(SHEET_ENDPOINT, {
+              method: "POST",
+              mode: "no-cors",
+              headers: {
+                "Content-Type":
+                  "application/x-www-form-urlencoded;charset=UTF-8",
+              },
+              body: new URLSearchParams(data).toString(),
+            })
+              .then(done)
+              .catch(done);
+          } else {
+            done();
+          }
+        });
+      })();
+    </script>
+  </body>
+</html>

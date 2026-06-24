@@ -1,0 +1,947 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>You're In — Next Steps // Get Sh*t Done HQ</title>
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="../assets/favicon-32.png"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --orange: #ff5c00;
+        --orange-hover: #ff8533;
+        --orange-pale: #ffe8d6;
+        --midnight: #1e1e2e;
+        --obsidian: #1a1a1a;
+        --cream: #f5f0eb;
+        --white: #ffffff;
+        --ink-60: #888888;
+        --ink-40: #bbbbbb;
+        --green: #14b87a;
+        --line: rgba(0, 0, 0, 0.08);
+        --font-display: "Bebas Neue", Impact, sans-serif;
+        --font-ui: "Outfit", "Helvetica Neue", Arial, sans-serif;
+        --r: 12px;
+        --r-lg: 20px;
+        --r-xl: 28px;
+        --trans: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        background: var(--white);
+        color: var(--obsidian);
+        font-family: var(--font-ui);
+        font-size: 17px;
+        line-height: 1.65;
+        -webkit-font-smoothing: antialiased;
+        overflow-x: hidden;
+      }
+      img {
+        max-width: 100%;
+        display: block;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      ul {
+        list-style: none;
+      }
+      .wrap {
+        width: 100%;
+        max-width: 1080px;
+        margin: 0 auto;
+        padding: 0 32px;
+      }
+      .sec {
+        padding: clamp(56px, 8vw, 104px) 0;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .eyebrow {
+        display: inline-block;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--orange);
+        background: var(--orange-pale);
+        padding: 7px 15px;
+        border-radius: 100px;
+      }
+      .eyebrow--on-dark {
+        background: rgba(255, 92, 0, 0.16);
+      }
+
+      .sec-title {
+        font-family: var(--font-display);
+        text-transform: uppercase;
+        font-size: clamp(34px, 5vw, 60px);
+        line-height: 0.92;
+        letter-spacing: 0.02em;
+        font-weight: 400;
+        max-width: 22ch;
+      }
+      .sec-sub {
+        color: var(--ink-60);
+        max-width: 54ch;
+        margin-top: 16px;
+        font-size: 17px;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 9px;
+        background: var(--orange);
+        color: var(--white);
+        font-family: var(--font-ui);
+        font-weight: 700;
+        font-size: 15px;
+        padding: 14px 26px;
+        border: none;
+        border-radius: 100px;
+        cursor: pointer;
+        transition:
+          transform 0.25s,
+          box-shadow 0.25s,
+          background 0.25s;
+      }
+      .btn .arr {
+        transition: transform 0.25s;
+      }
+      .btn:hover {
+        background: var(--orange-hover);
+        transform: translateY(-2px);
+        box-shadow: 0 12px 32px rgba(255, 92, 0, 0.4);
+      }
+      .btn:hover .arr {
+        transform: translateX(5px);
+      }
+      .btn-ghost {
+        background: transparent;
+        color: var(--white);
+        border: 2px solid rgba(255, 255, 255, 0.25);
+      }
+      .btn-ghost:hover {
+        background: rgba(255, 255, 255, 0.08);
+        border-color: rgba(255, 255, 255, 0.5);
+        box-shadow: none;
+      }
+
+      /* nav */
+      .nav {
+        background: var(--obsidian);
+        color: var(--white);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      }
+      .nav-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 12px 32px;
+        max-width: 1080px;
+        margin: 0 auto;
+      }
+      .nav-logo {
+        height: 26px;
+        width: auto;
+      }
+      .nav .stamp {
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--green);
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .nav .stamp .dot {
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: var(--green);
+      }
+
+      /* hero / confirmed (midnight) */
+      .top {
+        background: var(--midnight);
+        color: var(--white);
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+      .top__grid {
+        position: absolute;
+        inset: 0;
+        background-image:
+          linear-gradient(rgba(255, 92, 0, 0.05) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255, 92, 0, 0.05) 1px, transparent 1px);
+        background-size: 64px 64px;
+        -webkit-mask-image: radial-gradient(
+          circle at 50% 34%,
+          #000,
+          transparent 72%
+        );
+        mask-image: radial-gradient(circle at 50% 34%, #000, transparent 72%);
+        pointer-events: none;
+      }
+      .top__ghost {
+        position: absolute;
+        left: 50%;
+        bottom: -7vh;
+        transform: translateX(-50%);
+        font-family: var(--font-display);
+        font-size: clamp(150px, 30vw, 440px);
+        color: rgba(255, 255, 255, 0.03);
+        line-height: 0.8;
+        letter-spacing: 0.04em;
+        white-space: nowrap;
+        pointer-events: none;
+        user-select: none;
+        z-index: 0;
+      }
+      .top .wrap {
+        position: relative;
+        z-index: 2;
+      }
+      .seal {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        background: var(--green);
+        display: grid;
+        place-items: center;
+        margin: 0 auto 26px;
+        box-shadow: 0 14px 44px rgba(20, 184, 122, 0.4);
+        animation: pop 0.55s cubic-bezier(0.34, 1.56, 0.64, 1) 0.1s both;
+      }
+      .seal svg {
+        width: 40px;
+        height: 40px;
+      }
+      .confirmed {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        background: rgba(255, 92, 0, 0.12);
+        border: 1px solid rgba(255, 92, 0, 0.3);
+        color: var(--orange);
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        padding: 9px 17px;
+        border-radius: 100px;
+        margin-bottom: 26px;
+      }
+      .confirmed .dot {
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: var(--orange);
+      }
+      .top h1 {
+        font-family: var(--font-display);
+        text-transform: uppercase;
+        font-size: clamp(56px, 11vw, 116px);
+        line-height: 0.86;
+        letter-spacing: 0.02em;
+        color: var(--white);
+        font-weight: 400;
+      }
+      .top h1 .hl {
+        color: var(--orange);
+      }
+      .top p {
+        color: rgba(255, 255, 255, 0.62);
+        max-width: 50ch;
+        margin: 24px auto 0;
+        font-size: 18px;
+        line-height: 1.65;
+      }
+      .top .meta {
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.4);
+        margin-top: 34px;
+        display: flex;
+        gap: 10px 30px;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+      .top .meta span {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+      }
+      .top .meta b {
+        font-family: var(--font-display);
+        font-size: 21px;
+        letter-spacing: 0.04em;
+        color: var(--white);
+        font-weight: 400;
+        text-transform: none;
+      }
+      .paynote {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        background: rgba(255, 92, 0, 0.1);
+        border: 1px solid rgba(255, 92, 0, 0.3);
+        border-radius: 16px;
+        padding: 14px 20px;
+        margin: 28px auto 0;
+        max-width: 520px;
+        text-align: left;
+      }
+      .paynote__ic {
+        flex: none;
+        width: 34px;
+        height: 34px;
+        border-radius: 9px;
+        background: rgba(255, 92, 0, 0.16);
+        color: var(--orange);
+        display: grid;
+        place-items: center;
+      }
+      .paynote__ic svg {
+        width: 18px;
+        height: 18px;
+      }
+      .paynote__t {
+        font-size: 14.5px;
+        line-height: 1.5;
+        color: rgba(255, 255, 255, 0.82);
+      }
+      .paynote__t b {
+        color: var(--white);
+        font-weight: 700;
+      }
+
+      /* steps */
+      .steps {
+        background: var(--white);
+      }
+      .step {
+        display: grid;
+        grid-template-columns: 72px 1fr;
+        gap: 26px;
+        border-top: 1px solid var(--line);
+        padding: 32px 6px;
+      }
+      .step:last-child {
+        border-bottom: 1px solid var(--line);
+      }
+      .step .no {
+        font-family: var(--font-display);
+        font-size: 46px;
+        color: var(--orange);
+        letter-spacing: 0.02em;
+        line-height: 0.8;
+      }
+      .step h3 {
+        font-size: 22px;
+        font-weight: 800;
+        margin-bottom: 8px;
+        letter-spacing: -0.01em;
+      }
+      .step p {
+        color: var(--ink-60);
+        font-size: 16px;
+        max-width: 56ch;
+        margin-bottom: 18px;
+      }
+      .step p b {
+        color: var(--obsidian);
+      }
+      .step .actions {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+      .video {
+        aspect-ratio: 16/9;
+        background: var(--midnight);
+        border-radius: var(--r-lg);
+        display: grid;
+        place-items: center;
+        margin-top: 4px;
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+        max-width: 560px;
+      }
+      .video::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image: repeating-linear-gradient(
+          135deg,
+          rgba(255, 255, 255, 0.03) 0 12px,
+          transparent 12px 24px
+        );
+      }
+      .video .play {
+        width: 66px;
+        height: 66px;
+        border-radius: 50%;
+        background: var(--orange);
+        display: grid;
+        place-items: center;
+        position: relative;
+        z-index: 1;
+        transition: transform 0.25s;
+      }
+      .video:hover .play {
+        transform: scale(1.08);
+      }
+      .video .play::after {
+        content: "";
+        border-left: 19px solid var(--white);
+        border-top: 12px solid transparent;
+        border-bottom: 12px solid transparent;
+        margin-left: 5px;
+      }
+      .video .cap {
+        position: absolute;
+        bottom: 13px;
+        left: 15px;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.45);
+        z-index: 1;
+      }
+      @media (max-width: 560px) {
+        .step {
+          grid-template-columns: 48px 1fr;
+          gap: 16px;
+        }
+        .step .no {
+          font-size: 34px;
+        }
+      }
+
+      /* showing up (midnight) */
+      .showup {
+        background: var(--midnight);
+        color: var(--white);
+      }
+      .showup .sec-title {
+        color: var(--white);
+        max-width: 18ch;
+      }
+      .showup .lead {
+        color: rgba(255, 255, 255, 0.62);
+        max-width: 56ch;
+        margin-top: 16px;
+        font-size: 17px;
+      }
+      .showup .lead strong {
+        color: var(--white);
+      }
+      .rules {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 18px;
+        margin-top: 38px;
+      }
+      .rule {
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.09);
+        border-radius: var(--r-lg);
+        padding: 26px 24px;
+        transition: var(--trans);
+      }
+      .rule:hover {
+        border-color: var(--orange);
+        transform: translateY(-4px);
+        box-shadow: 6px 6px 0 var(--orange);
+      }
+      .rule .n {
+        font-family: var(--font-display);
+        font-size: 15px;
+        color: var(--orange);
+        letter-spacing: 0.14em;
+        margin-bottom: 10px;
+      }
+      .rule h4 {
+        font-size: 18px;
+        font-weight: 800;
+        color: var(--white);
+        margin-bottom: 8px;
+        letter-spacing: -0.01em;
+      }
+      .rule p {
+        font-size: 14px;
+        color: rgba(255, 255, 255, 0.6);
+        margin: 0;
+        line-height: 1.55;
+      }
+      @media (max-width: 680px) {
+        .rules {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* wins / testimonials */
+      .wins {
+        background: var(--cream);
+      }
+      .wins-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 18px;
+        margin-top: 38px;
+      }
+      .card {
+        background: var(--white);
+        border: 2px solid var(--line);
+        border-radius: var(--r-lg);
+        padding: 26px;
+        transition: var(--trans);
+      }
+      .card:hover {
+        border-color: var(--orange);
+        transform: translateY(-4px);
+        box-shadow: 6px 6px 0 var(--orange);
+      }
+      .card .quote {
+        font-size: 15.5px;
+        line-height: 1.6;
+        margin-bottom: 18px;
+        color: #333;
+      }
+      .card .who {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .card .av {
+        width: 42px;
+        height: 42px;
+        border-radius: 50%;
+        background: var(--orange);
+        color: var(--white);
+        display: grid;
+        place-items: center;
+        font-family: var(--font-display);
+        font-size: 22px;
+        letter-spacing: 0.04em;
+      }
+      .card .who b {
+        font-size: 14px;
+        display: block;
+        font-weight: 800;
+      }
+      .card .who span {
+        font-size: 12px;
+        font-weight: 600;
+        color: var(--ink-60);
+        letter-spacing: 0.03em;
+      }
+      @media (max-width: 760px) {
+        .wins-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* footer */
+      .footer {
+        background: var(--obsidian);
+        color: rgba(255, 255, 255, 0.45);
+        font-size: 13px;
+        position: relative;
+        overflow: hidden;
+      }
+      .footer__ghost {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        font-family: var(--font-display);
+        font-size: clamp(70px, 16vw, 200px);
+        color: rgba(255, 92, 0, 0.05);
+        white-space: nowrap;
+        pointer-events: none;
+      }
+      .footer .wrap {
+        padding-top: 52px;
+        padding-bottom: 46px;
+        position: relative;
+        z-index: 1;
+      }
+      .footer__logo {
+        height: 36px;
+        margin-bottom: 18px;
+      }
+      .foot-links {
+        display: flex;
+        gap: 24px;
+        flex-wrap: wrap;
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+      }
+      .foot-links a {
+        color: rgba(255, 255, 255, 0.5);
+      }
+      .foot-links a:hover {
+        color: var(--orange);
+      }
+      .disclaimer {
+        font-size: 11.5px;
+        line-height: 1.7;
+        color: rgba(255, 255, 255, 0.32);
+        max-width: 78ch;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        padding-top: 22px;
+        margin-top: 24px;
+      }
+
+      :focus-visible {
+        outline: 3px solid var(--orange);
+        outline-offset: 3px;
+        border-radius: 3px;
+      }
+      @media (prefers-reduced-motion: reduce) {
+        * {
+          animation: none !important;
+          transition: none !important;
+        }
+        .seal {
+          animation: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="nav">
+      <div class="nav-inner">
+        <a href="/masterclass/" aria-label="Get Sh*t Done HQ"
+          ><img
+            src="../assets/logo.png"
+            alt="Get Sh*t Done HQ"
+            class="nav-logo"
+        /></a>
+        <div class="stamp"><span class="dot"></span>Seat confirmed</div>
+      </div>
+    </nav>
+
+    <!-- ===== CONFIRMED HERO ===== -->
+    <header class="top sec">
+      <div class="top__grid" aria-hidden="true"></div>
+      <div class="top__ghost" aria-hidden="true">YOU'RE IN</div>
+      <div class="wrap">
+        <div class="seal" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none">
+            <path
+              d="M5 12.5l4.2 4.2L19 7"
+              stroke="#fff"
+              stroke-width="3"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </div>
+        <div class="confirmed">
+          <span class="dot"></span>Registration confirmed
+        </div>
+        <h1 id="welcomeHeadline">
+          You're in, <span class="hl" id="firstNameSlot">[First Name].</span>
+        </h1>
+        <p>
+          Your seat in The AI Strategist Masterclass is locked. But registering
+          is the easy part — here's how to actually show up and walk away with
+          the skill.
+        </p>
+        <div class="paynote">
+          <span class="paynote__ic"
+            ><svg viewBox="0 0 24 24" fill="none">
+              <rect
+                x="3"
+                y="5"
+                width="18"
+                height="14"
+                rx="2"
+                stroke="currentColor"
+                stroke-width="2"
+              />
+              <path
+                d="M4 7l8 6 8-6"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              /></svg
+          ></span>
+          <span class="paynote__t"
+            ><b>We'll email you in a bit to confirm your payment.</b> Once it's
+            verified, your access details and session links are on the way.
+            Don't forget to join our exclusive facebook group because I'll be
+            dropping our resources and recordings there. See you at the
+            top!</span
+          >
+        </div>
+        <div class="meta">
+          <span>Program <b>The AI Strategist Masterclass</b></span>
+          <span>Format <b>5 days · live</b></span>
+          <span>Starts <b>[Date] · [Time PHT]</b></span>
+        </div>
+      </div>
+    </header>
+
+    <!-- ===== 3 STEPS ===== -->
+    <section class="steps sec">
+      <div class="wrap">
+        <span class="eyebrow">Do this now</span>
+        <h2 class="sec-title" style="margin-top: 16px">
+          3 steps to lock in your spot for real.
+        </h2>
+        <p class="sec-sub" style="margin-bottom: 38px">
+          Knock these out in the next 5 minutes — it's the difference between
+          the people who finish the week transformed and the ones who don't.
+        </p>
+
+        <div class="step">
+          <div class="no">01</div>
+          <div>
+            <h3>Add the dates to your calendar</h3>
+            <p>
+              Block all 5 sessions now so nothing else sneaks into the slot. The
+              people who show up live get the breakthroughs.
+            </p>
+            <div class="actions">
+              <a class="btn" href="#" id="calBtn">Add to calendar</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="no">02</div>
+          <div>
+            <h3>Join the Get Sh*t Done HQ crew</h3>
+            <p>
+              This is where the support, accountability, and bonus drops happen.
+              Introduce yourself and tell us your #1 goal for the week.
+            </p>
+            <div class="actions">
+              <a
+                class="btn"
+                href="https://www.facebook.com/share/g/1CgFfJi8rN/"
+                target="_blank"
+                rel="noopener"
+                >Exclusive FB Group</a
+              >
+
+              <a
+                class="btn"
+                href="https://discord.gg/muTsNNzqs"
+                target="_blank"
+                rel="noopener"
+                >Exclusive Discord Server</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="no">03</div>
+          <div>
+            <h3>Check your inbox</h3>
+            <p>
+              Your confirmation, receipt, and access details are landing now
+              from <b>team@getshtdonehq.com</b>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== WHAT SHOWING UP LOOKS LIKE ===== -->
+    <section class="showup sec">
+      <div class="wrap">
+        <span class="eyebrow eyebrow--on-dark">Read this before Day 1</span>
+        <h2 class="sec-title" style="margin-top: 16px">
+          This is what showing up looks like.
+        </h2>
+        <p class="lead">
+          The templates and replays are great. But the people who actually
+          change their income don't just collect resources — they
+          <strong>show up, build live, and ship.</strong> Here's the standard
+          for this cohort:
+        </p>
+        <div class="rules">
+          <div class="rule">
+            <div class="n">RULE 01</div>
+            <h4>Show up live</h4>
+            <p>
+              Be there for the sessions. Replays are a backup, not the plan.
+            </p>
+          </div>
+          <div class="rule">
+            <div class="n">RULE 02</div>
+            <h4>Build along</h4>
+            <p>Open Claude and do the work in real time — don't just watch.</p>
+          </div>
+          <div class="rule">
+            <div class="n">RULE 03</div>
+            <h4>Ship the asset</h4>
+            <p>
+              Finish each day's deliverable. By Friday you'll have a portfolio.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SUCCESS / TESTIMONIALS (placeholders) ===== -->
+    <section class="wins sec">
+      <div class="wrap">
+        <span class="eyebrow">What our community says</span>
+        <h2 class="sec-title" style="margin-top: 16px">
+          What showing up did for them.
+        </h2>
+        <!-- Replace these with REAL testimonials + permission before publishing. -->
+        <div class="wins-grid">
+          <div class="card">
+            <p class="quote">
+              "I came in barely using AI. By Day 5 I had two automations running
+              and pitched a client a retainer the same week."
+            </p>
+            <div class="who">
+              <div class="av">M</div>
+              <div>
+                <b>Cristine</b><span>Social Media Manager · Rizal</span>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <p class="quote">
+              "The templates alone were worth it. I stopped charging hourly and
+              packaged an 'AI inbox' service my client said yes to immediately."
+            </p>
+            <div class="who">
+              <div class="av">J</div>
+              <div><b>Michael</b><span>Business Owner · Laguna</span></div>
+            </div>
+          </div>
+          <div class="card">
+            <p class="quote">
+              "Finally a class that's about getting paid, not just tool
+              tutorials. I rewrote my profile on Day 5 and and I get multiple
+              bookings asking for my service."
+            </p>
+            <div class="who">
+              <div class="av">A</div>
+              <div><b>Elyssa</b><span>Content Creator · Cavite</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+      <div class="footer__ghost" aria-hidden="true">GET SH*T DONE</div>
+      <div class="wrap">
+        <img
+          src="../assets/logo.png"
+          alt="Get Sh*t Done HQ"
+          class="footer__logo"
+        />
+        <div class="foot-links">
+          <a href="optin.html">Home</a>
+          <a href="mailto:hello@getshtdonehq.com">Contact</a>
+          <a href="#">Privacy</a>
+          <a href="#">Terms</a>
+        </div>
+        <p class="disclaimer">
+          Get Sh*t Done HQ is a training and education program. Any results,
+          earnings, or income examples shown on this page or shared by past
+          participants are illustrative and aspirational — they are not typical
+          and are not a promise or guarantee of what you will earn or achieve.
+          Testimonials reflect individual experiences and do not guarantee that
+          you will get the same or similar outcomes. Your results depend on
+          factors including your own skills, effort, consistency, and market
+          conditions. We have not conducted formal studies on the average
+          results of participants, and we make no promises regarding earnings or
+          success. By enrolling, you accept that your outcomes are your
+          responsibility.
+          <br /><br />© 2026 Get Sh*t Done HQ. All rights reserved.
+        </p>
+      </div>
+    </footer>
+
+    <script>
+      // ---- Personalize the headline with the buyer's first name ----
+      (function () {
+        var lead = {};
+        try {
+          lead = JSON.parse(localStorage.getItem("gsd_lead") || "{}") || {};
+        } catch (e) {
+          lead = {};
+        }
+        var raw = (lead.firstName || "").trim();
+        var headline = document.getElementById("welcomeHeadline");
+        var slot = document.getElementById("firstNameSlot");
+        if (raw && headline && slot) {
+          // Capitalize first letter, keep the rest as typed. Escape any HTML.
+          var clean = raw.replace(/[<>&]/g, "");
+          var name = clean.charAt(0).toUpperCase() + clean.slice(1);
+          slot.textContent = name + ".";
+        } else if (headline) {
+          // No name found — fall back to a clean "You're in." with no empty bracket.
+          headline.textContent = "You're in.";
+        }
+      })();
+
+      // Lightweight placeholders — wire these to your real tools in production.
+      document.getElementById("calBtn").addEventListener("click", function (e) {
+        e.preventDefault();
+        alert(
+          "Connect this to your Google Calendar / .ics link in production.",
+        );
+      });
+      var v = document.querySelector(".video");
+      if (v) {
+        v.addEventListener("click", function () {
+          alert("Drop your welcome-video embed here.");
+        });
+        v.addEventListener("keydown", function (e) {
+          if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            v.click();
+          }
+        });
+      }
+    </script>
+  </body>
+</html>
