@@ -130,7 +130,8 @@
       .upload__meta .rm{font-size:12px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-60);background:none;border:none;cursor:pointer;padding:6px 0;margin-top:2px;font-family:var(--font-ui)}
       .upload__meta .rm:hover{color:var(--bpi)}
 
-      .err{color:var(--bpi);font-size:13px;font-weight:600;min-height:16px;margin-top:14px;text-align:center}
+      .err{color:var(--bpi);font-size:13px;font-weight:600;margin-top:14px;text-align:center}
+      .err:empty{display:none;margin:0}
       .submit-row{margin-top:8px;text-align:center}
       .submit-row .btn{width:100%;max-width:480px}
       .guarantee{font-size:12.5px;color:var(--ink-60);text-align:center;margin-top:16px;line-height:1.6}
@@ -152,7 +153,7 @@
   <body>
     <nav class="nav">
       <div class="nav-inner">
-        <a href="/masterclass/" aria-label="Get Sh*t Done HQ"
+        <a href="optin.html" aria-label="Get Sh*t Done HQ"
           ><img
             src="../assets/logo.png"
             alt="Get Sh*t Done HQ"
@@ -437,7 +438,8 @@
           uRemove = document.getElementById("uRemove"),
           payBtn = document.getElementById("payBtn"),
           err = document.getElementById("formErr"),
-          ok = document.getElementById("successMsg");
+          ok = document.getElementById("successMsg"),
+          guarantee = document.querySelector(".guarantee");
         var currentFile = null,
           compressedB64 = null;
 
@@ -487,6 +489,8 @@
           uEmpty.style.display = "block";
           payBtn.disabled = true;
           err.textContent = "";
+          ok.style.display = "none";
+          if (guarantee) guarantee.style.display = "";
         }
 
         function handleFile(file) {
@@ -562,6 +566,7 @@
 
           payBtn.textContent = "Sending your proof…";
           payBtn.disabled = true;
+          if (guarantee) guarantee.style.display = "none";
           ok.style.display = "block";
 
           var data = {
