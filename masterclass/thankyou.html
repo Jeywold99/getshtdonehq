@@ -635,6 +635,212 @@
           animation: none;
         }
       }
+      /* =========================================
+   MOBILE OPTIMIZATION
+========================================= */
+
+      @media (max-width: 768px) {
+        .wrap,
+        .nav-inner {
+          padding-left: 20px;
+          padding-right: 20px;
+        }
+
+        .sec {
+          padding: 56px 0;
+        }
+
+        /* HERO */
+        .hero-grid,
+        .founder-grid,
+        .offer-body,
+        .qpair,
+        .check-grid,
+        .kit,
+        .rules,
+        .wins-grid {
+          grid-template-columns: 1fr !important;
+        }
+
+        .hero-grid,
+        .founder-grid {
+          gap: 32px;
+        }
+
+        .hero h1,
+        .top h1 {
+          font-size: clamp(44px, 14vw, 72px);
+          line-height: 0.9;
+        }
+
+        .hero .lede,
+        .top p,
+        .sec-sub {
+          font-size: 15px;
+          line-height: 1.7;
+        }
+
+        .hero-trust {
+          gap: 10px;
+          font-size: 12px;
+        }
+
+        /* BUTTONS */
+        .btn {
+          width: 100%;
+          text-align: center;
+          padding: 16px 20px;
+          font-size: 15px;
+        }
+
+        .hero-cta {
+          flex-direction: column;
+          align-items: stretch;
+        }
+
+        /* CONSOLE */
+        .console,
+        .offer-card,
+        .panel {
+          padding: 24px;
+          border-radius: 20px;
+        }
+
+        .price-now,
+        .priceblock .now,
+        .amount .val {
+          font-size: clamp(44px, 14vw, 64px);
+        }
+
+        /* BEFORE AFTER */
+        .ba {
+          grid-template-columns: 1fr;
+          gap: 18px;
+        }
+
+        .ba .arrow {
+          display: none;
+        }
+
+        /* DAY SECTION */
+        .day {
+          grid-template-columns: 1fr;
+          gap: 14px;
+          padding: 22px 0;
+        }
+
+        .day .out {
+          padding-left: 0;
+        }
+
+        /* FORMS */
+        .field-row,
+        .editfields {
+          grid-template-columns: 1fr !important;
+        }
+
+        input,
+        .field input {
+          font-size: 16px;
+        }
+
+        /* NAV */
+        .nav-inner {
+          gap: 12px;
+        }
+
+        .nav .btn {
+          padding: 10px 16px;
+          font-size: 13px;
+        }
+
+        /* STEP SECTION */
+        .step {
+          grid-template-columns: 1fr;
+          gap: 12px;
+        }
+
+        .step .no {
+          font-size: 42px;
+        }
+
+        /* VIDEO */
+        .video {
+          width: 100%;
+        }
+
+        /* GHOST TEXT */
+        .hero__ghost,
+        .top__ghost,
+        .footer__ghost {
+          display: none;
+        }
+
+        /* PAYMENT PAGE */
+        #payBtn {
+          margin-top: 40px;
+        }
+
+        .upload__filled {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        .upload__filled img {
+          width: 100%;
+          height: auto;
+        }
+
+        /* FOOTER */
+        .foot-links {
+          flex-direction: column;
+          gap: 12px;
+        }
+      }
+
+      /* EXTRA SMALL DEVICES */
+      @media (max-width: 480px) {
+        body {
+          font-size: 15px;
+        }
+
+        .hero h1,
+        .top h1 {
+          font-size: 40px;
+        }
+
+        .sec-title {
+          font-size: 34px;
+        }
+
+        .console,
+        .offer-card,
+        .panel,
+        .check,
+        .rule,
+        .card,
+        .kit .item {
+          padding: 20px;
+        }
+
+        .clock-row {
+          gap: 6px;
+        }
+
+        .clock .unit {
+          padding: 12px 4px;
+        }
+
+        .clock .num {
+          font-size: 24px;
+        }
+
+        .price-now,
+        .priceblock .now,
+        .amount .val {
+          font-size: 48px;
+        }
+      }
     </style>
   </head>
   <body>
@@ -734,7 +940,13 @@
               people who show up live get the breakthroughs.
             </p>
             <div class="actions">
-              <a class="btn" href="#" id="calBtn">Add to calendar</a>
+              <a
+                class="btn"
+                href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=The+AI+Strategist+Masterclass&dates=20260720T120000Z/20260720T150000Z&details=Join+the+live+session+here&location=Zoom"
+                target="_blank"
+                id="calBtn"
+                >Add to calendar</a
+              >
             </div>
           </div>
         </div>
@@ -916,13 +1128,6 @@
         }
       })();
 
-      // Lightweight placeholders — wire these to your real tools in production.
-      document.getElementById("calBtn").addEventListener("click", function (e) {
-        e.preventDefault();
-        alert(
-          "Connect this to your Google Calendar / .ics link in production.",
-        );
-      });
       var v = document.querySelector(".video");
       if (v) {
         v.addEventListener("click", function () {
