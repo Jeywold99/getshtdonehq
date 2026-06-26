@@ -16,7 +16,7 @@
               --orange:#ff5c00;--orange-hover:#ff8533;--orange-pale:#ffe8d6;
               --midnight:#1e1e2e;--obsidian:#1a1a1a;--cream:#f5f0eb;--white:#ffffff;
               --ink-60:#888888;--ink-40:#bbbbbb;--green:#14b87a;
-              --gcash:#0a73f0;--bpi:#d4242c;
+              --gcash:#0a73f0;--bpi:#d4242c;--wise:#9fe870;
               --line:rgba(0,0,0,0.08);
               --font-display:"Bebas Neue",Impact,sans-serif;
               --font-ui:"Outfit","Helvetica Neue",Arial,sans-serif;
@@ -93,6 +93,15 @@
             .qcard__foot .name{font-weight:800;font-size:16px;letter-spacing:-.01em}
             .qcard__foot .sub{font-size:12.5px;color:var(--ink-60);margin-top:3px}
             @media(max-width:620px){.qpair{grid-template-columns:1fr}.qcard__qr img{max-width:280px}}
+
+            /* international divider */
+            .intl-divider{display:flex;align-items:center;gap:16px;margin-top:32px;margin-bottom:24px}
+            .intl-divider::before,.intl-divider::after{content:"";flex:1;height:2px;background:var(--line)}
+            .intl-divider span{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-60);white-space:nowrap}
+            .qcard--wise .qcard__top{background:#243b1f;color:var(--wise)}
+            .qcard--wise .qcard__top .m{color:var(--wise)}
+            .qcard--wise .qcard__top .t{color:rgba(159,232,112,.8)}
+            .wise-wrap{max-width:420px;margin:0 auto}
 
             /* steps */
             .how{margin-top:36px;background:var(--cream);border-radius:var(--r-lg);padding:26px 28px}
@@ -380,7 +389,7 @@
           One step left — <span class="hl">pay &amp; lock your seat.</span>
         </h1>
         <p>
-          Scan a QR code below to pay, then upload your receipt. We confirm
+          Scan a QR code below to pay (GCash/BPI for PH, Wise for international), then upload your receipt. We confirm
           every payment by hand before your access goes out.
         </p>
         <div class="payer" id="payer" style="display: none">
@@ -467,20 +476,36 @@
             </div>
           </div>
 
+          <!-- International payment -->
+          <div class="intl-divider"><span>Paying from outside the Philippines?</span></div>
+          <div class="wise-wrap">
+            <div class="qcard qcard--wise">
+              <div class="qcard__top">
+                <span class="m">Wise</span><span class="t">International · 50 USD</span>
+              </div>
+              <div class="qcard__qr">
+                <img src="../assets/qr-wise.png" alt="Wise payment QR code" />
+              </div>
+              <div class="qcard__foot">
+                <div class="name">Jana Cayco Tandoc</div>
+                <div class="sub">Wise · send exactly $50 USD</div>
+              </div>
+            </div>
+          </div>
+
           <div class="how">
             <h3>How to pay</h3>
             <ol>
               <li>
                 <b>1</b
                 ><span
-                  >Open <em>GCash</em> or your <em>BPI</em> app and choose scan
+                  >Open <em>GCash</em>, your <em>BPI</em> app, or <em>Wise</em> and choose scan
                   / pay QR.</span
                 >
               </li>
               <li>
                 <b>2</b
-                ><span
-                  >Scan a code above and send <em>exactly ₱2,999</em>.</span
+                ><span>Scan a code above and send <em>exactly ₱2,999</em> (PH) or <em>$50 USD</em> (international via Wise).</span
                 >
               </li>
               <li>
@@ -497,7 +522,7 @@
             <span class="eyebrow">Required</span>
             <h3>Upload your payment proof <span class="req">*</span></h3>
             <p class="note">
-              A clear screenshot of your GCash/BPI receipt. JPG or PNG.
+              A clear screenshot of your GCash/BPI/Wise receipt. JPG or PNG.
             </p>
 
             <div
@@ -580,7 +605,7 @@
         </div>
         <p class="disclaimer">
           Get Sh*t Done HQ is a training and education program. Payments are
-          processed via GCash and BPI InstaPay transfer. Your enrollment is
+          processed via GCash, BPI InstaPay, or Wise international transfer. Your enrollment is
           confirmed once we verify your payment and you will receive your
           welcome packet and bonus dashboard.
           <br /><br />© 2026 Get Sh*t Done HQ. All rights reserved.
