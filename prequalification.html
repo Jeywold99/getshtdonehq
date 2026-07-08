@@ -1,0 +1,812 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="assets/favicon-32.png"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Apply to Work With Us — Get Sh*t Done HQ</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --orange: #ff5c00;
+        --orange-hover: #ff8533;
+        --orange-pale: #ffe8d6;
+        --midnight: #1e1e2e;
+        --obsidian: #1a1a1a;
+        --cream: #f5f0eb;
+        --green: #14b87a;
+        --white: #ffffff;
+        --ink-60: #888888;
+        --ink-40: #bbbbbb;
+        --font-display: "Bebas Neue", Impact, sans-serif;
+        --font-ui: "Outfit", "Helvetica Neue", Arial, sans-serif;
+      }
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        font-family: var(--font-ui);
+        background: var(--midnight);
+        color: var(--white);
+        -webkit-font-smoothing: antialiased;
+        min-height: 100vh;
+        position: relative;
+        overflow-x: hidden;
+        line-height: 1.6;
+      }
+      a {
+        color: var(--orange);
+        text-decoration: none;
+      }
+      a:hover {
+        color: var(--orange-hover);
+      }
+
+      /* ---- ambient background ---- */
+      .bg {
+        position: fixed;
+        inset: 0;
+        z-index: 0;
+        pointer-events: none;
+        overflow: hidden;
+      }
+      .bg__grid {
+        position: absolute;
+        inset: 0;
+        background-image:
+          linear-gradient(rgba(255, 92, 0, 0.05) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255, 92, 0, 0.05) 1px, transparent 1px);
+        background-size: 64px 64px;
+        -webkit-mask-image: radial-gradient(
+          circle at 30% 30%,
+          #000,
+          transparent 78%
+        );
+        mask-image: radial-gradient(circle at 30% 30%, #000, transparent 78%);
+      }
+      .bg__glow {
+        position: absolute;
+        width: 1000px;
+        height: 1000px;
+        max-width: 150vw;
+        max-height: 150vw;
+        background: radial-gradient(
+          circle,
+          rgba(255, 92, 0, 0.16) 0%,
+          rgba(255, 92, 0, 0.04) 45%,
+          transparent 70%
+        );
+        top: -18%;
+        left: -12%;
+      }
+      .bg__ghost {
+        position: absolute;
+        right: -3vw;
+        bottom: -12vh;
+        font-family: var(--font-display);
+        font-size: clamp(220px, 40vw, 620px);
+        color: rgba(255, 255, 255, 0.028);
+        line-height: 0.8;
+        letter-spacing: 0.04em;
+        white-space: nowrap;
+        user-select: none;
+      }
+
+      /* ---- shell ---- */
+      .wrap {
+        position: relative;
+        z-index: 2;
+        max-width: 1180px;
+        margin: 0 auto;
+        padding: 56px 32px 72px;
+        display: grid;
+        grid-template-columns: 1fr 1.15fr;
+        gap: 56px;
+        align-items: start;
+      }
+
+      /* ---- left rail ---- */
+      .rail {
+        position: sticky;
+        top: 56px;
+        padding-top: 8px;
+      }
+      .rail__logo {
+        height: 32px;
+        width: auto;
+        margin-bottom: 44px;
+        display: block;
+      }
+      .badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 9px;
+        background: rgba(255, 92, 0, 0.12);
+        border: 1px solid rgba(255, 92, 0, 0.3);
+        color: var(--orange);
+        font-size: 12px;
+        font-weight: 700;
+        padding: 8px 16px;
+        border-radius: 100px;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        margin-bottom: 26px;
+      }
+      .badge .dot {
+        width: 7px;
+        height: 7px;
+        background: var(--orange);
+        border-radius: 50%;
+      }
+      .rail__title {
+        font-family: var(--font-display);
+        text-transform: uppercase;
+        font-size: clamp(52px, 6vw, 84px);
+        line-height: 0.9;
+        letter-spacing: 0.02em;
+      }
+      .rail__title .star {
+        color: var(--orange);
+      }
+      .rail__sub {
+        font-size: clamp(16px, 2vw, 18px);
+        color: rgba(255, 255, 255, 0.62);
+        line-height: 1.7;
+        max-width: 420px;
+        margin-top: 22px;
+      }
+      .rail__sub strong {
+        color: var(--white);
+        font-weight: 700;
+      }
+      .steps {
+        margin-top: 40px;
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+        max-width: 430px;
+      }
+      .step {
+        display: flex;
+        align-items: flex-start;
+        gap: 15px;
+      }
+      .step__num {
+        flex-shrink: 0;
+        width: 34px;
+        height: 34px;
+        border-radius: 10px;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.09);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: var(--font-display);
+        font-size: 18px;
+        letter-spacing: 0.04em;
+        color: var(--orange);
+      }
+      .step__body h4 {
+        font-size: 14px;
+        font-weight: 700;
+        letter-spacing: 0.02em;
+      }
+      .step__body p {
+        font-size: 13.5px;
+        color: rgba(255, 255, 255, 0.5);
+        line-height: 1.5;
+        margin-top: 2px;
+      }
+
+      /* ---- form card ---- */
+      .card {
+        background: var(--white);
+        color: var(--obsidian);
+        border: 2px solid rgba(0, 0, 0, 0.08);
+        border-radius: 24px;
+        box-shadow: 12px 12px 0 var(--orange);
+        padding: 40px;
+        position: relative;
+      }
+      .card__head {
+        margin-bottom: 26px;
+      }
+      .card__eyebrow {
+        display: inline-block;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--orange);
+        background: var(--orange-pale);
+        padding: 6px 14px;
+        border-radius: 100px;
+        margin-bottom: 14px;
+      }
+      .card__title {
+        font-family: var(--font-display);
+        text-transform: uppercase;
+        letter-spacing: 0.02em;
+        line-height: 0.92;
+        font-size: 38px;
+        color: var(--obsidian);
+      }
+      .card__sub {
+        font-size: 14px;
+        color: var(--ink-60);
+        margin-top: 6px;
+      }
+
+      form {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
+      .row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+      }
+      .field {
+        display: flex;
+        flex-direction: column;
+        gap: 7px;
+        min-width: 0;
+      }
+      .field--full {
+        grid-column: 1 / -1;
+      }
+      .field label {
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        color: var(--obsidian);
+      }
+      .field label .req {
+        color: var(--orange);
+      }
+      .field label .opt {
+        color: var(--ink-40);
+        font-weight: 600;
+        letter-spacing: 0.02em;
+      }
+      input,
+      select,
+      textarea {
+        width: 100%;
+        padding: 13px 15px;
+        border-radius: 12px;
+        font-family: var(--font-ui);
+        font-size: 15px;
+        font-weight: 500;
+        color: var(--obsidian);
+        background: #fff;
+        border: 2px solid rgba(0, 0, 0, 0.12);
+        outline: none;
+        transition:
+          border-color 0.22s,
+          box-shadow 0.22s;
+        appearance: none;
+        -webkit-appearance: none;
+      }
+      input::placeholder,
+      textarea::placeholder {
+        color: var(--ink-40);
+        font-weight: 500;
+      }
+      input:focus,
+      select:focus,
+      textarea:focus {
+        border-color: var(--orange);
+        box-shadow: 0 0 0 4px rgba(255, 92, 0, 0.12);
+      }
+      textarea {
+        resize: vertical;
+        min-height: 96px;
+        line-height: 1.55;
+      }
+      .selectwrap {
+        position: relative;
+      }
+      select {
+        cursor: pointer;
+        padding-right: 42px;
+      }
+      .selectwrap .chev {
+        position: absolute;
+        top: 50%;
+        right: 17px;
+        width: 9px;
+        height: 9px;
+        border-right: 2.5px solid #555;
+        border-bottom: 2.5px solid #555;
+        transform: translateY(-70%) rotate(45deg);
+        pointer-events: none;
+        opacity: 0.55;
+      }
+
+      .submit {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 9px;
+        width: 100%;
+        border: none;
+        cursor: pointer;
+        font-family: var(--font-ui);
+        font-weight: 700;
+        font-size: 16px;
+        padding: 17px 28px;
+        border-radius: 100px;
+        margin-top: 6px;
+        background: var(--orange);
+        color: #fff;
+        letter-spacing: 0.01em;
+        transition:
+          transform 0.22s,
+          box-shadow 0.22s,
+          background 0.22s;
+      }
+      .submit .arr {
+        transition: transform 0.22s;
+      }
+      .submit:hover:not(:disabled) {
+        background: var(--orange-hover);
+        transform: translateY(-2px);
+        box-shadow: 0 12px 30px rgba(255, 92, 0, 0.35);
+      }
+      .submit:hover:not(:disabled) .arr {
+        transform: translateX(5px);
+      }
+      .submit:disabled {
+        opacity: 0.6;
+        cursor: default;
+      }
+      .fineprint {
+        font-size: 12px;
+        font-weight: 500;
+        color: var(--ink-40);
+        text-align: center;
+        margin-top: 2px;
+      }
+      .formerror {
+        display: none;
+        font-size: 13px;
+        font-weight: 600;
+        color: #d33;
+        background: #fff0f0;
+        border: 1px solid rgba(211, 51, 51, 0.25);
+        border-radius: 10px;
+        padding: 11px 14px;
+        text-align: center;
+      }
+      .formerror.show {
+        display: block;
+      }
+
+      /* ---- success state ---- */
+      .success {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 22px 8px 10px;
+      }
+      .success.show {
+        display: flex;
+      }
+      .success .check {
+        width: 76px;
+        height: 76px;
+        border-radius: 50%;
+        background: var(--green);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 12px 34px rgba(20, 184, 122, 0.3);
+        margin-bottom: 24px;
+        animation: pop 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+      }
+      .success .check svg {
+        width: 38px;
+        height: 38px;
+      }
+      .success h3 {
+        font-family: var(--font-display);
+        text-transform: uppercase;
+        letter-spacing: 0.02em;
+        line-height: 0.92;
+        font-size: 46px;
+        color: var(--obsidian);
+      }
+      .success p {
+        font-size: 15px;
+        color: var(--ink-60);
+        line-height: 1.65;
+        max-width: 360px;
+        margin-top: 12px;
+      }
+      @keyframes pop {
+        from {
+          opacity: 0;
+          transform: scale(0.6);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+
+      /* ---- entrance ---- */
+      @media (prefers-reduced-motion: no-preference) {
+        .anim {
+          opacity: 0;
+          transform: translateY(18px);
+          animation: rise 0.65s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
+        .a1 {
+          animation-delay: 0.05s;
+        }
+        .a2 {
+          animation-delay: 0.14s;
+        }
+        .a3 {
+          animation-delay: 0.22s;
+        }
+        .a4 {
+          animation-delay: 0.3s;
+        }
+      }
+      @keyframes rise {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* ---- responsive ---- */
+      @media (max-width: 900px) {
+        .wrap {
+          grid-template-columns: 1fr;
+          gap: 40px;
+          padding: 40px 24px 64px;
+        }
+        .rail {
+          position: static;
+        }
+        .rail__sub,
+        .steps {
+          max-width: none;
+        }
+      }
+      @media (max-width: 540px) {
+        .card {
+          padding: 28px 22px;
+          box-shadow: 8px 8px 0 var(--orange);
+        }
+        .row {
+          grid-template-columns: 1fr;
+        }
+        .card__title {
+          font-size: 32px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="bg" aria-hidden="true">
+      <div class="bg__grid"></div>
+      <div class="bg__glow"></div>
+      <div class="bg__ghost">APPLY</div>
+    </div>
+
+    <div class="wrap" data-screen-label="Prequalification">
+      <!-- ---------------- LEFT RAIL ---------------- -->
+      <aside class="rail">
+        <img
+          src="assets/logo.png"
+          alt="Get Sh*t Done HQ"
+          class="rail__logo anim a1"
+        />
+        <span class="badge anim a1"
+          ><span class="dot"></span> Client Prequalification</span
+        >
+        <h1 class="rail__title anim a2">
+          Let's See If<br />We're a<br /><span class="star">Fit.</span>
+        </h1>
+        <p class="rail__sub anim a2">
+          We only take on clients we can genuinely move the needle for. Tell us
+          where you are and where you want to go —
+          <strong>if it's a match, we'll reach out fast.</strong>
+        </p>
+
+        <div class="steps anim a3">
+          <div class="step">
+            <span class="step__num">01</span>
+            <div class="step__body">
+              <h4>You Apply</h4>
+              <p>
+                Two minutes. Tell us about your business and your biggest
+                challenge.
+              </p>
+            </div>
+          </div>
+          <div class="step">
+            <span class="step__num">02</span>
+            <div class="step__body">
+              <h4>We Review</h4>
+              <p>
+                We read every application ourselves — no bots, no
+                autoresponders.
+              </p>
+            </div>
+          </div>
+          <div class="step">
+            <span class="step__num">03</span>
+            <div class="step__body">
+              <h4>We Get Moving</h4>
+              <p>
+                If it's a fit, you'll hear from us to book a strategy call and
+                start.
+              </p>
+            </div>
+          </div>
+        </div>
+      </aside>
+
+      <!-- ---------------- FORM CARD ---------------- -->
+      <div class="card anim a4">
+        <div class="card__head">
+          <span class="card__eyebrow">Application</span>
+          <h2 class="card__title">Apply to Work With Us</h2>
+          <p class="card__sub">
+            All fields marked
+            <span style="color: var(--orange); font-weight: 700">*</span> are
+            required. The rest just help us prep.
+          </p>
+        </div>
+
+        <form id="qualificationForm" novalidate>
+          <div class="row">
+            <div class="field">
+              <label for="fullName">Full Name <span class="req">*</span></label>
+              <input
+                id="fullName"
+                type="text"
+                name="fullName"
+                placeholder="Your full name"
+                required
+              />
+            </div>
+            <div class="field">
+              <label for="company"
+                >Company Name <span class="opt">(optional)</span></label
+              >
+              <input
+                id="company"
+                type="text"
+                name="company"
+                placeholder="Your business"
+              />
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="field">
+              <label for="email"
+                >Email Address <span class="req">*</span></label
+              >
+              <input
+                id="email"
+                type="email"
+                name="email"
+                placeholder="you@email.com"
+                required
+              />
+            </div>
+            <div class="field">
+              <label for="phone"
+                >Phone Number <span class="opt">(optional)</span></label
+              >
+              <input
+                id="phone"
+                type="tel"
+                name="phone"
+                placeholder="(000) 000-0000"
+              />
+            </div>
+          </div>
+
+          <div class="field field--full">
+            <label for="website"
+              >Website <span class="opt">(optional)</span></label
+            >
+            <input
+              id="website"
+              type="url"
+              name="website"
+              placeholder="https://yourbusiness.com"
+            />
+          </div>
+
+          <div class="row">
+            <div class="field">
+              <label for="businessType">Business Type</label>
+              <div class="selectwrap">
+                <select id="businessType" name="businessType">
+                  <option>Coach</option>
+                  <option>Consultant</option>
+                  <option>Agency</option>
+                  <option>E-commerce</option>
+                  <option>SaaS</option>
+                  <option>Local Business</option>
+                  <option>Other</option>
+                </select>
+                <span class="chev" aria-hidden="true"></span>
+              </div>
+            </div>
+            <div class="field">
+              <label for="employees">Team Size</label>
+              <div class="selectwrap">
+                <select id="employees" name="employees">
+                  <option>Just me</option>
+                  <option>2-5</option>
+                  <option>6-10</option>
+                  <option>11-25</option>
+                  <option>26-50</option>
+                  <option>50+</option>
+                </select>
+                <span class="chev" aria-hidden="true"></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="field field--full">
+            <label for="revenue">Monthly Revenue</label>
+            <div class="selectwrap">
+              <select id="revenue" name="revenue">
+                <option>Under $5k</option>
+                <option>$5k-10k</option>
+                <option>$10k-25k</option>
+                <option>$25k-50k</option>
+                <option>$50k+</option>
+              </select>
+              <span class="chev" aria-hidden="true"></span>
+            </div>
+          </div>
+
+          <div class="field field--full">
+            <label for="challenge"
+              >Your Biggest Challenge <span class="req">*</span></label
+            >
+            <textarea
+              id="challenge"
+              name="challenge"
+              placeholder="What's the #1 thing holding your business back right now?"
+              required
+            ></textarea>
+          </div>
+
+          <div class="field field--full">
+            <label for="goal"
+              >What Does Success Look Like? <span class="req">*</span></label
+            >
+            <textarea
+              id="goal"
+              name="goal"
+              placeholder="Where do you want to be 90 days from now?"
+              required
+            ></textarea>
+          </div>
+
+          <div class="formerror" id="formError">
+            Please fill in your name, email, and both questions before applying.
+          </div>
+
+          <button class="submit" type="submit" id="submitBtn">
+            <span class="btnlabel">Apply Now</span>
+            <span class="arr">&rarr;</span>
+          </button>
+          <p class="fineprint">
+            Your details stay private. We'll only use them to review your
+            application.
+          </p>
+        </form>
+
+        <!-- success state -->
+        <div class="success" id="successState">
+          <div class="check">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path
+                d="M4 12.5l5 5L20 6.5"
+                stroke="#fff"
+                stroke-width="3"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </div>
+          <h3>Application<br />Received.</h3>
+          <p>
+            Nice move. We'll review it ourselves and get back to you shortly —
+            keep an eye on your inbox.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const form = document.getElementById("qualificationForm");
+      const submitBtn = document.getElementById("submitBtn");
+      const btnLabel = submitBtn.querySelector(".btnlabel");
+      const formError = document.getElementById("formError");
+      const successState = document.getElementById("successState");
+
+      // n8n webhook endpoint — replace with your live URL
+      const WEBHOOK_URL =
+        "https://n8n.getshtdonehq.com/webhook-test/client-qualification";
+
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        formError.classList.remove("show");
+
+        // native required-field check
+        if (!form.checkValidity()) {
+          formError.classList.add("show");
+          form.reportValidity();
+          return;
+        }
+
+        const data = Object.fromEntries(new FormData(form).entries());
+
+        submitBtn.disabled = true;
+        btnLabel.textContent = "Sending…";
+
+        try {
+          const response = await fetch(WEBHOOK_URL, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(data),
+          });
+
+          if (response.ok) {
+            form.style.display = "none";
+            successState.classList.add("show");
+            form.reset();
+          } else {
+            showError("Something went wrong on our end. Please try again.");
+          }
+        } catch (error) {
+          showError(
+            "Unable to submit right now. Check your connection and try again.",
+          );
+        }
+      });
+
+      function showError(msg) {
+        formError.textContent = msg;
+        formError.classList.add("show");
+        submitBtn.disabled = false;
+        btnLabel.textContent = "Apply Now";
+      }
+    </script>
+  </body>
+</html>
