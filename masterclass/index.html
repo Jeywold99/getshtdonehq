@@ -423,12 +423,11 @@
         display: flex;
         align-items: baseline;
         gap: 13px;
-        border-top: 1px solid rgba(255, 255, 255, 0.1);
-        padding-top: 18px;
+        padding-top: 9px;
       }
       .price-now {
         font-family: var(--font-display);
-        font-size: 50px;
+        font-size: 100px;
         color: var(--orange);
         letter-spacing: 0.02em;
         line-height: 0.9;
@@ -1452,10 +1451,6 @@
             class="nav-logo"
         /></a>
         <div class="nav-right">
-          <div class="nav-timer">
-            <span class="dot"></span>Early-bird closes
-            <b class="js-clock-compact">0d 00:00:00</b>
-          </div>
           <a href="#secure" class="btn">Grab my seat</a>
         </div>
       </div>
@@ -1501,36 +1496,12 @@
             <span class="tag">Enrollment status</span>
             <span class="live"><span class="dot"></span>Open</span>
           </div>
-          <h3>Early-bird window closes in</h3>
-          <div class="clock" role="timer" aria-live="off">
-            <div class="unit unit--days">
-              <div class="num js-d">00</div>
-              <div class="lbl">Days</div>
-            </div>
-            <div class="clock-row">
-              <div class="unit">
-                <div class="num js-h">00</div>
-                <div class="lbl">Hrs</div>
-              </div>
-              <div class="unit">
-                <div class="num js-m">00</div>
-                <div class="lbl">Min</div>
-              </div>
-              <div class="unit">
-                <div class="num js-s">00</div>
-                <div class="lbl">Sec</div>
-              </div>
-            </div>
-          </div>
           <div class="price-row">
             <span class="price-now js-price">₱2,999</span>
-            <span class="price-was">₱6,999</span>
           </div>
-          <div class="price-note js-pricenote">
-            Early-bird rate — jumps to ₱6,999 the second the timer hits zero.
-          </div>
+
           <a href="#secure" class="btn"
-            >Claim early-bird rate <span class="arr">&rarr;</span></a
+            >Lock in my seat <span class="arr">&rarr;</span></a
           >
         </aside>
       </div>
@@ -1766,29 +1737,8 @@
       <div class="wrap">
         <div class="offer-card">
           <div class="offer-head">
-            <span class="eyebrow eyebrow--on-dark">Secure your seat</span>
-            <h2>Early-bird rate ends when the clock stops.</h2>
-            <div class="deadline">Early-bird window closes in</div>
-            <div class="clock big" role="timer">
-              <div class="unit unit--days">
-                <div class="num js-d">00</div>
-                <div class="lbl">Days</div>
-              </div>
-              <div class="clock-row">
-                <div class="unit">
-                  <div class="num js-h">00</div>
-                  <div class="lbl">Hrs</div>
-                </div>
-                <div class="unit">
-                  <div class="num js-m">00</div>
-                  <div class="lbl">Min</div>
-                </div>
-                <div class="unit">
-                  <div class="num js-s">00</div>
-                  <div class="lbl">Sec</div>
-                </div>
-              </div>
-            </div>
+            <span class="eyebrow eyebrow--on-dark">Lock in now</span>
+            <h2>Secure your seat</h2>
           </div>
 
           <div class="offer-body">
@@ -1826,7 +1776,6 @@
 
             <div class="offer-right">
               <div class="priceblock">
-                <div class="was">Regular ₱6,999</div>
                 <div class="now js-price">₱2,999</div>
                 <div class="terms js-pricenote">
                   Early-bird rate — locked only until the timer hits zero.
@@ -1967,15 +1916,6 @@
             walk out equipped.
           </p>
         </details>
-        <details>
-          <summary>
-            What happens after the timer hits zero? <span class="pm">+</span>
-          </summary>
-          <p>
-            The early-bird rate jumps to ₱6,999. Same program — you just pay
-            full price. Lock in ₱2,999 while the window's open.
-          </p>
-        </details>
       </div>
     </section>
 
@@ -1987,7 +1927,6 @@
         <h2>
           Early-bird seats are capped. Once they're gone, you pay full price.
         </h2>
-        <p>Early-bird rate ₱2,999 · reverts to ₱6,999 at July 11, 2026</p>
         <a href="#secure" class="btn btn-dark"
           >Lock in my seat now <span class="arr">&rarr;</span></a
         >
@@ -2063,11 +2002,8 @@
           if (diff <= 0) {
             if (!expired) {
               expired = true;
-              set(priceEls, "₱6,999");
-              set(
-                noteEls,
-                "Early-bird window closed — this is the regular rate.",
-              );
+              set(priceEls, "₱2,999");
+              set(noteEls, "What are you waiting for? Seats are limited.");
             }
             set(dEls, "00");
             set(hEls, "00");
