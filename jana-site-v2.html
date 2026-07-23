@@ -1,0 +1,1722 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jana Tandoc — Fractional COO (V2)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --orange: #ff5c00;
+        --orange-hover: #ff8533;
+        --orange-pale: #ffe8d6;
+        --midnight: #1e1e2e;
+        --obsidian: #1a1a1a;
+        --cream: #f5f0eb;
+        --white: #fff;
+        --ink-60: #888;
+        --ink-40: #bbb;
+        --green: #14b87a;
+        --font-display: "Bebas Neue", sans-serif;
+        --font-ui: "Outfit", sans-serif;
+        --max-w: 1180px;
+        --r: 12px;
+        --r-lg: 20px;
+        --r-xl: 28px;
+        --trans: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        font-family: var(--font-ui);
+        background: var(--white);
+        color: var(--obsidian);
+        line-height: 1.6;
+        overflow-x: hidden;
+        -webkit-font-smoothing: antialiased;
+      }
+      img {
+        max-width: 100%;
+        display: block;
+      }
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+      ul {
+        list-style: none;
+      }
+      a:not(.btn) {
+        color: var(--orange);
+        transition: color var(--trans);
+      }
+      a:not(.btn):hover {
+        color: var(--orange-hover);
+      }
+      .wrap {
+        max-width: var(--max-w);
+        margin: 0 auto;
+        padding: 0 40px;
+      }
+      .eyebrow {
+        display: inline-block;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--orange);
+        background: var(--orange-pale);
+        padding: 6px 14px;
+        border-radius: 100px;
+      }
+      .eyebrow--dark {
+        background: rgba(255, 92, 0, 0.14);
+      }
+      .sec-num {
+        font-family: var(--font-display);
+        font-size: 15px;
+        letter-spacing: 0.18em;
+        color: var(--orange);
+      }
+      .text--orange {
+        color: var(--orange);
+      }
+      .ph {
+        color: var(--orange);
+        border: 1.5px dashed var(--orange);
+        border-radius: 6px;
+        padding: 0.05em 0.4em;
+        background: rgba(255, 92, 0, 0.06);
+        font-weight: 600;
+        font-style: normal;
+        display: inline-block;
+        max-width: 100%;
+      }
+
+      /* NAV */
+      .nav {
+        position: fixed;
+        inset: 0 0 auto 0;
+        z-index: 1000;
+        background: rgba(26, 26, 26, 0.82);
+        backdrop-filter: blur(18px);
+        -webkit-backdrop-filter: blur(18px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      }
+      .nav__in {
+        max-width: var(--max-w);
+        margin: 0 auto;
+        padding: 14px 40px;
+        display: flex;
+        align-items: center;
+        gap: 26px;
+      }
+      .nav__brand {
+        display: flex;
+        align-items: center;
+        gap: 11px;
+        font-family: var(--font-display);
+        font-size: 19px;
+        letter-spacing: 0.06em;
+        color: #fff;
+        white-space: nowrap;
+      }
+      .nav__brand img {
+        height: 26px;
+        width: auto;
+      }
+      .nav__tag {
+        font-family: var(--font-display);
+        letter-spacing: 0.12em;
+        color: rgba(255, 255, 255, 0.5);
+        font-size: 14px;
+        padding-left: 16px;
+        border-left: 1px solid rgba(255, 255, 255, 0.16);
+        white-space: nowrap;
+      }
+      @media (max-width: 1040px) {
+        .nav__tag {
+          display: none;
+        }
+      }
+      .nav__links {
+        margin-left: auto;
+        display: flex;
+        align-items: center;
+        gap: 22px;
+      }
+      .nav__links a {
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.55);
+        transition: color var(--trans);
+        white-space: nowrap;
+      }
+      .nav__links a:hover {
+        color: #fff;
+      }
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 9px;
+        font-weight: 700;
+        font-size: 14px;
+        padding: 12px 24px;
+        border-radius: 100px;
+        transition: var(--trans);
+        cursor: pointer;
+        border: none;
+      }
+      .btn--orange {
+        background: var(--orange);
+        color: #fff;
+      }
+      .btn--orange:hover {
+        background: var(--orange-hover);
+        color: #fff;
+      }
+      .btn--ghost {
+        background: transparent;
+        color: var(--obsidian);
+        border: 2px solid var(--obsidian);
+      }
+      .btn--ghost:hover {
+        background: var(--obsidian);
+        color: #fff;
+      }
+      .btn--lg {
+        padding: 16px 34px;
+        font-size: 16px;
+      }
+      .nav__cta {
+        margin-left: 4px;
+        padding: 10px 18px;
+        font-size: 12px;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        white-space: nowrap;
+      }
+      .nav__burger {
+        display: none;
+        margin-left: auto;
+        background: none;
+        border: none;
+        color: #fff;
+        font-size: 26px;
+        cursor: pointer;
+        line-height: 1;
+      }
+
+      /* SECTION SHELL */
+      .sec {
+        padding: 110px 0;
+        position: relative;
+        overflow: hidden;
+      }
+      .sec--cream {
+        background: var(--cream);
+      }
+      .sec--midnight {
+        background: var(--midnight);
+        color: #fff;
+      }
+      .sec--orange {
+        background: var(--orange);
+        color: #fff;
+      }
+      .sec__head {
+        max-width: 800px;
+        margin-bottom: 60px;
+      }
+      .sec__head .sec-num {
+        display: block;
+        margin-bottom: 16px;
+      }
+      .sec__title {
+        font-family: var(--font-display);
+        text-transform: uppercase;
+        font-size: clamp(40px, 6vw, 74px);
+        line-height: 0.95;
+        letter-spacing: 0.02em;
+        margin-bottom: 18px;
+      }
+      .sec__lead {
+        font-size: clamp(16px, 1.7vw, 19px);
+        color: var(--ink-60);
+        line-height: 1.7;
+        max-width: 660px;
+      }
+      .sec--midnight .sec__lead {
+        color: rgba(255, 255, 255, 0.62);
+      }
+      .sec--orange .sec__lead {
+        color: rgba(255, 255, 255, 0.9);
+      }
+      .sec--orange .sec-num {
+        color: rgba(0, 0, 0, 0.4);
+      }
+
+      /* HERO */
+      .hero {
+        position: relative;
+        background: var(--midnight);
+        color: #fff;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        overflow: hidden;
+        padding: 150px 0 80px;
+      }
+      .hero__grid {
+        position: absolute;
+        inset: 0;
+        background-image:
+          linear-gradient(rgba(255, 92, 0, 0.05) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255, 92, 0, 0.05) 1px, transparent 1px);
+        background-size: 64px 64px;
+        pointer-events: none;
+        -webkit-mask-image: radial-gradient(
+          circle at 28% 42%,
+          #000,
+          transparent 72%
+        );
+        mask-image: radial-gradient(circle at 28% 42%, #000, transparent 72%);
+      }
+      .hero__glow {
+        position: absolute;
+        width: 900px;
+        height: 900px;
+        background: radial-gradient(
+          circle,
+          rgba(255, 92, 0, 0.18) 0%,
+          rgba(255, 92, 0, 0.04) 45%,
+          transparent 70%
+        );
+        top: 18%;
+        right: -260px;
+        pointer-events: none;
+      }
+      .hero__in {
+        position: relative;
+        z-index: 2;
+        display: grid;
+        grid-template-columns: 1.15fr 0.85fr;
+        gap: 56px;
+        align-items: center;
+        width: 100%;
+      }
+      .hero__badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        background: rgba(255, 92, 0, 0.1);
+        border: 1px solid rgba(255, 92, 0, 0.3);
+        color: var(--orange);
+        font-size: 12px;
+        font-weight: 700;
+        padding: 9px 18px;
+        border-radius: 100px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        margin-bottom: 30px;
+      }
+      .hero__badge .dot {
+        width: 8px;
+        height: 8px;
+        background: var(--orange);
+        border-radius: 50%;
+        box-shadow: 0 0 0 4px rgba(255, 92, 0, 0.25);
+      }
+      .hero__title {
+        font-family: var(--font-display);
+        text-transform: uppercase;
+        font-size: clamp(48px, 6.6vw, 96px);
+        line-height: 0.9;
+        letter-spacing: 0.01em;
+      }
+      .hero__title .stroke {
+        -webkit-text-stroke: 2px rgba(255, 255, 255, 0.85);
+        color: transparent;
+      }
+      .hero__title .text--orange {
+        color: var(--orange);
+      }
+      .hero__sub {
+        font-size: clamp(16px, 1.5vw, 19px);
+        color: rgba(255, 255, 255, 0.64);
+        max-width: 520px;
+        margin: 26px 0 0;
+        line-height: 1.7;
+      }
+      .hero__cta {
+        display: flex;
+        gap: 14px;
+        margin-top: 34px;
+        flex-wrap: wrap;
+      }
+      .hero__cta .btn--ghost {
+        color: #fff;
+        border-color: rgba(255, 255, 255, 0.4);
+      }
+      .hero__cta .btn--ghost:hover {
+        background: #fff;
+        color: var(--obsidian);
+        border-color: #fff;
+      }
+      .hero__sig {
+        margin-top: 40px;
+        padding-top: 28px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        display: flex;
+        align-items: center;
+        gap: 16px;
+      }
+      .hero__sig .nm {
+        font-family: var(--font-display);
+        font-size: 24px;
+        letter-spacing: 0.06em;
+      }
+      .hero__sig .rl {
+        font-size: 13px;
+        color: rgba(255, 255, 255, 0.5);
+      }
+      .hero__photo {
+        position: relative;
+      }
+      .hero__photo img {
+        width: 100%;
+        border-radius: var(--r-xl);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+      }
+      .hero__photo::after {
+        content: "";
+        position: absolute;
+        inset: 18px -18px -18px 18px;
+        border: 2px solid var(--orange);
+        border-radius: var(--r-xl);
+        z-index: -1;
+      }
+      .hero__ghost {
+        position: absolute;
+        right: -20px;
+        bottom: -90px;
+        font-family: var(--font-display);
+        font-size: clamp(120px, 20vw, 280px);
+        color: rgba(255, 255, 255, 0.03);
+        line-height: 0.8;
+        pointer-events: none;
+        user-select: none;
+        z-index: 1;
+      }
+
+      /* TRUSTED BY */
+      .trust {
+        padding: 64px 0;
+        background: var(--obsidian);
+        color: #fff;
+      }
+      .trust__lbl {
+        text-align: center;
+        font-size: 11px;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.4);
+        font-weight: 700;
+        margin-bottom: 34px;
+      }
+      .trust__grid {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        gap: 14px;
+      }
+      .trust__cell {
+        background: #fff;
+        border-radius: 14px;
+        aspect-ratio: 16/8;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 18px;
+      }
+      .trust__cell img {
+        max-height: 46px;
+        max-width: 80%;
+        width: auto;
+        object-fit: contain;
+      }
+      .trust__cell--name {
+        background: rgba(255, 255, 255, 0.05);
+        border: 1.5px dashed rgba(255, 92, 0, 0.5);
+      }
+      .trust__cell--name span {
+        font-family: var(--font-display);
+        font-size: 19px;
+        letter-spacing: 0.05em;
+        color: #fff;
+        text-align: center;
+        line-height: 0.95;
+        padding: 0 8px;
+      }
+      .trust__cell--name small {
+        display: block;
+        font-family: var(--font-ui);
+        font-size: 8px;
+        letter-spacing: 0.12em;
+        color: var(--orange);
+        margin-top: 5px;
+      }
+
+      /* SNAPSHOT */
+      .snap {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 22px;
+      }
+      .snap__col h3 {
+        font-family: var(--font-display);
+        font-size: 24px;
+        letter-spacing: 0.05em;
+        color: var(--orange);
+        margin-bottom: 20px;
+      }
+      .snap__stat {
+        margin-bottom: 22px;
+      }
+      .snap__stat .n {
+        font-family: var(--font-display);
+        font-size: 56px;
+        line-height: 0.9;
+        letter-spacing: 0.02em;
+      }
+      .snap__stat .l {
+        font-size: 14px;
+        color: var(--ink-60);
+        margin-top: 4px;
+      }
+      .sec--midnight .snap__stat .n {
+        color: #fff;
+      }
+      .snap__list {
+        display: flex;
+        flex-direction: column;
+        gap: 11px;
+      }
+      .snap__list li {
+        display: flex;
+        gap: 11px;
+        font-size: 15px;
+        color: rgba(255, 255, 255, 0.82);
+        align-items: center;
+      }
+      .snap__list li::before {
+        content: "";
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: var(--orange);
+        flex-shrink: 0;
+      }
+      .snap__xp {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+      }
+      .snap__xp .row {
+        display: flex;
+        justify-content: space-between;
+        gap: 14px;
+        padding-bottom: 13px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+      }
+      .snap__xp .co {
+        font-weight: 700;
+        font-size: 15px;
+      }
+      .snap__xp .yr {
+        font-size: 13px;
+        color: rgba(255, 255, 255, 0.5);
+        white-space: nowrap;
+        font-family: var(--font-display);
+        letter-spacing: 0.08em;
+      }
+
+      /* PROBLEMS */
+      .prob {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 22px;
+      }
+      .prob__card {
+        background: #fff;
+        border: 2px solid rgba(0, 0, 0, 0.07);
+        border-radius: var(--r-lg);
+        padding: 32px;
+        transition: var(--trans);
+      }
+      .prob__card:hover {
+        border-color: var(--orange);
+        transform: translateY(-4px);
+        box-shadow: 6px 6px 0 var(--orange);
+      }
+      .prob__card .n {
+        font-family: var(--font-display);
+        font-size: 34px;
+        color: var(--orange);
+        line-height: 1;
+      }
+      .prob__card h3 {
+        font-size: 19px;
+        font-weight: 800;
+        margin: 14px 0 9px;
+        letter-spacing: -0.01em;
+      }
+      .prob__card p {
+        font-size: 14.5px;
+        color: var(--ink-60);
+        line-height: 1.65;
+      }
+
+      /* PHILOSOPHY */
+      .phil {
+        background: var(--orange);
+        color: #fff;
+        padding: 130px 0;
+        position: relative;
+        overflow: hidden;
+      }
+      .phil__ghost {
+        position: absolute;
+        right: -30px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-family: var(--font-display);
+        font-size: clamp(160px, 28vw, 420px);
+        color: rgba(0, 0, 0, 0.08);
+        line-height: 0.8;
+        pointer-events: none;
+        user-select: none;
+      }
+      .phil__in {
+        position: relative;
+        z-index: 2;
+        max-width: 920px;
+      }
+      .phil__q {
+        font-family: var(--font-display);
+        text-transform: uppercase;
+        font-size: clamp(52px, 9vw, 132px);
+        line-height: 0.9;
+        letter-spacing: 0.01em;
+      }
+      .phil__q .stroke {
+        -webkit-text-stroke: 2px #fff;
+        color: transparent;
+      }
+      .phil__body {
+        font-size: clamp(17px, 1.9vw, 21px);
+        line-height: 1.7;
+        margin-top: 34px;
+        max-width: 640px;
+        color: rgba(255, 255, 255, 0.92);
+      }
+      .phil__body p + p {
+        margin-top: 16px;
+      }
+
+      /* SERVICES */
+      .svc {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1px;
+        background: rgba(0, 0, 0, 0.09);
+        border: 1px solid rgba(0, 0, 0, 0.09);
+        border-radius: var(--r-lg);
+        overflow: hidden;
+      }
+      .svc__card {
+        background: var(--cream);
+        padding: 38px 32px;
+        transition: var(--trans);
+      }
+      .svc__card:hover {
+        background: #fff;
+      }
+      .svc__card .ci {
+        font-family: var(--font-display);
+        font-size: 15px;
+        letter-spacing: 0.14em;
+        color: var(--orange);
+      }
+      .svc__card h3 {
+        font-family: var(--font-display);
+        font-size: 30px;
+        letter-spacing: 0.03em;
+        margin: 10px 0 12px;
+      }
+      .svc__card p {
+        font-size: 14.5px;
+        color: var(--ink-60);
+        line-height: 1.65;
+      }
+
+      /* SCALE */
+      .scale {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 18px;
+      }
+      .scale__step {
+        position: relative;
+      }
+      .scale__step .lt {
+        font-family: var(--font-display);
+        font-size: 72px;
+        line-height: 0.8;
+        color: rgba(255, 255, 255, 0.14);
+        letter-spacing: 0.02em;
+      }
+      .scale__step .lt b {
+        color: var(--orange);
+      }
+      .scale__step h3 {
+        font-family: var(--font-display);
+        font-size: 26px;
+        letter-spacing: 0.04em;
+        margin: 14px 0 10px;
+      }
+      .scale__step p {
+        font-size: 14px;
+        color: rgba(255, 255, 255, 0.6);
+        line-height: 1.6;
+      }
+      .scale__step:not(:last-child)::after {
+        content: "→";
+        position: absolute;
+        top: 24px;
+        right: -13px;
+        color: var(--orange);
+        font-weight: 800;
+        font-size: 18px;
+      }
+
+      /* CASE STUDIES */
+      .case {
+        display: flex;
+        flex-direction: column;
+        gap: 22px;
+      }
+      .case__card {
+        background: #fff;
+        border: 2px solid rgba(0, 0, 0, 0.08);
+        border-radius: var(--r-xl);
+        overflow: hidden;
+      }
+      .case__top {
+        padding: 26px 34px;
+        background: var(--midnight);
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        flex-wrap: wrap;
+      }
+      .case__top .tag {
+        font-family: var(--font-display);
+        font-size: 22px;
+        letter-spacing: 0.05em;
+        color: var(--orange);
+      }
+      .case__top .ind {
+        font-size: 12px;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.5);
+        font-weight: 600;
+      }
+      .case__body {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+      }
+      .case__col {
+        padding: 30px 34px;
+        border-right: 1px solid rgba(0, 0, 0, 0.08);
+      }
+      .case__col:last-child {
+        border-right: none;
+        background: rgba(255, 92, 0, 0.04);
+      }
+      .case__col .k {
+        font-size: 11px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        font-weight: 700;
+        margin-bottom: 12px;
+      }
+      .case__col.before .k {
+        color: #c4271c;
+      }
+      .case__col.solution .k {
+        color: var(--orange);
+      }
+      .case__col.outcome .k {
+        color: var(--green);
+      }
+      .case__col p {
+        font-size: 15px;
+        color: #555;
+        line-height: 1.6;
+      }
+      .case__col.outcome .big {
+        font-family: var(--font-display);
+        font-size: 44px;
+        line-height: 0.9;
+        color: var(--obsidian);
+        margin-bottom: 8px;
+        letter-spacing: 0.02em;
+      }
+
+      /* TESTIMONIALS */
+      .test {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 22px;
+      }
+      .test__card {
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: var(--r-lg);
+        padding: 32px;
+        display: flex;
+        flex-direction: column;
+      }
+      .test__card .mark {
+        font-family: var(--font-display);
+        font-size: 56px;
+        color: var(--orange);
+        line-height: 0.6;
+        height: 30px;
+      }
+      .test__card p {
+        font-size: 16px;
+        color: rgba(255, 255, 255, 0.9);
+        line-height: 1.6;
+        flex: 1;
+        margin: 6px 0 22px;
+      }
+      .test__who {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .test__who .av {
+        width: 42px;
+        height: 42px;
+        border-radius: 50%;
+        background: rgba(255, 92, 0, 0.16);
+        border: 1px dashed rgba(255, 92, 0, 0.5);
+      }
+      .test__who .nm {
+        font-weight: 700;
+        font-size: 14px;
+      }
+      .test__who .rl {
+        font-size: 12px;
+        color: rgba(255, 255, 255, 0.5);
+      }
+
+      /* ABOUT */
+      .about__in {
+        display: grid;
+        grid-template-columns: 0.85fr 1.15fr;
+        gap: 56px;
+        align-items: center;
+      }
+      .about__photo {
+        position: relative;
+      }
+      .about__photo img {
+        width: 100%;
+        border-radius: var(--r-xl);
+        border: 2px solid rgba(0, 0, 0, 0.08);
+      }
+      .about__body p {
+        font-size: clamp(16px, 1.7vw, 19px);
+        line-height: 1.75;
+        color: #444;
+      }
+      .about__body p + p {
+        margin-top: 18px;
+      }
+      .about__body .lead {
+        font-family: var(--font-display);
+        font-size: clamp(28px, 3.4vw, 40px);
+        letter-spacing: 0.02em;
+        line-height: 1;
+        color: var(--obsidian);
+        text-transform: uppercase;
+        margin-bottom: 24px;
+      }
+      .about__creds {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 9px;
+        margin-top: 26px;
+      }
+      .about__creds span {
+        font-size: 12.5px;
+        font-weight: 600;
+        padding: 7px 14px;
+        border-radius: 100px;
+        background: var(--cream);
+        border: 1px solid rgba(0, 0, 0, 0.08);
+      }
+
+      /* CTA */
+      .cta {
+        background: var(--midnight);
+        color: #fff;
+        padding: 130px 0;
+        position: relative;
+        overflow: hidden;
+        text-align: center;
+      }
+      .cta__grid {
+        position: absolute;
+        inset: 0;
+        background-image:
+          linear-gradient(rgba(255, 92, 0, 0.05) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255, 92, 0, 0.05) 1px, transparent 1px);
+        background-size: 64px 64px;
+        -webkit-mask-image: radial-gradient(
+          circle at 50% 40%,
+          #000,
+          transparent 70%
+        );
+        mask-image: radial-gradient(circle at 50% 40%, #000, transparent 70%);
+      }
+      .cta__in {
+        position: relative;
+        z-index: 2;
+        max-width: 860px;
+        margin: 0 auto;
+      }
+      .cta h2 {
+        font-family: var(--font-display);
+        text-transform: uppercase;
+        font-size: clamp(44px, 7vw, 96px);
+        line-height: 0.9;
+        letter-spacing: 0.02em;
+      }
+      .cta p {
+        font-size: clamp(16px, 1.7vw, 19px);
+        color: rgba(255, 255, 255, 0.64);
+        margin: 24px auto 0;
+        max-width: 520px;
+        line-height: 1.7;
+      }
+      .cta__row {
+        display: flex;
+        gap: 14px;
+        justify-content: center;
+        margin-top: 38px;
+        flex-wrap: wrap;
+      }
+      .cta__row .btn--ghost {
+        color: #fff;
+        border-color: rgba(255, 255, 255, 0.4);
+      }
+      .cta__row .btn--ghost:hover {
+        background: #fff;
+        color: var(--obsidian);
+        border-color: #fff;
+      }
+      .cta__contact {
+        margin-top: 34px;
+        display: flex;
+        gap: 26px;
+        justify-content: center;
+        flex-wrap: wrap;
+        font-size: 14px;
+        color: rgba(255, 255, 255, 0.5);
+      }
+      .cta__contact a {
+        color: rgba(255, 255, 255, 0.8);
+      }
+      .cta__contact a:hover {
+        color: var(--orange);
+      }
+
+      /* FOOT */
+      .foot {
+        background: var(--obsidian);
+        color: #fff;
+        padding: 44px 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+      }
+      .foot__in {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 24px;
+        flex-wrap: wrap;
+      }
+      .foot__brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-family: var(--font-display);
+        letter-spacing: 0.08em;
+        font-size: 20px;
+      }
+      .foot__brand img {
+        height: 26px;
+      }
+      .foot p {
+        color: rgba(255, 255, 255, 0.45);
+        font-size: 13px;
+      }
+
+      /* RESPONSIVE */
+      @media (max-width: 900px) {
+        .nav__tag {
+          display: none;
+        }
+        .nav__links {
+          display: none;
+        }
+        .nav__links.open {
+          display: flex;
+          position: absolute;
+          top: 100%;
+          left: 0;
+          right: 0;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 0;
+          background: rgba(26, 26, 26, 0.98);
+          padding: 12px 40px 22px;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .nav__links.open a {
+          padding: 12px 0;
+          width: 100%;
+          font-size: 14px;
+        }
+        .nav__links.open .nav__cta {
+          margin: 12px 0 0;
+          width: 100%;
+          justify-content: center;
+          padding: 14px;
+        }
+        .nav__burger {
+          display: block;
+        }
+        .hero__in {
+          grid-template-columns: 1fr;
+          gap: 44px;
+        }
+        .hero__photo {
+          order: -1;
+          max-width: 420px;
+        }
+        .about__in {
+          grid-template-columns: 1fr;
+          gap: 40px;
+        }
+        .about__photo {
+          max-width: 420px;
+        }
+        .trust__grid {
+          grid-template-columns: repeat(4, 1fr);
+        }
+        .snap,
+        .prob,
+        .test {
+          grid-template-columns: 1fr 1fr;
+        }
+        .svc {
+          grid-template-columns: 1fr 1fr;
+        }
+        .scale {
+          grid-template-columns: 1fr 1fr 1fr;
+        }
+        .scale__step:not(:last-child)::after {
+          display: none;
+        }
+      }
+      @media (max-width: 640px) {
+        .wrap,
+        .nav__in {
+          padding-left: 22px;
+          padding-right: 22px;
+        }
+        .sec,
+        .phil,
+        .cta {
+          padding: 76px 0;
+        }
+        .hero {
+          padding: 120px 0 64px;
+        }
+        .trust__grid {
+          grid-template-columns: 1fr 1fr;
+        }
+        .snap,
+        .prob,
+        .test,
+        .svc,
+        .scale {
+          grid-template-columns: 1fr;
+        }
+        .case__body {
+          grid-template-columns: 1fr;
+        }
+        .case__col {
+          border-right: none;
+          border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="nav">
+      <div class="nav__in">
+        <a href="#top" class="nav__brand"
+          ><img src="assets/logo.png" alt="Get Sh*t Done HQ" />JANA TANDOC</a
+        >
+        <span class="nav__tag">Fractional COO</span>
+        <div class="nav__links" id="navlinks">
+          <a href="#problems">Problems</a>
+          <a href="#philosophy">Philosophy</a>
+          <a href="#services">Services</a>
+          <a href="#scale">Framework</a>
+          <a href="#cases">Case Studies</a>
+          <a href="#about">About</a>
+          <a href="#cta" class="btn btn--orange nav__cta">Book a Call</a>
+        </div>
+        <button class="nav__burger" id="burger" aria-label="Menu">☰</button>
+      </div>
+    </nav>
+
+    <!-- HERO -->
+    <header class="hero" id="top">
+      <div class="hero__grid"></div>
+      <div class="hero__glow"></div>
+      <div class="hero__ghost">COO</div>
+      <div class="wrap hero__in">
+        <div class="hero__copy">
+          <span class="hero__badge"
+            ><span class="dot"></span>Fractional COO · Get Sh*t Done HQ</span
+          >
+          <h1 class="hero__title">
+            I help founder-led companies
+            <span class="text--orange">scale beyond</span> founder dependency.
+          </h1>
+          <p class="hero__sub">
+            I step in as your Fractional COO to own the systems, operations, and
+            execution — so the business runs on infrastructure, not on you being
+            in every room.
+          </p>
+          <div class="hero__cta">
+            <a href="#cta" class="btn btn--orange btn--lg"
+              >Book Discovery Call</a
+            >
+            <a href="#cases" class="btn btn--ghost btn--lg">See the Results</a>
+          </div>
+          <div class="hero__sig">
+            <div>
+              <div class="nm">Jana Tandoc</div>
+              <div class="rl">Fractional COO · Manila · Works Remote</div>
+            </div>
+          </div>
+        </div>
+        <div class="hero__photo">
+          <img src="assets/Jana-headshot.png" alt="Jana Tandoc" />
+        </div>
+      </div>
+    </header>
+
+    <!-- TRUSTED BY -->
+    <section class="trust" id="trusted">
+      <div class="wrap">
+        <div class="trust__lbl">Trusted By</div>
+        <div class="trust__grid">
+          <div class="trust__cell">
+            <img src="assets/jobsohio.jpg" alt="JobsOhio" />
+          </div>
+          <div class="trust__cell">
+            <img src="assets/knowlogix.jpg" alt="Knowlogix" />
+          </div>
+          <div class="trust__cell">
+            <img src="assets/douglaselliman.jpg" alt="Douglas Elliman" />
+          </div>
+          <div class="trust__cell">
+            <img src="assets/johnlscott.jpg" alt="John L. Scott" />
+          </div>
+          <div class="trust__cell">
+            <img src="assets/shalecrescent.jpg" alt="Shale Crescent USA" />
+          </div>
+          <div class="trust__cell--name trust__cell">
+            <span>7FIGURE MSP<small>LOGO TO ADD</small></span>
+          </div>
+          <div class="trust__cell--name trust__cell">
+            <span>INTERNET MARKETING PARTY<small>LOGO TO ADD</small></span>
+          </div>
+          <div class="trust__cell--name trust__cell">
+            <span>DAVID GONZALES<small>LOGO TO ADD</small></span>
+          </div>
+          <div class="trust__cell">
+            <img src="assets/perkins.jpg" alt="Perkins and Associates" />
+          </div>
+          <div class="trust__cell--name trust__cell">
+            <span>AMERICAN WAY RV<small>LOGO TO ADD</small></span>
+          </div>
+          <div class="trust__cell">
+            <img src="assets/beautybiz.jpg" alt="Beauty Biz Pro" />
+          </div>
+          <div class="trust__cell--name trust__cell">
+            <span>SUPPORT SHEPHERD<small>LOGO TO ADD</small></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXECUTIVE SNAPSHOT -->
+    <section class="sec sec--midnight" id="snapshot">
+      <div class="wrap">
+        <div class="sec__head">
+          <span class="sec-num">01 — EXECUTIVE SNAPSHOT</span>
+          <h2 class="sec__title">The Short Version</h2>
+          <p class="sec__lead">
+            Six years turning founder-run chaos into systems that hold. Here's
+            where I've operated and what I've moved.
+          </p>
+        </div>
+        <div class="snap">
+          <div class="snap__col">
+            <h3>Statistics</h3>
+            <div class="snap__stat">
+              <div class="n ph">+40%</div>
+              <div class="l">
+                MRR growth driven <span class="ph">verify</span>
+              </div>
+            </div>
+            <div class="snap__stat">
+              <div class="n ph">00 hrs</div>
+              <div class="l">Founder hours reclaimed / week</div>
+            </div>
+            <div class="snap__stat">
+              <div class="n ph">00+</div>
+              <div class="l">Systems &amp; automations built</div>
+            </div>
+          </div>
+          <div class="snap__col">
+            <h3>Industries</h3>
+            <ul class="snap__list">
+              <li>Tech &amp; SaaS</li>
+              <li>Cybersecurity</li>
+              <li>Healthcare</li>
+              <li>Energy &amp; Economic Development</li>
+              <li>Real Estate</li>
+              <li>Service &amp; Coaching</li>
+            </ul>
+          </div>
+          <div class="snap__col">
+            <h3>Experience</h3>
+            <div class="snap__xp">
+              <div class="row">
+                <span class="co">Knowlogix — Marketing Ops Director</span
+                ><span class="yr">2025</span>
+              </div>
+              <div class="row">
+                <span class="co">Beauty Biz Pro — CRM &amp; Funnels</span
+                ><span class="yr">2025</span>
+              </div>
+              <div class="row">
+                <span class="co">Shale Crescent USA — Exec Ops</span
+                ><span class="yr">'19—'24</span>
+              </div>
+              <div class="row">
+                <span class="co">Perkins &amp; Associates — Client Ops</span
+                ><span class="yr">'23—'24</span>
+              </div>
+              <div class="row">
+                <span class="co">Support Shepherd — Exec Projects</span
+                ><span class="yr">'20—'21</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROBLEMS I SOLVE -->
+    <section class="sec" id="problems">
+      <div class="wrap">
+        <div class="sec__head">
+          <span class="sec-num">02 — PROBLEMS I SOLVE</span>
+          <h2 class="sec__title">Where I<br />Come In</h2>
+          <p class="sec__lead">
+            Founders don't call me when things are calm. They call me when the
+            business only works because they're holding it together. Here's what
+            I take off their plate.
+          </p>
+        </div>
+        <div class="prob">
+          <div class="prob__card">
+            <div class="n">01</div>
+            <h3>Founder Dependency</h3>
+            <p>
+              I move the business out of your head and into documented systems,
+              so it keeps running when you step away.
+            </p>
+          </div>
+          <div class="prob__card">
+            <div class="n">02</div>
+            <h3>Scaling Operations</h3>
+            <p>
+              I build the operational infrastructure that lets you add clients
+              and headcount without adding chaos.
+            </p>
+          </div>
+          <div class="prob__card">
+            <div class="n">03</div>
+            <h3>AI &amp; Automation</h3>
+            <p>
+              I put AI and automation to work on the repetitive execution, so
+              your team spends time on what actually needs a human.
+            </p>
+          </div>
+          <div class="prob__card">
+            <div class="n">04</div>
+            <h3>Revenue Operations</h3>
+            <p>
+              I own the CRM, funnels, and follow-up end to end, so pipeline runs
+              on a system instead of on memory.
+            </p>
+          </div>
+          <div class="prob__card">
+            <div class="n">05</div>
+            <h3>Marketing Systems</h3>
+            <p>
+              I turn scattered marketing into a repeatable engine — content,
+              campaigns, and cadence that ship on schedule.
+            </p>
+          </div>
+          <div class="prob__card">
+            <div class="n">06</div>
+            <h3>Executive Visibility</h3>
+            <p>
+              I give you the dashboards, cadences, and reporting to see what's
+              happening without chasing anyone for a status.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PHILOSOPHY -->
+    <section class="phil" id="philosophy">
+      <div class="phil__ghost">FREEDOM</div>
+      <div class="wrap phil__in">
+        <span
+          class="eyebrow"
+          style="background: rgba(0, 0, 0, 0.16); color: #fff"
+          >03 — Philosophy</span
+        >
+        <h2 class="phil__q" style="margin-top: 20px">
+          Systems create<br /><span class="stroke">freedom.</span>
+        </h2>
+        <div class="phil__body">
+          <p>
+            I don't believe in being the person a business can't run without. I
+            believe the opposite: the best operator is the one who makes herself
+            unnecessary to the day-to-day.
+          </p>
+          <p>
+            Every process I document, every automation I build, and every
+            workflow I hand off buys the founder back something they can't make
+            more of — time, and the freedom to work on the business instead of
+            inside it. That's the whole job. Build the machine, prove it runs,
+            then give you the keys.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section class="sec sec--cream" id="services">
+      <div class="wrap">
+        <div class="sec__head">
+          <span class="sec-num">04 — SERVICES</span>
+          <h2 class="sec__title">What I Own</h2>
+          <p class="sec__lead">
+            Engage me across one lane or the whole operation. Every service is
+            scoped around an outcome I take responsibility for — not a task list
+            I wait on.
+          </p>
+        </div>
+        <div class="svc">
+          <div class="svc__card">
+            <div class="ci">A</div>
+            <h3>Fractional COO</h3>
+            <p>
+              I run operations end to end — the systems, the cadence, and the
+              accountability that keep the business moving without you.
+            </p>
+          </div>
+          <div class="svc__card">
+            <div class="ci">B</div>
+            <h3>Executive Operations</h3>
+            <p>
+              I own the calendar, comms, projects, and priorities behind
+              leadership, so decisions turn into shipped work.
+            </p>
+          </div>
+          <div class="svc__card">
+            <div class="ci">C</div>
+            <h3>Revenue Operations</h3>
+            <p>
+              I take the CRM, funnels, and pipeline end to end so revenue runs
+              on a system from first touch to close.
+            </p>
+          </div>
+          <div class="svc__card">
+            <div class="ci">D</div>
+            <h3>Marketing Operations</h3>
+            <p>
+              I build the content and campaign engine — planned, produced, and
+              published on a cadence that holds.
+            </p>
+          </div>
+          <div class="svc__card">
+            <div class="ci">E</div>
+            <h3>AI Automation</h3>
+            <p>
+              I design the automations and AI workflows that remove the
+              repetitive work from your team's plate for good.
+            </p>
+          </div>
+          <div class="svc__card">
+            <div class="ci">F</div>
+            <h3>Business Strategy</h3>
+            <p>
+              I translate your growth goals into the operational roadmap and
+              priorities that actually get you there.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SCALE FRAMEWORK -->
+    <section class="sec sec--midnight" id="scale">
+      <div class="wrap">
+        <div class="sec__head">
+          <span class="sec-num">05 — THE SCALE FRAMEWORK™</span>
+          <h2 class="sec__title">How I Work</h2>
+          <p class="sec__lead">
+            Every engagement runs through the same five moves — the path from a
+            founder-dependent business to one that runs on infrastructure.
+          </p>
+        </div>
+        <div class="scale">
+          <div class="scale__step">
+            <div class="lt"><b>S</b>01</div>
+            <h3>Systemize</h3>
+            <p>
+              I document how the business actually works and turn tribal
+              knowledge into repeatable processes.
+            </p>
+          </div>
+          <div class="scale__step">
+            <div class="lt"><b>C</b>02</div>
+            <h3>Centralize</h3>
+            <p>
+              I bring the tools, data, and workflows into one source of truth
+              the whole team operates from.
+            </p>
+          </div>
+          <div class="scale__step">
+            <div class="lt"><b>A</b>03</div>
+            <h3>Automate</h3>
+            <p>
+              I hand the repetitive execution to automation and AI, freeing
+              people for higher-value work.
+            </p>
+          </div>
+          <div class="scale__step">
+            <div class="lt"><b>L</b>04</div>
+            <h3>Lead</h3>
+            <p>
+              I run the cadence and hold the team to it, so the systems get used
+              and outcomes get owned.
+            </p>
+          </div>
+          <div class="scale__step">
+            <div class="lt"><b>E</b>05</div>
+            <h3>Expand</h3>
+            <p>
+              With the foundation holding, I help you add clients, headcount,
+              and offers without adding chaos.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CASE STUDIES -->
+    <section class="sec" id="cases">
+      <div class="wrap">
+        <div class="sec__head">
+          <span class="sec-num">06 — CASE STUDIES</span>
+          <h2 class="sec__title">Before &amp; After</h2>
+          <p class="sec__lead">
+            A look at what changes when operations get owned.
+            <span class="ph"
+              >Placeholder metrics — swap for real client outcomes.</span
+            >
+          </p>
+        </div>
+        <div class="case">
+          <div class="case__card">
+            <div class="case__top">
+              <span class="tag">Beauty Biz Pro</span
+              ><span class="ind">Coaching / Service</span>
+            </div>
+            <div class="case__body">
+              <div class="case__col before">
+                <div class="k">Before</div>
+                <p>
+                  Leads were tracked by hand and follow-up depended on someone
+                  remembering. Onboarding was manual and inconsistent.
+                </p>
+              </div>
+              <div class="case__col solution">
+                <div class="k">Solution</div>
+                <p>
+                  I built the full GoHighLevel CRM, lead funnels, and automated
+                  the customer journey from first touch through onboarding.
+                </p>
+              </div>
+              <div class="case__col outcome">
+                <div class="k">Outcome</div>
+                <div class="big ph">00%</div>
+                <p>
+                  faster lead response and a hands-off onboarding flow.
+                  <span class="ph">Add real figure.</span>
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="case__card">
+            <div class="case__top">
+              <span class="tag">Shale Crescent USA</span
+              ><span class="ind">Energy / Econ Development</span>
+            </div>
+            <div class="case__body">
+              <div class="case__col before">
+                <div class="k">Before</div>
+                <p>
+                  Leadership's calendar, stakeholder comms, and projects lived
+                  in scattered threads with no single owner.
+                </p>
+              </div>
+              <div class="case__col solution">
+                <div class="k">Solution</div>
+                <p>
+                  I built the workflow infrastructure behind executive
+                  operations and ran it for five years alongside marketing and
+                  events.
+                </p>
+              </div>
+              <div class="case__col outcome">
+                <div class="k">Outcome</div>
+                <div class="big ph">5 yrs</div>
+                <p>
+                  of operations a small team could run without dropping a ball.
+                  <span class="ph">Add real figure.</span>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="sec sec--midnight" id="testimonials">
+      <div class="wrap">
+        <div class="sec__head">
+          <span class="sec-num">07 — TESTIMONIALS</span>
+          <h2 class="sec__title">In Their Words</h2>
+          <p class="sec__lead">
+            <span class="ph"
+              >Placeholder — replace with 3 real client quotes, names, and
+              roles.</span
+            >
+          </p>
+        </div>
+        <div class="test">
+          <div class="test__card">
+            <div class="mark">"</div>
+            <p>
+              <span class="ph"
+                >Client quote about an outcome Jana owned — the result, not the
+                effort. ~2 sentences.</span
+              >
+            </p>
+            <div class="test__who">
+              <div class="av"></div>
+              <div>
+                <div class="nm ph">Client Name</div>
+                <div class="rl ph">Title, Company</div>
+              </div>
+            </div>
+          </div>
+          <div class="test__card">
+            <div class="mark">"</div>
+            <p>
+              <span class="ph"
+                >Client quote about what changed after handing operations to
+                Jana. ~2 sentences.</span
+              >
+            </p>
+            <div class="test__who">
+              <div class="av"></div>
+              <div>
+                <div class="nm ph">Client Name</div>
+                <div class="rl ph">Title, Company</div>
+              </div>
+            </div>
+          </div>
+          <div class="test__card">
+            <div class="mark">"</div>
+            <p>
+              <span class="ph"
+                >Client quote on reliability / getting time back. ~2
+                sentences.</span
+              >
+            </p>
+            <div class="test__who">
+              <div class="av"></div>
+              <div>
+                <div class="nm ph">Client Name</div>
+                <div class="rl ph">Title, Company</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="sec sec--cream" id="about">
+      <div class="wrap">
+        <div class="sec__head">
+          <span class="sec-num">08 — ABOUT JANA</span>
+          <h2 class="sec__title">Who's Behind It</h2>
+        </div>
+        <div class="about__in">
+          <div class="about__photo">
+            <img src="assets/Jana-headshot2.png" alt="Jana Tandoc" />
+          </div>
+          <div class="about__body">
+            <div class="about__lead">
+              I'm the operator founders hand the keys to.
+            </div>
+            <p>
+              For six years I've run operations for founder-led companies across
+              tech, cybersecurity, energy, real estate, and coaching — always in
+              the same seat: the person who owns the systems the business runs
+              on.
+            </p>
+            <p>
+              I don't wait for a task list. I look at where a business is
+              leaking time and momentum, build the infrastructure to fix it, and
+              hold the cadence until it sticks. CRM builds, automation,
+              executive operations, marketing engines — whatever the outcome
+              requires, I take responsibility for it end to end.
+            </p>
+            <p>
+              I'm based in Manila and work remotely with teams across time
+              zones. My whole approach comes down to one belief: a business
+              should run on systems, not on any one person — including me.
+            </p>
+            <div class="about__creds">
+              <span>GoHighLevel Certified</span><span>Notion Systems</span
+              ><span>n8n</span><span>Make.com</span><span>ClickUp</span
+              ><span>Claude AI</span><span>ChatGPT</span
+              ><span>AB Political Science, Arellano University</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta" id="cta">
+      <div class="cta__grid"></div>
+      <div class="wrap cta__in">
+        <h2>Ready to build a business that runs without you?</h2>
+        <p>
+          Let's talk about what you'd hand over first. Book a discovery call or
+          reach me directly.
+        </p>
+        <div class="cta__row">
+          <a
+            href="mailto:jcaycotandoc14@gmail.com"
+            class="btn btn--orange btn--lg"
+            >Book Discovery Call</a
+          >
+          <a
+            href="mailto:jcaycotandoc14@gmail.com"
+            class="btn btn--ghost btn--lg"
+            >Email Jana</a
+          >
+        </div>
+        <div class="cta__contact">
+          <a href="mailto:jcaycotandoc14@gmail.com">jcaycotandoc14@gmail.com</a>
+          <a href="tel:+639289534120">+63 928 953 4120</a>
+          <span>Manila, Philippines · Remote</span>
+        </div>
+      </div>
+    </section>
+
+    <footer class="foot">
+      <div class="wrap foot__in">
+        <div class="foot__brand">
+          <img src="assets/gsd-logo.png" alt="Get Sh*t Done HQ" />JANA TANDOC
+        </div>
+        <p>Fractional COO · Presented by Get Sh*t Done HQ · © 2026</p>
+      </div>
+    </footer>
+
+    <script>
+      document.getElementById("burger").addEventListener("click", function () {
+        document.getElementById("navlinks").classList.toggle("open");
+      });
+      document.querySelectorAll("#navlinks a").forEach(function (a) {
+        a.addEventListener("click", function () {
+          document.getElementById("navlinks").classList.remove("open");
+        });
+      });
+    </script>
+  </body>
+</html>
