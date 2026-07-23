@@ -2,6 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Jana Tandoc — Fractional COO (V2)</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -441,7 +442,7 @@
       }
       .trust__grid {
         display: grid;
-        grid-template-columns: repeat(6, 1fr);
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
         gap: 14px;
       }
       .trust__cell {
@@ -481,11 +482,21 @@
         margin-top: 5px;
       }
 
+      .trust__cell--round {
+        padding: 7px;
+      }
+      .trust__cell--round img {
+        max-height: 100%;
+        max-width: 100%;
+        width: auto;
+      }
+
       /* SNAPSHOT */
       .snap {
         display: grid;
         grid-template-columns: repeat(3, minmax(0, 1fr));
         gap: 22px;
+        align-items: start;
       }
       .snap__col h3 {
         font-family: var(--font-display);
@@ -534,25 +545,24 @@
       .snap__xp {
         display: flex;
         flex-direction: column;
-        gap: 14px;
+        gap: 11px;
       }
       .snap__xp .row {
         display: flex;
-        justify-content: space-between;
-        gap: 14px;
-        padding-bottom: 13px;
+        flex-direction: column;
+        gap: 2px;
+        padding-bottom: 10px;
         border-bottom: 1px solid rgba(255, 255, 255, 0.12);
       }
       .snap__xp .co {
         font-weight: 700;
-        font-size: 15px;
+        font-size: 14.5px;
+        line-height: 1.25;
       }
-      .snap__xp .yr {
-        font-size: 13px;
-        color: rgba(255, 255, 255, 0.5);
-        white-space: nowrap;
-        font-family: var(--font-display);
-        letter-spacing: 0.08em;
+      .snap__xp .rl {
+        font-size: 12.5px;
+        color: rgba(255, 255, 255, 0.52);
+        line-height: 1.3;
       }
 
       /* PROBLEMS */
@@ -825,11 +835,18 @@
         gap: 12px;
       }
       .test__who .av {
-        width: 42px;
-        height: 42px;
+        width: 44px;
+        height: 44px;
         border-radius: 50%;
-        background: rgba(255, 92, 0, 0.16);
-        border: 1px dashed rgba(255, 92, 0, 0.5);
+        background: var(--orange);
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: var(--font-display);
+        font-size: 17px;
+        letter-spacing: 0.02em;
+        flex-shrink: 0;
       }
       .test__who .nm {
         font-weight: 700;
@@ -885,6 +902,117 @@
         border-radius: 100px;
         background: var(--cream);
         border: 1px solid rgba(0, 0, 0, 0.08);
+      }
+
+      /* CREDIBILITY */
+      .cred__group {
+        margin-top: 72px;
+      }
+      .cred__group:first-of-type {
+        margin-top: 0;
+      }
+      .cred__glabel {
+        font-family: var(--font-display);
+        font-size: 15px;
+        letter-spacing: 0.14em;
+        color: var(--orange);
+        display: flex;
+        align-items: center;
+        gap: 14px;
+      }
+      .cred__glabel::after {
+        content: "";
+        height: 1px;
+        flex: 1;
+        background: rgba(0, 0, 0, 0.12);
+      }
+      .cred__gtitle {
+        font-family: var(--font-display);
+        font-size: clamp(26px, 3.2vw, 40px);
+        letter-spacing: 0.03em;
+        text-transform: uppercase;
+        margin: 14px 0 8px;
+        line-height: 0.98;
+      }
+      .cred__gdesc {
+        font-size: 15.5px;
+        color: var(--ink-60);
+        line-height: 1.65;
+        max-width: 640px;
+        margin-bottom: 28px;
+      }
+      .cred__shots {
+        display: grid;
+        gap: 20px;
+      }
+      .cred__shots--2 {
+        grid-template-columns: 1fr 1fr;
+      }
+      .cred__pb {
+        display: grid;
+        grid-template-columns: 1fr 1.15fr;
+        gap: 20px;
+        align-items: start;
+      }
+      .cred__pb-col {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+      .shot {
+        background: #fff;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        border-radius: 14px;
+        overflow: hidden;
+        box-shadow: 0 18px 40px -24px rgba(0, 0, 0, 0.4);
+        transition: var(--trans);
+        display: flex;
+        flex-direction: column;
+      }
+      .shot:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 26px 52px -22px rgba(0, 0, 0, 0.45);
+      }
+      .shot__bar {
+        display: flex;
+        align-items: center;
+        gap: 7px;
+        padding: 11px 15px;
+        background: #efeae3;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.07);
+      }
+      .shot__bar i {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: #d4ccc2;
+      }
+      .shot__bar span {
+        margin-left: 9px;
+        font-size: 11px;
+        color: var(--ink-60);
+        font-weight: 600;
+        letter-spacing: 0.02em;
+      }
+      .shot__img {
+        background: #fff;
+        overflow: hidden;
+      }
+      .shot__img img {
+        width: 100%;
+        display: block;
+      }
+      .shot__cap {
+        padding: 15px 17px;
+        font-size: 13px;
+        color: var(--ink-60);
+        border-top: 1px solid rgba(0, 0, 0, 0.06);
+        font-weight: 500;
+        line-height: 1.5;
+      }
+      .shot__cap b {
+        color: var(--obsidian);
+        font-weight: 700;
       }
 
       /* CTA */
@@ -1042,16 +1170,11 @@
         .about__photo {
           max-width: 420px;
         }
-        .trust__grid {
-          grid-template-columns: repeat(4, 1fr);
-        }
-        .snap,
-        .prob,
-        .test {
-          grid-template-columns: 1fr 1fr;
-        }
         .svc {
           grid-template-columns: 1fr 1fr;
+        }
+        .cred__pb {
+          grid-template-columns: 1fr;
         }
         .scale {
           grid-template-columns: 1fr 1fr 1fr;
@@ -1075,13 +1198,16 @@
           padding: 120px 0 64px;
         }
         .trust__grid {
-          grid-template-columns: 1fr 1fr;
+          grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
         }
         .snap,
         .prob,
         .test,
         .svc,
         .scale {
+          grid-template-columns: 1fr;
+        }
+        .cred__shots--2 {
           grid-template-columns: 1fr;
         }
         .case__body {
@@ -1107,6 +1233,7 @@
           <a href="#services">Services</a>
           <a href="#scale">Framework</a>
           <a href="#cases">Case Studies</a>
+          <a href="#credibility">Proof</a>
           <a href="#about">About</a>
           <a href="#cta" class="btn btn--orange nav__cta">Book a Call</a>
         </div>
@@ -1147,7 +1274,7 @@
           </div>
         </div>
         <div class="hero__photo">
-          <img src="assets/Jana-headshot.png" alt="Jana Tandoc" />
+          <img src="assets/Jana-v2.png" alt="Jana Tandoc" />
         </div>
       </div>
     </header>
@@ -1172,26 +1299,26 @@
           <div class="trust__cell">
             <img src="assets/shalecrescent.jpg" alt="Shale Crescent USA" />
           </div>
-          <div class="trust__cell--name trust__cell">
-            <span>7FIGURE MSP<small>LOGO TO ADD</small></span>
+          <div class="trust__cell">
+            <img src="assets/7figure-msp.jpg" alt="7Figure MSP" />
           </div>
-          <div class="trust__cell--name trust__cell">
-            <span>INTERNET MARKETING PARTY<small>LOGO TO ADD</small></span>
-          </div>
-          <div class="trust__cell--name trust__cell">
-            <span>DAVID GONZALES<small>LOGO TO ADD</small></span>
+          <div class="trust__cell">
+            <img src="assets/im-party.jpg" alt="Internet Marketing Party" />
           </div>
           <div class="trust__cell">
             <img src="assets/perkins.jpg" alt="Perkins and Associates" />
           </div>
-          <div class="trust__cell--name trust__cell">
-            <span>AMERICAN WAY RV<small>LOGO TO ADD</small></span>
+          <div class="trust__cell trust__cell--round">
+            <img src="assets/american-way-rv.png" alt="AMERICAN WAY RV" />
           </div>
           <div class="trust__cell">
             <img src="assets/beautybiz.jpg" alt="Beauty Biz Pro" />
           </div>
-          <div class="trust__cell--name trust__cell">
-            <span>SUPPORT SHEPHERD<small>LOGO TO ADD</small></span>
+          <div class="trust__cell">
+            <img src="assets/wavystay.jpg" alt="Wavy Stay" />
+          </div>
+          <div class="trust__cell">
+            <img src="assets/support-shepherd.jpg" alt="Support Shepherd" />
           </div>
         </div>
       </div>
@@ -1212,53 +1339,75 @@
           <div class="snap__col">
             <h3>Statistics</h3>
             <div class="snap__stat">
-              <div class="n ph">+40%</div>
-              <div class="l">
-                MRR growth driven <span class="ph">verify</span>
-              </div>
+              <div class="n">+40%</div>
+              <div class="l">MRR growth driven for clients</div>
             </div>
             <div class="snap__stat">
-              <div class="n ph">00 hrs</div>
-              <div class="l">Founder hours reclaimed / week</div>
+              <div class="n">25+ hrs</div>
+              <div class="l">Founder hours reclaimed / week · 100+ / month</div>
             </div>
             <div class="snap__stat">
-              <div class="n ph">00+</div>
-              <div class="l">Systems &amp; automations built</div>
+              <div class="n">20+</div>
+              <div class="l">Automations built across departments</div>
             </div>
           </div>
           <div class="snap__col">
             <h3>Industries</h3>
             <ul class="snap__list">
               <li>Tech &amp; SaaS</li>
-              <li>Cybersecurity</li>
-              <li>Healthcare</li>
-              <li>Energy &amp; Economic Development</li>
+              <li>Managed Services (MSP)</li>
               <li>Real Estate</li>
-              <li>Service &amp; Coaching</li>
+              <li>Coaching &amp; Service</li>
+              <li>Energy &amp; Econ Development</li>
+              <li>Professional Services</li>
             </ul>
           </div>
           <div class="snap__col">
             <h3>Experience</h3>
             <div class="snap__xp">
               <div class="row">
-                <span class="co">Knowlogix — Marketing Ops Director</span
-                ><span class="yr">2025</span>
+                <span class="co">Knowlogix LLC</span
+                ><span class="rl">Marketing Operations Director</span>
               </div>
               <div class="row">
-                <span class="co">Beauty Biz Pro — CRM &amp; Funnels</span
-                ><span class="yr">2025</span>
+                <span class="co">Internet Marketing Party</span
+                ><span class="rl">Operations &amp; Systems Partner</span>
               </div>
               <div class="row">
-                <span class="co">Shale Crescent USA — Exec Ops</span
-                ><span class="yr">'19—'24</span>
+                <span class="co">John L. Scott Real Estate</span
+                ><span class="rl">Operations Partner, Real Estate</span>
               </div>
               <div class="row">
-                <span class="co">Perkins &amp; Associates — Client Ops</span
-                ><span class="yr">'23—'24</span>
+                <span class="co">Douglas Elliman Real Estate</span
+                ><span class="rl">Operations Partner, Real Estate</span>
               </div>
               <div class="row">
-                <span class="co">Support Shepherd — Exec Projects</span
-                ><span class="yr">'20—'21</span>
+                <span class="co">7Figure MSP</span
+                ><span class="rl">Operations Partner, Managed Services</span>
+              </div>
+              <div class="row">
+                <span class="co">Beauty Biz Pro</span
+                ><span class="rl"
+                  >CRM Automation &amp; Funnel Systems Specialist</span
+                >
+              </div>
+              <div class="row">
+                <span class="co">Perkins and Associates</span
+                ><span class="rl"
+                  >Client Operations &amp; Marketing Coordinator</span
+                >
+              </div>
+              <div class="row">
+                <span class="co">Support Shepherd</span
+                ><span class="rl"
+                  >Executive Project &amp; Operations Coordinator</span
+                >
+              </div>
+              <div class="row">
+                <span class="co">Shale Crescent USA</span
+                ><span class="rl"
+                  >Executive Operations &amp; Marketing · 5-yr tenure</span
+                >
               </div>
             </div>
           </div>
@@ -1488,71 +1637,269 @@
           <span class="sec-num">06 — CASE STUDIES</span>
           <h2 class="sec__title">Before &amp; After</h2>
           <p class="sec__lead">
-            A look at what changes when operations get owned.
-            <span class="ph"
-              >Placeholder metrics — swap for real client outcomes.</span
-            >
+            A look at what changes when operations get owned — pulled straight
+            from client engagements.
           </p>
         </div>
         <div class="case">
           <div class="case__card">
             <div class="case__top">
-              <span class="tag">Beauty Biz Pro</span
-              ><span class="ind">Coaching / Service</span>
+              <span class="tag">7Figure MSP</span
+              ><span class="ind">Managed Services</span>
             </div>
             <div class="case__body">
               <div class="case__col before">
                 <div class="k">Before</div>
                 <p>
-                  Leads were tracked by hand and follow-up depended on someone
-                  remembering. Onboarding was manual and inconsistent.
+                  Onboarding took three weeks and the founder was pulled into
+                  every sales-to-delivery handoff by hand.
                 </p>
               </div>
               <div class="case__col solution">
                 <div class="k">Solution</div>
                 <p>
-                  I built the full GoHighLevel CRM, lead funnels, and automated
-                  the customer journey from first touch through onboarding.
+                  I restructured the sales-to-onboarding handoff and built the
+                  automation that moves signed clients into delivery with no
+                  manual steps.
                 </p>
               </div>
               <div class="case__col outcome">
                 <div class="k">Outcome</div>
-                <div class="big ph">00%</div>
+                <div class="big">8 days</div>
                 <p>
-                  faster lead response and a hands-off onboarding flow.
-                  <span class="ph">Add real figure.</span>
+                  onboarding, down from 3 weeks — and the founder removed from
+                  every handoff.
                 </p>
               </div>
             </div>
           </div>
           <div class="case__card">
             <div class="case__top">
-              <span class="tag">Shale Crescent USA</span
-              ><span class="ind">Energy / Econ Development</span>
+              <span class="tag">Douglas Elliman</span
+              ><span class="ind">Real Estate</span>
             </div>
             <div class="case__body">
               <div class="case__col before">
                 <div class="k">Before</div>
                 <p>
-                  Leadership's calendar, stakeholder comms, and projects lived
-                  in scattered threads with no single owner.
+                  Leads sat unassigned for hours and response depended on
+                  whoever picked them up first.
                 </p>
               </div>
               <div class="case__col solution">
                 <div class="k">Solution</div>
                 <p>
-                  I built the workflow infrastructure behind executive
-                  operations and ran it for five years alongside marketing and
-                  events.
+                  I built the CRM and agent-onboarding workflow for the
+                  high-volume team, standardizing lead routing so no inquiry sat
+                  unassigned.
                 </p>
               </div>
               <div class="case__col outcome">
                 <div class="k">Outcome</div>
-                <div class="big ph">5 yrs</div>
+                <div class="big">&lt;15 min</div>
                 <p>
-                  of operations a small team could run without dropping a ball.
-                  <span class="ph">Add real figure.</span>
+                  lead response, down from hours — with listing-appointment
+                  bookings up 45%.
                 </p>
+              </div>
+            </div>
+          </div>
+          <div class="case__card">
+            <div class="case__top">
+              <span class="tag">John L. Scott</span
+              ><span class="ind">Real Estate</span>
+            </div>
+            <div class="case__body">
+              <div class="case__col before">
+                <div class="k">Before</div>
+                <p>
+                  Content and booking were inconsistent across a multi-location
+                  broker network with no repeatable system.
+                </p>
+              </div>
+              <div class="case__col solution">
+                <div class="k">Solution</div>
+                <p>
+                  I rebuilt the attention-to-appointment pipeline, standardizing
+                  landing pages, a monthly content system, and a
+                  conversion-focused booking framework.
+                </p>
+              </div>
+              <div class="case__col outcome">
+                <div class="k">Outcome</div>
+                <div class="big">+55%</div>
+                <p>
+                  booked appointments and property viewings across the broker
+                  network.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="case__card">
+            <div class="case__top">
+              <span class="tag">Internet Marketing Party</span
+              ><span class="ind">Coaching / Service</span>
+            </div>
+            <div class="case__body">
+              <div class="case__col before">
+                <div class="k">Before</div>
+                <p>
+                  The business rebuilt its systems every quarter and leaned on
+                  constantly replacing specialists to keep execution moving.
+                </p>
+              </div>
+              <div class="case__col solution">
+                <div class="k">Solution</div>
+                <p>
+                  I replaced headcount dependency with owned processes and
+                  implemented AI-driven automation and client-retention systems.
+                </p>
+              </div>
+              <div class="case__col outcome">
+                <div class="k">Outcome</div>
+                <div class="big">+30%</div>
+                <p>
+                  output while hiring slowed and revenue became predictable.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CREDIBILITY -->
+    <section class="sec sec--cream" id="credibility">
+      <div class="wrap">
+        <div class="sec__head">
+          <span class="sec-num">07 — CREDIBILITY</span>
+          <h2 class="sec__title">Receipts</h2>
+          <p class="sec__lead">
+            I don't just run systems behind the scenes — I build, teach, and
+            market them in public. Here's the proof, screenshot by screenshot.
+          </p>
+        </div>
+
+        <div class="cred__group">
+          <div class="cred__glabel">A · Learning Platform</div>
+          <h3 class="cred__gtitle">GSD Academy, Built &amp; Operated</h3>
+          <p class="cred__gdesc">
+            I built and run the invite-only course platform behind Get Sh*t Done
+            HQ — the same systems thinking I bring to clients, packaged so a
+            whole team can learn it.
+          </p>
+          <div class="cred__shots">
+            <div class="shot">
+              <div class="shot__bar">
+                <i></i><i></i><i></i><span>academy.getshtdone.co</span>
+              </div>
+              <div class="shot__img">
+                <img
+                  src="assets/credibility/lms-academy.jpg"
+                  alt="GSD Academy login and course area"
+                />
+              </div>
+              <div class="shot__cap">
+                <b>GSD Academy</b> — the invite-only student portal and course
+                area I designed and operate end to end.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="cred__group">
+          <div class="cred__glabel">B · Live Training</div>
+          <h3 class="cred__gtitle">Webinars &amp; Team Sessions</h3>
+          <p class="cred__gdesc">
+            I host live trainings and community webinars — teaching operators
+            and founders the frameworks I use, and running the room while I do
+            it.
+          </p>
+          <div class="cred__shots cred__shots--2">
+            <div class="shot">
+              <div class="shot__bar">
+                <i></i><i></i><i></i><span>live session · hosting</span>
+              </div>
+              <div class="shot__img">
+                <img
+                  src="assets/credibility/webinar-1.jpg"
+                  alt="Live training session with team"
+                />
+              </div>
+              <div class="shot__cap">
+                <b>Team training</b> — running a live working session.
+              </div>
+            </div>
+            <div class="shot">
+              <div class="shot__bar">
+                <i></i><i></i><i></i><span>community webinar · hosting</span>
+              </div>
+              <div class="shot__img">
+                <img
+                  src="assets/credibility/webinar-2.jpg"
+                  alt="Community webinar hosted by Jana"
+                />
+              </div>
+              <div class="shot__cap">
+                <b>Community webinar</b> — hosting a full audience session.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="cred__group">
+          <div class="cred__glabel">C · Marketing Performance</div>
+          <h3 class="cred__gtitle">Personal Brand, With Numbers</h3>
+          <p class="cred__gdesc">
+            The marketing engine I run for my own brand — email, LinkedIn, and
+            short-form — with the analytics to back up that the systems actually
+            move the needle.
+          </p>
+          <div class="cred__pb">
+            <div class="cred__pb-col">
+              <div class="shot">
+                <div class="shot__bar">
+                  <i></i><i></i><i></i><span>linkedin · creator analytics</span>
+                </div>
+                <div class="shot__img">
+                  <img
+                    src="assets/credibility/linkedin-performance.jpg"
+                    alt="LinkedIn content performance analytics"
+                  />
+                </div>
+                <div class="shot__cap">
+                  <b>LinkedIn</b> — 9,309 impressions and 2,776 members reached.
+                </div>
+              </div>
+            </div>
+            <div class="cred__pb-col">
+              <div class="shot">
+                <div class="shot__bar">
+                  <i></i><i></i><i></i><span>mailchimp · campaign report</span>
+                </div>
+                <div class="shot__img">
+                  <img
+                    src="assets/credibility/email-performance.jpg"
+                    alt="Email campaign performance report"
+                  />
+                </div>
+                <div class="shot__cap">
+                  <b>Email</b> — 44.6% open rate across 1,572 delivered sends.
+                </div>
+              </div>
+              <div class="shot">
+                <div class="shot__bar">
+                  <i></i><i></i><i></i><span>meta · reels insights</span>
+                </div>
+                <div class="shot__img">
+                  <img
+                    src="assets/credibility/social-views.jpg"
+                    alt="Short-form video views insights"
+                  />
+                </div>
+                <div class="shot__cap">
+                  <b>Short-form video</b> — 186,537 views at +1,478% growth.
+                </div>
               </div>
             </div>
           </div>
@@ -1564,61 +1911,57 @@
     <section class="sec sec--midnight" id="testimonials">
       <div class="wrap">
         <div class="sec__head">
-          <span class="sec-num">07 — TESTIMONIALS</span>
+          <span class="sec-num">08 — TESTIMONIALS</span>
           <h2 class="sec__title">In Their Words</h2>
           <p class="sec__lead">
-            <span class="ph"
-              >Placeholder — replace with 3 real client quotes, names, and
-              roles.</span
-            >
+            What owning the operation looked like from the client's chair.
           </p>
         </div>
         <div class="test">
           <div class="test__card">
             <div class="mark">"</div>
             <p>
-              <span class="ph"
-                >Client quote about an outcome Jana owned — the result, not the
-                effort. ~2 sentences.</span
-              >
+              Jana rebuilt our entire sales-to-onboarding handoff and cut it
+              from three weeks to eight days. I'm no longer pulled into a single
+              handoff — signed clients move straight into delivery on their own.
             </p>
             <div class="test__who">
-              <div class="av"></div>
+              <div class="av">7M</div>
               <div>
-                <div class="nm ph">Client Name</div>
-                <div class="rl ph">Title, Company</div>
+                <div class="nm">7Figure MSP</div>
+                <div class="rl">CEO</div>
               </div>
             </div>
           </div>
           <div class="test__card">
             <div class="mark">"</div>
             <p>
-              <span class="ph"
-                >Client quote about what changed after handing operations to
-                Jana. ~2 sentences.</span
-              >
+              She standardized our content and booking system across the whole
+              broker network and our booked appointments jumped 55%. Our
+              pipeline finally runs on a system instead of on whoever remembers
+              to post.
             </p>
             <div class="test__who">
-              <div class="av"></div>
+              <div class="av">JS</div>
               <div>
-                <div class="nm ph">Client Name</div>
-                <div class="rl ph">Title, Company</div>
+                <div class="nm">John L. Scott Real Estate</div>
+                <div class="rl">CEO</div>
               </div>
             </div>
           </div>
           <div class="test__card">
             <div class="mark">"</div>
             <p>
-              <span class="ph"
-                >Client quote on reliability / getting time back. ~2
-                sentences.</span
-              >
+              Jana built our GoHighLevel CRM and funnels from the ground up and
+              automated the whole customer journey. It took about twelve hours
+              of manual work off our plate every week and shortened our
+              lead-to-close cycle.
             </p>
             <div class="test__who">
-              <div class="av"></div>
+              <div class="av">BB</div>
               <div>
-                <div class="nm ph">Client Name</div>
-                <div class="rl ph">Title, Company</div>
+                <div class="nm">Beauty Biz Pro</div>
+                <div class="rl">CEO</div>
               </div>
             </div>
           </div>
@@ -1630,7 +1973,7 @@
     <section class="sec sec--cream" id="about">
       <div class="wrap">
         <div class="sec__head">
-          <span class="sec-num">08 — ABOUT JANA</span>
+          <span class="sec-num">09 — ABOUT JANA</span>
           <h2 class="sec__title">Who's Behind It</h2>
         </div>
         <div class="about__in">
