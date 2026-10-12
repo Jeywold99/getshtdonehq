@@ -1,0 +1,2007 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Eldwin Sambolledo — Automation Specialist</title>
+    <meta
+      name="description"
+      content="Eldwin Sambolledo builds n8n workflows, GoHighLevel pipelines and the web apps around them, so follow-ups, lead entry and reporting run on their own."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=JetBrains+Mono:wght@400;500;700&family=Outfit:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --orange: #ff5c00;
+        --orange-hover: #ff8533;
+        --orange-soft: rgba(255, 92, 0, 0.12);
+        --bg: #121219;
+        --bg-2: #171721;
+        --panel: #1c1c28;
+        --panel-2: #232332;
+        --line: #2d2d3e;
+        --line-2: #3a3a50;
+        --text: #ececf2;
+        --muted: #a3a3b6;
+        --dim: #74748a;
+        --green: #14b87a;
+        --green-soft: rgba(20, 184, 122, 0.14);
+        --red: #ff5a5a;
+        --blue: #6b9cff;
+        --violet: #a77bff;
+        --font-display: "Bebas Neue", sans-serif;
+        --font-ui: "Outfit", sans-serif;
+        --font-mono: "JetBrains Mono", ui-monospace, monospace;
+        --max-w: 1180px;
+        --r: 12px;
+        --r-lg: 18px;
+        --trans: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        font-family: var(--font-ui);
+        background: var(--bg);
+        color: var(--text);
+        line-height: 1.6;
+        overflow-x: hidden;
+        -webkit-font-smoothing: antialiased;
+      }
+      img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      ul {
+        list-style: none;
+      }
+      .wrap {
+        max-width: var(--max-w);
+        margin: 0 auto;
+        padding: 0 40px;
+      }
+      .mono {
+        font-family: var(--font-mono);
+      }
+      .o {
+        color: var(--orange);
+      }
+      .tag {
+        font-family: var(--font-mono);
+        font-size: 12px;
+        color: var(--orange);
+        letter-spacing: 0.02em;
+      }
+      .chip {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        font-family: var(--font-mono);
+        font-size: 12px;
+        color: var(--muted);
+        border: 1px solid var(--line-2);
+        border-radius: 8px;
+        padding: 5px 10px;
+        white-space: nowrap;
+      }
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-family: var(--font-ui);
+        font-weight: 600;
+        font-size: 15px;
+        padding: 13px 22px;
+        border-radius: 10px;
+        transition: var(--trans);
+        cursor: pointer;
+        border: 1px solid transparent;
+      }
+      .btn--o {
+        background: var(--orange);
+        color: #14141b;
+      }
+      .btn--o:hover {
+        background: var(--orange-hover);
+      }
+      .btn--ghost {
+        border-color: var(--line-2);
+        color: var(--text);
+      }
+      .btn--ghost:hover {
+        border-color: var(--orange);
+        color: var(--orange);
+      }
+      .ph {
+        border: 1.5px dashed var(--orange);
+        color: var(--orange);
+        border-radius: 6px;
+        padding: 1px 8px;
+        font-family: var(--font-mono);
+        font-size: 11px;
+        background: var(--orange-soft);
+      }
+
+      /* ---------- NAV ---------- */
+      .nav {
+        position: fixed;
+        inset: 0 0 auto 0;
+        z-index: 100;
+        background: rgba(18, 18, 25, 0.82);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border-bottom: 1px solid var(--line);
+      }
+      .nav__in {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 68px;
+      }
+      .logo {
+        font-family: var(--font-display);
+        font-size: 26px;
+        letter-spacing: 0.04em;
+      }
+      .nav__links {
+        display: flex;
+        gap: 28px;
+        font-family: var(--font-mono);
+        font-size: 13px;
+        color: var(--muted);
+      }
+      .nav__links a:hover {
+        color: var(--orange);
+      }
+      .nav .btn {
+        padding: 9px 16px;
+        font-size: 14px;
+      }
+
+      /* ---------- HERO ---------- */
+      .hero {
+        padding: 150px 0 70px;
+        position: relative;
+        background-image: linear-gradient(var(--line) 1px, transparent 1px),
+          linear-gradient(90deg, var(--line) 1px, transparent 1px);
+        background-size: 48px 48px;
+        background-position: center top;
+      }
+      .hero::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(ellipse at 30% 30%, transparent 0%, var(--bg) 70%);
+        pointer-events: none;
+      }
+      .hero .wrap {
+        position: relative;
+        z-index: 1;
+        display: grid;
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: 48px;
+        align-items: center;
+      }
+      .avail {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 13px;
+        color: var(--muted);
+        background: var(--panel);
+        border: 1px solid var(--line);
+        border-radius: 100px;
+        padding: 5px 14px;
+        margin-left: 10px;
+      }
+      .avail i {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--green);
+        box-shadow: 0 0 0 4px var(--green-soft);
+      }
+      .hero h1 {
+        font-family: var(--font-display);
+        font-weight: 400;
+        font-size: clamp(52px, 7vw, 92px);
+        line-height: 0.92;
+        letter-spacing: 0.01em;
+        margin: 18px 0 22px;
+      }
+      .hero__sub {
+        font-size: 18px;
+        color: var(--muted);
+        max-width: 520px;
+        margin-bottom: 30px;
+      }
+      .hero__ctas {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+        margin-bottom: 34px;
+      }
+      .stack {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      /* mini n8n canvas in hero */
+      .canvas {
+        background: var(--bg-2);
+        border: 1px solid var(--line);
+        border-radius: var(--r-lg);
+        padding: 18px;
+        position: relative;
+        background-image: radial-gradient(var(--line) 1px, transparent 1px);
+        background-size: 18px 18px;
+      }
+      .canvas__bar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-family: var(--font-mono);
+        font-size: 11px;
+        color: var(--dim);
+        margin-bottom: 14px;
+      }
+      .canvas__bar b {
+        color: var(--green);
+        font-weight: 500;
+      }
+      .canvas svg {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+      .wire {
+        fill: none;
+        stroke: var(--line-2);
+        stroke-width: 2;
+      }
+      .wire--live {
+        stroke: var(--orange);
+        stroke-dasharray: 6 8;
+        animation: flow 1.2s linear infinite;
+      }
+      @keyframes flow {
+        to {
+          stroke-dashoffset: -28;
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .wire--live {
+          animation: none;
+        }
+      }
+
+      /* ---------- STATS ---------- */
+      .stats {
+        border-top: 1px solid var(--line);
+        border-bottom: 1px solid var(--line);
+        background: var(--bg-2);
+      }
+      .stats .wrap {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+      }
+      .stat {
+        padding: 30px 24px;
+        border-right: 1px solid var(--line);
+      }
+      .stat:last-child {
+        border-right: 0;
+      }
+      .stat__n {
+        font-family: var(--font-display);
+        font-size: 48px;
+        line-height: 1;
+        color: var(--orange);
+      }
+      .stat__l {
+        font-size: 14px;
+        color: var(--muted);
+        margin-top: 6px;
+      }
+
+      /* ---------- SECTIONS ---------- */
+      .sec {
+        padding: 110px 0;
+      }
+      .sec--alt {
+        background: var(--bg-2);
+        border-top: 1px solid var(--line);
+        border-bottom: 1px solid var(--line);
+      }
+      .sec__head {
+        max-width: 720px;
+        margin-bottom: 56px;
+      }
+      .sec__head h2 {
+        font-family: var(--font-display);
+        font-weight: 400;
+        font-size: clamp(42px, 5vw, 64px);
+        line-height: 0.95;
+        margin: 10px 0 16px;
+      }
+      .sec__head p {
+        color: var(--muted);
+        font-size: 17px;
+      }
+
+      /* ---------- CASE STUDY ---------- */
+      .case {
+        background: var(--panel);
+        border: 1px solid var(--line);
+        border-radius: 22px;
+        padding: 44px;
+        margin-bottom: 36px;
+      }
+      .case__top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-bottom: 14px;
+      }
+      .case h3 {
+        font-family: var(--font-display);
+        font-weight: 400;
+        font-size: clamp(34px, 4vw, 48px);
+        line-height: 1;
+        margin-bottom: 14px;
+      }
+      .case__lede {
+        color: var(--muted);
+        font-size: 17px;
+        max-width: 760px;
+        margin-bottom: 30px;
+      }
+      .pbr {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+        margin-bottom: 30px;
+      }
+      .pbr > div {
+        background: var(--bg-2);
+        border: 1px solid var(--line);
+        border-radius: var(--r);
+        padding: 20px;
+      }
+      .pbr h4 {
+        font-family: var(--font-mono);
+        font-size: 12px;
+        font-weight: 500;
+        color: var(--orange);
+        margin-bottom: 8px;
+      }
+      .pbr p,
+      .pbr li {
+        font-size: 15px;
+        color: var(--muted);
+      }
+      .pbr li {
+        padding-left: 16px;
+        position: relative;
+        margin-bottom: 4px;
+      }
+      .pbr li::before {
+        content: "›";
+        position: absolute;
+        left: 0;
+        color: var(--orange);
+      }
+      .results {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+        margin-bottom: 34px;
+      }
+      .result {
+        border: 1px solid rgba(20, 184, 122, 0.35);
+        background: var(--green-soft);
+        border-radius: var(--r);
+        padding: 20px;
+      }
+      .result__n {
+        font-family: var(--font-display);
+        font-size: 44px;
+        line-height: 1;
+        color: var(--green);
+      }
+      .result__n small {
+        font-size: 22px;
+        color: var(--muted);
+        margin-right: 4px;
+      }
+      .result__l {
+        font-size: 14px;
+        color: var(--text);
+        margin-top: 6px;
+      }
+      .vis {
+        margin-top: 26px;
+      }
+      .vis__label {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        flex-wrap: wrap;
+        font-family: var(--font-mono);
+        font-size: 12px;
+        color: var(--dim);
+        margin-bottom: 12px;
+      }
+      .note {
+        font-family: var(--font-mono);
+        font-size: 11px;
+        color: var(--dim);
+      }
+      .builtstats {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 26px;
+      }
+      .builtstats span {
+        font-family: var(--font-mono);
+        font-size: 12px;
+        background: var(--panel-2);
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        padding: 6px 11px;
+        color: var(--muted);
+      }
+      .builtstats b {
+        color: var(--text);
+        font-weight: 700;
+      }
+
+      /* system map */
+      .sysmap {
+        background: var(--bg-2);
+        border: 1px solid var(--line);
+        border-radius: var(--r-lg);
+        padding: 20px;
+        overflow-x: auto;
+      }
+      .sysmap svg {
+        min-width: 760px;
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+
+      /* pipeline boards (GHL style) */
+      .board {
+        background: #f4f5f8;
+        border-radius: var(--r-lg);
+        padding: 16px;
+        color: #1d2433;
+        overflow-x: auto;
+      }
+      .board__hd {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        margin-bottom: 12px;
+        font-size: 14px;
+        font-weight: 600;
+      }
+      .board__hd span {
+        font-family: var(--font-mono);
+        font-size: 11px;
+        color: #6b7385;
+        font-weight: 400;
+      }
+      .cols {
+        display: grid;
+        grid-auto-flow: column;
+        grid-auto-columns: minmax(112px, 1fr);
+        gap: 8px;
+        min-width: 840px;
+      }
+      .col {
+        background: #e9ebf1;
+        border-radius: 10px;
+        padding: 8px;
+        min-height: 150px;
+      }
+      .col__hd {
+        font-size: 12px;
+        font-weight: 600;
+        padding: 4px 4px 8px;
+        display: flex;
+        justify-content: space-between;
+        color: #39415a;
+      }
+      .col__hd em {
+        font-style: normal;
+        font-family: var(--font-mono);
+        font-size: 10px;
+        color: #7c849a;
+      }
+      .card {
+        background: #fff;
+        border-radius: 8px;
+        padding: 8px 9px;
+        margin-bottom: 6px;
+        box-shadow: 0 1px 2px rgba(20, 30, 60, 0.08);
+        font-size: 12px;
+      }
+      .card b {
+        display: block;
+        font-weight: 600;
+        color: #1d2433;
+      }
+      .card span {
+        font-size: 11px;
+        color: #6b7385;
+      }
+      .card .pill {
+        display: inline-block;
+        font-size: 10px;
+        border-radius: 4px;
+        padding: 1px 6px;
+        margin-top: 4px;
+        background: #e8f0ff;
+        color: #2f5bd3;
+      }
+      .card .pill--g {
+        background: #e3f7ee;
+        color: #0f7a52;
+      }
+      .card .pill--r {
+        background: #fde8e8;
+        color: #b42323;
+      }
+      .card .pill--o {
+        background: #fff0e6;
+        color: #b44400;
+      }
+      .boards {
+        display: grid;
+        gap: 14px;
+      }
+
+      /* workflow cards */
+      .wfgrid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+        gap: 14px;
+      }
+      .wf {
+        background: var(--bg-2);
+        border: 1px solid var(--line);
+        border-radius: var(--r);
+        padding: 18px;
+      }
+      .wf__hd {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px;
+        margin-bottom: 4px;
+      }
+      .wf__hd b {
+        font-size: 15px;
+        font-weight: 600;
+      }
+      .wf__hd span {
+        font-family: var(--font-mono);
+        font-size: 10px;
+        color: var(--dim);
+        border: 1px solid var(--line-2);
+        border-radius: 5px;
+        padding: 1px 6px;
+        white-space: nowrap;
+      }
+      .wf p {
+        font-size: 13px;
+        color: var(--muted);
+        margin-bottom: 12px;
+      }
+      .steps {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+      }
+      .step {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+        font-size: 12.5px;
+        color: var(--text);
+        position: relative;
+        padding: 0 0 10px 0;
+      }
+      .step::before {
+        content: "";
+        position: absolute;
+        left: 8px;
+        top: 18px;
+        bottom: 0;
+        width: 2px;
+        background: var(--line-2);
+      }
+      .step:last-child::before {
+        display: none;
+      }
+      .step i {
+        flex: 0 0 18px;
+        height: 18px;
+        border-radius: 5px;
+        background: var(--panel-2);
+        border: 1px solid var(--line-2);
+        font-style: normal;
+        font-family: var(--font-mono);
+        font-size: 9px;
+        display: grid;
+        place-items: center;
+        color: var(--muted);
+        position: relative;
+        z-index: 1;
+      }
+      .step--trg i {
+        background: var(--orange);
+        border-color: var(--orange);
+        color: #14141b;
+      }
+      .step--hook i {
+        background: rgba(167, 123, 255, 0.18);
+        border-color: var(--violet);
+        color: var(--violet);
+      }
+      .step--if i {
+        background: rgba(107, 156, 255, 0.16);
+        border-color: var(--blue);
+        color: var(--blue);
+      }
+      .step--human i {
+        background: var(--green-soft);
+        border-color: var(--green);
+        color: var(--green);
+      }
+      .legend {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px;
+        font-family: var(--font-mono);
+        font-size: 11px;
+        color: var(--dim);
+      }
+      .legend i {
+        display: inline-block;
+        width: 10px;
+        height: 10px;
+        border-radius: 3px;
+        margin-right: 6px;
+        vertical-align: -1px;
+      }
+
+      /* n8n canvas recreation */
+      .n8n {
+        background: #1e1e26;
+        border: 1px solid var(--line);
+        border-radius: var(--r-lg);
+        padding: 14px;
+        overflow-x: auto;
+        background-image: radial-gradient(#2c2c38 1px, transparent 1px);
+        background-size: 16px 16px;
+      }
+      .n8n svg {
+        min-width: 900px;
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+
+      /* browser frame screenshots */
+      .shot {
+        border: 1px solid var(--line-2);
+        border-radius: 12px;
+        overflow: hidden;
+        background: var(--panel-2);
+      }
+      .shot__bar {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        padding: 9px 12px;
+        border-bottom: 1px solid var(--line);
+      }
+      .shot__bar i {
+        width: 9px;
+        height: 9px;
+        border-radius: 50%;
+        background: var(--line-2);
+      }
+      .shot__bar span {
+        margin-left: 10px;
+        font-family: var(--font-mono);
+        font-size: 11px;
+        color: var(--dim);
+      }
+      .shots {
+        display: grid;
+        gap: 14px;
+      }
+      .shots__stack {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 14px;
+      }
+
+      /* templates */
+      .tgrid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+      }
+      .tpl {
+        background: var(--panel);
+        border: 1px solid var(--line);
+        border-radius: var(--r-lg);
+        padding: 24px;
+        display: flex;
+        flex-direction: column;
+        transition: var(--trans);
+      }
+      .tpl:hover {
+        border-color: var(--line-2);
+        transform: translateY(-2px);
+      }
+      .tpl__img {
+        margin: -24px -24px 16px;
+        aspect-ratio: 16 / 9;
+        background: #fbfcfe;
+        border-bottom: 1px solid var(--line);
+        border-radius: var(--r-lg) var(--r-lg) 0 0;
+        display: grid;
+        place-items: center;
+        padding: 10px;
+        overflow: hidden;
+      }
+      .tpl__img img {
+        max-height: 100%;
+        object-fit: contain;
+      }
+      .tpl h4 {
+        font-family: var(--font-display);
+        font-weight: 400;
+        font-size: 28px;
+        line-height: 1;
+        margin: 8px 0 8px;
+      }
+      .tpl p {
+        font-size: 14px;
+        color: var(--muted);
+        margin-bottom: 16px;
+        flex: 1;
+      }
+      .chain {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 5px;
+      }
+      .chain span {
+        font-family: var(--font-mono);
+        font-size: 10.5px;
+        background: var(--bg-2);
+        border: 1px solid var(--line-2);
+        border-radius: 6px;
+        padding: 4px 7px;
+        white-space: nowrap;
+      }
+      .chain span:first-child {
+        border-color: var(--orange);
+        color: var(--orange);
+      }
+      .chain em {
+        font-style: normal;
+        color: var(--orange);
+        font-size: 12px;
+      }
+
+      /* builds grid */
+      .bgrid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+      }
+      .build {
+        background: var(--panel);
+        border: 1px solid var(--line);
+        border-radius: var(--r-lg);
+        padding: 26px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      .build__img {
+        margin: -26px -26px 6px;
+        aspect-ratio: 16 / 10;
+        overflow: hidden;
+        border-bottom: 1px solid var(--line);
+        border-radius: var(--r-lg) var(--r-lg) 0 0;
+        background: var(--panel-2);
+      }
+      .build__img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: top center;
+      }
+      .build__img--center img {
+        object-position: center;
+      }
+      .build__hd {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        gap: 10px;
+      }
+      .build h4 {
+        font-size: 19px;
+        font-weight: 700;
+      }
+      .build p {
+        font-size: 14.5px;
+        color: var(--muted);
+        flex: 1;
+      }
+      .build .stack span {
+        font-family: var(--font-mono);
+        font-size: 11px;
+        color: var(--dim);
+      }
+      .gh {
+        font-family: var(--font-mono);
+        font-size: 12px;
+        color: var(--orange);
+        white-space: nowrap;
+      }
+      .gh:hover {
+        color: var(--orange-hover);
+        text-decoration: underline;
+      }
+
+      /* websites */
+      .sites {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+      }
+      .site figcaption {
+        padding: 14px 4px 0;
+      }
+      .site b {
+        display: block;
+        font-size: 16px;
+      }
+      .site span {
+        font-size: 13px;
+        color: var(--muted);
+      }
+
+      /* process */
+      .proc {
+        list-style: none;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 16px;
+        counter-reset: p;
+      }
+      .proc li {
+        background: var(--panel);
+        border: 1px solid var(--line);
+        border-radius: var(--r-lg);
+        padding: 26px;
+      }
+      .proc li::before {
+        counter-increment: p;
+        content: "0" counter(p);
+        font-family: var(--font-mono);
+        font-size: 12px;
+        color: var(--orange);
+      }
+      .proc h4 {
+        font-family: var(--font-display);
+        font-weight: 400;
+        font-size: 32px;
+        margin: 6px 0 8px;
+      }
+      .proc p {
+        font-size: 14.5px;
+        color: var(--muted);
+      }
+
+      /* testimonials */
+      .quotes {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+      }
+      .quote {
+        background: var(--panel);
+        border: 1px solid var(--line);
+        border-radius: var(--r-lg);
+        padding: 32px;
+        position: relative;
+      }
+      .quote blockquote {
+        font-size: 18px;
+        line-height: 1.55;
+        margin: 20px 0 22px;
+      }
+      .quote blockquote::before {
+        content: "“";
+        font-family: var(--font-display);
+        font-size: 64px;
+        line-height: 0;
+        color: var(--orange);
+        display: block;
+        height: 22px;
+      }
+      .quote cite {
+        font-style: normal;
+        font-size: 14px;
+        color: var(--muted);
+      }
+      .quote cite b {
+        color: var(--text);
+        display: block;
+        font-size: 15px;
+      }
+
+      /* about */
+      .about {
+        display: grid;
+        grid-template-columns: 320px 1fr;
+        gap: 56px;
+        align-items: start;
+      }
+      .headshot {
+        aspect-ratio: 4 / 5;
+        border-radius: 22px;
+        border: 1.5px dashed var(--line-2);
+        background: var(--panel);
+        display: grid;
+        place-items: center;
+        text-align: center;
+        color: var(--dim);
+        font-family: var(--font-mono);
+        font-size: 12px;
+      }
+      .headshot b {
+        display: block;
+        font-family: var(--font-display);
+        font-size: 84px;
+        font-weight: 400;
+        color: var(--orange);
+        line-height: 1;
+        margin-bottom: 8px;
+      }
+      .about__bio p {
+        font-size: 18px;
+        color: var(--muted);
+        margin-bottom: 18px;
+      }
+      .about__bio p:first-child {
+        color: var(--text);
+        font-size: 21px;
+      }
+      .facts {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+        margin-top: 28px;
+      }
+      .facts div {
+        border-top: 1px solid var(--line);
+        padding-top: 12px;
+      }
+      .facts b {
+        display: block;
+        font-family: var(--font-mono);
+        font-size: 12px;
+        color: var(--orange);
+        font-weight: 500;
+        margin-bottom: 4px;
+      }
+      .facts span {
+        font-size: 15px;
+      }
+
+      /* cta */
+      .cta {
+        padding: 120px 0;
+        text-align: center;
+        background-image: linear-gradient(var(--line) 1px, transparent 1px),
+          linear-gradient(90deg, var(--line) 1px, transparent 1px);
+        background-size: 48px 48px;
+        position: relative;
+      }
+      .cta::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(ellipse at center, transparent 0%, var(--bg) 65%);
+      }
+      .cta .wrap {
+        position: relative;
+        z-index: 1;
+      }
+      .cta h2 {
+        font-family: var(--font-display);
+        font-weight: 400;
+        font-size: clamp(48px, 7vw, 86px);
+        line-height: 0.95;
+        margin: 14px 0 18px;
+      }
+      .cta p {
+        color: var(--muted);
+        font-size: 18px;
+        max-width: 560px;
+        margin: 0 auto 32px;
+      }
+      .cta__btns {
+        display: flex;
+        gap: 12px;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+      .contacts {
+        display: flex;
+        gap: 22px;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-top: 30px;
+        font-family: var(--font-mono);
+        font-size: 13px;
+        color: var(--muted);
+      }
+      .contacts a:hover {
+        color: var(--orange);
+      }
+      footer {
+        border-top: 1px solid var(--line);
+        padding: 26px 0;
+        font-family: var(--font-mono);
+        font-size: 12px;
+        color: var(--dim);
+      }
+      footer .wrap {
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+
+      /* ---------- RESPONSIVE ---------- */
+      @media (max-width: 1000px) {
+        .hero .wrap,
+        .about {
+          grid-template-columns: 1fr;
+        }
+        .about .headshot {
+          max-width: 280px;
+        }
+        .stats .wrap {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .stat:nth-child(2) {
+          border-right: 0;
+        }
+        .stat:nth-child(-n + 2) {
+          border-bottom: 1px solid var(--line);
+        }
+        .pbr,
+        .results,
+        .tgrid,
+        .sites {
+          grid-template-columns: 1fr 1fr;
+        }
+        .proc {
+          grid-template-columns: 1fr 1fr;
+        }
+        .nav__links {
+          display: none;
+        }
+      }
+      @media (max-width: 680px) {
+        .wrap {
+          padding: 0 16px;
+        }
+        .hero {
+          padding: 120px 0 56px;
+        }
+        .avail {
+          margin: 10px 0 0;
+        }
+        .sec {
+          padding: 80px 0;
+        }
+        .case {
+          padding: 24px 18px;
+        }
+        .pbr,
+        .results,
+        .tgrid,
+        .sites,
+        .proc,
+        .bgrid,
+        .quotes,
+        .facts {
+          grid-template-columns: 1fr;
+        }
+        .wfgrid,
+        .shots__stack {
+          grid-template-columns: 1fr;
+        }
+        .stat {
+          padding: 22px 14px;
+        }
+        .stat__n {
+          font-size: 38px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- ================= NAV ================= -->
+    <nav class="nav">
+      <div class="wrap nav__in">
+        <a href="#top" class="logo">ELDWIN<span class="o">.</span></a>
+        <div class="nav__links">
+          <a href="#work">work</a>
+          <a href="#templates">automations</a>
+          <a href="#builds">builds</a>
+          <a href="#about">about</a>
+          <a href="#contact">contact</a>
+        </div>
+        <!-- TODO: replace # with Calendly link -->
+        <a href="#contact" class="btn btn--o">Book a call</a>
+      </div>
+    </nav>
+
+    <!-- ================= HERO ================= -->
+    <header class="hero" id="top">
+      <div class="wrap">
+        <div>
+          <span class="tag">// automation specialist · n8n + GoHighLevel</span>
+          <span class="avail"><i></i>Open to new roles and projects</span>
+          <h1>I build the systems<br />that do the <span class="o">boring work.</span></h1>
+          <p class="hero__sub">
+            I'm Eldwin Sambolledo. I connect n8n, GoHighLevel, Gmail, Slack and the rest of a
+            team's tools so lead entry, follow-ups and reporting run on their own, and tell you
+            when they don't.
+          </p>
+          <div class="hero__ctas">
+            <a href="#work" class="btn btn--o">See the builds →</a>
+            <a href="#contact" class="btn btn--ghost">Get in touch</a>
+          </div>
+          <div class="stack">
+            <span class="chip">n8n</span><span class="chip">GoHighLevel</span
+            ><span class="chip">Monday.com</span><span class="chip">Claude API</span
+            ><span class="chip">Python</span><span class="chip">Django</span
+            ><span class="chip">Next.js</span><span class="chip">Playwright</span
+            ><span class="chip">Docker</span><span class="chip">Cloudflare</span>
+          </div>
+        </div>
+
+        <!-- Hero canvas: a stylized n8n-style workflow -->
+        <div class="canvas" aria-label="Stylized automation workflow: new lead, check CRM, then reply and alert the team">
+          <div class="canvas__bar"><span>new-lead-reply.json</span><b>● active</b></div>
+          <svg viewBox="0 0 460 300" role="img" aria-hidden="true">
+            <defs>
+              <filter id="sh" x="-20%" y="-20%" width="140%" height="140%">
+                <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.35" />
+              </filter>
+            </defs>
+            <path class="wire wire--live" d="M86 150 C 110 150, 110 150, 134 150" />
+            <path class="wire wire--live" d="M206 150 C 232 150, 232 150, 258 150" />
+            <path class="wire wire--live" d="M330 150 C 352 150, 350 80, 372 80" />
+            <path class="wire" d="M330 150 C 352 150, 350 220, 372 220" />
+            <g filter="url(#sh)">
+              <rect x="14" y="114" width="72" height="72" rx="16" fill="#2a2a38" stroke="#ff5c00" stroke-width="2" />
+              <rect x="134" y="114" width="72" height="72" rx="12" fill="#2a2a38" stroke="#3a3a50" />
+              <rect x="258" y="114" width="72" height="72" rx="12" fill="#2a2a38" stroke="#3a3a50" />
+              <rect x="372" y="44" width="72" height="72" rx="12" fill="#2a2a38" stroke="#14b87a" stroke-width="2" />
+              <rect x="372" y="184" width="72" height="72" rx="12" fill="#2a2a38" stroke="#3a3a50" />
+            </g>
+            <g font-family="JetBrains Mono, monospace" text-anchor="middle">
+              <text x="50" y="158" font-size="22" fill="#ff5c00">⚡</text>
+              <text x="170" y="157" font-size="15" fill="#ececf2">GHL</text>
+              <text x="294" y="157" font-size="16" fill="#6b9cff">if</text>
+              <text x="408" y="88" font-size="16" fill="#14b87a">✉</text>
+              <text x="408" y="228" font-size="15" fill="#a3a3b6">#</text>
+              <g font-size="10.5" fill="#a3a3b6">
+                <text x="50" y="206">Form submit</text>
+                <text x="170" y="206">Find contact</text>
+                <text x="294" y="206">New lead?</text>
+                <text x="408" y="136">Reply + tag</text>
+                <text x="408" y="276">Alert Slack</text>
+              </g>
+              <g font-size="9" fill="#74748a">
+                <text x="352" y="104">true</text>
+                <text x="352" y="204">false</text>
+              </g>
+            </g>
+          </svg>
+        </div>
+      </div>
+    </header>
+
+    <!-- ================= STATS ================= -->
+    <section class="stats" aria-label="Results at a glance">
+      <div class="wrap">
+        <div class="stat">
+          <div class="stat__n">2 → 15+</div>
+          <div class="stat__l">vendor outreach messages a day</div>
+        </div>
+        <div class="stat">
+          <div class="stat__n">4×</div>
+          <div class="stat__l">more vendor replies per week (3 → 12)</div>
+        </div>
+        <div class="stat">
+          <div class="stat__n">~5 hrs</div>
+          <div class="stat__l">of team time saved every week</div>
+        </div>
+        <div class="stat">
+          <div class="stat__n">30+</div>
+          <div class="stat__l">workflows built across n8n and GHL</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= FEATURED WORK ================= -->
+    <section class="sec" id="work">
+      <div class="wrap">
+        <div class="sec__head">
+          <span class="tag">// featured work</span>
+          <h2>Client builds</h2>
+          <p>
+            Real systems running for real teams. Client names, people and account details are
+            left out on purpose; everything below is redrawn from the build docs, not
+            screenshotted from live accounts.
+          </p>
+        </div>
+
+        <!-- ===== CASE 01: vendor sourcing ===== -->
+        <article class="case">
+          <div class="case__top">
+            <span class="tag">case_01 · n8n + GoHighLevel + Monday.com</span>
+            <span class="note">client: confidential · one CRM account, three businesses</span>
+          </div>
+          <h3>Vendor sourcing on autopilot</h3>
+          <p class="case__lede">
+            A contracting business needed to find subcontractors, collect their compliance
+            documents, request quotes and track every bid to an award, with a team of one doing
+            it by hand. I connected Monday.com, n8n, GoHighLevel, Gmail and Slack into one system
+            where the team updates a status once and everything else follows.
+          </p>
+
+          <div class="pbr">
+            <div>
+              <h4>// the problem</h4>
+              <p>
+                Vendor outreach was manual, quotes arrived in scattered inboxes, and nobody had
+                one view of which vendors were vetted or which bids were still open. Outreach
+                topped out at about 2 messages a day.
+              </p>
+            </div>
+            <div>
+              <h4>// what I built</h4>
+              <ul>
+                <li>Vendor bench CRM with prequal docs, trade and region</li>
+                <li>Two pipelines that move on their own from Monday updates</li>
+                <li>Vendor forms for prequal and quotes</li>
+                <li>A send gate that holds any email leaking sensitive bid details</li>
+                <li>Deadline alerts 7, 3 and 1 days out</li>
+              </ul>
+            </div>
+            <div>
+              <h4>// how it holds up</h4>
+              <ul>
+                <li>One system of record, synced one way, so data never forks</li>
+                <li>Safe to re-run: no duplicate bids, cards or vendors</li>
+                <li>Full SOP and test guide handed to the team</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="results">
+            <div class="result">
+              <div class="result__n"><small>2 →</small>15–18</div>
+              <div class="result__l">vendor messages sent per day</div>
+            </div>
+            <div class="result">
+              <div class="result__n"><small>3 →</small>12</div>
+              <div class="result__l">vendor responses per week</div>
+            </div>
+            <div class="result">
+              <div class="result__n">~5 hrs</div>
+              <div class="result__l">of manual team work removed weekly</div>
+            </div>
+          </div>
+
+          <!-- System map -->
+          <div class="vis">
+            <div class="vis__label"><span>system map · who talks to whom</span><span>only n8n talks to vendors</span></div>
+            <div class="sysmap">
+              <svg viewBox="0 0 980 360" role="img" aria-label="System map: Monday.com feeds n8n sync flows, which update GoHighLevel. GoHighLevel workflows send events back to n8n. Every vendor email passes a confidentiality gate in n8n before Gmail sends it. Slack receives alerts.">
+                <defs>
+                  <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                    <path d="M0 0 L10 5 L0 10 z" fill="#5a5a74" />
+                  </marker>
+                  <marker id="aro" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                    <path d="M0 0 L10 5 L0 10 z" fill="#ff5c00" />
+                  </marker>
+                </defs>
+                <g fill="none" stroke-width="2">
+                  <path d="M170 90 H 330" stroke="#5a5a74" marker-end="url(#ar)" />
+                  <path d="M470 90 H 640" stroke="#5a5a74" marker-end="url(#ar)" />
+                  <path d="M715 130 V 190 H 445 V 136" stroke="#5a5a74" marker-end="url(#ar)" />
+                  <path d="M400 130 V 230" stroke="#ff5c00" marker-end="url(#aro)" />
+                  <path d="M470 270 H 640" stroke="#ff5c00" marker-end="url(#aro)" />
+                  <path d="M640 290 C 400 340, 160 330, 100 130" stroke="#5a5a74" stroke-dasharray="5 5" marker-end="url(#ar)" />
+                  <path d="M470 60 C 600 20, 760 20, 880 50" stroke="#5a5a74" marker-end="url(#ar)" />
+                </g>
+                <g font-family="Outfit, sans-serif">
+                  <rect x="30" y="50" width="140" height="80" rx="12" fill="#232332" stroke="#3a3a50" />
+                  <text x="100" y="86" text-anchor="middle" fill="#ececf2" font-size="16" font-weight="600">Monday.com</text>
+                  <text x="100" y="108" text-anchor="middle" fill="#a3a3b6" font-size="12">RFQs · system of record</text>
+
+                  <rect x="330" y="50" width="140" height="80" rx="12" fill="#2b2420" stroke="#ff5c00" />
+                  <text x="400" y="86" text-anchor="middle" fill="#ececf2" font-size="16" font-weight="600">n8n sync</text>
+                  <text x="400" y="108" text-anchor="middle" fill="#a3a3b6" font-size="12">status · vendors · tasks</text>
+
+                  <rect x="640" y="50" width="150" height="80" rx="12" fill="#232332" stroke="#3a3a50" />
+                  <text x="715" y="86" text-anchor="middle" fill="#ececf2" font-size="16" font-weight="600">GoHighLevel</text>
+                  <text x="715" y="108" text-anchor="middle" fill="#a3a3b6" font-size="12">bench · bids · forms</text>
+
+                  <rect x="330" y="230" width="140" height="80" rx="12" fill="#2b2420" stroke="#ff5c00" stroke-width="2" />
+                  <text x="400" y="266" text-anchor="middle" fill="#ff5c00" font-size="16" font-weight="600">Send gate</text>
+                  <text x="400" y="288" text-anchor="middle" fill="#a3a3b6" font-size="12">holds risky emails</text>
+
+                  <rect x="640" y="230" width="140" height="80" rx="12" fill="#232332" stroke="#3a3a50" />
+                  <text x="710" y="266" text-anchor="middle" fill="#ececf2" font-size="16" font-weight="600">Gmail</text>
+                  <text x="710" y="288" text-anchor="middle" fill="#a3a3b6" font-size="12">every vendor email</text>
+
+                  <rect x="860" y="50" width="100" height="80" rx="12" fill="#232332" stroke="#3a3a50" />
+                  <text x="910" y="86" text-anchor="middle" fill="#ececf2" font-size="16" font-weight="600">Slack</text>
+                  <text x="910" y="108" text-anchor="middle" fill="#a3a3b6" font-size="12">alerts</text>
+                </g>
+                <g font-family="JetBrains Mono, monospace" font-size="11" fill="#74748a">
+                  <text x="250" y="80" text-anchor="middle">webhooks</text>
+                  <text x="555" y="80" text-anchor="middle">API · stage moves</text>
+                  <text x="600" y="182" text-anchor="middle">form + stage events</text>
+                  <text x="408" y="186">draft</text>
+                  <text x="555" y="260" text-anchor="middle">approved only</text>
+                  <text x="300" y="345" text-anchor="middle">vendor replies read and logged to Monday</text>
+                  <text x="680" y="22" text-anchor="middle">deadlines · closeouts</text>
+                </g>
+              </svg>
+            </div>
+          </div>
+
+          <!-- Pipelines -->
+          <div class="vis">
+            <div class="vis__label"><span>GoHighLevel pipelines · recreated with placeholder data</span><span>cards move automatically</span></div>
+            <div class="boards">
+              <div class="board">
+                <div class="board__hd">Subcontractor Sourcing <span>6 stages · one card per vendor</span></div>
+                <div class="cols">
+                  <div class="col">
+                    <div class="col__hd">Sourced <em>10%</em></div>
+                    <div class="card"><b>Acme Mechanical</b><span>HVAC &amp; Chillers · R3</span></div>
+                    <div class="card"><b>Brightline Electric</b><span>Electrical Supply · R5</span></div>
+                  </div>
+                  <div class="col">
+                    <div class="col__hd">Responded <em>25%</em></div>
+                    <div class="card"><b>Northgate Grounds</b><span>Mowing &amp; Grounds · R4</span></div>
+                  </div>
+                  <div class="col">
+                    <div class="col__hd">Prequal In Progress <em>50%</em></div>
+                    <div class="card"><b>Summit Janitorial</b><span>Janitorial · R11</span><br /><i class="pill pill--o">review task due 2d</i></div>
+                  </div>
+                  <div class="col">
+                    <div class="col__hd">Prequalified Bench <em>75%</em></div>
+                    <div class="card"><b>Pioneer Pest Co.</b><span>Pest Control · R3</span><br /><i class="pill pill--g">W-9 · COI · SAM ✓</i></div>
+                    <div class="card"><b>Keystone Waste</b><span>Waste Collection · R2</span><br /><i class="pill pill--g">W-9 · COI · SAM ✓</i></div>
+                  </div>
+                  <div class="col">
+                    <div class="col__hd">Active <em>100%</em></div>
+                    <div class="card"><b>Ridgeview Generators</b><span>Generators · Nationwide</span><br /><i class="pill">quote in · $18,400</i></div>
+                  </div>
+                  <div class="col">
+                    <div class="col__hd">Inactive / DQ <em>0%</em></div>
+                    <div class="card"><b>Lowbid Services</b><span>Snow Removal · R8</span><br /><i class="pill pill--r">do not contact</i></div>
+                  </div>
+                </div>
+              </div>
+              <div class="board">
+                <div class="board__hd">Bid Tracking <span>7 stages · one card per solicitation</span></div>
+                <div class="cols">
+                  <div class="col"><div class="col__hd">Identified <em>5%</em></div><div class="card"><b>RFQ-1042</b><span>Grounds maintenance</span></div></div>
+                  <div class="col"><div class="col__hd">Site Visit <em>10%</em></div><div class="card"><b>RFQ-1039</b><span>Chiller service</span></div></div>
+                  <div class="col"><div class="col__hd">Quote Requested <em>20%</em></div><div class="card"><b>RFQ-1036</b><span>Janitorial</span><br /><i class="pill">8 vendors invited</i></div></div>
+                  <div class="col"><div class="col__hd">Quote Received <em>35%</em></div><div class="card"><b>RFQ-1031</b><span>Generator repair</span></div></div>
+                  <div class="col"><div class="col__hd">Offer Submitted <em>50%</em></div><div class="card"><b>RFQ-1027</b><span>Pest control</span></div></div>
+                  <div class="col"><div class="col__hd">Awarded <em>100%</em></div><div class="card"><b>RFQ-1019</b><span>Waste collection</span><br /><i class="pill pill--g">won</i></div></div>
+                  <div class="col"><div class="col__hd">Not Awarded <em>0%</em></div><div class="card"><b>RFQ-1012</b><span>Snow removal</span><br /><i class="pill pill--r">lost</i></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- GHL workflows -->
+          <div class="vis">
+            <div class="vis__label">
+              <span>the five GoHighLevel workflows · no email or SMS ever leaves GHL</span>
+              <span class="legend"
+                ><span><i style="background: var(--orange)"></i>trigger</span
+                ><span><i style="background: var(--blue)"></i>branch</span
+                ><span><i style="background: var(--violet)"></i>hand-off to n8n</span
+                ><span><i style="background: var(--green)"></i>task for a human</span></span
+              >
+            </div>
+            <div class="wfgrid">
+              <div class="wf">
+                <div class="wf__hd"><b>Vendor Prequal Intake</b><span>G1</span></div>
+                <p>A vendor submits documents; the right person gets a review task within seconds.</p>
+                <div class="steps">
+                  <div class="step step--trg"><i>⚡</i>Prequal form submitted</div>
+                  <div class="step"><i>✎</i>Set business unit, status → Prequal In Progress</div>
+                  <div class="step"><i>▤</i>Update the vendor's sourcing card</div>
+                  <div class="step step--hook"><i>↗</i>Event to n8n</div>
+                  <div class="step step--human"><i>✓</i>Review task (due in 2 days) + in-app alert</div>
+                </div>
+              </div>
+              <div class="wf">
+                <div class="wf__hd"><b>Prequal Decision</b><span>G2 · 3 branches</span></div>
+                <p>One status change from the reviewer drives everything that follows.</p>
+                <div class="steps">
+                  <div class="step step--trg"><i>⚡</i>Vendor status changed</div>
+                  <div class="step step--if"><i>if</i>Prequalified → bench card + tag</div>
+                  <div class="step step--if"><i>if</i>Docs missing → n8n emails only what's missing</div>
+                  <div class="step step--if"><i>if</i>Disqualified → do-not-contact everywhere</div>
+                  <div class="step step--hook"><i>↗</i>Each branch reports to n8n</div>
+                </div>
+              </div>
+              <div class="wf">
+                <div class="wf__hd"><b>Vendor Quote Submitted</b><span>G3</span></div>
+                <p>Quotes land on the right bid automatically, even when vendors share one RFQ email.</p>
+                <div class="steps">
+                  <div class="step step--trg"><i>⚡</i>Quote form submitted</div>
+                  <div class="step step--if"><i>if</i>Missing RFQ reference? → task to match by hand</div>
+                  <div class="step step--hook"><i>↗</i>n8n writes the quote to Monday</div>
+                  <div class="step step--human"><i>✓</i>Alert + review task (due in 1 day)</div>
+                </div>
+              </div>
+              <div class="wf">
+                <div class="wf__hd"><b>Award Closeout</b><span>G4</span></div>
+                <p>Whether a bid is won or lost, the record, Slack and the team task all close together.</p>
+                <div class="steps">
+                  <div class="step step--trg"><i>⚡</i>Bid moved to Awarded / Not Awarded</div>
+                  <div class="step step--if"><i>if</i>Set Won or Lost + award status</div>
+                  <div class="step step--hook"><i>↗</i>n8n posts the outcome to Slack</div>
+                  <div class="step step--human"><i>✓</i>Task: mark selected vendors</div>
+                </div>
+              </div>
+              <div class="wf">
+                <div class="wf__hd"><b>Missed Call Alert</b><span>G5</span></div>
+                <p>Missed calls on the business line turn into a call-back task, never an auto-text.</p>
+                <div class="steps">
+                  <div class="step step--trg"><i>⚡</i>Missed call on the business line</div>
+                  <div class="step step--human"><i>✓</i>Call-back task due today</div>
+                  <div class="step step--human"><i>✓</i>In-app + mobile push</div>
+                </div>
+              </div>
+              <div class="wf">
+                <div class="wf__hd"><b>n8n side</b><span>7 flows</span></div>
+                <p>Where the heavy lifting happens, outside the CRM.</p>
+                <div class="steps">
+                  <div class="step"><i>1</i>Vendor discovery and trade mapping</div>
+                  <div class="step"><i>2</i>Bid mirror: Monday → GHL</div>
+                  <div class="step"><i>3</i>Status and vendor sync from Monday webhooks</div>
+                  <div class="step"><i>4</i>Reply reader logs vendor emails</div>
+                  <div class="step"><i>5</i>Deadline alerts: tasks + Slack</div>
+                  <div class="step"><i>6</i>CRM events → Monday + vendor emails</div>
+                  <div class="step step--hook"><i>7</i>Send gate on every vendor email</div>
+                </div>
+              </div>
+            </div>
+            <div class="builtstats">
+              <span><b>2</b> pipelines</span><span><b>13</b> stages with win probabilities</span><span><b>5</b> GHL workflows</span
+              ><span><b>7</b> n8n flows</span><span><b>2</b> vendor forms</span><span><b>28</b> custom fields</span
+              ><span><b>5</b> saved smart lists</span><span><b>24</b> trades × <b>12</b> regions mapped</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- ===== CASE 02: property-side CRM ===== -->
+        <article class="case">
+          <div class="case__top">
+            <span class="tag">case_02 · n8n + GoHighLevel</span>
+            <span class="note">client: confidential · property company</span>
+          </div>
+          <h3>From spreadsheet to sales pipeline</h3>
+          <p class="case__lede">
+            The same client's property business had hundreds of cold owner leads in spreadsheets
+            and no way to work them in the CRM. GoHighLevel's built-in importer can't create deals
+            or fill deal-level fields, so I built the pipeline in GHL and an n8n import that does
+            what the importer can't.
+          </p>
+
+          <div class="pbr">
+            <div>
+              <h4>// in GoHighLevel</h4>
+              <ul>
+                <li>8-stage owner pipeline, cold lead to active management</li>
+                <li>Custom field dictionary: tier, close score, pitch angle, market</li>
+                <li>Missed-call text-back <span class="note">(live)</span></li>
+                <li>Landing-page intake workflow <span class="note">(built)</span></li>
+              </ul>
+            </div>
+            <div>
+              <h4>// re-engagement</h4>
+              <ul>
+                <li>21-day retargeting campaign across 5 workflows <span class="note">(built)</span></li>
+                <li>Stall detectors for discovery calls and sent proposals</li>
+                <li>New inquiries automatically pulled out of retargeting</li>
+              </ul>
+            </div>
+            <div>
+              <h4>// the import</h4>
+              <ul>
+                <li>335 cold contacts imported and routed through n8n</li>
+                <li>Duplicate check before every create</li>
+                <li>Every row ends labeled done or failed, never silent</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="vis">
+            <div class="vis__label"><span>n8n workflow · CSV import → GoHighLevel · 24 nodes</span><span>recreated · failure paths in red</span></div>
+            <div class="n8n">
+              <svg viewBox="0 0 1100 320" role="img" aria-label="n8n workflow: upload CSV, normalize rows, check for phone or email, search for duplicate contact, reuse or create the contact, create the deal, apply do-not-disturb flags, done. Each check has a failure branch that labels the row.">
+                <g fill="none" stroke-width="2">
+                  <path d="M88 110 H 128" stroke="#565670" />
+                  <path d="M198 110 H 238" stroke="#565670" />
+                  <path d="M308 110 H 348" stroke="#565670" />
+                  <path d="M418 110 H 458" stroke="#565670" />
+                  <path d="M528 110 C 548 110, 548 45, 568 45" stroke="#565670" />
+                  <path d="M528 110 C 548 110, 548 175, 568 175" stroke="#565670" />
+                  <path d="M638 45 C 660 45, 660 110, 682 110" stroke="#565670" />
+                  <path d="M638 175 C 660 175, 660 110, 682 110" stroke="#565670" />
+                  <path d="M752 110 H 792" stroke="#565670" />
+                  <path d="M862 110 H 902" stroke="#565670" />
+                  <path d="M972 110 H 1012" stroke="#14b87a" />
+                  <path d="M383 172 V 262" stroke="#ff5a5a" stroke-dasharray="4 4" />
+                  <path d="M493 172 V 262" stroke="#ff5a5a" stroke-dasharray="4 4" />
+                  <path d="M603 232 V 262" stroke="#ff5a5a" stroke-dasharray="4 4" />
+                  <path d="M827 172 V 262" stroke="#ff5a5a" stroke-dasharray="4 4" />
+                </g>
+                <g font-family="JetBrains Mono, monospace" text-anchor="middle">
+                  <g stroke-width="1.5">
+                    <rect x="18" y="75" width="70" height="70" rx="18" fill="#2a2a36" stroke="#ff5c00" />
+                    <rect x="128" y="75" width="70" height="70" rx="10" fill="#2a2a36" stroke="#45455c" />
+                    <rect x="238" y="75" width="70" height="70" rx="10" fill="#2a2a36" stroke="#45455c" />
+                    <rect x="348" y="75" width="70" height="70" rx="10" fill="#2a2a36" stroke="#6b9cff" />
+                    <rect x="458" y="75" width="70" height="70" rx="10" fill="#2a2a36" stroke="#45455c" />
+                    <rect x="568" y="10" width="70" height="70" rx="10" fill="#2a2a36" stroke="#45455c" />
+                    <rect x="568" y="140" width="70" height="70" rx="10" fill="#2a2a36" stroke="#45455c" />
+                    <rect x="682" y="75" width="70" height="70" rx="10" fill="#2a2a36" stroke="#45455c" />
+                    <rect x="792" y="75" width="70" height="70" rx="10" fill="#2a2a36" stroke="#45455c" />
+                    <rect x="902" y="75" width="70" height="70" rx="10" fill="#2a2a36" stroke="#6b9cff" />
+                    <rect x="1012" y="75" width="70" height="70" rx="10" fill="#1f3a30" stroke="#14b87a" />
+                  </g>
+                  <g font-size="18">
+                    <text x="53" y="117" fill="#ff5c00">⇪</text>
+                    <text x="163" y="116" fill="#ececf2" font-size="13">{ }</text>
+                    <text x="273" y="116" fill="#ececf2" font-size="13">{ }</text>
+                    <text x="383" y="116" fill="#6b9cff" font-size="14">if</text>
+                    <text x="493" y="116" fill="#ececf2" font-size="12">GET</text>
+                    <text x="603" y="51" fill="#ececf2" font-size="12">reuse</text>
+                    <text x="603" y="181" fill="#ececf2" font-size="12">POST</text>
+                    <text x="717" y="116" fill="#ececf2" font-size="12">✓</text>
+                    <text x="827" y="116" fill="#ececf2" font-size="12">POST</text>
+                    <text x="937" y="116" fill="#6b9cff" font-size="14">if</text>
+                    <text x="1047" y="117" fill="#14b87a">✓</text>
+                  </g>
+                  <g font-size="10" fill="#a3a3b6">
+                    <text x="53" y="164">Upload CSV</text>
+                    <text x="163" y="164">Prepare file</text>
+                    <text x="273" y="164">Normalize row</text>
+                    <text x="383" y="164">Phone/email?</text>
+                    <text x="493" y="164">Find duplicate</text>
+                    <text x="603" y="98">Existing</text>
+                    <text x="603" y="228">Create contact</text>
+                    <text x="717" y="164">Contact ready</text>
+                    <text x="827" y="164">Create deal</text>
+                    <text x="937" y="164">DND flag?</text>
+                    <text x="1047" y="164">Row done</text>
+                  </g>
+                  <g font-size="10" fill="#ff8a8a">
+                    <rect x="333" y="262" width="100" height="30" rx="6" fill="#3a2226" stroke="#ff5a5a" />
+                    <text x="383" y="281">no contact info</text>
+                    <rect x="443" y="262" width="100" height="30" rx="6" fill="#3a2226" stroke="#ff5a5a" />
+                    <text x="493" y="281">search failed</text>
+                    <rect x="553" y="262" width="100" height="30" rx="6" fill="#3a2226" stroke="#ff5a5a" />
+                    <text x="603" y="281">create failed</text>
+                    <rect x="777" y="262" width="100" height="30" rx="6" fill="#3a2226" stroke="#ff5a5a" />
+                    <text x="827" y="281">deal failed</text>
+                  </g>
+                </g>
+              </svg>
+            </div>
+          </div>
+          <div class="builtstats">
+            <span><b>8</b>-stage owner pipeline</span><span><b>335</b> contacts imported</span><span><b>5</b> retargeting workflows</span
+            ><span><b>4</b> labeled failure paths</span><span><b>2</b> import bugs found and fixed during the run</span>
+          </div>
+        </article>
+
+        <!-- ===== CASE 03: Command Center ===== -->
+        <article class="case">
+          <div class="case__top">
+            <span class="tag">case_03 · Next.js + PostgreSQL + n8n</span>
+            <a class="gh" href="https://github.com/Jeywold99/gsd-command-center" target="_blank" rel="noopener">view repo ↗</a>
+          </div>
+          <h3>Agency Command Center</h3>
+          <p class="case__lede">
+            An internal platform for a service agency. Every task, project, deadline and client
+            email sits under the client it belongs to, so each person opens one dashboard and
+            sees what's moving today. Tasks are easy to trace back to a client and project, and
+            far less likely to fall through the cracks.
+          </p>
+          <div class="pbr">
+            <div>
+              <h4>// for the team</h4>
+              <ul>
+                <li>"My Day" dashboard and per-person task boards</li>
+                <li>Tasks grouped by client, with priorities and due dates</li>
+                <li>Calendar, team chat and time tracking in one place</li>
+              </ul>
+            </div>
+            <div>
+              <h4>// for the owner</h4>
+              <ul>
+                <li>CRM pipeline and client health</li>
+                <li>Document and password vaults per client</li>
+                <li>Owner / manager / staff roles</li>
+              </ul>
+            </div>
+            <div>
+              <h4>// automation hooks</h4>
+              <ul>
+                <li>Shared inbox: n8n pulls client email in and sends approved replies out</li>
+                <li>Inbound API keys and outgoing webhooks</li>
+                <li>Reminder worker for due tasks</li>
+              </ul>
+            </div>
+          </div>
+          <div class="vis">
+            <div class="vis__label"><span>screenshots · demo workspace with placeholder clients</span></div>
+            <div class="shots">
+              <figure class="shot">
+                <div class="shot__bar"><i></i><i></i><i></i><span>command-center / dashboard</span></div>
+                <img src="assets/eldwin/cc-dashboard.jpg" alt="Command Center dashboard showing active clients, open leads, active projects, overdue tasks, and today's tasks" loading="lazy" width="1440" height="900" />
+              </figure>
+              <div class="shots__stack">
+                <figure class="shot">
+                  <div class="shot__bar"><i></i><i></i><i></i><span>project board</span></div>
+                  <img src="assets/eldwin/cc-project.jpg" alt="Project board with To Do, In Progress, In Review and Done columns" loading="lazy" width="1440" height="900" />
+                </figure>
+                <figure class="shot">
+                  <div class="shot__bar"><i></i><i></i><i></i><span>tasks · grouped by client</span></div>
+                  <img src="assets/eldwin/cc-tasks.jpg" alt="Task board with tasks grouped by client under each status" loading="lazy" width="1440" height="900" />
+                </figure>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ================= TEMPLATES ================= -->
+    <section class="sec sec--alt" id="templates">
+      <div class="wrap">
+        <div class="sec__head">
+          <span class="tag">// automation templates</span>
+          <h2>Six automations every small business needs</h2>
+          <p>
+            Demo builds I made to show common patterns. Each one ships with error alerts and keeps a
+            human in the loop wherever a message would go out under someone's name.
+          </p>
+          <p style="margin-top: 12px">
+            <a class="gh" href="https://github.com/Jeywold99/n8n-automation-templates" target="_blank" rel="noopener">import them from GitHub ↗</a>
+          </p>
+        </div>
+        <div class="tgrid">
+          <div class="tpl">
+            <div class="tpl__img"><img src="assets/eldwin/n8n-five-minute-reply.jpg" alt="5-Minute Reply workflow on the n8n canvas" loading="lazy" /></div>
+            <span class="tag">demo · speed to lead</span>
+            <h4>5-Minute Reply</h4>
+            <p>Every website or Calendly lead gets a warm reply in seconds, lands in the sheet, and pings the team in Slack.</p>
+            <div class="chain"><span>Webhook</span><em>→</em><span>Normalize</span><em>→</em><span>Sheets</span><em>→</em><span>Gmail</span><em>→</em><span>Slack</span></div>
+          </div>
+          <div class="tpl">
+            <div class="tpl__img"><img src="assets/eldwin/n8n-ghost-chaser.jpg" alt="Ghost Chaser workflow on the n8n canvas" loading="lazy" /></div>
+            <span class="tag">demo · sales follow-up</span>
+            <h4>Ghost Chaser</h4>
+            <p>Finds proposals with no reply after 3 days and drafts a follow-up in Gmail. You review, then send.</p>
+            <div class="chain"><span>8 AM</span><em>→</em><span>Proposals</span><em>→</em><span>Filter</span><em>→</em><span>Gmail draft</span><em>→</em><span>Stamp</span></div>
+          </div>
+          <div class="tpl">
+            <div class="tpl__img"><img src="assets/eldwin/n8n-invoice-nag-bot.jpg" alt="Invoice Nag Bot workflow on the n8n canvas" loading="lazy" /></div>
+            <span class="tag">demo · cash flow</span>
+            <h4>Invoice Nag Bot</h4>
+            <p>Friendly daily reminders for overdue invoices only, with every reminder counted on the sheet.</p>
+            <div class="chain"><span>9 AM</span><em>→</em><span>Invoices</span><em>→</em><span>Overdue?</span><em>→</em><span>Gmail</span><em>→</em><span>Log</span></div>
+          </div>
+          <div class="tpl">
+            <div class="tpl__img"><img src="assets/eldwin/n8n-morning-numbers.jpg" alt="Morning Numbers workflow on the n8n canvas" loading="lazy" /></div>
+            <span class="tag">demo · reporting</span>
+            <h4>Morning Numbers</h4>
+            <p>Yesterday's ad spend, leads and cost per lead by source, plus deals that moved, in one Slack post at 8 AM.</p>
+            <div class="chain"><span>8 AM</span><em>→</em><span>Ad data</span><em>→</em><span>Deals</span><em>→</em><span>Compute CPL</span><em>→</em><span>Slack</span></div>
+          </div>
+          <div class="tpl">
+            <div class="tpl__img"><img src="assets/eldwin/n8n-pocket-briefing.jpg" alt="Pocket Briefing workflow on the n8n canvas" loading="lazy" /></div>
+            <span class="tag">demo · sales prep</span>
+            <h4>Pocket Briefing</h4>
+            <p>30 minutes before each call, a Telegram brief: who the guest is, CRM notes, and your last 5 emails with them.</p>
+            <div class="chain"><span>Every 15m</span><em>→</em><span>Calendar</span><em>→</em><span>CRM</span><em>→</em><span>Gmail</span><em>→</em><span>Telegram</span></div>
+          </div>
+          <div class="tpl">
+            <div class="tpl__img"><img src="assets/eldwin/n8n-approve-and-post.jpg" alt="Approve-and-Post workflow on the n8n canvas" loading="lazy" /></div>
+            <span class="tag">demo · AI content</span>
+            <h4>Approve-and-Post</h4>
+            <p>Claude drafts a LinkedIn post from an idea in Airtable; one tap in Slack approves it; it publishes on schedule.</p>
+            <div class="chain"><span>Airtable</span><em>→</em><span>Claude</span><em>→</em><span>Slack approve</span><em>→</em><span>LinkedIn</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= BUILDS ================= -->
+    <section class="sec" id="builds">
+      <div class="wrap">
+        <div class="sec__head">
+          <span class="tag">// also built</span>
+          <h2>Apps and tools</h2>
+          <p>The developer side: the apps, scrapers and pipelines that automations plug into. Code is on GitHub.</p>
+        </div>
+        <div class="bgrid">
+          <div class="build">
+            <div class="build__img"><img src="assets/eldwin/build-scraper.jpg" alt="Scraper results table with ratings, review counts, phones and websites; emails blurred" loading="lazy" /></div>
+            <div class="build__hd"><h4>Google Maps Lead Scraper</h4><a class="gh" href="https://github.com/Jeywold99/gmaps-lead-scraper" target="_blank" rel="noopener">repo ↗</a></div>
+            <p>Pulls B2B leads from Google Maps by niche and city, filters by rating and review count, then crawls each company's website for emails. Web UI with live progress and CSV/Excel export, plus a CLI for big scheduled runs.</p>
+            <div class="stack"><span>Python · Playwright · FastAPI</span></div>
+          </div>
+          <div class="build">
+            <div class="build__img"><img src="assets/eldwin/build-knowledge.jpg" alt="Knowledge library web UI with an upload form and three processed podcast documents" loading="lazy" /></div>
+            <div class="build__hd"><h4>Knowledge-Ops Pipeline</h4><a class="gh" href="https://github.com/Jeywold99/knowledge-ops-pipeline" target="_blank" rel="noopener">repo ↗</a></div>
+            <p>Turns podcasts, videos and PDFs into consistently formatted, tagged knowledge-base documents, with a human review step and a master tracker. Upload a recording in the web UI and get a finished document.</p>
+            <div class="stack"><span>Python · Whisper · Llama 3.3 (Groq) · Node.js</span></div>
+          </div>
+          <div class="build">
+            <div class="build__img"><img src="assets/eldwin/build-lms.jpg" alt="Course page showing two lessons completed, one in review and two locked" loading="lazy" /></div>
+            <div class="build__hd"><h4>GSD HQ Learning Platform</h4><a class="gh" href="https://github.com/Jeywold99/gsd-lms" target="_blank" rel="noopener">repo ↗</a></div>
+            <p>Invite-only course platform: the next lesson unlocks only after an admin approves your worksheet. 2FA, private file serving, self-hosted on a Raspberry Pi behind a Cloudflare Tunnel.</p>
+            <div class="stack"><span>Django · SQLite · Docker · Cloudflare Tunnel</span></div>
+          </div>
+          <div class="build">
+            <div class="build__img"><img src="assets/eldwin/build-clockin.jpg" alt="Weekly timesheet grid of hours per project per day" loading="lazy" /></div>
+            <div class="build__hd"><h4>Clock In</h4><a class="gh" href="https://github.com/Jeywold99/clock-in" target="_blank" rel="noopener">repo ↗</a></div>
+            <p>Trust-based time tracking for small agencies: timers, client → project hierarchy, billable rates that never rewrite history, weekly timesheets and CSV export. Time-zone correct.</p>
+            <div class="stack"><span>Django · SQLite · Docker</span></div>
+          </div>
+          <div class="build">
+            <div class="build__img build__img--center"><img src="assets/eldwin/build-cards.jpg" alt="Two branded social cards generated by the render API" loading="lazy" /></div>
+            <div class="build__hd"><h4>Social Card Render API</h4><a class="gh" href="https://github.com/Jeywold99/gsd-card-service" target="_blank" rel="noopener">repo ↗</a></div>
+            <p>An endpoint that turns a hook line into a branded social image, so content workflows in n8n can generate on-brand graphics with no designer in the loop.</p>
+            <div class="stack"><span>Node.js · Express · Satori · resvg</span></div>
+          </div>
+          <div class="build">
+            <div class="build__img"><img src="assets/eldwin/build-notetaker.jpg" alt="Meeting summary and action items generated from a sample meeting" loading="lazy" /></div>
+            <div class="build__hd"><h4>AI Note Taker</h4><a class="gh" href="https://github.com/Jeywold99/ai-note-taker" target="_blank" rel="noopener">repo ↗</a></div>
+            <p>Upload a meeting recording; get a transcript split by speaker plus structured notes with decisions and action items, kept in a searchable meeting library.</p>
+            <div class="stack"><span>Node.js · Whisper (Groq) · Llama 3.1 via Ollama · SQLite</span></div>
+          </div>
+          <div class="build">
+            <div class="build__img"><img src="assets/eldwin/build-ide.jpg" alt="Code editor with a local AI model answering a question about the open file" loading="lazy" /></div>
+            <div class="build__hd"><h4>Ollama IDE</h4><a class="gh" href="https://github.com/Jeywold99/ollama-ide" target="_blank" rel="noopener">repo ↗</a></div>
+            <p>A desktop code editor with a local AI pair-programmer: inline completions and chat about the open file, all running on your own machine.</p>
+            <div class="stack"><span>Tauri (Rust) · React · TypeScript · Monaco</span></div>
+          </div>
+          <div class="build">
+            <div class="build__img build__img--center"><img src="assets/eldwin/build-ppe.jpg" alt="Prepared training images labeled with hard hat, safety vest, gloves and boots" loading="lazy" /></div>
+            <div class="build__hd"><h4>PPE Detection Prototype</h4><a class="gh" href="https://github.com/Jeywold99/helmora-ppe-detection" target="_blank" rel="noopener">repo ↗</a></div>
+            <p>Training pipeline for a job-site safety model that spots hard hats, vests, gloves and boots, and their absence. Two licensed datasets merged into one label set; model and data picked for commercial-safe licenses. Prototype stage.</p>
+            <div class="stack"><span>Python · RT-DETR · Hugging Face Transformers</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= WEBSITES ================= -->
+    <section class="sec sec--alt" id="sites">
+      <div class="wrap">
+        <div class="sec__head">
+          <span class="tag">// websites</span>
+          <h2>Sites I've shipped</h2>
+          <p>Fast, hand-built marketing sites, deployed on Cloudflare.</p>
+        </div>
+        <div class="sites">
+          <figure class="site">
+            <a class="shot" href="https://getshtdonehq.com/" target="_blank" rel="noopener" style="display: block">
+              <div class="shot__bar"><i></i><i></i><i></i><span>getshtdonehq.com</span></div>
+              <img src="assets/eldwin/gsd-main.jpg" alt="Get Shit Done HQ homepage" loading="lazy" width="1440" height="900" />
+            </a>
+            <figcaption><b>Get Sh*t Done HQ</b><span>Training brand site, masterclass funnel and payments</span></figcaption>
+          </figure>
+          <figure class="site">
+            <div class="shot">
+              <div class="shot__bar"><i></i><i></i><i></i><span>lokal bayong</span></div>
+              <img src="assets/eldwin/lokal-bayong.jpg" alt="Lokal Bayong homepage with handwoven bags" loading="lazy" width="1440" height="900" />
+            </div>
+            <figcaption><b>Lokal Bayong</b><span>E-commerce brand site for handwoven Filipino bags</span></figcaption>
+          </figure>
+          <figure class="site">
+            <div class="shot">
+              <div class="shot__bar"><i></i><i></i><i></i><span>coshi house</span></div>
+              <img src="assets/eldwin/coshi-house.jpg" alt="CO·SHI House cafe homepage" loading="lazy" width="1440" height="900" />
+            </div>
+            <figcaption><b>CO·SHI House</b><span>Cafe site with menu and table reservations</span></figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= PROCESS ================= -->
+    <section class="sec" id="process">
+      <div class="wrap">
+        <div class="sec__head">
+          <span class="tag">// how I work</span>
+          <h2>Built to run without me</h2>
+          <p>Automation that only its builder understands is a liability. Every build ends with a team that can run it.</p>
+        </div>
+        <ol class="proc">
+          <li>
+            <h4>Map</h4>
+            <p>Start from the real bottleneck: who touches what, where data lives, which step keeps slipping.</p>
+          </li>
+          <li>
+            <h4>Build</h4>
+            <p>One system of record, clear naming, IDs pulled from the live account instead of typed by hand.</p>
+          </li>
+          <li>
+            <h4>Guard</h4>
+            <p>Error alerts on every flow, safe re-runs, and gates that stop a bad message before it sends.</p>
+          </li>
+          <li>
+            <h4>Hand off</h4>
+            <p>SOPs, test scenarios and a plain-language guide, so the team owns it on day one.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ================= TESTIMONIALS ================= -->
+    <!-- PLACEHOLDER QUOTES: not real testimonials. Replace with the client-approved wording before publishing. -->
+    <section class="sec sec--alt" id="testimonials">
+      <div class="wrap">
+        <div class="sec__head">
+          <span class="tag">// in their words</span>
+          <h2>What clients say</h2>
+        </div>
+        <div class="quotes">
+          <figure class="quote">
+            <blockquote>
+              Eldwin took the processes we were running by hand and turned them into automations
+              we can actually rely on. Our follow-ups go out on time, our data stays clean, and
+              when something breaks we hear about it right away instead of weeks later.
+            </blockquote>
+            <cite><b>Knowlogix LLC</b>Client</cite>
+          </figure>
+          <figure class="quote">
+            <blockquote>
+              We went from sending a couple of vendor emails a day to more than fifteen, and the
+              replies came with it. The system Eldwin built does the chasing, so our team spends
+              its time on the bids instead of the busywork.
+            </blockquote>
+            <cite><b>Operations lead</b>Property and contracting company (confidential)</cite>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= ABOUT ================= -->
+    <section class="sec" id="about">
+      <div class="wrap about">
+        <!-- TODO: replace with headshot, e.g. <img src="assets/eldwin/headshot.jpg" alt="Eldwin Sambolledo"> -->
+        <div class="headshot"><div><b>ES</b>headshot coming soon</div></div>
+        <div class="about__bio">
+          <span class="tag">// who's behind it</span>
+          <h2 style="font-family: var(--font-display); font-weight: 400; font-size: clamp(42px, 5vw, 64px); line-height: 0.95; margin: 10px 0 22px">
+            Eldwin Sambolledo
+          </h2>
+          <p>
+            I'm an automation specialist who builds the systems that do the repetitive work: n8n
+            workflows, GoHighLevel pipelines, and the web apps that sit around them.
+          </p>
+          <p>
+            I start from a team's actual bottleneck, whether that's leads typed in by hand,
+            follow-ups that slip, or reports nobody has time to build, and replace it with
+            something that runs on its own and tells you when it doesn't. For one client, that
+            meant cutting about 5 team hours a week and taking vendor outreach from 2 to 15+
+            messages a day.
+          </p>
+          <p>
+            I write the SOP and the test guide alongside the build, so the team that inherits it
+            can run it without me.
+          </p>
+          <div class="facts">
+            <div><b>focus</b><span>n8n, GoHighLevel, CRM and pipeline builds</span></div>
+            <div><b>also</b><span>Python, Django, Next.js, Playwright, Docker</span></div>
+            <div><b>AI</b><span>Claude API, local LLMs via Ollama, Whisper</span></div>
+            <div><b>working style</b><span>Documented, tested, handed off</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= CTA ================= -->
+    <section class="cta" id="contact">
+      <div class="wrap">
+        <span class="tag">// let's talk</span>
+        <h2>Got a process that<br />eats your week?</h2>
+        <p>Tell me what's still being done by hand. I'll tell you what it would take to automate it.</p>
+        <div class="cta__btns">
+          <!-- TODO: replace # with Calendly link -->
+          <a href="#" class="btn btn--o">Book a call <span class="ph" style="margin-left: 4px">calendly link</span></a>
+          <a href="mailto:sambolledo23@gmail.com" class="btn btn--ghost">Email me</a>
+        </div>
+        <div class="contacts">
+          <a href="mailto:sambolledo23@gmail.com">sambolledo23@gmail.com</a>
+          <a href="https://www.linkedin.com/in/eldwin-jerrold-sambolledo-86a95a397" target="_blank" rel="noopener">LinkedIn ↗</a>
+          <a href="https://github.com/Jeywold99" target="_blank" rel="noopener">GitHub ↗</a>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="wrap">
+        <span>© 2026 Eldwin Sambolledo</span>
+        <span>client details redacted · visuals recreated from build docs</span>
+      </div>
+    </footer>
+  </body>
+</html>
