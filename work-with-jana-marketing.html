@@ -1,0 +1,2409 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jana Tandoc — Marketing &amp; Social Media Manager</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --orange: #ff5c00;
+        --orange-hover: #ff8533;
+        --orange-pale: #ffe8d6;
+        --midnight: #1e1e2e;
+        --obsidian: #1a1a1a;
+        --cream: #f5f0eb;
+        --white: #fff;
+        --ink-60: #888;
+        --ink-40: #bbb;
+        --green: #14b87a;
+        --font-display: "Bebas Neue", sans-serif;
+        --font-ui: "Outfit", sans-serif;
+        --max-w: 1180px;
+        --r: 12px;
+        --r-lg: 20px;
+        --r-xl: 28px;
+        --trans: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        font-family: var(--font-ui);
+        background: var(--white);
+        color: var(--obsidian);
+        line-height: 1.6;
+        overflow-x: hidden;
+        -webkit-font-smoothing: antialiased;
+      }
+      img {
+        max-width: 100%;
+        display: block;
+      }
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+      ul {
+        list-style: none;
+      }
+      a:not(.btn) {
+        color: var(--orange);
+        transition: color var(--trans);
+      }
+      a:not(.btn):hover {
+        color: var(--orange-hover);
+      }
+      .wrap {
+        max-width: var(--max-w);
+        margin: 0 auto;
+        padding: 0 40px;
+      }
+      .eyebrow {
+        display: inline-block;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--orange);
+        background: var(--orange-pale);
+        padding: 6px 14px;
+        border-radius: 100px;
+      }
+      .eyebrow--dark {
+        background: rgba(255, 92, 0, 0.14);
+      }
+      .sec-num {
+        font-family: var(--font-display);
+        font-size: 15px;
+        letter-spacing: 0.18em;
+        color: var(--orange);
+      }
+      .text--orange {
+        color: var(--orange);
+      }
+      .ph {
+        color: var(--orange);
+        border: 1.5px dashed var(--orange);
+        border-radius: 6px;
+        padding: 0.05em 0.4em;
+        background: rgba(255, 92, 0, 0.06);
+        font-weight: 600;
+        font-style: normal;
+        display: inline-block;
+        max-width: 100%;
+      }
+
+      /* NAV */
+      .nav {
+        position: fixed;
+        inset: 0 0 auto 0;
+        z-index: 1000;
+        background: rgba(26, 26, 26, 0.82);
+        backdrop-filter: blur(18px);
+        -webkit-backdrop-filter: blur(18px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      }
+      .nav__in {
+        max-width: var(--max-w);
+        margin: 0 auto;
+        padding: 14px 40px;
+        display: flex;
+        align-items: center;
+        gap: 26px;
+      }
+      .nav__brand {
+        display: flex;
+        align-items: center;
+        gap: 11px;
+        font-family: var(--font-display);
+        font-size: 19px;
+        letter-spacing: 0.06em;
+        color: #fff;
+        white-space: nowrap;
+        flex-shrink: 0;
+      }
+      .nav__brand img {
+        height: 26px;
+        width: auto;
+      }
+      .nav__tag {
+        font-family: var(--font-display);
+        letter-spacing: 0.12em;
+        color: rgba(255, 255, 255, 0.5);
+        font-size: 14px;
+        padding-left: 16px;
+        border-left: 1px solid rgba(255, 255, 255, 0.16);
+        white-space: nowrap;
+      }
+      @media (max-width: 1240px) {
+        .nav__tag {
+          display: none;
+        }
+      }
+      .nav__links {
+        margin-left: auto;
+        display: flex;
+        align-items: center;
+        gap: 22px;
+      }
+      .nav__links a {
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.55);
+        transition: color var(--trans);
+        white-space: nowrap;
+      }
+      .nav__links a:hover {
+        color: #fff;
+      }
+      .nav__links a.nav__cta {
+        color: #fff;
+      }
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 9px;
+        font-weight: 700;
+        font-size: 14px;
+        padding: 12px 24px;
+        border-radius: 100px;
+        transition: var(--trans);
+        cursor: pointer;
+        border: none;
+      }
+      .btn--orange {
+        background: var(--orange);
+        color: #fff;
+      }
+      .btn--orange:hover {
+        background: var(--orange-hover);
+        color: #fff;
+      }
+      .btn--ghost {
+        background: transparent;
+        color: var(--obsidian);
+        border: 2px solid var(--obsidian);
+      }
+      .btn--ghost:hover {
+        background: var(--obsidian);
+        color: #fff;
+      }
+      .btn--lg {
+        padding: 16px 34px;
+        font-size: 16px;
+      }
+      .nav__cta {
+        margin-left: 4px;
+        padding: 10px 18px;
+        font-size: 12px;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        white-space: nowrap;
+      }
+      .nav__burger {
+        display: none;
+        margin-left: auto;
+        background: none;
+        border: none;
+        color: #fff;
+        font-size: 26px;
+        cursor: pointer;
+        line-height: 1;
+      }
+
+      /* SECTION SHELL */
+      .sec {
+        padding: 110px 0;
+        position: relative;
+        overflow: hidden;
+      }
+      .sec--cream {
+        background: var(--cream);
+      }
+      .sec--midnight {
+        background: var(--midnight);
+        color: #fff;
+      }
+      .sec--orange {
+        background: var(--orange);
+        color: #fff;
+      }
+      .sec__head {
+        max-width: 800px;
+        margin-bottom: 60px;
+      }
+      .sec__head .sec-num {
+        display: block;
+        margin-bottom: 16px;
+      }
+      .sec__title {
+        font-family: var(--font-display);
+        text-transform: uppercase;
+        font-size: clamp(40px, 6vw, 74px);
+        line-height: 0.95;
+        letter-spacing: 0.02em;
+        margin-bottom: 18px;
+      }
+      .sec__lead {
+        font-size: clamp(16px, 1.7vw, 19px);
+        color: var(--ink-60);
+        line-height: 1.7;
+        max-width: 660px;
+      }
+      .sec--midnight .sec__lead {
+        color: rgba(255, 255, 255, 0.62);
+      }
+      .sec--orange .sec__lead {
+        color: rgba(255, 255, 255, 0.9);
+      }
+      .sec--orange .sec-num {
+        color: rgba(0, 0, 0, 0.4);
+      }
+
+      /* HERO */
+      .hero {
+        position: relative;
+        background: var(--midnight);
+        color: #fff;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        overflow: hidden;
+        padding: 150px 0 80px;
+      }
+      .hero__grid {
+        position: absolute;
+        inset: 0;
+        background-image:
+          linear-gradient(rgba(255, 92, 0, 0.05) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255, 92, 0, 0.05) 1px, transparent 1px);
+        background-size: 64px 64px;
+        pointer-events: none;
+        -webkit-mask-image: radial-gradient(
+          circle at 28% 42%,
+          #000,
+          transparent 72%
+        );
+        mask-image: radial-gradient(circle at 28% 42%, #000, transparent 72%);
+      }
+      .hero__glow {
+        position: absolute;
+        width: 900px;
+        height: 900px;
+        background: radial-gradient(
+          circle,
+          rgba(255, 92, 0, 0.18) 0%,
+          rgba(255, 92, 0, 0.04) 45%,
+          transparent 70%
+        );
+        top: 18%;
+        right: -260px;
+        pointer-events: none;
+      }
+      .hero__in {
+        position: relative;
+        z-index: 2;
+        display: grid;
+        grid-template-columns: 1.15fr 0.85fr;
+        gap: 56px;
+        align-items: center;
+        width: 100%;
+      }
+      .hero__badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        background: rgba(255, 92, 0, 0.1);
+        border: 1px solid rgba(255, 92, 0, 0.3);
+        color: var(--orange);
+        font-size: 12px;
+        font-weight: 700;
+        padding: 9px 18px;
+        border-radius: 100px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        margin-bottom: 30px;
+      }
+      .hero__badge .dot {
+        width: 8px;
+        height: 8px;
+        background: var(--orange);
+        border-radius: 50%;
+        box-shadow: 0 0 0 4px rgba(255, 92, 0, 0.25);
+      }
+      .hero__title {
+        font-family: var(--font-display);
+        text-transform: uppercase;
+        font-size: clamp(48px, 6.6vw, 96px);
+        line-height: 0.9;
+        letter-spacing: 0.01em;
+      }
+      .hero__title .stroke {
+        -webkit-text-stroke: 2px rgba(255, 255, 255, 0.85);
+        color: transparent;
+      }
+      .hero__title .text--orange {
+        color: var(--orange);
+      }
+      .hero__sub {
+        font-size: clamp(16px, 1.5vw, 19px);
+        color: rgba(255, 255, 255, 0.64);
+        max-width: 520px;
+        margin: 26px 0 0;
+        line-height: 1.7;
+      }
+      .hero__cta {
+        display: flex;
+        gap: 14px;
+        margin-top: 34px;
+        flex-wrap: wrap;
+      }
+      .hero__cta .btn--ghost {
+        color: #fff;
+        border-color: rgba(255, 255, 255, 0.4);
+      }
+      .hero__cta .btn--ghost:hover {
+        background: #fff;
+        color: var(--obsidian);
+        border-color: #fff;
+      }
+      .hero__sig {
+        margin-top: 40px;
+        padding-top: 28px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        display: flex;
+        align-items: center;
+        gap: 16px;
+      }
+      .hero__sig .nm {
+        font-family: var(--font-display);
+        font-size: 24px;
+        letter-spacing: 0.06em;
+      }
+      .hero__sig .rl {
+        font-size: 13px;
+        color: rgba(255, 255, 255, 0.5);
+      }
+      .hero__photo {
+        position: relative;
+      }
+      .hero__photo img {
+        width: 100%;
+        border-radius: var(--r-xl);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+      }
+      .hero__photo::after {
+        content: "";
+        position: absolute;
+        inset: 18px -18px -18px 18px;
+        border: 2px solid var(--orange);
+        border-radius: var(--r-xl);
+        z-index: -1;
+      }
+      .hero__ghost {
+        position: absolute;
+        right: -20px;
+        bottom: -90px;
+        font-family: var(--font-display);
+        font-size: clamp(120px, 20vw, 280px);
+        color: rgba(255, 255, 255, 0.03);
+        line-height: 0.8;
+        pointer-events: none;
+        user-select: none;
+        z-index: 1;
+      }
+
+      /* TRUSTED BY */
+      .trust {
+        padding: 64px 0;
+        background: var(--obsidian);
+        color: #fff;
+      }
+      .trust__lbl {
+        text-align: center;
+        font-size: 11px;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.4);
+        font-weight: 700;
+        margin-bottom: 34px;
+      }
+      .trust__grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 14px;
+      }
+      .trust__cell {
+        background: #fff;
+        border-radius: 14px;
+        aspect-ratio: 16/8;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 18px;
+      }
+      .trust__cell img {
+        max-height: 46px;
+        max-width: 80%;
+        width: auto;
+        object-fit: contain;
+      }
+      .trust__cell--name {
+        background: rgba(255, 255, 255, 0.05);
+        border: 1.5px dashed rgba(255, 92, 0, 0.5);
+      }
+      .trust__cell--name span {
+        font-family: var(--font-display);
+        font-size: 19px;
+        letter-spacing: 0.05em;
+        color: #fff;
+        text-align: center;
+        line-height: 0.95;
+        padding: 0 8px;
+      }
+      .trust__cell--name small {
+        display: block;
+        font-family: var(--font-ui);
+        font-size: 8px;
+        letter-spacing: 0.12em;
+        color: var(--orange);
+        margin-top: 5px;
+      }
+
+      .trust__cell--round {
+        padding: 7px;
+      }
+      .trust__cell--round img {
+        max-height: 100%;
+        max-width: 100%;
+        width: auto;
+      }
+
+      /* SNAPSHOT */
+      .snap {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 22px;
+        align-items: start;
+      }
+      .snap__col h3 {
+        font-family: var(--font-display);
+        font-size: 24px;
+        letter-spacing: 0.05em;
+        color: var(--orange);
+        margin-bottom: 20px;
+      }
+      .snap__stat {
+        margin-bottom: 22px;
+      }
+      .snap__stat .n {
+        font-family: var(--font-display);
+        font-size: 56px;
+        line-height: 0.9;
+        letter-spacing: 0.02em;
+      }
+      .snap__stat .l {
+        font-size: 14px;
+        color: var(--ink-60);
+        margin-top: 4px;
+      }
+      .sec--midnight .snap__stat .n {
+        color: #fff;
+      }
+      .snap__list {
+        display: flex;
+        flex-direction: column;
+        gap: 11px;
+      }
+      .snap__list li {
+        display: flex;
+        gap: 11px;
+        font-size: 15px;
+        color: rgba(255, 255, 255, 0.82);
+        align-items: center;
+      }
+      .snap__list li::before {
+        content: "";
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: var(--orange);
+        flex-shrink: 0;
+      }
+      .snap__xp {
+        display: flex;
+        flex-direction: column;
+        gap: 11px;
+      }
+      .snap__xp .row {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+        padding-bottom: 10px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+      }
+      .snap__xp .co {
+        font-weight: 700;
+        font-size: 14.5px;
+        line-height: 1.25;
+      }
+      .snap__xp .rl {
+        font-size: 12.5px;
+        color: rgba(255, 255, 255, 0.52);
+        line-height: 1.3;
+      }
+
+      /* PROBLEMS */
+      .prob {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 22px;
+      }
+      .prob__card {
+        background: #fff;
+        border: 2px solid rgba(0, 0, 0, 0.07);
+        border-radius: var(--r-lg);
+        padding: 32px;
+        transition: var(--trans);
+      }
+      .prob__card:hover {
+        border-color: var(--orange);
+        transform: translateY(-4px);
+        box-shadow: 6px 6px 0 var(--orange);
+      }
+      .prob__card .n {
+        font-family: var(--font-display);
+        font-size: 34px;
+        color: var(--orange);
+        line-height: 1;
+      }
+      .prob__card h3 {
+        font-size: 19px;
+        font-weight: 800;
+        margin: 14px 0 9px;
+        letter-spacing: -0.01em;
+      }
+      .prob__card p {
+        font-size: 14.5px;
+        color: var(--ink-60);
+        line-height: 1.65;
+      }
+
+      /* PHILOSOPHY */
+      .phil {
+        background: var(--orange);
+        color: #fff;
+        padding: 130px 0;
+        position: relative;
+        overflow: hidden;
+      }
+      .phil__ghost {
+        position: absolute;
+        right: -30px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-family: var(--font-display);
+        font-size: clamp(160px, 28vw, 420px);
+        color: rgba(0, 0, 0, 0.08);
+        line-height: 0.8;
+        pointer-events: none;
+        user-select: none;
+      }
+      .phil__in {
+        position: relative;
+        z-index: 2;
+        max-width: 920px;
+      }
+      .phil__q {
+        font-family: var(--font-display);
+        text-transform: uppercase;
+        font-size: clamp(52px, 9vw, 132px);
+        line-height: 0.9;
+        letter-spacing: 0.01em;
+      }
+      .phil__q .stroke {
+        -webkit-text-stroke: 2px #fff;
+        color: transparent;
+      }
+      .phil__body {
+        font-size: clamp(17px, 1.9vw, 21px);
+        line-height: 1.7;
+        margin-top: 34px;
+        max-width: 640px;
+        color: rgba(255, 255, 255, 0.92);
+      }
+      .phil__body p + p {
+        margin-top: 16px;
+      }
+
+      /* SERVICES */
+      .svc {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1px;
+        background: rgba(0, 0, 0, 0.09);
+        border: 1px solid rgba(0, 0, 0, 0.09);
+        border-radius: var(--r-lg);
+        overflow: hidden;
+      }
+      .svc__card {
+        background: var(--cream);
+        padding: 38px 32px;
+        transition: var(--trans);
+      }
+      .svc__card:hover {
+        background: #fff;
+      }
+      .svc__card .ci {
+        font-family: var(--font-display);
+        font-size: 15px;
+        letter-spacing: 0.14em;
+        color: var(--orange);
+      }
+      .svc__card h3 {
+        font-family: var(--font-display);
+        font-size: 30px;
+        letter-spacing: 0.03em;
+        margin: 10px 0 12px;
+      }
+      .svc__card p {
+        font-size: 14.5px;
+        color: var(--ink-60);
+        line-height: 1.65;
+      }
+
+      /* SCALE */
+      .scale {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 18px;
+      }
+      .scale__step {
+        position: relative;
+      }
+      .scale__step .lt {
+        font-family: var(--font-display);
+        font-size: 72px;
+        line-height: 0.8;
+        color: rgba(255, 255, 255, 0.14);
+        letter-spacing: 0.02em;
+      }
+      .scale__step .lt b {
+        color: var(--orange);
+      }
+      .scale__step h3 {
+        font-family: var(--font-display);
+        font-size: 26px;
+        letter-spacing: 0.04em;
+        margin: 14px 0 10px;
+      }
+      .scale__step p {
+        font-size: 14px;
+        color: rgba(255, 255, 255, 0.6);
+        line-height: 1.6;
+      }
+      .scale__step:not(:last-child)::after {
+        content: "→";
+        position: absolute;
+        top: 24px;
+        right: -13px;
+        color: var(--orange);
+        font-weight: 800;
+        font-size: 18px;
+      }
+
+      /* CASE STUDIES */
+      .case {
+        display: flex;
+        flex-direction: column;
+        gap: 22px;
+      }
+      .case__card {
+        background: #fff;
+        border: 2px solid rgba(0, 0, 0, 0.08);
+        border-radius: var(--r-xl);
+        overflow: hidden;
+      }
+      .case__top {
+        padding: 26px 34px;
+        background: var(--midnight);
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        flex-wrap: wrap;
+      }
+      .case__top .tag {
+        font-family: var(--font-display);
+        font-size: 22px;
+        letter-spacing: 0.05em;
+        color: var(--orange);
+      }
+      .case__top .ind {
+        font-size: 12px;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.5);
+        font-weight: 600;
+      }
+      .case__body {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+      }
+      .case__col {
+        padding: 30px 34px;
+        border-right: 1px solid rgba(0, 0, 0, 0.08);
+      }
+      .case__col:last-child {
+        border-right: none;
+        background: rgba(255, 92, 0, 0.04);
+      }
+      .case__col .k {
+        font-size: 11px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        font-weight: 700;
+        margin-bottom: 12px;
+      }
+      .case__col.before .k {
+        color: #c4271c;
+      }
+      .case__col.solution .k {
+        color: var(--orange);
+      }
+      .case__col.outcome .k {
+        color: var(--green);
+      }
+      .case__col p {
+        font-size: 15px;
+        color: #555;
+        line-height: 1.6;
+      }
+      .case__col.outcome .big {
+        font-family: var(--font-display);
+        font-size: 44px;
+        line-height: 0.9;
+        color: var(--obsidian);
+        margin-bottom: 8px;
+        letter-spacing: 0.02em;
+      }
+
+      /* TESTIMONIALS */
+      .test {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 22px;
+      }
+      .test__card {
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: var(--r-lg);
+        padding: 32px;
+        display: flex;
+        flex-direction: column;
+      }
+      .test__card .mark {
+        font-family: var(--font-display);
+        font-size: 56px;
+        color: var(--orange);
+        line-height: 0.6;
+        height: 30px;
+      }
+      .test__card p {
+        font-size: 16px;
+        color: rgba(255, 255, 255, 0.9);
+        line-height: 1.6;
+        flex: 1;
+        margin: 6px 0 22px;
+      }
+      .test__who {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .test__who .av {
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        background: var(--orange);
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: var(--font-display);
+        font-size: 17px;
+        letter-spacing: 0.02em;
+        flex-shrink: 0;
+      }
+      .test__who .nm {
+        font-weight: 700;
+        font-size: 14px;
+      }
+      .test__who .rl {
+        font-size: 12px;
+        color: rgba(255, 255, 255, 0.5);
+      }
+
+      /* ABOUT */
+      .about__in {
+        display: grid;
+        grid-template-columns: 0.85fr 1.15fr;
+        gap: 56px;
+        align-items: center;
+      }
+      .about__photo {
+        position: relative;
+      }
+      .about__photo img {
+        width: 100%;
+        border-radius: var(--r-xl);
+        border: 2px solid rgba(0, 0, 0, 0.08);
+      }
+      .about__body p {
+        font-size: clamp(16px, 1.7vw, 19px);
+        line-height: 1.75;
+        color: #444;
+      }
+      .about__body p + p {
+        margin-top: 18px;
+      }
+      .about__body .lead {
+        font-family: var(--font-display);
+        font-size: clamp(28px, 3.4vw, 40px);
+        letter-spacing: 0.02em;
+        line-height: 1;
+        color: var(--obsidian);
+        text-transform: uppercase;
+        margin-bottom: 24px;
+      }
+      .about__creds {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 9px;
+        margin-top: 26px;
+      }
+      .about__creds span {
+        font-size: 12.5px;
+        font-weight: 600;
+        padding: 7px 14px;
+        border-radius: 100px;
+        background: var(--cream);
+        border: 1px solid rgba(0, 0, 0, 0.08);
+      }
+
+      /* CREDIBILITY */
+      .cred__group {
+        margin-top: 72px;
+      }
+      .cred__group:first-of-type {
+        margin-top: 0;
+      }
+      .cred__glabel {
+        font-family: var(--font-display);
+        font-size: 15px;
+        letter-spacing: 0.14em;
+        color: var(--orange);
+        display: flex;
+        align-items: center;
+        gap: 14px;
+      }
+      .cred__glabel::after {
+        content: "";
+        height: 1px;
+        flex: 1;
+        background: rgba(0, 0, 0, 0.12);
+      }
+      .cred__gtitle {
+        font-family: var(--font-display);
+        font-size: clamp(26px, 3.2vw, 40px);
+        letter-spacing: 0.03em;
+        text-transform: uppercase;
+        margin: 14px 0 8px;
+        line-height: 0.98;
+      }
+      .cred__gdesc {
+        font-size: 15.5px;
+        color: var(--ink-60);
+        line-height: 1.65;
+        max-width: 640px;
+        margin-bottom: 28px;
+      }
+      .cred__shots {
+        display: grid;
+        gap: 20px;
+      }
+      .cred__shots--2 {
+        grid-template-columns: 1fr 1fr;
+      }
+      .cred__pb {
+        display: grid;
+        grid-template-columns: 1fr 1.15fr;
+        gap: 20px;
+        align-items: start;
+      }
+      .cred__pb-col {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+      .shot {
+        background: #fff;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        border-radius: 14px;
+        overflow: hidden;
+        box-shadow: 0 18px 40px -24px rgba(0, 0, 0, 0.4);
+        transition: var(--trans);
+        display: flex;
+        flex-direction: column;
+      }
+      .shot:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 26px 52px -22px rgba(0, 0, 0, 0.45);
+      }
+      .shot__bar {
+        display: flex;
+        align-items: center;
+        gap: 7px;
+        padding: 11px 15px;
+        background: #efeae3;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.07);
+      }
+      .shot__bar i {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: #d4ccc2;
+      }
+      .shot__bar span {
+        margin-left: 9px;
+        font-size: 11px;
+        color: var(--ink-60);
+        font-weight: 600;
+        letter-spacing: 0.02em;
+      }
+      .shot__img {
+        background: #fff;
+        overflow: hidden;
+      }
+      .shot__img img {
+        width: 100%;
+        display: block;
+      }
+      .shot__cap {
+        padding: 15px 17px;
+        font-size: 13px;
+        color: var(--ink-60);
+        border-top: 1px solid rgba(0, 0, 0, 0.06);
+        font-weight: 500;
+        line-height: 1.5;
+      }
+      .shot__cap b {
+        color: var(--obsidian);
+        font-weight: 700;
+      }
+
+      /* DESIGN & CREATIVE */
+      .tools {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 18px;
+        margin-bottom: 72px;
+      }
+      .tools__card {
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        background: rgba(255, 255, 255, 0.04);
+        border-radius: var(--r-lg);
+        padding: 26px 28px;
+      }
+      .tools__card h3 {
+        font-family: var(--font-display);
+        font-size: 28px;
+        letter-spacing: 0.04em;
+        color: var(--orange);
+        line-height: 1;
+        margin-bottom: 10px;
+      }
+      .tools__card p {
+        font-size: 14.5px;
+        color: rgba(255, 255, 255, 0.64);
+        line-height: 1.6;
+      }
+      .tools__card .apps {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        margin-top: 14px;
+      }
+      .tools__card .apps span {
+        font-size: 11.5px;
+        font-weight: 600;
+        padding: 4px 11px;
+        border-radius: 100px;
+        background: rgba(255, 92, 0, 0.14);
+        color: #ffb27f;
+      }
+      .dz__group {
+        margin-top: 72px;
+      }
+      .dz__group:first-of-type {
+        margin-top: 0;
+      }
+      .dz__label {
+        font-family: var(--font-display);
+        font-size: 15px;
+        letter-spacing: 0.14em;
+        color: var(--orange);
+        display: flex;
+        align-items: center;
+        gap: 14px;
+      }
+      .dz__label::after {
+        content: "";
+        height: 1px;
+        flex: 1;
+        background: rgba(255, 255, 255, 0.14);
+      }
+      .dz__title {
+        font-family: var(--font-display);
+        font-size: clamp(26px, 3.2vw, 40px);
+        letter-spacing: 0.03em;
+        text-transform: uppercase;
+        margin: 14px 0 8px;
+        line-height: 0.98;
+      }
+      .dz__desc {
+        font-size: 15.5px;
+        color: rgba(255, 255, 255, 0.62);
+        line-height: 1.65;
+        max-width: 640px;
+        margin-bottom: 28px;
+      }
+      .gal {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 14px;
+      }
+      .gal__item {
+        position: relative;
+        border-radius: 14px;
+        overflow: hidden;
+        background: #111;
+        cursor: zoom-in;
+        border: none;
+        padding: 0;
+        aspect-ratio: 1;
+        transition: var(--trans);
+      }
+      .gal__item:hover {
+        transform: translateY(-4px);
+        box-shadow: 6px 6px 0 var(--orange);
+      }
+      .gal__item--wide {
+        grid-column: span 2;
+        aspect-ratio: auto;
+      }
+      .gal__item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .gal__item .tag {
+        position: absolute;
+        left: 10px;
+        bottom: 10px;
+        font-family: var(--font-ui);
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+        padding: 5px 11px;
+        border-radius: 100px;
+        background: rgba(26, 26, 26, 0.82);
+        color: #fff;
+      }
+      .reels {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 14px;
+      }
+      .reels--3 {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        max-width: 900px;
+      }
+      .reel {
+        border-radius: 14px;
+        overflow: hidden;
+        background: #000;
+        aspect-ratio: 9/16;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+      }
+      .reel video,
+      .reel iframe {
+        width: 100%;
+        height: 100%;
+        border: 0;
+        display: block;
+        object-fit: contain;
+      }
+      .reel__cap {
+        font-size: 13px;
+        color: rgba(255, 255, 255, 0.6);
+        margin-top: 10px;
+        font-weight: 500;
+      }
+      .reel__cap b {
+        color: #fff;
+      }
+      .dz__more {
+        margin-top: 22px;
+        font-size: 14px;
+      }
+      .lb {
+        border: none;
+        padding: 0;
+        background: transparent;
+        max-width: min(92vw, 1100px);
+        max-height: 92vh;
+        margin: auto;
+      }
+      .lb::backdrop {
+        background: rgba(10, 10, 15, 0.9);
+      }
+      .lb img {
+        max-width: 100%;
+        max-height: 88vh;
+        border-radius: 12px;
+        display: block;
+        margin: 0 auto;
+      }
+      .lb__close {
+        position: fixed;
+        top: 18px;
+        right: 22px;
+        background: none;
+        border: none;
+        color: #fff;
+        font-size: 34px;
+        cursor: pointer;
+        line-height: 1;
+      }
+      @media (max-width: 900px) {
+        .tools {
+          grid-template-columns: 1fr;
+        }
+        .gal {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+        .reels,
+        .reels--3 {
+          display: flex;
+          overflow-x: auto;
+          scroll-snap-type: x mandatory;
+          padding-bottom: 8px;
+        }
+        .reels > div {
+          flex: 0 0 62%;
+          scroll-snap-align: start;
+        }
+      }
+
+      /* CTA */
+      .cta {
+        background: var(--midnight);
+        color: #fff;
+        padding: 130px 0;
+        position: relative;
+        overflow: hidden;
+        text-align: center;
+      }
+      .cta__grid {
+        position: absolute;
+        inset: 0;
+        background-image:
+          linear-gradient(rgba(255, 92, 0, 0.05) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255, 92, 0, 0.05) 1px, transparent 1px);
+        background-size: 64px 64px;
+        -webkit-mask-image: radial-gradient(
+          circle at 50% 40%,
+          #000,
+          transparent 70%
+        );
+        mask-image: radial-gradient(circle at 50% 40%, #000, transparent 70%);
+      }
+      .cta__in {
+        position: relative;
+        z-index: 2;
+        max-width: 860px;
+        margin: 0 auto;
+      }
+      .cta h2 {
+        font-family: var(--font-display);
+        text-transform: uppercase;
+        font-size: clamp(44px, 7vw, 96px);
+        line-height: 0.9;
+        letter-spacing: 0.02em;
+      }
+      .cta p {
+        font-size: clamp(16px, 1.7vw, 19px);
+        color: rgba(255, 255, 255, 0.64);
+        margin: 24px auto 0;
+        max-width: 520px;
+        line-height: 1.7;
+      }
+      .cta__row {
+        display: flex;
+        gap: 14px;
+        justify-content: center;
+        margin-top: 38px;
+        flex-wrap: wrap;
+      }
+      .cta__row .btn--ghost {
+        color: #fff;
+        border-color: rgba(255, 255, 255, 0.4);
+      }
+      .cta__row .btn--ghost:hover {
+        background: #fff;
+        color: var(--obsidian);
+        border-color: #fff;
+      }
+      .cta__contact {
+        margin-top: 34px;
+        display: flex;
+        gap: 26px;
+        justify-content: center;
+        flex-wrap: wrap;
+        font-size: 14px;
+        color: rgba(255, 255, 255, 0.5);
+      }
+      .cta__contact a {
+        color: rgba(255, 255, 255, 0.8);
+      }
+      .cta__contact a:hover {
+        color: var(--orange);
+      }
+
+      /* FOOT */
+      .foot {
+        background: var(--obsidian);
+        color: #fff;
+        padding: 44px 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+      }
+      .foot__in {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 24px;
+        flex-wrap: wrap;
+      }
+      .foot__brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-family: var(--font-display);
+        letter-spacing: 0.08em;
+        font-size: 20px;
+      }
+      .foot__brand img {
+        height: 26px;
+      }
+      .foot p {
+        color: rgba(255, 255, 255, 0.45);
+        font-size: 13px;
+      }
+
+      /* RESPONSIVE */
+      @media (max-width: 900px) {
+        .nav__tag {
+          display: none;
+        }
+        .nav__links {
+          display: none;
+        }
+        .nav__links.open {
+          display: flex;
+          position: absolute;
+          top: 100%;
+          left: 0;
+          right: 0;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 0;
+          background: rgba(26, 26, 26, 0.98);
+          padding: 12px 40px 22px;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .nav__links.open a {
+          padding: 12px 0;
+          width: 100%;
+          font-size: 14px;
+        }
+        .nav__links.open .nav__cta {
+          margin: 12px 0 0;
+          width: 100%;
+          justify-content: center;
+          padding: 14px;
+        }
+        .nav__burger {
+          display: block;
+        }
+        .hero__in {
+          grid-template-columns: 1fr;
+          gap: 44px;
+        }
+        .hero__photo {
+          order: -1;
+          max-width: 420px;
+        }
+        .about__in {
+          grid-template-columns: 1fr;
+          gap: 40px;
+        }
+        .about__photo {
+          max-width: 420px;
+        }
+        .svc {
+          grid-template-columns: 1fr 1fr;
+        }
+        .cred__pb {
+          grid-template-columns: 1fr;
+        }
+        .scale {
+          grid-template-columns: 1fr 1fr 1fr;
+        }
+        .scale__step:not(:last-child)::after {
+          display: none;
+        }
+      }
+      @media (max-width: 640px) {
+        .wrap,
+        .nav__in {
+          padding-left: 22px;
+          padding-right: 22px;
+        }
+        .sec,
+        .phil,
+        .cta {
+          padding: 76px 0;
+        }
+        .hero {
+          padding: 120px 0 64px;
+        }
+        .hero__photo {
+          max-width: 260px;
+        }
+        .hero__photo img {
+          aspect-ratio: 1;
+          object-fit: cover;
+          object-position: center 20%;
+        }
+        .hero__photo::after {
+          inset: 10px -10px -10px 10px;
+        }
+        .trust__grid {
+          grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        }
+        .snap,
+        .prob,
+        .test,
+        .svc,
+        .scale {
+          grid-template-columns: 1fr;
+        }
+        .cred__shots--2 {
+          grid-template-columns: 1fr;
+        }
+        .case__body {
+          grid-template-columns: 1fr;
+        }
+        .case__col {
+          border-right: none;
+          border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="nav">
+      <div class="nav__in">
+        <a href="#top" class="nav__brand"
+          >JANA TANDOC</a
+        >
+        <span class="nav__tag">Marketing &amp; Social</span>
+        <div class="nav__links" id="navlinks">
+          <a href="#problems">Problems</a>
+          <a href="#philosophy">Philosophy</a>
+          <a href="#services">Services</a>
+          <a href="#creative">Creative</a>
+          <a href="#process">Process</a>
+          <a href="#cases">Case Studies</a>
+          <a href="#credibility">Proof</a>
+          <a href="#about">About</a>
+          <a
+            href="https://calendly.com/jcaycotandoc14/30min"
+            target="_blank"
+            class="btn btn--orange nav__cta"
+            >Book a Call</a
+          >
+        </div>
+        <button class="nav__burger" id="burger" aria-label="Menu">☰</button>
+      </div>
+    </nav>
+
+    <!-- HERO -->
+    <header class="hero" id="top">
+      <div class="hero__grid"></div>
+      <div class="hero__glow"></div>
+      <div class="hero__ghost">SOCIAL</div>
+      <div class="wrap hero__in">
+        <div class="hero__copy">
+          <span class="hero__badge"
+            ><span class="dot"></span>Marketing &amp; Social Media Manager</span
+          >
+          <h1 class="hero__title">
+            I turn your content into
+            <span class="text--orange">pipeline</span>, not just posts.
+          </h1>
+          <p class="hero__sub">
+            I plan, create, publish, and measure your marketing across social,
+            email, and short-form video — on a cadence that holds, with the
+            numbers to show it's working.
+          </p>
+          <div class="hero__cta">
+            <a
+              href="https://calendly.com/jcaycotandoc14/30min"
+              target="_blank"
+              class="btn btn--orange btn--lg"
+              >Book Discovery Call</a
+            >
+            <a href="#credibility" class="btn btn--ghost btn--lg"
+              >See the Numbers</a
+            >
+          </div>
+          <div class="hero__sig">
+            <div>
+              <div class="nm">Jana Tandoc</div>
+              <div class="rl">
+                Marketing &amp; Social Media Manager · Manila · Works Remote
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="hero__photo">
+          <img src="assets/Jana-v2.png" alt="Jana Tandoc" />
+        </div>
+      </div>
+    </header>
+
+    <!-- TRUSTED BY -->
+    <section class="trust" id="trusted">
+      <div class="wrap">
+        <div class="trust__lbl">Trusted By</div>
+        <div class="trust__grid">
+          <div class="trust__cell">
+            <img src="assets/jobsohio.jpg" alt="JobsOhio" />
+          </div>
+          <div class="trust__cell">
+            <img src="assets/knowlogix.jpg" alt="Knowlogix" />
+          </div>
+          <div class="trust__cell">
+            <img src="assets/douglaselliman.jpg" alt="Douglas Elliman" />
+          </div>
+          <div class="trust__cell">
+            <img src="assets/johnlscott.jpg" alt="John L. Scott" />
+          </div>
+          <div class="trust__cell">
+            <img src="assets/shalecrescent.jpg" alt="Shale Crescent USA" />
+          </div>
+          <div class="trust__cell">
+            <img src="assets/7figure-msp.jpg" alt="7Figure MSP" />
+          </div>
+          <div class="trust__cell">
+            <img src="assets/im-party.jpg" alt="Internet Marketing Party" />
+          </div>
+          <div class="trust__cell">
+            <img src="assets/perkins.jpg" alt="Perkins and Associates" />
+          </div>
+          <div class="trust__cell trust__cell--round">
+            <img src="assets/american-way-rv.png" alt="AMERICAN WAY RV" />
+          </div>
+          <div class="trust__cell">
+            <img src="assets/beautybiz.jpg" alt="Beauty Biz Pro" />
+          </div>
+          <div class="trust__cell">
+            <img src="assets/support-shepherd.jpg" alt="Support Shepherd" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SNAPSHOT -->
+    <section class="sec sec--midnight" id="snapshot">
+      <div class="wrap">
+        <div class="sec__head">
+          <span class="sec-num">01 — MARKETING SNAPSHOT</span>
+          <h2 class="sec__title">The Short Version</h2>
+          <p class="sec__lead">
+            Six years running marketing for founder-led brands — the content,
+            the channels, and the systems behind them. Here's what it's moved.
+          </p>
+        </div>
+        <div class="snap">
+          <div class="snap__col">
+            <h3>Results</h3>
+            <div class="snap__stat">
+              <div class="n">186K+</div>
+              <div class="l">Short-form video views · +1,478% growth</div>
+            </div>
+            <div class="snap__stat">
+              <div class="n">44.6%</div>
+              <div class="l">Email open rate across 1,572 sends</div>
+            </div>
+            <div class="snap__stat">
+              <div class="n">+55%</div>
+              <div class="l">Booked appointments from a content system</div>
+            </div>
+          </div>
+          <div class="snap__col">
+            <h3>Channels</h3>
+            <ul class="snap__list">
+              <li>Instagram &amp; Facebook</li>
+              <li>LinkedIn</li>
+              <li>Short-form Video (Reels)</li>
+              <li>Email Marketing</li>
+              <li>Landing Pages &amp; Funnels</li>
+              <li>Webinars &amp; Live Events</li>
+            </ul>
+          </div>
+          <div class="snap__col">
+            <h3>Experience</h3>
+            <div class="snap__xp">
+              <div class="row">
+                <span class="co">Knowlogix LLC</span
+                ><span class="rl">Marketing Operations Director</span>
+              </div>
+              <div class="row">
+                <span class="co">Shale Crescent USA</span
+                ><span class="rl"
+                  >Executive Operations &amp; Marketing · 5-yr tenure</span
+                >
+              </div>
+              <div class="row">
+                <span class="co">John L. Scott Real Estate</span
+                ><span class="rl">Content &amp; Booking Systems</span>
+              </div>
+              <div class="row">
+                <span class="co">Douglas Elliman Real Estate</span
+                ><span class="rl">Lead Funnel &amp; CRM Marketing</span>
+              </div>
+              <div class="row">
+                <span class="co">Perkins and Associates</span
+                ><span class="rl"
+                  >Client Operations &amp; Marketing Coordinator</span
+                >
+              </div>
+              <div class="row">
+                <span class="co">Beauty Biz Pro</span
+                ><span class="rl"
+                  >CRM Automation &amp; Funnel Systems Specialist</span
+                >
+              </div>
+              <div class="row">
+                <span class="co">Internet Marketing Party</span
+                ><span class="rl">Marketing Systems Partner</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROBLEMS I SOLVE -->
+    <section class="sec" id="problems">
+      <div class="wrap">
+        <div class="sec__head">
+          <span class="sec-num">02 — PROBLEMS I SOLVE</span>
+          <h2 class="sec__title">Where I<br />Come In</h2>
+          <p class="sec__lead">
+            Most brands don't have a content problem. They have a consistency,
+            strategy, and follow-through problem. Here's what I take off your
+            plate.
+          </p>
+        </div>
+        <div class="prob">
+          <div class="prob__card">
+            <div class="n">01</div>
+            <h3>Inconsistent Posting</h3>
+            <p>
+              I build the content calendar and publishing rhythm, so your brand
+              shows up every week — not just when someone has time.
+            </p>
+          </div>
+          <div class="prob__card">
+            <div class="n">02</div>
+            <h3>Content With No Strategy</h3>
+            <p>
+              I tie every post to an audience, an offer, and a goal, so content
+              earns attention that turns into leads.
+            </p>
+          </div>
+          <div class="prob__card">
+            <div class="n">03</div>
+            <h3>Low Engagement</h3>
+            <p>
+              I write hooks, captions, and short-form video built for the
+              platform, so people stop scrolling and start responding.
+            </p>
+          </div>
+          <div class="prob__card">
+            <div class="n">04</div>
+            <h3>Leads That Go Cold</h3>
+            <p>
+              I connect social to email, landing pages, and booking, so the
+              attention you earn doesn't leak out of the funnel.
+            </p>
+          </div>
+          <div class="prob__card">
+            <div class="n">05</div>
+            <h3>Founder Stuck on Content</h3>
+            <p>
+              I take the planning, drafting, and posting off your desk, so your
+              voice stays on brand without eating your week.
+            </p>
+          </div>
+          <div class="prob__card">
+            <div class="n">06</div>
+            <h3>No Idea What's Working</h3>
+            <p>
+              I report on reach, engagement, and conversions every month, so you
+              know what to double down on and what to cut.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PHILOSOPHY -->
+    <section class="phil" id="philosophy">
+      <div class="phil__ghost">CONSISTENCY</div>
+      <div class="wrap phil__in">
+        <span
+          class="eyebrow"
+          style="background: rgba(0, 0, 0, 0.16); color: #fff"
+          >03 — Philosophy</span
+        >
+        <h2 class="phil__q" style="margin-top: 20px">
+          Consistency<br /><span style="color: var(--obsidian)">compounds.</span>
+        </h2>
+        <div class="phil__body">
+          <p>
+            One viral post doesn't build a brand. Showing up every week with
+            something worth reading does. The brands that win on social aren't
+            the loudest — they're the most consistent.
+          </p>
+          <p>
+            That's why I treat marketing like a system, not a mood. A clear
+            strategy, a calendar that holds, content built for each platform,
+            and numbers reviewed every month. Do that long enough and attention
+            turns into trust, and trust turns into booked calls.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section class="sec sec--cream" id="services">
+      <div class="wrap">
+        <div class="sec__head">
+          <span class="sec-num">04 — SERVICES</span>
+          <h2 class="sec__title">What I Own</h2>
+          <p class="sec__lead">
+            Bring me in for one channel or the whole marketing engine. Every
+            service is scoped around an outcome I take responsibility for.
+          </p>
+        </div>
+        <div class="svc">
+          <div class="svc__card">
+            <div class="ci">A</div>
+            <h3>Social Media Management</h3>
+            <p>
+              I run your accounts end to end — planning, posting, community
+              replies, and keeping the brand voice consistent.
+            </p>
+          </div>
+          <div class="svc__card">
+            <div class="ci">B</div>
+            <h3>Content Strategy</h3>
+            <p>
+              I build the pillars, monthly calendar, and campaign plan that give
+              every post a reason to exist.
+            </p>
+          </div>
+          <div class="svc__card">
+            <div class="ci">C</div>
+            <h3>Short-form Video</h3>
+            <p>
+              I plan and package Reels and short-form content with hooks,
+              scripts, and captions made to be watched to the end.
+            </p>
+          </div>
+          <div class="svc__card">
+            <div class="ci">D</div>
+            <h3>Email Marketing</h3>
+            <p>
+              I write and run newsletters and email sequences that keep your
+              audience warm and opening.
+            </p>
+          </div>
+          <div class="svc__card">
+            <div class="ci">E</div>
+            <h3>Funnels &amp; Landing Pages</h3>
+            <p>
+              I connect content to landing pages, CRM, and booking, so attention
+              turns into appointments.
+            </p>
+          </div>
+          <div class="svc__card">
+            <div class="ci">F</div>
+            <h3>Analytics &amp; Reporting</h3>
+            <p>
+              I track what's working across every channel and turn it into a
+              clear monthly report and next steps.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DESIGN & CREATIVE -->
+    <section class="sec sec--midnight" id="creative" style="background: var(--obsidian)">
+      <div class="wrap">
+        <div class="sec__head">
+          <span class="sec-num">05 — DESIGN &amp; CREATIVE</span>
+          <h2 class="sec__title">I Make It Too</h2>
+          <p class="sec__lead">
+            I don't hand content off to a designer and wait. I design the
+            graphics, build the brand assets, and edit the videos myself — so
+            your content ships faster and stays on brand.
+          </p>
+        </div>
+
+        <div class="tools">
+          <div class="tools__card">
+            <h3>Canva</h3>
+            <p>
+              Social posts, carousels, and campaign graphics built on brand
+              templates your team can reuse.
+            </p>
+          </div>
+          <div class="tools__card">
+            <h3>Adobe Creative Cloud</h3>
+            <p>
+              Logos, brand identity, photo-led ad creative, print layouts,
+              and video edits built from scratch.
+            </p>
+            <div class="apps"><span>Photoshop</span><span>Illustrator</span><span>InDesign</span><span>Premiere Pro</span></div>
+          </div>
+          <div class="tools__card">
+            <h3>CapCut</h3>
+            <p>
+              Short-form video for TikTok and Reels — cuts, captions, hooks,
+              and pacing made to hold attention.
+            </p>
+          </div>
+        </div>
+
+        <div class="dz__group">
+          <div class="dz__label">A · Social Media Graphics</div>
+          <h3 class="dz__title">Scroll-Stopping Posts</h3>
+          <p class="dz__desc">
+            Campaign and feed graphics for restaurants, tech, and education
+            brands — each one designed to match the client's look and push a
+            clear action.
+          </p>
+          <div class="gal">
+            <button class="gal__item" data-full="assets/design/web/burger-socmed-1.jpg">
+              <img src="assets/design/web/burger-socmed-1.jpg" alt="Combo Treats burger promo post" loading="lazy" /><span class="tag">Food &amp; Beverage</span>
+            </button>
+            <button class="gal__item" data-full="assets/design/web/burger-socmed-2.jpg">
+              <img src="assets/design/web/burger-socmed-2.jpg" alt="Smile in Every Bite burger promo post" loading="lazy" /><span class="tag">Food &amp; Beverage</span>
+            </button>
+            <button class="gal__item" data-full="assets/design/web/knowlogix-1.jpg">
+              <img src="assets/design/web/knowlogix-1.jpg" alt="Knowlogix AI as a Service post" loading="lazy" /><span class="tag">Knowlogix · Tech</span>
+            </button>
+            <button class="gal__item" data-full="assets/design/web/knowlogix-3.jpg">
+              <img src="assets/design/web/knowlogix-3.jpg" alt="Knowlogix IT Issues Never Wait post" loading="lazy" /><span class="tag">Knowlogix · Tech</span>
+            </button>
+            <button class="gal__item gal__item--wide" data-full="assets/design/web/icode-academy-1.jpg">
+              <img src="assets/design/web/icode-academy-1.jpg" alt="iCode Academy Instagram feed of designed posts" loading="lazy" /><span class="tag">iCode Academy · Feed</span>
+            </button>
+            <button class="gal__item gal__item--wide" data-full="assets/design/web/burger-socmed-3.jpg">
+              <img src="assets/design/web/burger-socmed-3.jpg" alt="Juiciest Burger ad banner" loading="lazy" /><span class="tag">Ad Banner</span>
+            </button>
+            <button class="gal__item" data-full="assets/design/web/knowlogix-2.jpg">
+              <img src="assets/design/web/knowlogix-2.jpg" alt="Knowlogix social post" loading="lazy" /><span class="tag">Knowlogix · Tech</span>
+            </button>
+            <button class="gal__item" data-full="assets/design/web/knowlogix-4.jpg">
+              <img src="assets/design/web/knowlogix-4.jpg" alt="Knowlogix social post" loading="lazy" /><span class="tag">Knowlogix · Tech</span>
+            </button>
+            <button class="gal__item gal__item--wide" data-full="assets/design/web/icode-academy-2.jpg">
+              <img src="assets/design/web/icode-academy-2.jpg" alt="iCode Academy web banner" loading="lazy" /><span class="tag">iCode Academy · Banner</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="dz__group">
+          <div class="dz__label">B · Brand Identity</div>
+          <h3 class="dz__title">Doña María Cafe &amp; Co.</h3>
+          <p class="dz__desc">
+            A full brand identity for a cafe, designed in Adobe Illustrator —
+            logo, color variations, and patterns for packaging and social.
+          </p>
+          <div class="gal">
+            <button class="gal__item" data-full="assets/design/web/dona-maria-pink.jpg">
+              <img src="assets/design/web/dona-maria-pink.jpg" alt="Doña María logo, pink on brown" loading="lazy" /><span class="tag">Primary Logo</span>
+            </button>
+            <button class="gal__item" data-full="assets/design/web/dona-maria-blue-v2.jpg">
+              <img src="assets/design/web/dona-maria-blue-v2.jpg" alt="Doña María horizontal logo on blue" loading="lazy" /><span class="tag">Horizontal Logo</span>
+            </button>
+            <button class="gal__item" data-full="assets/design/web/brand-background-coffee-1.jpg">
+              <img src="assets/design/web/brand-background-coffee-1.jpg" alt="Doña María coffee cup brand pattern" loading="lazy" /><span class="tag">Brand Pattern</span>
+            </button>
+            <button class="gal__item" data-full="assets/design/web/brand-background-pink.jpg">
+              <img src="assets/design/web/brand-background-pink.jpg" alt="Doña María coffee bean pattern" loading="lazy" /><span class="tag">Brand Pattern</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="dz__group">
+          <div class="dz__label">C · Short-Form Video</div>
+          <h3 class="dz__title">On My TikTok</h3>
+          <p class="dz__desc">
+            Videos from my own channel — edited and posted by me.
+          </p>
+          <div class="reels reels--3">
+            <div><div class="reel"><iframe src="https://www.tiktok.com/player/v1/7699670948911303944?music_info=1&amp;description=1" loading="lazy" allow="fullscreen" title="Jana's TikTok video 1"></iframe></div></div>
+            <div><div class="reel"><iframe src="https://www.tiktok.com/player/v1/7692251687347621138?music_info=1&amp;description=1" loading="lazy" allow="fullscreen" title="Jana's TikTok video 2"></iframe></div></div>
+            <div><div class="reel"><iframe src="https://www.tiktok.com/player/v1/7688914452854410504?music_info=1&amp;description=1" loading="lazy" allow="fullscreen" title="Jana's TikTok video 3"></iframe></div></div>
+          </div>
+          <p class="dz__more">
+            <a href="https://www.tiktok.com/@janacaycotandoc" target="_blank">Follow @janacaycotandoc on TikTok →</a>
+          </p>
+
+          <h3 class="dz__title" style="margin-top: 56px">Product Videos for TikTok &amp; Reels</h3>
+          <p class="dz__desc">
+            Product videos I edited for brands — built to show the product
+            fast and keep viewers watching.
+          </p>
+          <div class="reels">
+            <div>
+              <div class="reel"><video src="assets/design/video/Solix%20C300%20DC.mp4#t=0.5" controls playsinline preload="metadata"></video></div>
+              <div class="reel__cap"><b>Solix C300 DC</b> · Power station</div>
+            </div>
+            <div>
+              <div class="reel"><video src="assets/design/video/Orashare%20Desktop%20Fan.mp4#t=0.5" controls playsinline preload="metadata"></video></div>
+              <div class="reel__cap"><b>Orashare</b> · Desktop fan</div>
+            </div>
+            <div>
+              <div class="reel"><video src="assets/design/video/Orashare%20Camping%20Fan%20Part%202.mp4#t=0.5" controls playsinline preload="metadata"></video></div>
+              <div class="reel__cap"><b>Orashare</b> · Camping fan</div>
+            </div>
+            <div>
+              <div class="reel"><video src="assets/design/video/JisuLife%20Table%20Fan%207.mp4#t=0.5" controls playsinline preload="metadata"></video></div>
+              <div class="reel__cap"><b>JisuLife</b> · Table fan</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <dialog class="lb" id="lightbox">
+        <button class="lb__close" aria-label="Close">×</button>
+        <img alt="" />
+      </dialog>
+    </section>
+
+    <!-- PROCESS -->
+    <section class="sec sec--midnight" id="process">
+      <div class="wrap">
+        <div class="sec__head">
+          <span class="sec-num">06 — PROCESS</span>
+          <h2 class="sec__title">How I Work</h2>
+          <p class="sec__lead">
+            Every engagement runs through the same five steps — from scattered
+            posting to a marketing engine that runs every week.
+          </p>
+        </div>
+        <div class="scale">
+          <div class="scale__step">
+            <div class="lt"><b>01</b></div>
+            <h3>Audit</h3>
+            <p>
+              I review your channels, content, and numbers to find what's
+              working and where attention is leaking.
+            </p>
+          </div>
+          <div class="scale__step">
+            <div class="lt"><b>02</b></div>
+            <h3>Plan</h3>
+            <p>
+              I set the audience, content pillars, and a monthly calendar tied
+              to your offers.
+            </p>
+          </div>
+          <div class="scale__step">
+            <div class="lt"><b>03</b></div>
+            <h3>Create</h3>
+            <p>
+              I produce posts, short-form video, and emails built for each
+              platform and on brand.
+            </p>
+          </div>
+          <div class="scale__step">
+            <div class="lt"><b>04</b></div>
+            <h3>Publish</h3>
+            <p>
+              I schedule, post, and engage on a cadence that holds — every week,
+              without reminders.
+            </p>
+          </div>
+          <div class="scale__step">
+            <div class="lt"><b>05</b></div>
+            <h3>Measure</h3>
+            <p>
+              I report on reach, engagement, and leads, then adjust the plan
+              based on what the data says.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CASE STUDIES -->
+    <section class="sec" id="cases">
+      <div class="wrap">
+        <div class="sec__head">
+          <span class="sec-num">07 — CASE STUDIES</span>
+          <h2 class="sec__title">Before &amp; After</h2>
+          <p class="sec__lead">
+            What changes when marketing gets owned — pulled straight from client
+            work and my own brand.
+          </p>
+        </div>
+        <div class="case">
+          <div class="case__card">
+            <div class="case__top">
+              <span class="tag">John L. Scott</span
+              ><span class="ind">Real Estate</span>
+            </div>
+            <div class="case__body">
+              <div class="case__col before">
+                <div class="k">Before</div>
+                <p>
+                  Content and booking were inconsistent across a multi-location
+                  broker network with no repeatable system.
+                </p>
+              </div>
+              <div class="case__col solution">
+                <div class="k">Solution</div>
+                <p>
+                  I built a monthly content system, standardized landing pages,
+                  and a conversion-focused booking framework across the network.
+                </p>
+              </div>
+              <div class="case__col outcome">
+                <div class="k">Outcome</div>
+                <div class="big">+55%</div>
+                <p>
+                  booked appointments and property viewings across the broker
+                  network.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="case__card">
+            <div class="case__top">
+              <span class="tag">Personal Brand</span
+              ><span class="ind">Short-form Video</span>
+            </div>
+            <div class="case__body">
+              <div class="case__col before">
+                <div class="k">Before</div>
+                <p>
+                  Short-form content was posted without a plan, and reach stayed
+                  flat from week to week.
+                </p>
+              </div>
+              <div class="case__col solution">
+                <div class="k">Solution</div>
+                <p>
+                  I built a repeatable Reels system — hooks, formats, and a
+                  posting cadence — and reviewed the insights to refine it.
+                </p>
+              </div>
+              <div class="case__col outcome">
+                <div class="k">Outcome</div>
+                <div class="big">186,537</div>
+                <p>views, with +1,478% growth in reach.</p>
+              </div>
+            </div>
+          </div>
+          <div class="case__card">
+            <div class="case__top">
+              <span class="tag">Douglas Elliman</span
+              ><span class="ind">Real Estate</span>
+            </div>
+            <div class="case__body">
+              <div class="case__col before">
+                <div class="k">Before</div>
+                <p>
+                  Inbound leads sat unassigned for hours and follow-up depended
+                  on whoever picked them up first.
+                </p>
+              </div>
+              <div class="case__col solution">
+                <div class="k">Solution</div>
+                <p>
+                  I built the lead funnel and CRM workflow for a high-volume
+                  team, so every inquiry got routed and followed up fast.
+                </p>
+              </div>
+              <div class="case__col outcome">
+                <div class="k">Outcome</div>
+                <div class="big">+45%</div>
+                <p>
+                  listing-appointment bookings, with lead response under 15
+                  minutes.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="case__card">
+            <div class="case__top">
+              <span class="tag">Beauty Biz Pro</span
+              ><span class="ind">Beauty / Coaching</span>
+            </div>
+            <div class="case__body">
+              <div class="case__col before">
+                <div class="k">Before</div>
+                <p>
+                  Leads, funnels, and follow-up were handled by hand, and the
+                  customer journey had gaps where prospects went cold.
+                </p>
+              </div>
+              <div class="case__col solution">
+                <div class="k">Solution</div>
+                <p>
+                  I built the GoHighLevel CRM and funnels from the ground up and
+                  automated the full customer journey.
+                </p>
+              </div>
+              <div class="case__col outcome">
+                <div class="k">Outcome</div>
+                <div class="big">12 hrs</div>
+                <p>
+                  of manual work removed every week, with a shorter
+                  lead-to-close cycle.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CREDIBILITY -->
+    <section class="sec sec--cream" id="credibility">
+      <div class="wrap">
+        <div class="sec__head">
+          <span class="sec-num">08 — CREDIBILITY</span>
+          <h2 class="sec__title">Receipts</h2>
+          <p class="sec__lead">
+            I run the same playbook on my own brand that I run for clients.
+            Here's the proof, screenshot by screenshot.
+          </p>
+        </div>
+
+        <div class="cred__group">
+          <div class="cred__glabel">A · Marketing Performance</div>
+          <h3 class="cred__gtitle">Personal Brand, With Numbers</h3>
+          <p class="cred__gdesc">
+            The marketing engine I run for my own brand — LinkedIn, email, and
+            short-form video — with the analytics to show it moves the needle.
+          </p>
+          <div class="cred__pb">
+            <div class="cred__pb-col">
+              <div class="shot">
+                <div class="shot__bar">
+                  <i></i><i></i><i></i><span>linkedin · creator analytics</span>
+                </div>
+                <div class="shot__img">
+                  <img
+                    src="assets/credibility/linkedin-performance.jpg"
+                    alt="LinkedIn content performance analytics"
+                  />
+                </div>
+                <div class="shot__cap">
+                  <b>LinkedIn</b> — 9,309 impressions and 2,776 members reached.
+                </div>
+              </div>
+            </div>
+            <div class="cred__pb-col">
+              <div class="shot">
+                <div class="shot__bar">
+                  <i></i><i></i><i></i><span>mailchimp · campaign report</span>
+                </div>
+                <div class="shot__img">
+                  <img
+                    src="assets/credibility/email-performance.jpg"
+                    alt="Email campaign performance report"
+                  />
+                </div>
+                <div class="shot__cap">
+                  <b>Email</b> — 44.6% open rate across 1,572 delivered sends.
+                </div>
+              </div>
+              <div class="shot">
+                <div class="shot__bar">
+                  <i></i><i></i><i></i><span>meta · reels insights</span>
+                </div>
+                <div class="shot__img">
+                  <img
+                    src="assets/credibility/social-views.jpg"
+                    alt="Short-form video views insights"
+                  />
+                </div>
+                <div class="shot__cap">
+                  <b>Short-form video</b> — 186,537 views at +1,478% growth.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="cred__group">
+          <div class="cred__glabel">B · Live Events</div>
+          <h3 class="cred__gtitle">Webinars &amp; Community Sessions</h3>
+          <p class="cred__gdesc">
+            I host live trainings and community webinars — building audiences
+            and running the room as part of the marketing mix.
+          </p>
+          <div class="cred__shots cred__shots--2">
+            <div class="shot">
+              <div class="shot__bar">
+                <i></i><i></i><i></i><span>live session · hosting</span>
+              </div>
+              <div class="shot__img">
+                <img
+                  src="assets/credibility/webinar-1.jpg"
+                  alt="Live training session with team"
+                />
+              </div>
+              <div class="shot__cap">
+                <b>Team training</b> — running a live working session.
+              </div>
+            </div>
+            <div class="shot">
+              <div class="shot__bar">
+                <i></i><i></i><i></i><span>community webinar · hosting</span>
+              </div>
+              <div class="shot__img">
+                <img
+                  src="assets/credibility/webinar-2.jpg"
+                  alt="Community webinar hosted by Jana"
+                />
+              </div>
+              <div class="shot__cap">
+                <b>Community webinar</b> — hosting a full audience session.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="sec sec--midnight" id="testimonials">
+      <div class="wrap">
+        <div class="sec__head">
+          <span class="sec-num">09 — TESTIMONIALS</span>
+          <h2 class="sec__title">In Their Words</h2>
+          <p class="sec__lead">
+            What working with me looked like from the client's chair.
+          </p>
+        </div>
+        <div class="test">
+          <div class="test__card">
+            <div class="mark">"</div>
+            <p>
+              She standardized our content and booking system across the whole
+              broker network and our booked appointments jumped 55%. Our
+              pipeline finally runs on a system instead of on whoever remembers
+              to post.
+            </p>
+            <div class="test__who">
+              <div class="av">JS</div>
+              <div>
+                <div class="nm">Joe Perkins</div>
+                <div class="rl">Top Realtor in John L. Scott Real Estate</div>
+              </div>
+            </div>
+          </div>
+          <div class="test__card">
+            <div class="mark">"</div>
+            <p>
+              Jana built our GoHighLevel CRM and funnels from the ground up and
+              automated the whole customer journey. It took about twelve hours
+              of manual work off our plate every week and shortened our
+              lead-to-close cycle.
+            </p>
+            <div class="test__who">
+              <div class="av">BB</div>
+              <div>
+                <div class="nm">Beauty Biz Pro</div>
+                <div class="rl">CEO</div>
+              </div>
+            </div>
+          </div>
+          <div class="test__card">
+            <div class="mark">"</div>
+            <p>
+              Jana rebuilt our entire sales-to-onboarding handoff and cut it
+              from three weeks to eight days. I'm no longer pulled into a single
+              handoff — signed clients move straight into delivery on their own.
+            </p>
+            <div class="test__who">
+              <div class="av">7M</div>
+              <div>
+                <div class="nm">7Figure MSP</div>
+                <div class="rl">CEO</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="sec sec--cream" id="about">
+      <div class="wrap">
+        <div class="sec__head">
+          <span class="sec-num">10 — ABOUT JANA</span>
+          <h2 class="sec__title">Who's Behind It</h2>
+        </div>
+        <div class="about__in">
+          <div class="about__photo">
+            <img src="assets/Jana-headshot2.png" alt="Jana Tandoc" />
+          </div>
+          <div class="about__body">
+            <div class="lead">
+              I'm the marketer who makes sure your brand shows up — every week.
+            </div>
+            <p>
+              For six years I've run marketing for founder-led companies across
+              tech, cybersecurity, energy, real estate, and coaching — from
+              Marketing Operations Director at Knowlogix to a five-year run on
+              executive marketing at Shale Crescent USA.
+            </p>
+            <p>
+              I don't just make content. I build the whole engine around it:
+              strategy, calendar, short-form video, email, landing pages, and
+              the reporting that shows what's paying off. Then I keep it running
+              so your brand stays consistent without you chasing it.
+            </p>
+            <p>
+              I'm based in Manila and work remotely with teams across time
+              zones. My approach is simple: show up consistently, measure
+              honestly, and turn attention into booked calls.
+            </p>
+            <div class="about__creds">
+              <span>Social Media Management</span><span>Content Strategy</span
+              ><span>Meta Business Suite</span><span>LinkedIn</span
+              ><span>Mailchimp</span><span>GoHighLevel Certified</span
+              ><span>Claude AI</span><span>ChatGPT</span
+              ><span>AB Political Science, Arellano University</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta" id="cta">
+      <div class="cta__grid"></div>
+      <div class="wrap cta__in">
+        <h2>Ready for a brand that shows up every week?</h2>
+        <p>
+          Let's talk about your channels and what you'd hand over first. Book a
+          discovery call or reach me directly.
+        </p>
+        <div class="cta__row">
+          <a
+            href="https://calendly.com/jcaycotandoc14/30min"
+            target="_blank"
+            class="btn btn--orange btn--lg"
+            >Book Discovery Call</a
+          >
+          <a
+            href="mailto:jcaycotandoc14@gmail.com"
+            class="btn btn--ghost btn--lg"
+            >Email Jana</a
+          >
+        </div>
+        <div class="cta__contact">
+          <a href="mailto:jcaycotandoc14@gmail.com">jcaycotandoc14@gmail.com</a>
+          <a href="tel:+639289534120">+63 928 953 4120</a>
+          <span>Manila, Philippines · Remote</span>
+        </div>
+      </div>
+    </section>
+
+    <footer class="foot">
+      <div class="wrap foot__in">
+        <div class="foot__brand">
+          JANA TANDOC
+        </div>
+        <p>
+          Marketing &amp; Social Media Manager · © 2026
+        </p>
+      </div>
+    </footer>
+
+    <script>
+      document.getElementById("burger").addEventListener("click", function () {
+        document.getElementById("navlinks").classList.toggle("open");
+      });
+      var lb = document.getElementById("lightbox");
+      document.querySelectorAll(".gal__item").forEach(function (b) {
+        b.addEventListener("click", function () {
+          var img = lb.querySelector("img");
+          img.src = b.dataset.full;
+          img.alt = b.querySelector("img").alt;
+          lb.showModal();
+        });
+      });
+      lb.addEventListener("click", function (e) {
+        if (e.target !== lb.querySelector("img")) lb.close();
+      });
+      document.querySelectorAll("#navlinks a").forEach(function (a) {
+        a.addEventListener("click", function () {
+          document.getElementById("navlinks").classList.remove("open");
+        });
+      });
+    </script>
+  </body>
+</html>

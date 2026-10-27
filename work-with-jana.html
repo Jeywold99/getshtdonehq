@@ -171,6 +171,9 @@
       .nav__links a:hover {
         color: #fff;
       }
+      .nav__links a.nav__cta {
+        color: #fff;
+      }
       .btn {
         display: inline-flex;
         align-items: center;
@@ -1197,6 +1200,17 @@
         .hero {
           padding: 120px 0 64px;
         }
+        .hero__photo {
+          max-width: 260px;
+        }
+        .hero__photo img {
+          aspect-ratio: 1;
+          object-fit: cover;
+          object-position: center 20%;
+        }
+        .hero__photo::after {
+          inset: 10px -10px -10px 10px;
+        }
         .trust__grid {
           grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
         }
@@ -1224,7 +1238,7 @@
     <nav class="nav">
       <div class="nav__in">
         <a href="#top" class="nav__brand"
-          ><img src="assets/logo.png" alt="Get Sh*t Done HQ" />JANA TANDOC</a
+          >JANA TANDOC</a
         >
         <span class="nav__tag">Fractional COO</span>
         <div class="nav__links" id="navlinks">
@@ -1254,7 +1268,7 @@
       <div class="wrap hero__in">
         <div class="hero__copy">
           <span class="hero__badge"
-            ><span class="dot"></span>Fractional COO · Get Sh*t Done HQ</span
+            ><span class="dot"></span>Fractional COO</span
           >
           <h1 class="hero__title">
             I help founder-led companies
@@ -1495,7 +1509,7 @@
           >03 — Philosophy</span
         >
         <h2 class="phil__q" style="margin-top: 20px">
-          Systems create<br /><span class="stroke">freedom.</span>
+          Systems create<br /><span style="color: var(--obsidian)">freedom.</span>
         </h2>
         <div class="phil__body">
           <p>
@@ -2050,9 +2064,9 @@
     <footer class="foot">
       <div class="wrap foot__in">
         <div class="foot__brand">
-          <img src="assets/gsd-logo.png" alt="Get Sh*t Done HQ" />JANA TANDOC
+          JANA TANDOC
         </div>
-        <p>Fractional COO · Presented by Get Sh*t Done HQ · © 2026</p>
+        <p>Fractional COO · © 2026</p>
       </div>
     </footer>
 
