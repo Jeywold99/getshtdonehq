@@ -9,6 +9,13 @@
       name="description"
       content="Eldwin Sambolledo builds n8n workflows, GoHighLevel pipelines and the web apps around them, so follow-ups, lead entry and reporting run on their own."
     />
+    <script>
+      // A saved choice wins; otherwise the CSS follows the device setting.
+      try {
+        var t = localStorage.getItem("theme");
+        if (t === "light" || t === "dark") document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -34,6 +41,10 @@
         --red: #ff5a5a;
         --blue: #6b9cff;
         --violet: #a77bff;
+        --orange-ink: #ff5c00;
+        --green-ink: #14b87a;
+        --nav-bg: rgba(18, 18, 25, 0.82);
+        color-scheme: dark;
         --font-display: "Bebas Neue", sans-serif;
         --font-ui: "Outfit", sans-serif;
         --font-mono: "JetBrains Mono", ui-monospace, monospace;
@@ -41,6 +52,53 @@
         --r: 12px;
         --r-lg: 18px;
         --trans: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      @media (prefers-color-scheme: light) {
+        :root:not([data-theme="dark"]) {
+          --bg: #faf7f3;
+          --bg-2: #f3eee8;
+          --panel: #ffffff;
+          --panel-2: #f6f2ed;
+          --line: #e6dfd6;
+          --line-2: #d4cbbf;
+          --text: #1e1e2e;
+          --muted: #5c5c6b;
+          --dim: #84848f;
+          --orange-soft: rgba(255, 92, 0, 0.1);
+          --orange-ink: #c44600;
+          --green-ink: #0b7a50;
+          --green-soft: rgba(20, 184, 122, 0.12);
+          --nav-bg: rgba(250, 247, 243, 0.86);
+          color-scheme: light;
+        }
+      }
+      :root[data-theme="light"] {
+        --bg: #faf7f3;
+        --bg-2: #f3eee8;
+        --panel: #ffffff;
+        --panel-2: #f6f2ed;
+        --line: #e6dfd6;
+        --line-2: #d4cbbf;
+        --text: #1e1e2e;
+        --muted: #5c5c6b;
+        --dim: #84848f;
+        --orange-soft: rgba(255, 92, 0, 0.1);
+        --orange-ink: #c44600;
+        --green-ink: #0b7a50;
+        --green-soft: rgba(20, 184, 122, 0.12);
+        --nav-bg: rgba(250, 247, 243, 0.86);
+        color-scheme: light;
+      }
+      /* Diagrams stay dark in both themes, like screenshots of a dark app */
+      .canvas,
+      .sysmap,
+      .n8n {
+        --bg-2: #171721;
+        --line: #2d2d3e;
+        --line-2: #3a3a50;
+        --text: #ececf2;
+        --muted: #a3a3b6;
+        --dim: #74748a;
       }
       *,
       *::before,
@@ -81,12 +139,12 @@
         font-family: var(--font-mono);
       }
       .o {
-        color: var(--orange);
+        color: var(--orange-ink);
       }
       .tag {
         font-family: var(--font-mono);
         font-size: 12px;
-        color: var(--orange);
+        color: var(--orange-ink);
         letter-spacing: 0.02em;
       }
       .chip {
@@ -127,11 +185,11 @@
       }
       .btn--ghost:hover {
         border-color: var(--orange);
-        color: var(--orange);
+        color: var(--orange-ink);
       }
       .ph {
         border: 1.5px dashed var(--orange);
-        color: var(--orange);
+        color: var(--orange-ink);
         border-radius: 6px;
         padding: 1px 8px;
         font-family: var(--font-mono);
@@ -144,7 +202,7 @@
         position: fixed;
         inset: 0 0 auto 0;
         z-index: 100;
-        background: rgba(18, 18, 25, 0.82);
+        background: var(--nav-bg);
         backdrop-filter: blur(16px);
         -webkit-backdrop-filter: blur(16px);
         border-bottom: 1px solid var(--line);
@@ -168,7 +226,49 @@
         color: var(--muted);
       }
       .nav__links a:hover {
-        color: var(--orange);
+        color: var(--orange-ink);
+      }
+      .nav__right {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .theme-toggle {
+        width: 38px;
+        height: 38px;
+        display: grid;
+        place-items: center;
+        border-radius: 10px;
+        border: 1px solid var(--line-2);
+        background: transparent;
+        color: var(--text);
+        cursor: pointer;
+        transition: var(--trans);
+      }
+      .theme-toggle:hover {
+        border-color: var(--orange);
+        color: var(--orange-ink);
+      }
+      .theme-toggle svg {
+        width: 18px;
+        height: 18px;
+      }
+      .theme-toggle .i-sun {
+        display: none;
+      }
+      :root[data-theme="dark"] .theme-toggle .i-sun {
+        display: block;
+      }
+      :root[data-theme="dark"] .theme-toggle .i-moon {
+        display: none;
+      }
+      @media (prefers-color-scheme: dark) {
+        :root:not([data-theme="light"]) .theme-toggle .i-sun {
+          display: block;
+        }
+        :root:not([data-theme="light"]) .theme-toggle .i-moon {
+          display: none;
+        }
       }
       .nav .btn {
         padding: 9px 16px;
@@ -314,7 +414,7 @@
         font-family: var(--font-display);
         font-size: 48px;
         line-height: 1;
-        color: var(--orange);
+        color: var(--orange-ink);
       }
       .stat__l {
         font-size: 14px;
@@ -392,7 +492,7 @@
         font-family: var(--font-mono);
         font-size: 12px;
         font-weight: 500;
-        color: var(--orange);
+        color: var(--orange-ink);
         margin-bottom: 8px;
       }
       .pbr p,
@@ -409,7 +509,7 @@
         content: "›";
         position: absolute;
         left: 0;
-        color: var(--orange);
+        color: var(--orange-ink);
       }
       .results {
         display: grid;
@@ -427,7 +527,7 @@
         font-family: var(--font-display);
         font-size: 44px;
         line-height: 1;
-        color: var(--green);
+        color: var(--green-ink);
       }
       .result__n small {
         font-size: 22px;
@@ -818,11 +918,11 @@
       }
       .chain span:first-child {
         border-color: var(--orange);
-        color: var(--orange);
+        color: var(--orange-ink);
       }
       .chain em {
         font-style: normal;
-        color: var(--orange);
+        color: var(--orange-ink);
         font-size: 12px;
       }
 
@@ -881,7 +981,7 @@
       .gh {
         font-family: var(--font-mono);
         font-size: 12px;
-        color: var(--orange);
+        color: var(--orange-ink);
         white-space: nowrap;
       }
       .gh:hover {
@@ -926,7 +1026,7 @@
         content: "0" counter(p);
         font-family: var(--font-mono);
         font-size: 12px;
-        color: var(--orange);
+        color: var(--orange-ink);
       }
       .proc h4 {
         font-family: var(--font-display);
@@ -962,7 +1062,7 @@
         font-family: var(--font-display);
         font-size: 64px;
         line-height: 0;
-        color: var(--orange);
+        color: var(--orange-ink);
         display: block;
         height: 22px;
       }
@@ -1001,7 +1101,7 @@
         font-family: var(--font-display);
         font-size: 84px;
         font-weight: 400;
-        color: var(--orange);
+        color: var(--orange-ink);
         line-height: 1;
         margin-bottom: 8px;
       }
@@ -1028,7 +1128,7 @@
         display: block;
         font-family: var(--font-mono);
         font-size: 12px;
-        color: var(--orange);
+        color: var(--orange-ink);
         font-weight: 500;
         margin-bottom: 4px;
       }
@@ -1085,7 +1185,7 @@
         color: var(--muted);
       }
       .contacts a:hover {
-        color: var(--orange);
+        color: var(--orange-ink);
       }
       footer {
         border-top: 1px solid var(--line);
@@ -1183,7 +1283,13 @@
           <a href="#about">about</a>
           <a href="#contact">contact</a>
         </div>
-        <a href="https://calendly.com/sambolledo23/30min" class="btn btn--o" target="_blank" rel="noopener">Book a call</a>
+        <div class="nav__right">
+          <button type="button" class="theme-toggle" id="themeToggle" aria-label="Switch light or dark mode" title="Switch light or dark mode">
+            <svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z" /></svg>
+            <svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4" /><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" /></svg>
+          </button>
+          <a href="https://calendly.com/sambolledo23/30min" class="btn btn--o" target="_blank" rel="noopener">Book a call</a>
+        </div>
       </div>
     </nav>
 
@@ -2001,5 +2107,16 @@
         <span>client details redacted · visuals recreated from build docs</span>
       </div>
     </footer>
+    <script>
+      document.getElementById("themeToggle").addEventListener("click", function () {
+        var root = document.documentElement;
+        var current = root.getAttribute("data-theme") || (matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark");
+        var next = current === "light" ? "dark" : "light";
+        root.setAttribute("data-theme", next);
+        try {
+          localStorage.setItem("theme", next);
+        } catch (e) {}
+      });
+    </script>
   </body>
 </html>
