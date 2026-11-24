@@ -1084,6 +1084,71 @@
         gap: 56px;
         align-items: start;
       }
+      .pipe-shots {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 14px;
+      }
+      .pipe-shot {
+        margin: 0;
+      }
+      .pipe-shot img {
+        width: 100%;
+        border: 1px solid var(--line-2);
+        border-radius: 12px;
+        background: #fff;
+      }
+      .pipe-shot a {
+        display: block;
+        cursor: zoom-in;
+      }
+      .pipe-shot figcaption {
+        font-size: 13.5px;
+        color: var(--muted);
+        margin-top: 8px;
+        line-height: 1.5;
+      }
+      .chip--wide {
+        display: inline-block;
+        white-space: normal;
+        line-height: 1.45;
+      }
+      .chip--wide b {
+        color: var(--text);
+        font-weight: 500;
+      }
+      .built-full {
+        background: var(--bg-2);
+        border: 1px solid var(--line);
+        border-radius: var(--r);
+        padding: 20px;
+        margin-bottom: 16px;
+      }
+      .built-full h4 {
+        font-family: var(--font-mono);
+        font-size: 12px;
+        font-weight: 500;
+        color: var(--orange-ink);
+        margin-bottom: 8px;
+      }
+      .built-full p {
+        font-size: 15px;
+        color: var(--muted);
+      }
+      .role-line {
+        font-family: var(--font-mono);
+        font-size: 14px;
+        color: var(--orange-ink);
+        margin: -10px 0 20px;
+      }
+      .headshot-img {
+        width: 280px;
+        max-width: 100%;
+        aspect-ratio: 1;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 3px solid var(--line-2);
+      }
       .headshot {
         aspect-ratio: 4 / 5;
         border-radius: 22px;
@@ -1207,6 +1272,12 @@
         .about {
           grid-template-columns: 1fr;
         }
+        .pipe-shots {
+          grid-template-columns: 1fr;
+        }
+        .about .headshot-img {
+          width: 220px;
+        }
         .about .headshot {
           max-width: 280px;
         }
@@ -1297,20 +1368,20 @@
     <header class="hero" id="top">
       <div class="wrap">
         <div>
-          <span class="tag">// automation specialist · n8n + GoHighLevel</span>
+          <span class="tag">// GoHighLevel CRM + automation</span>
           <span class="avail"><i></i>Open to new roles and projects</span>
           <h1>I build the systems<br />that do the <span class="o">boring work.</span></h1>
           <p class="hero__sub">
-            I'm Eldwin Sambolledo. I connect n8n, GoHighLevel, Gmail, Slack and the rest of a
-            team's tools so lead entry, follow-ups and reporting run on their own, and tell you
-            when they don't.
+            GoHighLevel CRM and automation specialist. I build, test, and document systems your
+            team can run without me.
           </p>
           <div class="hero__ctas">
             <a href="#work" class="btn btn--o">See the builds →</a>
             <a href="#contact" class="btn btn--ghost">Get in touch</a>
           </div>
           <div class="stack">
-            <span class="chip">n8n</span><span class="chip">GoHighLevel</span
+            <span class="chip chip--wide"><b>GoHighLevel</b> (pipelines, workflows, calendars, forms, funnels, Documents &amp; Contracts, A2P 10DLC, payments)</span
+            ><span class="chip">n8n</span><span class="chip">Zapier</span><span class="chip">ClickUp</span
             ><span class="chip">Monday.com</span><span class="chip">Claude API</span
             ><span class="chip">Python</span><span class="chip">Django</span
             ><span class="chip">Next.js</span><span class="chip">Playwright</span
@@ -1365,16 +1436,16 @@
     <section class="stats" aria-label="Results at a glance">
       <div class="wrap">
         <div class="stat">
-          <div class="stat__n">2 → 15+</div>
-          <div class="stat__l">vendor outreach messages a day</div>
+          <div class="stat__n">2 → 80</div>
+          <div class="stat__l">vendor emails sent a day, on average</div>
         </div>
         <div class="stat">
-          <div class="stat__n">4×</div>
-          <div class="stat__l">more vendor replies per week (3 → 12)</div>
+          <div class="stat__n">12×</div>
+          <div class="stat__l">more vendor replies per week (3 → 36)</div>
         </div>
         <div class="stat">
-          <div class="stat__n">~5 hrs</div>
-          <div class="stat__l">of team time saved every week</div>
+          <div class="stat__n">4,300+</div>
+          <div class="stat__l">vendor and bid records tracked in GHL</div>
         </div>
         <div class="stat">
           <div class="stat__n">30+</div>
@@ -1391,15 +1462,162 @@
           <h2>Client builds</h2>
           <p>
             Real systems running for real teams. Client names, people and account details are
-            left out on purpose; everything below is redrawn from the build docs, not
-            screenshotted from live accounts.
+            left out on purpose. Diagrams are redrawn from the build docs, and the pipeline
+            screenshots come from the live accounts with every record blurred.
           </p>
         </div>
 
-        <!-- ===== CASE 01: vendor sourcing ===== -->
+        <!-- ===== CASE 01: property-side CRM ===== -->
         <article class="case">
           <div class="case__top">
-            <span class="tag">case_01 · n8n + GoHighLevel + Monday.com</span>
+            <span class="tag">case_01 · GoHighLevel + n8n</span>
+            <span class="note">client: confidential · property company</span>
+          </div>
+          <h3>From spreadsheet to sales pipeline</h3>
+          <p class="case__lede">
+            A property management company had hundreds of cold owner leads in spreadsheets and no
+            way to work them in the CRM. GoHighLevel's built-in importer can't create deals
+            or fill deal-level fields, so I built the pipeline in GHL and an n8n import that does
+            what the importer can't.
+          </p>
+
+          <div class="built-full">
+            <h4>// built</h4>
+            <p>
+              Full lead-to-booking flow: GHL landing pages and funnels, CRM intake, discovery call
+              booking, reminders, no-show follow-up, and owner contract signing in GHL Documents &amp;
+              Contracts. Also missed-call text-back, a 21-day nurture sequence, Google review
+              requests, A2P 10DLC registration, and Stripe payments.
+            </p>
+          </div>
+
+          <div class="pbr">
+            <div>
+              <h4>// in GoHighLevel</h4>
+              <ul>
+                <li>8-stage owner pipeline, cold lead to active management</li>
+                <li>Custom field dictionary: tier, close score, pitch angle, market</li>
+                <li>Missed-call text-back <span class="note">(live)</span></li>
+                <li>Landing-page intake workflow <span class="note">(built)</span></li>
+              </ul>
+            </div>
+            <div>
+              <h4>// re-engagement</h4>
+              <ul>
+                <li>21-day retargeting campaign across 5 workflows <span class="note">(built)</span></li>
+                <li>Stall detectors for discovery calls and sent proposals</li>
+                <li>New inquiries automatically pulled out of retargeting</li>
+              </ul>
+            </div>
+            <div>
+              <h4>// the import</h4>
+              <ul>
+                <li>335 cold contacts imported and routed through n8n</li>
+                <li>Duplicate check before every create</li>
+                <li>Every row ends labeled done or failed, never silent</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="vis">
+            <div class="vis__label"><span>live GoHighLevel pipelines · cards blurred for privacy</span></div>
+            <div class="pipe-shots">
+              <figure class="pipe-shot">
+                <a href="assets/eldwin/ws-owner-pipeline.png" target="_blank" rel="noopener" title="Open full size"><img src="assets/eldwin/ws-owner-pipeline.png" alt="GoHighLevel Owner Lifecycle pipeline board with 320 leads in the Cold Lead stage, followed by the Contacted, Discovery Call, Qualified and Signed Owner stages" loading="lazy" width="2218" height="1324" /></a>
+                <figcaption>Owner pipeline: 320 imported leads, each with a clear next stage.</figcaption>
+              </figure>
+              <figure class="pipe-shot">
+                <a href="assets/eldwin/ws-claims-pipeline.png" target="_blank" rel="noopener" title="Open full size"><img src="assets/eldwin/ws-claims-pipeline.png" alt="GoHighLevel Claims and Damages pipeline board with 18 claims in Reported, followed by the Verified, Package Review, Submitted and Escalated stages" loading="lazy" width="2218" height="1299" /></a>
+                <figcaption>Claims &amp; Damages pipeline: every guest damage claim tracked from report to submission.</figcaption>
+              </figure>
+            </div>
+          </div>
+
+          <div class="vis">
+            <div class="vis__label"><span>n8n workflow · CSV import → GoHighLevel · 24 nodes</span><span>recreated · failure paths in red</span></div>
+            <div class="n8n">
+              <svg viewBox="0 0 1100 320" role="img" aria-label="n8n workflow: upload CSV, normalize rows, check for phone or email, search for duplicate contact, reuse or create the contact, create the deal, apply do-not-disturb flags, done. Each check has a failure branch that labels the row.">
+                <g fill="none" stroke-width="2">
+                  <path d="M88 110 H 128" stroke="#565670" />
+                  <path d="M198 110 H 238" stroke="#565670" />
+                  <path d="M308 110 H 348" stroke="#565670" />
+                  <path d="M418 110 H 458" stroke="#565670" />
+                  <path d="M528 110 C 548 110, 548 45, 568 45" stroke="#565670" />
+                  <path d="M528 110 C 548 110, 548 175, 568 175" stroke="#565670" />
+                  <path d="M638 45 C 660 45, 660 110, 682 110" stroke="#565670" />
+                  <path d="M638 175 C 660 175, 660 110, 682 110" stroke="#565670" />
+                  <path d="M752 110 H 792" stroke="#565670" />
+                  <path d="M862 110 H 902" stroke="#565670" />
+                  <path d="M972 110 H 1012" stroke="#14b87a" />
+                  <path d="M383 172 V 262" stroke="#ff5a5a" stroke-dasharray="4 4" />
+                  <path d="M493 172 V 262" stroke="#ff5a5a" stroke-dasharray="4 4" />
+                  <path d="M603 232 V 262" stroke="#ff5a5a" stroke-dasharray="4 4" />
+                  <path d="M827 172 V 262" stroke="#ff5a5a" stroke-dasharray="4 4" />
+                </g>
+                <g font-family="JetBrains Mono, monospace" text-anchor="middle">
+                  <g stroke-width="1.5">
+                    <rect x="18" y="75" width="70" height="70" rx="18" fill="#2a2a36" stroke="#ff5c00" />
+                    <rect x="128" y="75" width="70" height="70" rx="10" fill="#2a2a36" stroke="#45455c" />
+                    <rect x="238" y="75" width="70" height="70" rx="10" fill="#2a2a36" stroke="#45455c" />
+                    <rect x="348" y="75" width="70" height="70" rx="10" fill="#2a2a36" stroke="#6b9cff" />
+                    <rect x="458" y="75" width="70" height="70" rx="10" fill="#2a2a36" stroke="#45455c" />
+                    <rect x="568" y="10" width="70" height="70" rx="10" fill="#2a2a36" stroke="#45455c" />
+                    <rect x="568" y="140" width="70" height="70" rx="10" fill="#2a2a36" stroke="#45455c" />
+                    <rect x="682" y="75" width="70" height="70" rx="10" fill="#2a2a36" stroke="#45455c" />
+                    <rect x="792" y="75" width="70" height="70" rx="10" fill="#2a2a36" stroke="#45455c" />
+                    <rect x="902" y="75" width="70" height="70" rx="10" fill="#2a2a36" stroke="#6b9cff" />
+                    <rect x="1012" y="75" width="70" height="70" rx="10" fill="#1f3a30" stroke="#14b87a" />
+                  </g>
+                  <g font-size="18">
+                    <text x="53" y="117" fill="#ff5c00">⇪</text>
+                    <text x="163" y="116" fill="#ececf2" font-size="13">{ }</text>
+                    <text x="273" y="116" fill="#ececf2" font-size="13">{ }</text>
+                    <text x="383" y="116" fill="#6b9cff" font-size="14">if</text>
+                    <text x="493" y="116" fill="#ececf2" font-size="12">GET</text>
+                    <text x="603" y="51" fill="#ececf2" font-size="12">reuse</text>
+                    <text x="603" y="181" fill="#ececf2" font-size="12">POST</text>
+                    <text x="717" y="116" fill="#ececf2" font-size="12">✓</text>
+                    <text x="827" y="116" fill="#ececf2" font-size="12">POST</text>
+                    <text x="937" y="116" fill="#6b9cff" font-size="14">if</text>
+                    <text x="1047" y="117" fill="#14b87a">✓</text>
+                  </g>
+                  <g font-size="10" fill="#a3a3b6">
+                    <text x="53" y="164">Upload CSV</text>
+                    <text x="163" y="164">Prepare file</text>
+                    <text x="273" y="164">Normalize row</text>
+                    <text x="383" y="164">Phone/email?</text>
+                    <text x="493" y="164">Find duplicate</text>
+                    <text x="603" y="98">Existing</text>
+                    <text x="603" y="228">Create contact</text>
+                    <text x="717" y="164">Contact ready</text>
+                    <text x="827" y="164">Create deal</text>
+                    <text x="937" y="164">DND flag?</text>
+                    <text x="1047" y="164">Row done</text>
+                  </g>
+                  <g font-size="10" fill="#ff8a8a">
+                    <rect x="333" y="262" width="100" height="30" rx="6" fill="#3a2226" stroke="#ff5a5a" />
+                    <text x="383" y="281">no contact info</text>
+                    <rect x="443" y="262" width="100" height="30" rx="6" fill="#3a2226" stroke="#ff5a5a" />
+                    <text x="493" y="281">search failed</text>
+                    <rect x="553" y="262" width="100" height="30" rx="6" fill="#3a2226" stroke="#ff5a5a" />
+                    <text x="603" y="281">create failed</text>
+                    <rect x="777" y="262" width="100" height="30" rx="6" fill="#3a2226" stroke="#ff5a5a" />
+                    <text x="827" y="281">deal failed</text>
+                  </g>
+                </g>
+              </svg>
+            </div>
+          </div>
+          <div class="builtstats">
+            <span><b>8</b>-stage owner pipeline</span><span><b>335</b> contacts imported</span><span><b>5</b> retargeting workflows</span
+            ><span><b>4</b> labeled failure paths</span><span><b>2</b> import bugs found and fixed during the run</span>
+          </div>
+        </article>
+
+        <!-- ===== CASE 02: vendor sourcing ===== -->
+        <article class="case">
+          <div class="case__top">
+            <span class="tag">case_02 · n8n + GoHighLevel + Monday.com</span>
             <span class="note">client: confidential · one CRM account, three businesses</span>
           </div>
           <h3>Vendor sourcing on autopilot</h3>
@@ -1441,16 +1659,16 @@
 
           <div class="results">
             <div class="result">
-              <div class="result__n"><small>2 →</small>15–18</div>
-              <div class="result__l">vendor messages sent per day</div>
+              <div class="result__n"><small>2 →</small>80</div>
+              <div class="result__l">vendor emails sent per day, average</div>
             </div>
             <div class="result">
-              <div class="result__n"><small>3 →</small>12</div>
-              <div class="result__l">vendor responses per week</div>
+              <div class="result__n"><small>3 →</small>36</div>
+              <div class="result__l">vendor responses per week, average</div>
             </div>
             <div class="result">
-              <div class="result__n">~5 hrs</div>
-              <div class="result__l">of manual team work removed weekly</div>
+              <div class="result__n">723</div>
+              <div class="result__l">vendors tracked from sourced to active</div>
             </div>
           </div>
 
@@ -1511,6 +1729,20 @@
                   <text x="680" y="22" text-anchor="middle">deadlines · closeouts</text>
                 </g>
               </svg>
+            </div>
+          </div>
+
+          <div class="vis">
+            <div class="vis__label"><span>live GoHighLevel pipelines · cards blurred for privacy</span></div>
+            <div class="pipe-shots">
+              <figure class="pipe-shot">
+                <a href="assets/eldwin/cfs-subcontractor-sourcing.png" target="_blank" rel="noopener" title="Open full size"><img src="assets/eldwin/cfs-subcontractor-sourcing.png" alt="GoHighLevel Subcontractor Sourcing pipeline board with 723 vendors across the Sourced, Responded, Prequal In Progress, Prequalified Bench and Active stages" loading="lazy" width="2221" height="1312" /></a>
+                <figcaption>Subcontractor Sourcing pipeline: 723 vendors tracked from sourced to active.</figcaption>
+              </figure>
+              <figure class="pipe-shot">
+                <a href="assets/eldwin/cfs-bid-tracking.png" target="_blank" rel="noopener" title="Open full size"><img src="assets/eldwin/cfs-bid-tracking.png" alt="GoHighLevel Bid Tracking pipeline board with 3,583 opportunities across the Identified, Site Visit, Quote Requested, Quote Received and Offer Submitted stages" loading="lazy" width="2218" height="1293" /></a>
+                <figcaption>Bid Tracking pipeline: 3,583 federal opportunities tracked from identified to offer submitted.</figcaption>
+              </figure>
             </div>
           </div>
 
@@ -1649,134 +1881,10 @@
           </div>
         </article>
 
-        <!-- ===== CASE 02: property-side CRM ===== -->
-        <article class="case">
-          <div class="case__top">
-            <span class="tag">case_02 · n8n + GoHighLevel</span>
-            <span class="note">client: confidential · property company</span>
-          </div>
-          <h3>From spreadsheet to sales pipeline</h3>
-          <p class="case__lede">
-            The same client's property business had hundreds of cold owner leads in spreadsheets
-            and no way to work them in the CRM. GoHighLevel's built-in importer can't create deals
-            or fill deal-level fields, so I built the pipeline in GHL and an n8n import that does
-            what the importer can't.
-          </p>
-
-          <div class="pbr">
-            <div>
-              <h4>// in GoHighLevel</h4>
-              <ul>
-                <li>8-stage owner pipeline, cold lead to active management</li>
-                <li>Custom field dictionary: tier, close score, pitch angle, market</li>
-                <li>Missed-call text-back <span class="note">(live)</span></li>
-                <li>Landing-page intake workflow <span class="note">(built)</span></li>
-              </ul>
-            </div>
-            <div>
-              <h4>// re-engagement</h4>
-              <ul>
-                <li>21-day retargeting campaign across 5 workflows <span class="note">(built)</span></li>
-                <li>Stall detectors for discovery calls and sent proposals</li>
-                <li>New inquiries automatically pulled out of retargeting</li>
-              </ul>
-            </div>
-            <div>
-              <h4>// the import</h4>
-              <ul>
-                <li>335 cold contacts imported and routed through n8n</li>
-                <li>Duplicate check before every create</li>
-                <li>Every row ends labeled done or failed, never silent</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="vis">
-            <div class="vis__label"><span>n8n workflow · CSV import → GoHighLevel · 24 nodes</span><span>recreated · failure paths in red</span></div>
-            <div class="n8n">
-              <svg viewBox="0 0 1100 320" role="img" aria-label="n8n workflow: upload CSV, normalize rows, check for phone or email, search for duplicate contact, reuse or create the contact, create the deal, apply do-not-disturb flags, done. Each check has a failure branch that labels the row.">
-                <g fill="none" stroke-width="2">
-                  <path d="M88 110 H 128" stroke="#565670" />
-                  <path d="M198 110 H 238" stroke="#565670" />
-                  <path d="M308 110 H 348" stroke="#565670" />
-                  <path d="M418 110 H 458" stroke="#565670" />
-                  <path d="M528 110 C 548 110, 548 45, 568 45" stroke="#565670" />
-                  <path d="M528 110 C 548 110, 548 175, 568 175" stroke="#565670" />
-                  <path d="M638 45 C 660 45, 660 110, 682 110" stroke="#565670" />
-                  <path d="M638 175 C 660 175, 660 110, 682 110" stroke="#565670" />
-                  <path d="M752 110 H 792" stroke="#565670" />
-                  <path d="M862 110 H 902" stroke="#565670" />
-                  <path d="M972 110 H 1012" stroke="#14b87a" />
-                  <path d="M383 172 V 262" stroke="#ff5a5a" stroke-dasharray="4 4" />
-                  <path d="M493 172 V 262" stroke="#ff5a5a" stroke-dasharray="4 4" />
-                  <path d="M603 232 V 262" stroke="#ff5a5a" stroke-dasharray="4 4" />
-                  <path d="M827 172 V 262" stroke="#ff5a5a" stroke-dasharray="4 4" />
-                </g>
-                <g font-family="JetBrains Mono, monospace" text-anchor="middle">
-                  <g stroke-width="1.5">
-                    <rect x="18" y="75" width="70" height="70" rx="18" fill="#2a2a36" stroke="#ff5c00" />
-                    <rect x="128" y="75" width="70" height="70" rx="10" fill="#2a2a36" stroke="#45455c" />
-                    <rect x="238" y="75" width="70" height="70" rx="10" fill="#2a2a36" stroke="#45455c" />
-                    <rect x="348" y="75" width="70" height="70" rx="10" fill="#2a2a36" stroke="#6b9cff" />
-                    <rect x="458" y="75" width="70" height="70" rx="10" fill="#2a2a36" stroke="#45455c" />
-                    <rect x="568" y="10" width="70" height="70" rx="10" fill="#2a2a36" stroke="#45455c" />
-                    <rect x="568" y="140" width="70" height="70" rx="10" fill="#2a2a36" stroke="#45455c" />
-                    <rect x="682" y="75" width="70" height="70" rx="10" fill="#2a2a36" stroke="#45455c" />
-                    <rect x="792" y="75" width="70" height="70" rx="10" fill="#2a2a36" stroke="#45455c" />
-                    <rect x="902" y="75" width="70" height="70" rx="10" fill="#2a2a36" stroke="#6b9cff" />
-                    <rect x="1012" y="75" width="70" height="70" rx="10" fill="#1f3a30" stroke="#14b87a" />
-                  </g>
-                  <g font-size="18">
-                    <text x="53" y="117" fill="#ff5c00">⇪</text>
-                    <text x="163" y="116" fill="#ececf2" font-size="13">{ }</text>
-                    <text x="273" y="116" fill="#ececf2" font-size="13">{ }</text>
-                    <text x="383" y="116" fill="#6b9cff" font-size="14">if</text>
-                    <text x="493" y="116" fill="#ececf2" font-size="12">GET</text>
-                    <text x="603" y="51" fill="#ececf2" font-size="12">reuse</text>
-                    <text x="603" y="181" fill="#ececf2" font-size="12">POST</text>
-                    <text x="717" y="116" fill="#ececf2" font-size="12">✓</text>
-                    <text x="827" y="116" fill="#ececf2" font-size="12">POST</text>
-                    <text x="937" y="116" fill="#6b9cff" font-size="14">if</text>
-                    <text x="1047" y="117" fill="#14b87a">✓</text>
-                  </g>
-                  <g font-size="10" fill="#a3a3b6">
-                    <text x="53" y="164">Upload CSV</text>
-                    <text x="163" y="164">Prepare file</text>
-                    <text x="273" y="164">Normalize row</text>
-                    <text x="383" y="164">Phone/email?</text>
-                    <text x="493" y="164">Find duplicate</text>
-                    <text x="603" y="98">Existing</text>
-                    <text x="603" y="228">Create contact</text>
-                    <text x="717" y="164">Contact ready</text>
-                    <text x="827" y="164">Create deal</text>
-                    <text x="937" y="164">DND flag?</text>
-                    <text x="1047" y="164">Row done</text>
-                  </g>
-                  <g font-size="10" fill="#ff8a8a">
-                    <rect x="333" y="262" width="100" height="30" rx="6" fill="#3a2226" stroke="#ff5a5a" />
-                    <text x="383" y="281">no contact info</text>
-                    <rect x="443" y="262" width="100" height="30" rx="6" fill="#3a2226" stroke="#ff5a5a" />
-                    <text x="493" y="281">search failed</text>
-                    <rect x="553" y="262" width="100" height="30" rx="6" fill="#3a2226" stroke="#ff5a5a" />
-                    <text x="603" y="281">create failed</text>
-                    <rect x="777" y="262" width="100" height="30" rx="6" fill="#3a2226" stroke="#ff5a5a" />
-                    <text x="827" y="281">deal failed</text>
-                  </g>
-                </g>
-              </svg>
-            </div>
-          </div>
-          <div class="builtstats">
-            <span><b>8</b>-stage owner pipeline</span><span><b>335</b> contacts imported</span><span><b>5</b> retargeting workflows</span
-            ><span><b>4</b> labeled failure paths</span><span><b>2</b> import bugs found and fixed during the run</span>
-          </div>
-        </article>
-
         <!-- ===== CASE 03: Command Center ===== -->
         <article class="case">
           <div class="case__top">
             <span class="tag">case_03 · Next.js + PostgreSQL + n8n</span>
-            <a class="gh" href="https://github.com/Jeywold99/gsd-command-center" target="_blank" rel="noopener">view repo ↗</a>
           </div>
           <h3>Agency Command Center</h3>
           <p class="case__lede">
@@ -2038,8 +2146,8 @@
           </figure>
           <figure class="quote">
             <blockquote>
-              We went from sending a couple of vendor emails a day to more than fifteen, and the
-              replies came with it. The system Eldwin built does the chasing, so our team spends
+              We went from a couple of vendor emails a day to around 80, and the replies came with
+              it. The system Eldwin built does the chasing, so our team spends
               its time on the bids instead of the busywork.
             </blockquote>
             <cite><b>Operations lead</b>Property and contracting company (confidential)</cite>
@@ -2051,13 +2159,13 @@
     <!-- ================= ABOUT ================= -->
     <section class="sec" id="about">
       <div class="wrap about">
-        <!-- TODO: replace with headshot, e.g. <img src="assets/eldwin/headshot.jpg" alt="Eldwin Sambolledo"> -->
-        <div class="headshot"><div><b>ES</b>headshot coming soon</div></div>
+        <img class="headshot-img" src="assets/eldwin/headshot.png" alt="Eldwin Sambolledo" width="410" height="410" loading="lazy" />
         <div class="about__bio">
           <span class="tag">// who's behind it</span>
           <h2 style="font-family: var(--font-display); font-weight: 400; font-size: clamp(42px, 5vw, 64px); line-height: 0.95; margin: 10px 0 22px">
             Eldwin Sambolledo
           </h2>
+          <p class="role-line">GoHighLevel CRM &amp; Automation Specialist</p>
           <p>
             I'm an automation specialist who builds the systems that do the repetitive work: n8n
             workflows, GoHighLevel pipelines, and the web apps that sit around them.
@@ -2066,15 +2174,16 @@
             I start from a team's actual bottleneck, whether that's leads typed in by hand,
             follow-ups that slip, or reports nobody has time to build, and replace it with
             something that runs on its own and tells you when it doesn't. For one client, that
-            meant cutting about 5 team hours a week and taking vendor outreach from 2 to 15+
-            messages a day.
+            meant taking vendor outreach from 2 to about 80 emails a day, and replies from 3 to
+            about 36 a week.
           </p>
           <p>
             I write the SOP and the test guide alongside the build, so the team that inherits it
             can run it without me.
           </p>
           <div class="facts">
-            <div><b>focus</b><span>n8n, GoHighLevel, CRM and pipeline builds</span></div>
+            <div><b>focus</b><span>GoHighLevel (pipelines, workflows, calendars, forms, funnels, Documents &amp; Contracts, A2P 10DLC, payments), n8n, Zapier</span></div>
+            <div><b>tools</b><span>ClickUp, Monday.com, Slack, Google Workspace</span></div>
             <div><b>also</b><span>Python, Django, Next.js, Playwright, Docker</span></div>
             <div><b>AI</b><span>Claude API, local LLMs via Ollama, Whisper</span></div>
             <div><b>working style</b><span>Documented, tested, handed off</span></div>
@@ -2104,7 +2213,7 @@
     <footer>
       <div class="wrap">
         <span>© 2026 Eldwin Sambolledo</span>
-        <span>client details redacted · visuals recreated from build docs</span>
+        <span>client details redacted · records blurred in all screenshots</span>
       </div>
     </footer>
     <script>
