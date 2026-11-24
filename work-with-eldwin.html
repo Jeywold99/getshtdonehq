@@ -1199,48 +1199,88 @@
         margin-top: 8px;
         line-height: 1.45;
       }
-      .snap-grid {
-        display: grid;
-        grid-template-columns: 1.4fr 1fr;
-        gap: 14px;
-      }
-      .snap-panel {
+      .snap-board {
         background: var(--bg-2);
         border: 1px solid var(--line);
-        border-radius: var(--r);
-        padding: 18px;
+        border-radius: var(--r-lg);
+        padding: 8px 22px;
       }
-      .snap-panel h4 {
-        font-family: var(--font-mono);
-        font-size: 12px;
-        font-weight: 500;
-        color: var(--orange-ink);
-        margin-bottom: 12px;
+      .snap-row {
+        display: grid;
+        grid-template-columns: 150px 1fr;
+        gap: 18px;
+        align-items: center;
+        padding: 16px 0;
+        border-bottom: 1px solid var(--line);
       }
-      .snap-flow .chain {
-        margin-bottom: 10px;
-      }
-      .snap-flow .chain:last-child {
-        margin-bottom: 0;
-      }
-      .cv-row {
-        display: flex;
-        justify-content: space-between;
-        gap: 10px;
-        font-family: var(--font-mono);
-        font-size: 12px;
-        padding: 7px 0;
-        border-bottom: 1px dashed var(--line);
-      }
-      .cv-row:last-child {
+      .snap-row:last-child {
         border-bottom: 0;
       }
-      .cv-row span:first-child {
+      .snap-row__label {
+        font-family: var(--font-display);
+        font-size: 26px;
+        line-height: 1;
+        letter-spacing: 0.02em;
+        padding-left: 12px;
+        border-left: 4px solid var(--orange);
+      }
+      .snap-row__label--ok {
+        border-left-color: var(--green);
+      }
+      .snap-row__label--neutral {
+        border-left-color: var(--blue);
+      }
+      .snap-row__label--warn {
+        border-left-color: #e5a03a;
+      }
+      .snap-steps {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 8px 10px;
+      }
+      .snap-steps span {
+        font-size: 15px;
+        font-weight: 500;
+        background: var(--panel);
+        border: 1px solid var(--line-2);
+        border-radius: 10px;
+        padding: 9px 14px;
+        color: var(--text);
+      }
+      .snap-steps i {
+        font-style: normal;
+        font-size: 18px;
         color: var(--orange-ink);
       }
-      .cv-row span:last-child {
+      .cv-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 14px;
+      }
+      .cv-card {
+        background: var(--bg-2);
+        border: 1px solid var(--line);
+        border-top: 3px solid var(--orange);
+        border-radius: var(--r);
+        padding: 18px;
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+      }
+      .cv-card code {
+        font-family: var(--font-mono);
+        font-size: 12px;
+        color: var(--orange-ink);
+        overflow-wrap: normal;
+      }
+      .cv-card b {
+        font-size: 18px;
+        font-weight: 600;
+      }
+      .cv-card span {
+        font-size: 14px;
         color: var(--muted);
-        text-align: right;
       }
       .headshot-img {
         width: 280px;
@@ -1379,8 +1419,27 @@
         .docs__grid {
           grid-template-columns: 1fr 1fr;
         }
-        .snap-grid {
+        .cv-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+        @media (max-width: 680px) {
+          .cv-grid {
+            grid-template-columns: 1fr;
+          }
+        }
+        .snap-row {
           grid-template-columns: 1fr;
+          gap: 10px;
+        }
+        .snap-steps {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 4px;
+        }
+        .snap-steps i {
+          transform: rotate(90deg);
+          margin-left: 18px;
+          line-height: 1;
         }
         .about .headshot-img {
           width: 220px;
@@ -1614,23 +1673,54 @@
           </div>
 
           <div class="vis">
-            <div class="vis__label"><span>what the snapshot runs · redrawn</span><span>per-client details live in Custom Values</span></div>
-            <div class="snap-grid">
-              <div class="snap-panel snap-flow">
-                <h4>// lead-to-booking paths</h4>
-                <div class="chain"><span>Intake form</span><em>→</em><span>New lead</span><em>→</em><span>Text + email</span><em>→</em><span>Staff alert</span></div>
-                <div class="chain"><span>Booked</span><em>→</em><span>Pipeline: Booked</span><em>→</em><span>Reminders</span><em>→</em><span>Showed</span></div>
-                <div class="chain"><span>Reschedule</span><em>→</em><span>Calendar updated</span><em>→</em><span>Reminders re-timed</span></div>
-                <div class="chain"><span>Cancelled</span><em>→</em><span>Staff notified</span><em>→</em><span>Rebook nudge</span></div>
-                <div class="chain"><span>No-show</span><em>→</em><span>Follow-up sequence</span><em>→</em><span>Rebooked or closed</span></div>
-              </div>
-              <div class="snap-panel">
-                <h4>// custom values: fill in per client</h4>
-                <div class="cv-row"><span>{{custom_values.business_name}}</span><span>business name</span></div>
-                <div class="cv-row"><span>{{custom_values.logo_url}}</span><span>logo</span></div>
-                <div class="cv-row"><span>{{custom_values.booking_link}}</span><span>booking link</span></div>
-                <div class="cv-row"><span>{{custom_values.business_phone}}</span><span>phone</span></div>
-              </div>
+            <div class="vis__label"><span>what the snapshot runs · redrawn</span><span>5 paths, every one tested</span></div>
+            <div class="snap-board" role="list" aria-label="Lead-to-booking paths in the snapshot">
+                <div class="snap-row">
+                  <div class="snap-row__label snap-row__label--lead">New lead</div>
+                  <div class="snap-steps"><span>Intake form</span><i aria-hidden="true">→</i><span>Opportunity created</span><i aria-hidden="true">→</i><span>Text + email in 1 min</span><i aria-hidden="true">→</i><span>Staff alert + call task</span></div>
+                </div>
+                <div class="snap-row">
+                  <div class="snap-row__label snap-row__label--ok">Booked</div>
+                  <div class="snap-steps"><span>Call booked</span><i aria-hidden="true">→</i><span>Moves to Booked</span><i aria-hidden="true">→</i><span>24h + 1h reminders</span><i aria-hidden="true">→</i><span>Marked Showed</span></div>
+                </div>
+                <div class="snap-row">
+                  <div class="snap-row__label snap-row__label--neutral">Reschedule</div>
+                  <div class="snap-steps"><span>New time picked</span><i aria-hidden="true">→</i><span>Calendar updated</span><i aria-hidden="true">→</i><span>Reminders re-timed</span></div>
+                </div>
+                <div class="snap-row">
+                  <div class="snap-row__label snap-row__label--warn">Cancelled</div>
+                  <div class="snap-steps"><span>Cancellation</span><i aria-hidden="true">→</i><span>Staff notified</span><i aria-hidden="true">→</i><span>Rebook nudge sent</span></div>
+                </div>
+                <div class="snap-row">
+                  <div class="snap-row__label snap-row__label--warn">No-show</div>
+                  <div class="snap-steps"><span>Missed call</span><i aria-hidden="true">→</i><span>3-day follow-up</span><i aria-hidden="true">→</i><span>Rebooked or closed</span></div>
+                </div>
+            </div>
+          </div>
+
+          <div class="vis">
+            <div class="vis__label"><span>custom values · the only things that change per client</span></div>
+            <div class="cv-grid">
+                <div class="cv-card">
+                  <code>{{custom_values.<wbr>business_name}}</code>
+                  <b>Business name</b>
+                  <span>Shows in every text, email and page</span>
+                </div>
+                <div class="cv-card">
+                  <code>{{custom_values.<wbr>logo_url}}</code>
+                  <b>Logo</b>
+                  <span>Forms, booking page and emails</span>
+                </div>
+                <div class="cv-card">
+                  <code>{{custom_values.<wbr>booking_link}}</code>
+                  <b>Booking link</b>
+                  <span>Reminders and follow-ups</span>
+                </div>
+                <div class="cv-card">
+                  <code>{{custom_values.<wbr>business_phone}}</code>
+                  <b>Phone number</b>
+                  <span>Call-back tasks and signatures</span>
+                </div>
             </div>
           </div>
           <div class="builtstats">
