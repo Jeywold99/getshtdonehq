@@ -1199,6 +1199,49 @@
         margin-top: 8px;
         line-height: 1.45;
       }
+      .snap-grid {
+        display: grid;
+        grid-template-columns: 1.4fr 1fr;
+        gap: 14px;
+      }
+      .snap-panel {
+        background: var(--bg-2);
+        border: 1px solid var(--line);
+        border-radius: var(--r);
+        padding: 18px;
+      }
+      .snap-panel h4 {
+        font-family: var(--font-mono);
+        font-size: 12px;
+        font-weight: 500;
+        color: var(--orange-ink);
+        margin-bottom: 12px;
+      }
+      .snap-flow .chain {
+        margin-bottom: 10px;
+      }
+      .snap-flow .chain:last-child {
+        margin-bottom: 0;
+      }
+      .cv-row {
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+        font-family: var(--font-mono);
+        font-size: 12px;
+        padding: 7px 0;
+        border-bottom: 1px dashed var(--line);
+      }
+      .cv-row:last-child {
+        border-bottom: 0;
+      }
+      .cv-row span:first-child {
+        color: var(--orange-ink);
+      }
+      .cv-row span:last-child {
+        color: var(--muted);
+        text-align: right;
+      }
       .headshot-img {
         width: 280px;
         max-width: 100%;
@@ -1335,6 +1378,9 @@
         }
         .docs__grid {
           grid-template-columns: 1fr 1fr;
+        }
+        .snap-grid {
+          grid-template-columns: 1fr;
         }
         .about .headshot-img {
           width: 220px;
@@ -1528,10 +1574,75 @@
           </p>
         </div>
 
-        <!-- ===== CASE 01: property-side CRM ===== -->
+        <!-- ===== CASE 01: reusable GHL snapshot ===== -->
         <article class="case">
           <div class="case__top">
-            <span class="tag">case_01 · GoHighLevel + n8n</span>
+            <span class="tag">case_01 · GoHighLevel snapshots + Custom Values</span>
+            <span class="note">template build · service businesses</span>
+          </div>
+          <h3>One build, many launches: a reusable GHL snapshot</h3>
+          <p class="case__lede">
+            Service businesses launching many client or partner accounts end up rebuilding the same
+            CRM over and over. Every rebuild is slower, and small differences break things.
+          </p>
+
+          <div class="pbr">
+            <div>
+              <h4>// built</h4>
+              <p>
+                A master GoHighLevel snapshot for a lead-to-booking system: intake form, pipeline,
+                booking calendar, reminders, no-show follow-up, and staff notifications. Everything
+                that changes per client lives in Custom Values, so a new account is a
+                fill-in-the-blanks job, not a rebuild.
+              </p>
+            </div>
+            <div>
+              <h4>// tested</h4>
+              <p>
+                Test leads run through every path (form, booking, reschedule, cancellation, no-show,
+                reminders, pipeline moves, staff alerts) on a pass/fail checklist. The snapshot is
+                then loaded into a fresh account and the checklist runs again.
+              </p>
+            </div>
+            <div>
+              <h4>// handed off</h4>
+              <p>
+                A partner setup checklist (what to change after loading, in order), a one-page
+                quick-start guide, and a change log so every template update is versioned.
+              </p>
+            </div>
+          </div>
+
+          <div class="vis">
+            <div class="vis__label"><span>what the snapshot runs · redrawn</span><span>per-client details live in Custom Values</span></div>
+            <div class="snap-grid">
+              <div class="snap-panel snap-flow">
+                <h4>// lead-to-booking paths</h4>
+                <div class="chain"><span>Intake form</span><em>→</em><span>New lead</span><em>→</em><span>Text + email</span><em>→</em><span>Staff alert</span></div>
+                <div class="chain"><span>Booked</span><em>→</em><span>Pipeline: Booked</span><em>→</em><span>Reminders</span><em>→</em><span>Showed</span></div>
+                <div class="chain"><span>Reschedule</span><em>→</em><span>Calendar updated</span><em>→</em><span>Reminders re-timed</span></div>
+                <div class="chain"><span>Cancelled</span><em>→</em><span>Staff notified</span><em>→</em><span>Rebook nudge</span></div>
+                <div class="chain"><span>No-show</span><em>→</em><span>Follow-up sequence</span><em>→</em><span>Rebooked or closed</span></div>
+              </div>
+              <div class="snap-panel">
+                <h4>// custom values: fill in per client</h4>
+                <div class="cv-row"><span>{{custom_values.business_name}}</span><span>business name</span></div>
+                <div class="cv-row"><span>{{custom_values.logo_url}}</span><span>logo</span></div>
+                <div class="cv-row"><span>{{custom_values.booking_link}}</span><span>booking link</span></div>
+                <div class="cv-row"><span>{{custom_values.business_phone}}</span><span>phone</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="builtstats">
+            <span><b>1</b> master snapshot</span><span><b>5</b> lead paths tested</span><span><b>2</b> accounts checked: master + fresh load</span
+            ><span>pass/fail checklist</span><span>setup checklist + quick-start guide + change log</span>
+          </div>
+        </article>
+
+        <!-- ===== CASE 02: property-side CRM ===== -->
+        <article class="case">
+          <div class="case__top">
+            <span class="tag">case_02 · GoHighLevel + n8n</span>
             <span class="note">client: WavyStay LLC</span>
           </div>
           <h3>From spreadsheet to sales pipeline</h3>
@@ -1675,10 +1786,10 @@
           </div>
         </article>
 
-        <!-- ===== CASE 02: vendor sourcing ===== -->
+        <!-- ===== CASE 03: vendor sourcing ===== -->
         <article class="case">
           <div class="case__top">
-            <span class="tag">case_02 · n8n + GoHighLevel + Monday.com</span>
+            <span class="tag">case_03 · n8n + GoHighLevel + Monday.com</span>
             <span class="note">client: Curtis Federal Solutions</span>
           </div>
           <h3>Vendor sourcing on autopilot</h3>
@@ -1942,10 +2053,10 @@
           </div>
         </article>
 
-        <!-- ===== CASE 03: Command Center ===== -->
+        <!-- ===== CASE 04: Command Center ===== -->
         <article class="case">
           <div class="case__top">
-            <span class="tag">case_03 · Next.js + PostgreSQL + n8n</span>
+            <span class="tag">case_04 · Next.js + PostgreSQL + n8n</span>
           </div>
           <h3>Agency Command Center</h3>
           <p class="case__lede">
