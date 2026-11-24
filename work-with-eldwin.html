@@ -1141,6 +1141,64 @@
         color: var(--orange-ink);
         margin: -10px 0 20px;
       }
+      .docs {
+        margin-top: 28px;
+        background: var(--panel);
+        border: 1px solid var(--line);
+        border-radius: var(--r-lg);
+        padding: 26px;
+      }
+      .docs__hd {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        gap: 12px;
+        flex-wrap: wrap;
+        margin-bottom: 6px;
+      }
+      .docs__hd h3 {
+        font-family: var(--font-display);
+        font-weight: 400;
+        font-size: 30px;
+        line-height: 1;
+      }
+      .docs > p {
+        color: var(--muted);
+        font-size: 15px;
+        max-width: 760px;
+        margin-bottom: 18px;
+      }
+      .docs__grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 14px;
+      }
+      .docs__grid figure {
+        margin: 0;
+      }
+      .docs__grid a {
+        display: block;
+        cursor: zoom-in;
+      }
+      .docs__grid img {
+        width: 100%;
+        aspect-ratio: 1224 / 1584;
+        object-fit: cover;
+        border: 1px solid var(--line-2);
+        border-radius: 8px;
+        background: #fff;
+        transition: var(--trans);
+      }
+      .docs__grid a:hover img {
+        border-color: var(--orange);
+        transform: translateY(-2px);
+      }
+      .docs__grid figcaption {
+        font-size: 12.5px;
+        color: var(--muted);
+        margin-top: 8px;
+        line-height: 1.45;
+      }
       .headshot-img {
         width: 280px;
         max-width: 100%;
@@ -1274,6 +1332,9 @@
         }
         .pipe-shots {
           grid-template-columns: 1fr;
+        }
+        .docs__grid {
+          grid-template-columns: 1fr 1fr;
         }
         .about .headshot-img {
           width: 220px;
@@ -1461,9 +1522,9 @@
           <span class="tag">// featured work</span>
           <h2>Client builds</h2>
           <p>
-            Real systems running for real teams. Client names, people and account details are
-            left out on purpose. Diagrams are redrawn from the build docs, and the pipeline
-            screenshots come from the live accounts with every record blurred.
+            Real systems running for real teams, shared with each client's permission. Diagrams
+            are redrawn from the build docs, and the pipeline screenshots come from the live
+            accounts with every record blurred.
           </p>
         </div>
 
@@ -1471,11 +1532,11 @@
         <article class="case">
           <div class="case__top">
             <span class="tag">case_01 · GoHighLevel + n8n</span>
-            <span class="note">client: confidential · property company</span>
+            <span class="note">client: WavyStay LLC</span>
           </div>
           <h3>From spreadsheet to sales pipeline</h3>
           <p class="case__lede">
-            A property management company had hundreds of cold owner leads in spreadsheets and no
+            WavyStay, a property management company, had hundreds of cold owner leads in spreadsheets and no
             way to work them in the CRM. GoHighLevel's built-in importer can't create deals
             or fill deal-level fields, so I built the pipeline in GHL and an n8n import that does
             what the importer can't.
@@ -1520,7 +1581,7 @@
           </div>
 
           <div class="vis">
-            <div class="vis__label"><span>live GoHighLevel pipelines · cards blurred for privacy</span></div>
+            <div class="vis__label"><span>live GoHighLevel pipelines · records blurred for privacy</span></div>
             <div class="pipe-shots">
               <figure class="pipe-shot">
                 <a href="assets/eldwin/ws-owner-pipeline.png" target="_blank" rel="noopener" title="Open full size"><img src="assets/eldwin/ws-owner-pipeline.png" alt="GoHighLevel Owner Lifecycle pipeline board with 320 leads in the Cold Lead stage, followed by the Contacted, Discovery Call, Qualified and Signed Owner stages" loading="lazy" width="2218" height="1324" /></a>
@@ -1618,11 +1679,11 @@
         <article class="case">
           <div class="case__top">
             <span class="tag">case_02 · n8n + GoHighLevel + Monday.com</span>
-            <span class="note">client: confidential · one CRM account, three businesses</span>
+            <span class="note">client: Curtis Federal Solutions</span>
           </div>
           <h3>Vendor sourcing on autopilot</h3>
           <p class="case__lede">
-            A contracting business needed to find subcontractors, collect their compliance
+            Curtis Federal Solutions, a federal contracting business, needed to find subcontractors, collect their compliance
             documents, request quotes and track every bid to an award, with a team of one doing
             it by hand. I connected Monday.com, n8n, GoHighLevel, Gmail and Slack into one system
             where the team updates a status once and everything else follows.
@@ -1733,7 +1794,7 @@
           </div>
 
           <div class="vis">
-            <div class="vis__label"><span>live GoHighLevel pipelines · cards blurred for privacy</span></div>
+            <div class="vis__label"><span>live GoHighLevel pipelines · records blurred for privacy</span></div>
             <div class="pipe-shots">
               <figure class="pipe-shot">
                 <a href="assets/eldwin/cfs-subcontractor-sourcing.png" target="_blank" rel="noopener" title="Open full size"><img src="assets/eldwin/cfs-subcontractor-sourcing.png" alt="GoHighLevel Subcontractor Sourcing pipeline board with 723 vendors across the Sourced, Responded, Prequal In Progress, Prequalified Bench and Active stages" loading="lazy" width="2221" height="1312" /></a>
@@ -2124,11 +2185,39 @@
             <p>SOPs, test scenarios and a plain-language guide, so the team owns it on day one.</p>
           </li>
         </ol>
+        <div class="docs" id="docs">
+          <div class="docs__hd">
+            <h3>Documentation sample</h3>
+            <span class="tag">// staff names and account details redacted</span>
+          </div>
+          <p>
+            Every build ships with a staff SOP that uses the exact field and status names shown in
+            the tool, so nobody has to guess. For the WavyStay and CFS build, that meant a 28-page
+            Team SOP and a 31-page Master File covering every pipeline, workflow, form, field and tag.
+          </p>
+          <div class="docs__grid">
+            <figure>
+              <a href="assets/eldwin/sop-team-cover.jpg" target="_blank" rel="noopener" title="Open full size"><img src="assets/eldwin/sop-team-cover.jpg" alt="Cover of the GHL Team SOP, a step-by-step guide for everyone who works in GoHighLevel at WavyStay and Curtis Federal Solutions" loading="lazy" width="1224" height="1584" /></a>
+              <figcaption>Team SOP: 28 pages, one chapter per role and workflow.</figcaption>
+            </figure>
+            <figure>
+              <a href="assets/eldwin/sop-team-procedure.jpg" target="_blank" rel="noopener" title="Open full size"><img src="assets/eldwin/sop-team-procedure.jpg" alt="GHL Team SOP page with numbered steps for moving a pipeline card, marking a discovery call and replying to an owner, each with who and when" loading="lazy" width="1224" height="1584" /></a>
+              <figcaption>Every procedure says who does it, when, and what happens next.</figcaption>
+            </figure>
+            <figure>
+              <a href="assets/eldwin/sop-master-overview.jpg" target="_blank" rel="noopener" title="Open full size"><img src="assets/eldwin/sop-master-overview.jpg" alt="GHL Master File overview diagram showing how GoHighLevel, n8n, Monday.com, Gmail and Slack connect for WavyStay and CFS, with numbered steps" loading="lazy" width="1224" height="1584" /></a>
+              <figcaption>Master File: how every tool connects, step by step.</figcaption>
+            </figure>
+            <figure>
+              <a href="assets/eldwin/sop-master-pipeline.jpg" target="_blank" rel="noopener" title="Open full size"><img src="assets/eldwin/sop-master-pipeline.jpg" alt="GHL Master File chapter on the WavyStay Sales pipeline listing all ten stages, exit stages, forms and the booking calendar" loading="lazy" width="1224" height="1584" /></a>
+              <figcaption>Each pipeline documented: stages, who moves them, forms and calendars.</figcaption>
+            </figure>
+          </div>
+        </div>
       </div>
     </section>
 
     <!-- ================= TESTIMONIALS ================= -->
-    <!-- PLACEHOLDER QUOTES: not real testimonials. Replace with the client-approved wording before publishing. -->
     <section class="sec sec--alt" id="testimonials">
       <div class="wrap">
         <div class="sec__head">
@@ -2142,7 +2231,7 @@
               we can actually rely on. Our follow-ups go out on time, our data stays clean, and
               when something breaks we hear about it right away instead of weeks later.
             </blockquote>
-            <cite><b>Knowlogix LLC</b>Client</cite>
+            <cite><b>Trae Dentzler</b>CEO, Knowlogix LLC</cite>
           </figure>
           <figure class="quote">
             <blockquote>
@@ -2150,7 +2239,7 @@
               it. The system Eldwin built does the chasing, so our team spends
               its time on the bids instead of the busywork.
             </blockquote>
-            <cite><b>Operations lead</b>Property and contracting company (confidential)</cite>
+            <cite><b>Ron Curtis</b>CEO, WavyStay LLC and Curtis Federal Solutions</cite>
           </figure>
         </div>
       </div>
@@ -2213,7 +2302,7 @@
     <footer>
       <div class="wrap">
         <span>© 2026 Eldwin Sambolledo</span>
-        <span>client details redacted · records blurred in all screenshots</span>
+        <span>client work shared with permission · records blurred in all screenshots</span>
       </div>
     </footer>
     <script>
