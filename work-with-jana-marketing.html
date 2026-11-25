@@ -1019,6 +1019,42 @@
         font-weight: 700;
       }
 
+      /* SECTION LINKS */
+      .anchor {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        margin-left: 12px;
+        vertical-align: middle;
+        font-family: var(--font-ui);
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: inherit;
+        opacity: 0.45;
+        transition: opacity var(--trans);
+      }
+      a.anchor:not(.btn),
+      a.anchor:not(.btn):hover {
+        color: inherit;
+      }
+      .anchor:hover,
+      .anchor:focus-visible,
+      .anchor.copied {
+        opacity: 1;
+      }
+      .anchor svg {
+        width: 15px;
+        height: 15px;
+      }
+      .anchor .msg {
+        display: none;
+      }
+      .anchor.copied .msg {
+        display: inline;
+      }
+
       /* DESIGN & CREATIVE */
       .tools {
         display: grid;
@@ -2196,7 +2232,85 @@
         </div>
 
         <div class="cred__group">
-          <div class="cred__glabel">B · Live Events</div>
+          <div class="cred__glabel">B · GoHighLevel</div>
+          <h3 class="cred__gtitle">Pipelines, Workflows &amp; Social Planner</h3>
+          <p class="cred__gdesc">
+            Real GoHighLevel builds from client accounts — the pipelines that
+            move leads and claims forward, the automations behind them, and the
+            content calendar that keeps social running. Lead and customer
+            details are blurred for privacy.
+          </p>
+          <div class="cred__shots cred__shots--2">
+            <div class="shot">
+              <div class="shot__bar">
+                <i></i><i></i><i></i><span>gohighlevel · social planner</span>
+              </div>
+              <div class="shot__img">
+                <img
+                  src="assets/ghl/ghl-social-planner.jpg"
+                  alt="GoHighLevel Social Planner with scheduled and published Instagram posts"
+                  loading="lazy"
+                />
+              </div>
+              <div class="shot__cap">
+                <b>WavyStay content calendar</b> — 111 Instagram posts planned,
+                scheduled, and published from GHL's Social Planner.
+              </div>
+            </div>
+            <div class="shot">
+              <div class="shot__bar">
+                <i></i><i></i><i></i><span>gohighlevel · workflow builder</span>
+              </div>
+              <div class="shot__img">
+                <img
+                  src="assets/ghl/ghl-claim-workflow.jpg"
+                  alt="GoHighLevel workflow for claim intake, assignment and notifications"
+                  loading="lazy"
+                />
+              </div>
+              <div class="shot__cap">
+                <b>Claim intake workflow</b> — a submitted report updates the
+                contact, checks for damage, opens a claim, and alerts the team in
+                Slack.
+              </div>
+            </div>
+            <div class="shot">
+              <div class="shot__bar">
+                <i></i><i></i><i></i><span>gohighlevel · opportunities</span>
+              </div>
+              <div class="shot__img">
+                <img
+                  src="assets/ghl/ghl-claims-pipeline.jpg"
+                  alt="GoHighLevel Claims and Damages pipeline with stages from reported to closed"
+                  loading="lazy"
+                />
+              </div>
+              <div class="shot__cap">
+                <b>Claims &amp; Damages pipeline</b> — tracks every insurance
+                claim from first report to recovery.
+              </div>
+            </div>
+            <div class="shot">
+              <div class="shot__bar">
+                <i></i><i></i><i></i><span>gohighlevel · opportunities</span>
+              </div>
+              <div class="shot__img">
+                <img
+                  src="assets/ghl/ghl-facebook-ads-pipeline.jpg"
+                  alt="GoHighLevel Facebook Ads lead pipeline from new lead to booked appointment"
+                  loading="lazy"
+                />
+              </div>
+              <div class="shot__cap">
+                <b>Facebook Ads pipeline</b> — 231 leads moved from new lead to
+                follow-up to booked call.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="cred__group">
+          <div class="cred__glabel">C · Live Events</div>
           <h3 class="cred__gtitle">Webinars &amp; Community Sessions</h3>
           <p class="cred__gdesc">
             I host live trainings and community webinars — building audiences
@@ -2250,6 +2364,39 @@
           <div class="test__card">
             <div class="mark">"</div>
             <p>
+              Jana built the GoHighLevel pipeline and workflows we use to track
+              every insurance claim from the first report to recovery, so nothing
+              slips between stages anymore. She also kept our Instagram on a
+              steady schedule and took a real load off my plate across customer
+              service, operations, and projects.
+            </p>
+            <div class="test__who">
+              <div class="av">RC</div>
+              <div>
+                <div class="nm">Ron Curtis</div>
+                <div class="rl">CEO, WavyStay LLC</div>
+              </div>
+            </div>
+          </div>
+          <div class="test__card">
+            <div class="mark">"</div>
+            <p>
+              Jana ran our content calendar and campaign workflows across every
+              channel and cut our campaign turnaround by 35%. Her LinkedIn and
+              social graphics for our IT and AI services always went out on
+              brand.
+            </p>
+            <div class="test__who">
+              <div class="av">TD</div>
+              <div>
+                <div class="nm">Trae Dentzler</div>
+                <div class="rl">CEO, Knowlogix LLC</div>
+              </div>
+            </div>
+          </div>
+          <div class="test__card">
+            <div class="mark">"</div>
+            <p>
               She standardized our content and booking system across the whole
               broker network and our booked appointments jumped 55%. Our
               pipeline finally runs on a system instead of on whoever remembers
@@ -2260,37 +2407,6 @@
               <div>
                 <div class="nm">Joe Perkins</div>
                 <div class="rl">Top Realtor in John L. Scott Real Estate</div>
-              </div>
-            </div>
-          </div>
-          <div class="test__card">
-            <div class="mark">"</div>
-            <p>
-              Jana built our GoHighLevel CRM and funnels from the ground up and
-              automated the whole customer journey. It took about twelve hours
-              of manual work off our plate every week and shortened our
-              lead-to-close cycle.
-            </p>
-            <div class="test__who">
-              <div class="av">BB</div>
-              <div>
-                <div class="nm">Beauty Biz Pro</div>
-                <div class="rl">CEO</div>
-              </div>
-            </div>
-          </div>
-          <div class="test__card">
-            <div class="mark">"</div>
-            <p>
-              Jana rebuilt our entire sales-to-onboarding handoff and cut it
-              from three weeks to eight days. I'm no longer pulled into a single
-              handoff — signed clients move straight into delivery on their own.
-            </p>
-            <div class="test__who">
-              <div class="av">7M</div>
-              <div>
-                <div class="nm">7Figure MSP</div>
-                <div class="rl">CEO</div>
               </div>
             </div>
           </div>
@@ -2387,12 +2503,47 @@
       document.getElementById("burger").addEventListener("click", function () {
         document.getElementById("navlinks").classList.toggle("open");
       });
+      var linkIcon =
+        '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.07 0l3-3a5 5 0 0 0-7.07-7.07l-1.5 1.5"/><path d="M14 11a5 5 0 0 0-7.07 0l-3 3a5 5 0 0 0 7.07 7.07l1.5-1.5"/></svg>';
+      document.querySelectorAll("section[id]").forEach(function (sec) {
+        var label = sec.querySelector(".sec-num, .eyebrow");
+        if (!label) return;
+        var a = document.createElement("a");
+        a.className = "anchor";
+        a.href = "#" + sec.id;
+        a.setAttribute("aria-label", "Copy link to this section");
+        a.innerHTML = linkIcon + '<span class="msg">Link copied</span>';
+        a.addEventListener("click", function () {
+          var url = location.href.split("#")[0] + "#" + sec.id;
+          try {
+            navigator.clipboard.writeText(url).then(function () {
+              a.classList.add("copied");
+              setTimeout(function () {
+                a.classList.remove("copied");
+              }, 1600);
+            });
+          } catch (e) {}
+        });
+        label.insertAdjacentElement(
+          label.classList.contains("eyebrow") ? "afterend" : "beforeend",
+          a
+        );
+      });
       var lb = document.getElementById("lightbox");
       document.querySelectorAll(".gal__item").forEach(function (b) {
         b.addEventListener("click", function () {
           var img = lb.querySelector("img");
           img.src = b.dataset.full;
           img.alt = b.querySelector("img").alt;
+          lb.showModal();
+        });
+      });
+      document.querySelectorAll(".shot__img img").forEach(function (im) {
+        im.style.cursor = "zoom-in";
+        im.addEventListener("click", function () {
+          var img = lb.querySelector("img");
+          img.src = im.src;
+          img.alt = im.alt;
           lb.showModal();
         });
       });
